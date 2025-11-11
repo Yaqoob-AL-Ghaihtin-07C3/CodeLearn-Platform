@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإقتباسات في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        blockquote {
+            background-color: #f8f9fa;
+            border-right: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        q {
+            color: #e74c3c;
+            quotes: "“" "”" "‘" "’";
+        }
+        
+        address {
+            font-style: normal;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        cite {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        abbr[title] {
+            border-bottom: 1px dotted #3498db;
+            cursor: help;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>الإقتباسات</h2>
+            <p>تعلم كيفية عرض الإقتباسات والمعلومات المرجعية بشكل احترافي</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الإقتباس</a></li>
+                    <li><a href="#blockquote">الإقتباس في بلوك</a></li>
+                    <li><a href="#inline-quote">الإقتباس المضمن</a></li>
+                    <li><a href="#abbr">الاختصارات</a></li>
+                    <li><a href="#address">معلومات التواصل</a></li>
+                    <li><a href="#cite">عناوين الأعمال</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم الإقتباس</h2>
+            <p>النص المقتبس (Quoted text) يقصد به أن النص الموضوع في الصفحة تم نقله من مصدر آخر.</p>
+            <p>عادةً ما يتم عرض النص المقتبس بشكل مختلف قليلاً عن باقي النص الموجود في الصفحة بهدف إعلام القارئ بأنه منقول من مصدر آخر و لحفظ حقوق المصدر الذي نقل الكلام منه.</p>
+            <p>في هذا الدرس سنتعرف على الوسوم المخصصة لعرض إقتباسات في الصفحة.</p>
+        </section>
+
+        <section id="blockquote" class="section">
+            <h2>عرض النص المقتبس بداخل بلوك</h2>
+            <p>إذا أردت العرض النص مقتبس على سطر منفرد مع عرض هامش حوله من كل الجهات، يمكنك وضع النص بداخل <code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>.</p>
+            
+            <div class="example">
+                <h4>المثال الأول: إقتباس بدون مصدر</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;blockquote&gt;</span>
+In 1980, physicist Tim Berners-Lee, a contractor at CERN, proposed and prototyped 
+ENQUIRE, a system for CERN researchers to use and share documents. In 1989, Berners-Lee 
+wrote a memo proposing an Internet-based hypertext system.
+<span class="property">&lt;/blockquote&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <blockquote>
+                        In 1980, physicist Tim Berners-Lee, a contractor at CERN, proposed and prototyped 
+                        ENQUIRE, a system for CERN researchers to use and share documents. In 1989, Berners-Lee 
+                        wrote a memo proposing an Internet-based hypertext system.
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثاني: إقتباس مع مصدر</h4>
+                <p>إذا كان الإقتباس الموضوع في الصفحة منسوخ من موقع آخر، قم بذكر رابط الموقع الذي نسخت الإقتباس منه بداخل الخاصية <code>cite</code>.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;blockquote cite="https://en.wikipedia.org/wiki/HTML"&gt;</span>
+In 1980, physicist Tim Berners-Lee, a contractor at CERN, proposed and prototyped 
+ENQUIRE, a system for CERN researchers to use and share documents. In 1989, Berners-Lee 
+wrote a memo proposing an Internet-based hypertext system.
+<span class="property">&lt;/blockquote&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <blockquote cite="https://en.wikipedia.org/wiki/HTML">
+                        In 1980, physicist Tim Berners-Lee, a contractor at CERN, proposed and prototyped 
+                        ENQUIRE, a system for CERN researchers to use and share documents. In 1989, Berners-Lee 
+                        wrote a memo proposing an Internet-based hypertext system.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="inline-quote" class="section">
+            <h2>عرض النص المقتبس بين " "</h2>
+            <p>إذا أردت عرض النص المقتبس بين " " يمكنك وضعه بداخل <code>&lt;q&gt;&lt;/q&gt;</code>.</p>
+            <p>إستخدام الوسم <code>&lt;q&gt;</code> بدلاً من كتابة " " بشكل مباشر يُعد خيار أفضل حيث أنه يمكن تخصيص طريقة عرض الوسم بواسطة CSS.</p>
+            
+            <div class="example">
+                <h4>المثال الأول: إقتباس مضمن</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>My teacher said: <span class="value">&lt;q&gt;</span>HTML is not a programming language<span class="value">&lt;/q&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>My teacher said: <q>HTML is not a programming language</q></p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثاني: تخصيص الإقتباس باستخدام CSS</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;style&gt;</span>
+<span class="value">q</span> { 
+    <span class="property">color</span>: <span class="value">red</span>;
+    <span class="property">quotes</span>: <span class="value">"“" "”" "‘" "’"</span>;
+}
+<span class="property">&lt;/style&gt;</span>
+
+<span class="property">&lt;p&gt;</span>My teacher said: <span class="value">&lt;q&gt;</span>HTML is not a programming language<span class="value">&lt;/q&gt;</span>
+and he also said that <span class="value">&lt;q&gt;</span>It's very easy to learn<span class="value">&lt;/q&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>My teacher said: <q>HTML is not a programming language</q>
+                    and he also said that <q>It's very easy to learn</q></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="abbr" class="section">
+            <h2>وضع إسم مختصر بدل الإسم الكامل</h2>
+            <p>في البداية ما نقصده بإسم مختصر (Abbreviation) هو أنك على سبيل المثال تستطيع عرض كلمة واحدة مثل HTML و عند تمرير الفأرة فوقها يقوم المتصفح بإظهار الإسم الكامل Hyper Text Markup Language.</p>
+            <p>إذا أردت وضع إسم مختصر فيمكنك وضعه بداخل <code>&lt;abbr&gt;&lt;/abbr&gt;</code>.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام الاختصارات</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;abbr title="Hyper Text Markup Language"&gt;</span>HTML<span class="value">&lt;/abbr&gt;</span> is used to create web pages.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span><span class="value">&lt;abbr title="Cascading Style Sheets"&gt;</span>CSS<span class="value">&lt;/abbr&gt;</span> is used to style web pages.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span><span class="value">&lt;abbr title="JavaScript"&gt;</span>JS<span class="value">&lt;/abbr&gt;</span> is used to add interactivity to web pages.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><abbr title="Hyper Text Markup Language">HTML</abbr> is used to create web pages.</p>
+                    <p><abbr title="Cascading Style Sheets">CSS</abbr> is used to style web pages.</p>
+                    <p><abbr title="JavaScript">JS</abbr> is used to add interactivity to web pages.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="address" class="section">
+            <h2>عرض معلومات الوصول و التواصل</h2>
+            <p>إذا أردت عرض معلومات الوصول أو التواصل فيمكنك وضع النص بداخل <code>&lt;address&gt;&lt;/address&gt;</code>.</p>
+            
+            <div class="property-block">
+                <h3>أنواع المعلومات</h3>
+                <ul>
+                    <li><strong>معلومات الوصول:</strong> الموقع الجغرافي مثل "مكتب سالم المصري, شارع الإصلاح، مبنى السلام، الطابق الثاني"</li>
+                    <li><strong>معلومات التواصل:</strong> رقم الهاتف، البريد الإلكتروني، صندوق البريد إلخ</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: معلومات التواصل والوصول</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;address&gt;</span>
+9645 Al-islah street, Tripoli, 1300 - Lebanon
+<span class="property">&lt;/address&gt;</span>
+
+<span class="property">&lt;address&gt;</span>
+هاتف: 061584984
+إيميل: info@harmash.com
+صندوق البريد: 12345
+<span class="property">&lt;/address&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <address>
+                        9645 Al-islah street, Tripoli, 1300 - Lebanon
+                    </address>
+                    
+                    <address>
+                        هاتف: 061584984<br>
+                        إيميل: info@harmash.com<br>
+                        صندوق البريد: 12345
+                    </address>
+                </div>
+            </div>
+        </section>
+
+        <section id="cite" class="section">
+            <h2>إبراز عنوان العمل</h2>
+            <p>في حال أردت إبراز عنوان الشيء المهم الذي يتم عرضه يمكنك وضعه بداخل <code>&lt;cite&gt;&lt;/cite&gt;</code>.</p>
+            
+            <div class="example">
+                <h4>مثال: عناوين الأعمال</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;cite&gt;</span>Riyadh-as-Saliheen<span class="value">&lt;/cite&gt;</span> by Imam Al-Nawawi, volume 1, hadith number 134<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;p&gt;</span>One of the most famous books in programming is <span class="value">&lt;cite&gt;</span>Clean Code<span class="value">&lt;/cite&gt;</span> by Robert C. Martin.<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;p&gt;</span>The movie <span class="value">&lt;cite&gt;</span>The Shawshank Redemption<span class="value">&lt;/cite&gt;</span> is considered one of the best films of all time.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><cite>Riyadh-as-Saliheen</cite> by Imam Al-Nawawi, volume 1, hadith number 134</p>
+                    <p>One of the most famous books in programming is <cite>Clean Code</cite> by Robert C. Martin.</p>
+                    <p>The movie <cite>The Shawshank Redemption</cite> is considered one of the best films of all time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

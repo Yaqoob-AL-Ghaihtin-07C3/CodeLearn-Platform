@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة البداية - يعقوب الغيثي - EliteWeb</title>
+   
+   <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #01020c;
+            direction: rtl;
+        }
+
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(66, 46, 198, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            background-color: #004494;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #a8d8ff;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            display: block;
+            margin-top: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #000000;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #e9f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .language-item img {
+            width: 80px;
+            height: 80px;
+            margin-left: 15px;
+            border-radius: 5px;
+        }
+
+        .language-item h3 {
+            color: #004494;
+            margin: 0 0 5px 0;
+        }
+
+        .language-item p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .principles-list ul {
+            list-style: decimal;
+            padding-right: 20px;
+        }
+
+        .principles-list ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer address {
+            font-style: normal;
+            margin-top: 5px;
+        }
+
+        footer time {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.8em;
+            color: #bbb;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .contact-info ul li {
+            margin: 0 10px;
+        }
+
+        .contact-info ul li a img {
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-info ul li a img:hover {
+            transform: scale(1.1);
+        }
+
+        .form-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+    </style>
+
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>عالم البرمجة</h1>
+        <p>بوابتك لاستكشاف لغات البرمجة وتصميم الويب</p>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#languages">تصميم الويب</a></li>
+                <li><a href="#web-design">هندسة الويب</a></li>
+              <li><a href="Enum.html" >قائمة التكاليف  </a></li>
+
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="MAIN.html">
+            <h2>مرحبًا بك في عالم تصميم الويب !</h2>
+            <p>هذا الموقع مخصص لاستعراض شرح لغات البرمجة المستخدمة في تصميم وتطوير
+                وحل تكاليف تصميم ويب
+            </p>
+            <p>هذا الموقع مخصص لاستعراض أهم لغات البرمجة المستخدمة في تصميم وتطوير المواقع والتطبيقات، بالإضافة إلى شرح مبادئ هندسة الويب التي تضمن بناء مواقع قوية وسهلة الصيانة.</p>
+            <p>سواء كنت مبتدئًا تبحث عن نقطة انطلاق أو مطورًا يرغب في تحديث معلوماته، ستجد هنا ما يفيدك.</p>
+        </section>
+        <hr>
+        <section id="languages">
+            <h2>لغات البرمجة الرئيسية لتصميم الويب</h2>
+            <div class="language-item">
+                <img src="../images/html_logo.png" alt="HTML Logo">
+                <div>
+                    <h3>HTML (HyperText Markup Language)</h3>
+                    <p>هي اللغة الأساسية لبناء صفحات الويب وهيكلتها. تحدد هذه اللغة المحتوى والعناصر المختلفة في الصفحة مثل العناوين والفقرات والصور والروابط.</p>
+                </div>
+            </div>
+            <div class="language-item">
+                <img src="../images/css3_112px.png" alt="CSS Logo">
+                <div>
+                    <h3>CSS (Cascading Style Sheets)</h3>
+                    <p>تستخدم لتنسيق صفحات الويب وجعلها جذابة بصريًا. تتحكم CSS في الألوان والخطوط والتخطيط والمسافات وغيرها من خصائص التصميم.</p>
+                </div>
+            </div>
+            <div class="language-item">
+                <img src="../images/javascript_112px.png" alt="JavaScript Logo">
+                <div>
+                    <h3>JavaScript</h3>
+                    <p>لغة برمجة ديناميكية وتفاعلية تستخدم لإضافة سلوكيات وميزات متقدمة لصفحات الويب، مثل النوافذ المنبثقة، التحقق من صحة النماذج، والتفاعلات مع المستخدم.</p>
+                </div>
+            </div>
+            <div class="language-item">
+                <img src="../images/php,png" alt="PHP Logo">
+                <div>
+                    <h3>PHP</h3>
+                    <p><b>PHP</b> هي لغة برمجة من جهة الخادم تُستخدم على نطاق واسع في تطوير الويب. تُعتبر العمود الفقري للعديد من أنظمة إدارة المحتوى الشهيرة مثل <b>WordPress</b>، وتتفاعل بشكل ممتاز مع قواعد البيانات.</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="web-design">
+            <h2>مبادئ هندسة الويب</h2>
+            <p>عندما نسمع كلمة "هندسة"، يتبادر إلى ذهننا التخطيط والتنظيم. في سياق "هندسة الويب"، نحن نقصد بناء وترتيب وتنظيم مواقع الويب بطريقة تضمن سهولة التطوير والصيانة.</p>
+            <div class="principles-list">
+                <h3>أهم نقطتين في هندسة الويب:</h3>
+                <ul>
+                    <li><b>سهولة تطوير المواقع:</b> تصميم وهيكلة المشروع بحيث يكون توسيعه وتعديله في المستقبل عملية سلسة وغير معقدة.</li>
+                    <li><b>سهولة صيانة المواقع أثناء حدوث المشاكل:</b> القدرة على تحديد وإصلاح الأخطاء والمشاكل بكفاءة وسرعة، مما يقلل من وقت التوقف عن العمل.</li>
+                </ul>
+            </div>
+            <p>تتضمن هندسة الويب أيضًا جوانب مثل تحسين الأداء، أمان الموقع، وتجربة المستخدم (UX).</p>
+        </section>
+        <hr>
+
+        <section id="contact">
+            <h2>اتصل بنا</h2>
+            <p>إذا كان لديك أي استفسارات أو ترغب في معرفة المزيد، لا تتردد في التواصل معنا:</p>
+            <form action="#" method="POST">
+                <p>
+                    <label for="name">الاسم:</label><br>
+                    <input type="text" id="name" name="user_name" required>
+                </p>
+                <p>
+                    <label for="email">البريد الإلكتروني:</label><br>
+                    <input type="email" id="email" name="user_email" required>
+                </p>
+                <p>
+                    <label for="message">رسالتك:</label><br>
+                    <textarea id="message" name="user_message" rows="5" required></textarea>
+                </p>
+                <p>
+                    <button type="submit">إرسال الرسالة</button>
+                </p>
+            </form>
+            <br>
+            <div class="contact-info">
+                <h3>تابعنا عبر وسائل التواصل الاجتماعي:</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com" target="_blank"><img src="../images/facebook.png" alt="فيسبوك"></a></li>
+                    <li><a href="https://www.google.com" target="_blank"><img src="../images/google.png" alt="جوجل"></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank"><img src="../images/instgram.png" alt="انستغرام"></a></li>
+                    <li><a href="https://www.whatsapp.com" target="_blank"><img src="../images/whats.png" alt="واتساب"></a></li>
+                </ul>
+            </div>
+        </section>
+
+        
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رموز الأسهم في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: 'Tajawal', sans-serif;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        thead tr {
+            background-color: #3498db;
+            color: #ffffff;
+            text-align: right;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #dddddd;
+        }
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        tbody tr:last-of-type {
+            border-bottom: 2px solid #3498db;
+        }
+        .try-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+        .try-button:hover {
+            background-color: #45a049;
+        }
+        .symbol {
+            font-size: 1.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>رموز الأسهم</h2>
+            <p>تعلم كيفية عرض رموز الأسهم باستخدام رموز HTML</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم رموز الأسهم</a></li>
+                    <li><a href="#methods">طرق عرض الرموز</a></li>
+                    <li><a href="#table">جدول رموز الأسهم</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم رموز الأسهم</h2>
+            <p>رموز الأسهم عبارة عن مجموعة أحرف إن تم وضعها مع بعضها يقوم المتصفح بعرض رمز سهم محدد مكانها. هذه الأحرف مهمة جداً فهي تتيح لك إمكانية عرض أي سهم تريد في الصفحة حتى و إن كان السهم غير موجوداً على الكيبورد الذي تستخدمه.</p>
+        </section>
+
+        <section id="methods" class="section">
+            <h2>طرق عرض رموز الأسهم</h2>
+            <p>الأحرف التي نستخدمها لعرض الأسهم يمكن وضعها بأسلوب عشري (Decimal) أو بأسلوب سداسي عشري (Hexadecimal)، بالإضافة لأسلوب أصل الإسم (Entity) الذي تم توفيره لبعض الأسهم لأنه يعتبر أسهل لك حيث أن الأحرف المستخدمة فيه تكون مكونة من أسماء الأسهم نفسها.</p>
+            
+            <div class="property-block">
+                <h3>قاعدة عامة</h3>
+                <ul>
+                    <li>عند استخدام الأسلوب Entity يجب إضافة <code>&amp;</code> قبل وضع أحرف الرمز.</li>
+                    <li>عند استخدام الأسلوب Decimal يجب إضافة <code>&amp;#</code> قبل وضع أحرف الرمز.</li>
+                    <li>عند استخدام الأسلوب Hexadecimal يجب إضافة <code>&amp;#x</code> قبل وضع أحرف الرمز.</li>
+                </ul>
+                <p>كما أنه يفضّل دائماً وضع فاصلة منقوطة <code>;</code> بعد كتابة أحرف الرمز و هذا أمر اختياري و لكننا ننصح بفعله.</p>
+            </div>
+        </section>
+
+        <section id="table" class="section">
+            <h2>جدول رموز الأسهم</h2>
+            <p>في الجدول التالي قمنا بذكر كل الرموز المتاحة التي يمكن استخدامها لعرض الأسهم.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>الرمز</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Entity</th>
+                        <th>إسمه</th>
+                        <th>مثال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="symbol">←</td>
+                        <td><code>&amp;#8592;</code></td>
+                        <td><code>&amp;#x2190;</code></td>
+                        <td><code>&amp;larr;</code></td>
+                        <td>Leftwards Arrow</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td class="symbol">↑</td>
+                        <td><code>&amp;#8593;</code></td>
+                        <td><code>&amp;#x2191;</code></td>
+                        <td><code>&amp;uarr;</code></td>
+                        <td>Upwards Arrow</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td class="symbol">→</td>
+                        <td><code>&amp;#8594;</code></td>
+                        <td><code>&amp;#x2192;</code></td>
+                        <td><code>&amp;rarr;</code></td>
+                        <td>Rightwards Arrow</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td class="symbol">↓</td>
+                        <td><code>&amp;#8595;</code></td>
+                        <td><code>&amp;#x2193;</code></td>
+                        <td><code>&amp;darr;</code></td>
+                        <td>Downwards Arrow</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td class="symbol">↔</td>
+                        <td><code>&amp;#8596;</code></td>
+                        <td><code>&amp;#x2194;</code></td>
+                        <td><code>&amp;harr;</code></td>
+                        <td>Left Right Arrow</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <!-- يمكنك إضافة المزيد من الأسهم هنا بناءً على محتوى ملفك -->
+                </tbody>
+            </table>
+            
+            <div class="tip-box">
+                <strong>ملاحظة:</strong> الجدول أعلاه يعرض فقط الأمثلة الأولى. ستحتاج إلى إضافة جميع رموز الأسهم من ملفك الأصلي إلى هذا الجدول.
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

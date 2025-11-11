@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح خاصية Overflow في CSS - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="style.css">
+   
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>CSS</h1>
+            <h2>التحكم في المحتوى الفائض (Overflow)</h2>
+            <p>حلول مشاكل المحتوى الزائد عن حجم العنصر</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم المحتوى الفائض</a></li>
+                    <li><a href="#problems">مشاكل المحتوى الفائض</a></li>
+                    <li><a href="#scrollbars">إظهار شريط تمرير</a></li>
+                    <li><a href="#specific-scrollbars">شريط التمرير في مكان محدد</a></li>
+                    <li><a href="#text-wrapping">تقطيع النص الطويل</a></li>
+                    <li><a href="Enum.html">ارجوع الى الصفحة الرئيسية </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم المحتوى الفائض</h2>
+            <p>
+                **المحتوى الفائض** أو الزائد هو المحتوى الذي يتطلب عرضه كاملاً مساحة أكبر من مساحة العنصر الموضوع فيه. 
+            </p>
+            <p>
+                حين يكون المحتوى بحاجة لمساحة أكبر، يظهر عادةً شريط تمرير (Scroll Bar) يسمح لك بالتحرك داخل العنصر حتى تتمكن من مشاهدة المحتوى بالكامل.
+            </p>
+        </section>
+
+        <section id="problems" class="section">
+            <h2>مشاكل المحتوى الفائض</h2>
+            <div class="property-block">
+                <p>
+                    بشكل افتراضي، إذا لم تحدد طريقة عرض المحتوى، فإنه سيظهر خارج حدود العنصر. هذا يمكن أن يسبب مشكلة تداخل المحتوى، حيث يظهر العنصر التالي في الصفحة فوق المحتوى الفائض بدلاً من بعده.
+                </p>
+            </div>
+        </section>
+
+        <section id="scrollbars" class="section">
+            <h2>إظهار شريط تمرير</h2>
+            <p>
+                يجب أن يكون حجم العنصر محدداً ويظهر كبلوك (سواء `block` أو `inline-block`) لكي تتمكن من إظهار شريط تمرير فيه.
+            </p>
+            <p>
+                نستخدم الخاصية **`overflow`** لتحديد كيفية التعامل مع المحتوى الفائض، وهي تقبل القيم التالية:
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>القيمة</th>
+                        <th>المعنى</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>`visible`</td>
+                        <td>لجعل المحتوى الفائض يظهر دائماً (القيمة الافتراضية).</td>
+                    </tr>
+                    <tr>
+                        <td>`hidden`</td>
+                        <td>لجعل المحتوى الفائض مخفياً تماماً، دون إظهار أي شريط تمرير.</td>
+                    </tr>
+                    <tr>
+                        <td>`scroll`</td>
+                        <td>لإظهار أشرطة التمرير طوال الوقت، حتى لو لم يكن المحتوى بحاجة لها.</td>
+                    </tr>
+                    <tr>
+                        <td>`auto`</td>
+                        <td>لإظهار أشرطة التمرير تلقائياً فقط إذا كان حجم المحتوى أكبر من حجم العنصر.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example">
+                <h4>مثال 1: `overflow: visible;`</h4>
+                <p>جعلنا المحتوى الفائض ظاهراً.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">overflow</span>: <span class="value">visible</span>;
+}</pre>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>مثال 2: `overflow: hidden;`</h4>
+                <p>قمنا بإخفاء المحتوى الفائض.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">overflow</span>: <span class="value">hidden</span>;
+}</pre>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>مثال 3: `overflow: scroll;`</h4>
+                <p>قمنا بإظهار أشرطة التمرير طوال الوقت.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">overflow</span>: <span class="value">scroll</span>;
+}</pre>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>مثال 4: `overflow: auto;`</h4>
+                <p>جعلنا أشرطة التمرير تظهر عند الحاجة فقط.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">overflow</span>: <span class="value">auto</span>;
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="specific-scrollbars" class="section">
+            <h2>إظهار شريط التمرير في مكان محدد</h2>
+            <p>
+                يمكنك التحكم في ظهور شريط التمرير بشكل أفقي أو عمودي باستخدام الخصائص التالية:
+            </p>
+            <ul>
+                <li>`overflow-x`: للتعامل مع المحتوى الفائض أفقياً.</li>
+                <li>`overflow-y`: للتعامل مع المحتوى الفائض عمودياً.</li>
+            </ul>
+            <p>
+                **ملاحظة:** اتجاه شريط التمرير العمودي يظهر دائماً في الجهة المعاكسة لاتجاه المحتوى (`ltr` أو `rtl`).
+            </p>
+            <div class="example">
+                <h4>مثال: إظهار شريط تمرير عمودي فقط</h4>
+                <p>قمنا بإخفاء شريط التمرير الأفقي وإظهار شريط التمرير العمودي.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">overflow-x</span>: <span class="value">hidden</span>;
+    <span class="property">overflow-y</span>: <span class="value">scroll</span>;
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-wrapping" class="section">
+            <h2>تقطيع النص الطويل الفائض</h2>
+            <p>
+                في حال وجود نص طويل جداً بدون فواصل، فإنه قد يمتد خارج حدود العنصر. لحل هذه المشكلة، استخدم الخاصية **`overflow-wrap`**. 
+            </p>
+            <p>
+                الخاصية `overflow-wrap` تقبل القيم التالية:
+            </p>
+            <ul>
+                <li>`normal`: (القيمة الافتراضية) لا يتم قطع النص.</li>
+                <li>`break-word`: يتم قطع الكلمة الطويلة جداً لكي تنزل على سطر جديد.</li>
+            </ul>
+            <div class="example">
+                <h4>مثال: قطع النص الطويل</h4>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">overflow-wrap</span>: <span class="value">break-word</span>;
+}</pre>
+                </div>
+            </div>
+        </section>
+    </div>
+ 
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

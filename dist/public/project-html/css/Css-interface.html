@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  
+     <link rel="stylesheet" href="interface.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أساليب العرض في CSS - Display Property - EliteWeb</title>
+
+    
+     
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+
+  
+     <link rel="stylesheet" href="interface.css">
+
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>CSS Tutorial</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">الرئيسية</a></li>
+                <li><a href="#" class="nav-link">دروس CSS</a></li>
+                <li><a href="#" class="nav-link">أمثلة</a></li>
+                <li><a href="#" class="nav-link">مراجع</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>دروس CSS</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="sidebar-link">CSS - نظرة عامة</a></li>
+                <li><a href="#" class="sidebar-link">CSS - قواعد كتابة الكود</a></li>
+                <li><a href="#" class="sidebar-link">CSS - تحديد العناصر</a></li>
+                <li><a href="#" class="sidebar-link">CSS - التعليقات</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الألوان</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الخلفيات</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الحدود</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الهوامش الداخلية</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الهوامش الخارجية</a></li>
+                <li><a href="#" class="sidebar-link active">CSS - أساليب العرض</a></li>
+                <li><a href="#" class="sidebar-link">CSS - العرض والطول</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الحدود الخارجية</a></li>
+                <li><a href="#" class="sidebar-link">CSS - النصوص</a></li>
+                <li><a href="#" class="sidebar-link">CSS - الخطوط</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="#">الرئيسية</a> > <a href="#">CSS</a> > <span>أساليب العرض</span>
+            </div>
+
+            <article class="article">
+                <header class="article-header">
+                    <h1 class="article-title">أساليب العرض في CSS</h1>
+                    <div class="article-meta">
+                        <span class="reading-time">وقت القراءة: 10 دقائق</span>
+                        <span class="difficulty">المستوى: مبتدئ</span>
+                    </div>
+                </header>
+
+                <div class="table-of-contents">
+                    <h3>محتويات الدرس</h3>
+                    <ul>
+                        <li><a href="#concept">مفهوم أساليب العرض</a></li>
+                        <li><a href="#display-types">أساليب عرض العناصر</a></li>
+                        <li><a href="#html-defaults">أساليب ظهور عناصر HTML</a></li>
+                        <li><a href="#new-elements">الظهور الإفتراضي للعناصر الجديدة</a></li>
+                        <li><a href="#hiding">أساليب إخفاء العناصر</a></li>
+                    </ul>
+                </div>
+
+                <section id="concept" class="section">
+                    <h2>مفهوم أساليب العرض</h2>
+                    <p>أي عنصر تضيفه في الصفحة تجده يظهر بأسلوب معين، فإما أنه يظهر على السطر بأكمله و لا يظهر شيء آخر بجانبه، و إما أنه يظهر بجانب عناصر أخرى في نفس السطر إذا كان هناك مساحة تسمح بظهوره بجانبها.</p>
+                    
+                    <p>في هذا الدرس ستتعرف على أساليب العرض الرئيسية التي تملكها عناصر HTML و كيف يمكنك تغييرها بواسطة خصائص CSS لتلائم تصاميمك.</p>
+                </section>
+
+                <section id="display-types" class="section">
+                    <h2>أساليب عرض العناصر</h2>
+                    <p>لتحديد أسلوب العرض نستخدم الخاصية <code class="inline-code">display</code> و من بعدها نمرر لها قيمة تمثل أسلوب العرض الذي نريد أن يعتمده العنصر.</p>
+                    
+                    <p>أساليب العرض الأساسية التي تعتمدها وسوم HTML و التي يمكن تمريرها كقيمة لها هي:</p>
+                    
+                    <div class="display-types-grid">
+                        <div class="display-type-card">
+                            <h3><code>block</code></h3>
+                            <p>لجعل العنصر يظهر على كامل السطر (إن لم تتلاعب بحجمه) و لا يظهر أي شيء آخر بجانبه.</p>
+                            <div class="demo-block">
+                                <div class="block-element">عنصر Block</div>
+                                <div class="block-element">عنصر Block آخر</div>
+                            </div>
+                        </div>
+                        
+                        <div class="display-type-card">
+                            <h3><code>inline-block</code></h3>
+                            <p>لجعل العنصر يظهر كبلوك و لا مانع أن يظهر عنصر آخر بجانبه إن كان هناك متسع له.</p>
+                            <div class="demo-block">
+                                <div class="inline-block-element">عنصر 1</div>
+                                <div class="inline-block-element">عنصر 2</div>
+                                <div class="inline-block-element">عنصر 3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="display-type-card">
+                            <h3><code>inline</code></h3>
+                            <p>لجعل العنصر يظهر بنفس حجم محتواه و هذا الأسلوب في العرض يستخدم بشكل خاص عندما تحتاج إلى تعديل تصميم نص موجود في فقرة أو عنوان.</p>
+                            <div class="demo-block">
+                                <p>هذا نص يحتوي على <span class="inline-element">عنصر inline</span> داخله و <span class="inline-element">عنصر آخر</span> في نفس السطر.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="html-defaults" class="section">
+                    <h3>أساليب ظهور عناصر HTML</h3>
+                    <p>فيما يلي أساليب الظهور الإفتراضية لبعض العناصر:</p>
+                    
+                    <div class="html-elements-info">
+                        <div class="element-group">
+                            <h4>عناصر Block</h4>
+                            <p>الوسوم <code class="inline-code">&lt;div&gt;</code> - <code class="inline-code">&lt;header&gt;</code> - <code class="inline-code">&lt;footer&gt;</code> - <code class="inline-code">&lt;aside&gt;</code> تعتمد أسلوب <code class="inline-code">block</code> بشكل إفتراضي لهذا تراها تظهر على سطر منفرد.</p>
+                        </div>
+                        
+                        <div class="element-group">
+                            <h4>عناصر Inline-Block</h4>
+                            <p>الوسمين <code class="inline-code">&lt;button&gt;</code> و <code class="inline-code">&lt;select&gt;</code> يعتمدان أسلوب <code class="inline-code">inline-block</code> بشكل إفتراضي لهذا تجد أنه يمكن أن يظهر بجانب بعض.</p>
+                        </div>
+                        
+                        <div class="element-group">
+                            <h4>عناصر Inline</h4>
+                            <p>الوسوم <code class="inline-code">&lt;span&gt;</code> - <code class="inline-code">&lt;u&gt;</code> - <code class="inline-code">&lt;b&gt;</code> - <code class="inline-code">&lt;i&gt;</code> تعتمد أسلوب <code class="inline-code">inline</code> بشكل إفتراضي فهي تستخدم لتعديل تصميم على النص الموجود في الفقرات أو العناوين.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="important-note">
+                        <h4>ملاحظة مهمة</h4>
+                        <p>العنصر الذي يظهر كبلوك سواء <code class="inline-code">block</code> أو <code class="inline-code">inline-block</code> يمكن إضافة <code class="inline-code">padding</code> و <code class="inline-code">margin</code> له من كل الجهات (الأعلى، الأسفل، اليمين و اليسار) و كذلك يمكن تحديد كم سيكون حجمه بالضبط في الصفحة بواسطة الخاصية <code class="inline-code">width</code> و الخاصية <code class="inline-code">height</code>.</p>
+                        
+                        <p>العنصر الذي يظهر بأسلوب <code class="inline-code">inline</code> لا يمكن تحديد حجمه سواء بالطول أو العرض. و في حال إضافة هامش داخلي أو خارجي له من الأعلى و الأسفل ستجد أن المتصفح لا يعطي لها قيمة بمعنى أنه قد يجعل باقي العناصر الموجودة في الصفحة تظهر بشكل متداخل فيها.</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3>أمثلة عملية</h3>
+                    
+                    <div class="code-example">
+                        <h4>مثال 1: تغيير Button إلى Block</h4>
+                        <p>في المثال التالي قمنا بجعل الوسم <code class="inline-code">&lt;button&gt;</code> يعتمد أسلوب <code class="inline-code">block</code> حتى يظهر لوحده على السطر.</p>
+                        
+                        <div class="code-block">
+                            <pre><code>button {
+    display: block;
+}</code></pre>
+                        </div>
+                        
+                        <div class="demo-result">
+                            <button class="demo-button-block">زر بأسلوب Block</button>
+                            <button class="demo-button-block">زر آخر بأسلوب Block</button>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>مثال 2: تغيير Div إلى Inline-Block</h4>
+                        <p>في المثال التالي قمنا بجعل الوسم <code class="inline-code">&lt;div&gt;</code> يعتمد أسلوب <code class="inline-code">inline-block</code> حتى لا يظهر على سطر لوحده.</p>
+                        
+                        <div class="code-block">
+                            <pre><code>div {
+    display: inline-block;
+}</code></pre>
+                        </div>
+                        
+                        <div class="demo-result">
+                            <div class="demo-div-inline-block">صندوق 1</div>
+                            <div class="demo-div-inline-block">صندوق 2</div>
+                            <div class="demo-div-inline-block">صندوق 3</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="new-elements" class="section">
+                    <h3>الظهور الإفتراضي للعناصر الجديدة</h3>
+                    <p>أي عنصر جديد تقوم بتعريفه بنفسك يستخدم أسلوب <code class="inline-code">inline</code> بشكل تلقائي ما لم تقم أنت بالتلاعب بطريقة ظهوره.</p>
+                    
+                    <div class="code-example">
+                        <h4>مثال: عنصر مخصص</h4>
+                        <p>في المثال التالي قمنا بإضافة وسم جديد إسمه <code class="inline-code">&lt;harmash&gt;</code> الذي يعتمد أسلوب <code class="inline-code">inline</code> للظهور في الصفحة.</p>
+                        
+                        <div class="code-block">
+                            <pre><code>harmash {
+    display: inline;
+    color: red;
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid red;
+}</code></pre>
+                        </div>
+                        
+                        <div class="demo-result">
+                            <p>هذا نص يحتوي على <harmash class="demo-harmash">عنصر harmash</harmash> مخصص داخله.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="hiding" class="section">
+                    <h2>أساليب إخفاء العناصر</h2>
+                    <p>يوجد أسولبين أساسيين لإخفاء العناصر هما:</p>
+                    
+                    <div class="hiding-methods">
+                        <div class="hiding-method">
+                            <h4><code>display: none</code></h4>
+                            <p>هذا الأسلوب يزيل العنصر تماماً من الصفحة و كأنه لم يعد موجود فيها.</p>
+                            
+                            <div class="code-block">
+                                <pre><code>h1 {
+    display: none;
+}</code></pre>
+                            </div>
+                            
+                            <div class="demo-result">
+                                <p>العنوان التالي مخفي بـ display: none:</p>
+                                <h3 class="demo-hidden-none">عنوان مخفي</h3>
+                                <p>لاحظ أن المساحة لم تُحجز للعنوان المخفي.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hiding-method">
+                            <h4><code>visibility: hidden</code></h4>
+                            <p>هذا الأسلوب يخفي العنصر من الصفحة و لكن مكانه يظل محجوز فيها.</p>
+                            
+                            <div class="code-block">
+                                <pre><code>h1 {
+    visibility: hidden;
+}</code></pre>
+                            </div>
+                            
+                            <div class="demo-result">
+                                <p>العنوان التالي مخفي بـ visibility: hidden:</p>
+                                <h3 class="demo-hidden-visibility">عنوان مخفي</h3>
+                                <p>لاحظ أن المساحة محجوزة للعنوان المخفي.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="navigation-buttons">
+                    <a href="#" class="nav-button prev">❮ الدرس السابق</a>
+                    <a href="#" class="nav-button next">الدرس التالي ❯</a>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>حول الموقع</h4>
+                <p>موقع تعليمي مجاني يهتم بعلوم الكمبيوتر و يقدم إليك المعرفة بشكل مبسّط و مفصّل.</p>
+            </div>
+            <div class="footer-section">
+                <h4>روابط مهمة</h4>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">دروس CSS</a></li>
+                    <li><a href="#">أمثلة</a></li>
+                    <li><a href="#">مراجع</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تواصل معنا</h4>
+                <ul>
+                    <li><a href="#">البريد الإلكتروني</a></li>
+                    <li><a href="#">تويتر</a></li>
+                    <li><a href="#">فيسبوك</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CSS Tutorial. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="script.js"></script>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
+

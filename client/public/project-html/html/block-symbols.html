@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رموز الكتل | EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .block-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .block-table th, .block-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .block-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .block-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .block-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .block-symbol {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 5px;
+        }
+        
+        .code-example {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            display: inline-block;
+            margin: 3px;
+        }
+        
+        .try-button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85em;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .try-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        .general-rule {
+            background-color: #e8f4f8;
+            border-right: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .method-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin: 30px 0 20px;
+        }
+        
+        .block-row {
+            transition: all 0.3s ease;
+        }
+        
+        .block-row:hover {
+            background-color: #e8f4f8;
+        }
+        
+        .symbol-name {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .section-content {
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .block-demo {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .demo-row {
+            margin: 15px 0;
+            line-height: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .block-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .code-example {
+                font-size: 0.75em;
+                padding: 4px 6px;
+            }
+            
+            .block-table th, .block-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>رموز الكتل</h2>
+            <p>تعلم كيفية عرض رموز الكتل المختلفة في صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#intro">مقدمة</a></li>
+                    <li><a href="#methods">طرق العرض</a></li>
+                    <li><a href="#table">جدول الرموز</a></li>
+                    <li><a href="#demo">أمثلة تطبيقية</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="intro" class="section">
+            <h2>طريقة عرض رموز الكتل</h2>
+            <p>رموز الكتل عبارة عن مجموعة أحرف إن تم وضعها مع بعضها يقوم المتصفح بعرض شكل يشبه كتلة محددة مكانها. هذه الأحرف مهمة جداً فهي تتيح لك إمكانية عرض أي رمز تريد في الصفحة حتى و إن كان الشكل المراد رسمه غير موجوداً على الكيبورد الذي تستخدمه.</p>
+            
+            <p>الأحرف التي نستخدمها لعرض الكتل يمكن وضعها بأسلوب عشري ( Decimal ) أو بأسلوب سداسي عشري ( Hexadecimal ).</p>
+        </section>
+
+        <section id="methods" class="section">
+            <h2>قاعدة عامة</h2>
+            
+            <div class="general-rule">
+                <ul>
+                    <li>عند استخدام الأسلوب Decimal يجب إضافة <span class="code-example">&#</span> قبل وضع أحرف الرمز.</li>
+                    <li>عند استخدام الأسلوب Hexadecimal يجب إضافة <span class="code-example">&#x</span> قبل وضع أحرف الرمز.</li>
+                    <li>كما أنه يفضّل دائماً وضع فاصلة منقوطة <span class="code-example">;</span> بعد كتابة أحرف الرمز و هذا أمر اختياري و لكننا ننصح بفعله.</li>
+                </ul>
+            </div>
+            
+            <h3 class="method-title">أمثلة على طرق العرض المختلفة</h3>
+            
+            <div class="example">
+                <h4>أسلوب Decimal (العشري)</h4>
+                <div class="code">
+                    <pre>&lt;p&gt;هذا مثال على استخدام &amp;#9608; لعرض كتلة كاملة&lt;/p&gt;</pre>
+                </div>
+                <div class="example">
+                    <p>هذا مثال على استخدام &#9608; لعرض كتلة كاملة</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>أسلوب Hexadecimal (السداسي عشري)</h4>
+                <div class="code">
+                    <pre>&lt;p&gt;هذا مثال على استخدام &amp;#x2588; لعرض كتلة كاملة&lt;/p&gt;</pre>
+                </div>
+                <div class="example">
+                    <p>هذا مثال على استخدام &#x2588; لعرض كتلة كاملة</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="table" class="section">
+            <h2>جدول رموز الكتل</h2>
+            <p>في الجدول التالي قمنا بذكر كل الرموز المتاحة التي يمكن استخدامها لعرض الكتل.</p>
+            
+            <div class="section-content">
+                <table class="block-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">الرمز</th>
+                            <th width="15%">Decimal</th>
+                            <th width="15%">Hexadecimal</th>
+                            <th width="40%">الإسم</th>
+                            <th width="20%">تجربة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▀</span></td>
+                            <td><span class="code-example">&amp;#9600;</span></td>
+                            <td><span class="code-example">&amp;#x2580;</span></td>
+                            <td class="symbol-name">Upper Half Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▁</span></td>
+                            <td><span class="code-example">&amp;#9601;</span></td>
+                            <td><span class="code-example">&amp;#x2581;</span></td>
+                            <td class="symbol-name">Lower One Eighth Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▂</span></td>
+                            <td><span class="code-example">&amp;#9602;</span></td>
+                            <td><span class="code-example">&amp;#x2582;</span></td>
+                            <td class="symbol-name">Lower One Quarter Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▃</span></td>
+                            <td><span class="code-example">&amp;#9603;</span></td>
+                            <td><span class="code-example">&amp;#x2583;</span></td>
+                            <td class="symbol-name">Lower Three Eighths Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▄</span></td>
+                            <td><span class="code-example">&amp;#9604;</span></td>
+                            <td><span class="code-example">&amp;#x2584;</span></td>
+                            <td class="symbol-name">Lower Half Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▅</span></td>
+                            <td><span class="code-example">&amp;#9605;</span></td>
+                            <td><span class="code-example">&amp;#x2585;</span></td>
+                            <td class="symbol-name">Lower Five Eighths Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▆</span></td>
+                            <td><span class="code-example">&amp;#9606;</span></td>
+                            <td><span class="code-example">&amp;#x2586;</span></td>
+                            <td class="symbol-name">Lower Three Quarters Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▇</span></td>
+                            <td><span class="code-example">&amp;#9607;</span></td>
+                            <td><span class="code-example">&amp;#x2587;</span></td>
+                            <td class="symbol-name">Lower Seven Eighths Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">█</span></td>
+                            <td><span class="code-example">&amp;#9608;</span></td>
+                            <td><span class="code-example">&amp;#x2588;</span></td>
+                            <td class="symbol-name">Full Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▉</span></td>
+                            <td><span class="code-example">&amp;#9609;</span></td>
+                            <td><span class="code-example">&amp;#x2589;</span></td>
+                            <td class="symbol-name">Left Seven Eighths Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▊</span></td>
+                            <td><span class="code-example">&amp;#9610;</span></td>
+                            <td><span class="code-example">&amp;#x258A;</span></td>
+                            <td class="symbol-name">Left Three Quarters Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▋</span></td>
+                            <td><span class="code-example">&amp;#9611;</span></td>
+                            <td><span class="code-example">&amp;#x258B;</span></td>
+                            <td class="symbol-name">Left Five Eighths Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▌</span></td>
+                            <td><span class="code-example">&amp;#9612;</span></td>
+                            <td><span class="code-example">&amp;#x258C;</span></td>
+                            <td class="symbol-name">Left Half Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▍</span></td>
+                            <td><span class="code-example">&amp;#9613;</span></td>
+                            <td><span class="code-example">&amp;#x258D;</span></td>
+                            <td class="symbol-name">Left Three Eighths Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▎</span></td>
+                            <td><span class="code-example">&amp;#9614;</span></td>
+                            <td><span class="code-example">&amp;#x258E;</span></td>
+                            <td class="symbol-name">Left One Quarter Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▏</span></td>
+                            <td><span class="code-example">&amp;#9615;</span></td>
+                            <td><span class="code-example">&amp;#x258F;</span></td>
+                            <td class="symbol-name">Left One Eighth Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▐</span></td>
+                            <td><span class="code-example">&amp;#9616;</span></td>
+                            <td><span class="code-example">&amp;#x2590;</span></td>
+                            <td class="symbol-name">Right Half Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">░</span></td>
+                            <td><span class="code-example">&amp;#9617;</span></td>
+                            <td><span class="code-example">&amp;#x2591;</span></td>
+                            <td class="symbol-name">Light Shade</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▒</span></td>
+                            <td><span class="code-example">&amp;#9618;</span></td>
+                            <td><span class="code-example">&amp;#x2592;</span></td>
+                            <td class="symbol-name">Medium Shade</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▓</span></td>
+                            <td><span class="code-example">&amp;#9619;</span></td>
+                            <td><span class="code-example">&amp;#x2593;</span></td>
+                            <td class="symbol-name">Dark Shade</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▔</span></td>
+                            <td><span class="code-example">&amp;#9620;</span></td>
+                            <td><span class="code-example">&amp;#x2594;</span></td>
+                            <td class="symbol-name">Upper One Eighth Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▕</span></td>
+                            <td><span class="code-example">&amp;#9621;</span></td>
+                            <td><span class="code-example">&amp;#x2595;</span></td>
+                            <td class="symbol-name">Right One Eighth Block</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▖</span></td>
+                            <td><span class="code-example">&amp;#9622;</span></td>
+                            <td><span class="code-example">&amp;#x2596;</span></td>
+                            <td class="symbol-name">Quadrant Lower Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▗</span></td>
+                            <td><span class="code-example">&amp;#9623;</span></td>
+                            <td><span class="code-example">&amp;#x2597;</span></td>
+                            <td class="symbol-name">Quadrant Lower Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▘</span></td>
+                            <td><span class="code-example">&amp;#9624;</span></td>
+                            <td><span class="code-example">&amp;#x2598;</span></td>
+                            <td class="symbol-name">Quadrant Upper Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▙</span></td>
+                            <td><span class="code-example">&amp;#9625;</span></td>
+                            <td><span class="code-example">&amp;#x2599;</span></td>
+                            <td class="symbol-name">Quadrant Upper Left And Lower Left And Lower Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▚</span></td>
+                            <td><span class="code-example">&amp;#9626;</span></td>
+                            <td><span class="code-example">&amp;#x259A;</span></td>
+                            <td class="symbol-name">Quadrant Upper Left And Lower Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▛</span></td>
+                            <td><span class="code-example">&amp;#9627;</span></td>
+                            <td><span class="code-example">&amp;#x259B;</span></td>
+                            <td class="symbol-name">Quadrant Upper Left And Upper Right And Lower Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▜</span></td>
+                            <td><span class="code-example">&amp;#9628;</span></td>
+                            <td><span class="code-example">&amp;#x259C;</span></td>
+                            <td class="symbol-name">Quadrant Upper Left And Upper Right And Lower Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▝</span></td>
+                            <td><span class="code-example">&amp;#9629;</span></td>
+                            <td><span class="code-example">&amp;#x259D;</span></td>
+                            <td class="symbol-name">Quadrant Upper Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▞</span></td>
+                            <td><span class="code-example">&amp;#9630;</span></td>
+                            <td><span class="code-example">&amp;#x259E;</span></td>
+                            <td class="symbol-name">Quadrant Upper Right And Lower Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="block-row">
+                            <td><span class="block-symbol">▟</span></td>
+                            <td><span class="code-example">&amp;#9631;</span></td>
+                            <td><span class="code-example">&amp;#x259F;</span></td>
+                            <td class="symbol-name">Quadrant Upper Right And Lower Left And Lower Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="demo" class="section">
+            <h2>أمثلة تطبيقية لرموز الكتل</h2>
+            
+            <div class="block-demo">
+                <h4>مثال: استخدام رموز الكتل لإنشاء شريط تقدم</h4>
+                <div class="demo-row">
+                    <span>التقدم: </span>
+                    <span style="color: #2ecc71;">█</span>
+                    <span style="color: #2ecc71;">█</span>
+                    <span style="color: #2ecc71;">█</span>
+                    <span style="color: #2ecc71;">█</span>
+                    <span style="color: #f1c40f;">▌</span>
+                    <span style="color: #e74c3c;">░</span>
+                    <span style="color: #e74c3c;">░</span>
+                    <span style="color: #e74c3c;">░</span>
+                    <span> (50%)</span>
+                </div>
+                
+                <div class="code">
+                    <pre>&lt;span style="color: #2ecc71;"&gt;&amp;#9608;&lt;/span&gt;
+&lt;span style="color: #2ecc71;"&gt;&amp;#9608;&lt;/span&gt;
+&lt;span style="color: #2ecc71;"&gt;&amp;#9608;&lt;/span&gt;
+&lt;span style="color: #2ecc71;"&gt;&amp;#9608;&lt;/span&gt;
+&lt;span style="color: #f1c40f;"&gt;&amp;#9612;&lt;/span&gt;
+&lt;span style="color: #e74c3c;"&gt;&amp;#9617;&lt;/span&gt;
+&lt;span style="color: #e74c3c;"&gt;&amp;#9617;&lt;/span&gt;
+&lt;span style="color: #e74c3c;"&gt;&amp;#9617;&lt;/span&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="block-demo">
+                <h4>مثال: إنشاء نمط باستخدام رموز التظليل</h4>
+                <div class="demo-row">
+                    <span style="color: #34495e;">▓▓░░▓▓░░▓▓░░</span><br>
+                    <span style="color: #34495e;">░░▓▓░░▓▓░░▓▓</span><br>
+                    <span style="color: #34495e;">▓▓░░▓▓░░▓▓░░</span><br>
+                    <span style="color: #34495e;">░░▓▓░░▓▓░░▓▓</span>
+                </div>
+                
+                <div class="code">
+                    <pre>&lt;span style="color: #34495e;"&gt;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&lt;/span&gt;
+&lt;span style="color: #34495e;"&gt;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&lt;/span&gt;
+&lt;span style="color: #34495e;"&gt;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&lt;/span&gt;
+&lt;span style="color: #34495e;"&gt;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&amp;#9617;&amp;#9617;&amp;#9619;&amp;#9619;&lt;/span&gt;</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="geometric-shapes.html" class="button-demo">❮ رموز الأشكال الهندسية</a>
+                <a href="letter-like-symbols.html" class="button-demo">رموز تشبه الأحرف ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

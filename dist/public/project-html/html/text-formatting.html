@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تنسيق النصوص في HTML - EliteWeb - EliteWeb</title>
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>تنسيق النصوص</h2>
+            <p>تعلم كيفية تنسيق النصوص وعرضها بشكل احترافي</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم تنسيق النص</a></li>
+                    <li><a href="#bold">النص العريض</a></li>
+                    <li><a href="#italic">النص المائل</a></li>
+                    <li><a href="#deleted">النص المحذوف</a></li>
+                    <li><a href="#underline">النص تحت الخط</a></li>
+                    <li><a href="#mark">تعليم النص</a></li>
+                    <li><a href="#script">النص المرتفع والمنخفض</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم تنسيق النص</h2>
+            <p>تنسيق النص (Text Formatting) يقصد به عرض النص بشكل أفضل. فمثلاً إن كان هناك كلمة مهمة في النص يمكننا عرضها بخط عريض، و إن كان هناك شيء تم حذفه يمكننا عرضه خط فوقه للإشارة إلى أنه محذوف و هكذا.</p>
+            <p>في HTML يوجد العديد من الوسوم الجاهزة التي يمكن استخدامها في تنسيق النص و هي ما سنتعرف عليها في هذا الدرس.</p>
+        </section>
+
+        <section id="bold" class="section">
+            <h2>عرض النص بخط عريض</h2>
+            <p>أي كلمة أو جملة في النص تريد عرضها بخط عريض (Bold) يمكنك وضعها بين <code>&lt;b&gt;&lt;/b&gt;</code> أو بين <code>&lt;strong&gt;&lt;/strong&gt;</code>.</p>
+            <p>بشكل عام إستخدم <code>&lt;b&gt;</code> إذا أردت عرض الكلام بخط عريض و استخدم <code>&lt;strong&gt;</code> في حال كان الكلام مهم.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام النص العريض</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>My name is <span class="value">&lt;b&gt;</span>Mhamad<span class="value">&lt;/b&gt;</span><span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>My name is <span class="value">&lt;strong&gt;</span>Mhamad<span class="value">&lt;/strong&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>My name is <b>Mhamad</b></p>
+                    <p>My name is <strong>Mhamad</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="italic" class="section">
+            <h2>عرض النص بخط مائل</h2>
+            <p>أي كلمة أو جملة في النص تريد عرضها بخط مائل (Italic) يمكنك وضعها بين <code>&lt;i&gt;&lt;/i&gt;</code> أو بين <code>&lt;em&gt;&lt;/em&gt;</code>.</p>
+            <p>الفرق الوحيد بين الإثنين هو أنه في حال كان المستخدم كفيف و يعتمد على قارئ الشاشة (Screen Reader) حتى يقرأ له محتوى الصفحة، فإن القارئ سيغير نبرته حين يقرأ النص المائل الموضوع بداخل <code>&lt;em&gt;&lt;/em&gt;</code> لا أكثر.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام النص المائل</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;i&gt;</span>Lord of the Rings<span class="value">&lt;/i&gt;</span> is a very large book.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span><span class="value">&lt;em&gt;</span>Lord of the Rings<span class="value">&lt;/em&gt;</span> is a very large book.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><i>Lord of the Rings</i> is a very large book.</p>
+                    <p><em>Lord of the Rings</em> is a very large book.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="deleted" class="section">
+            <h2>عرض نص محذوف</h2>
+            <p>أي كلمة أو جملة في النص تريد وضع خط عليها و كأنها محذوفة يمكنك وضعها بين <code>&lt;del&gt;&lt;/del&gt;</code> أو بين <code>&lt;s&gt;&lt;/s&gt;</code>.</p>
+            <p>بشكل عام، إستخدم <code>&lt;del&gt;</code> إذا أردت الإشارة إلى أن الكلام قد تم حذفه و استخدم <code>&lt;s&gt;</code> عند الإشارة إلى أن الكلام محذوف لأنه لم يعد صحيحاً.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام النص المحذوف</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>HTML is so <span class="value">&lt;del&gt;</span>hard<span class="value">&lt;/del&gt;</span> easy to learn.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>The Earth is <span class="value">&lt;s&gt;</span>flat<span class="value">&lt;/s&gt;</span> spherical in shape.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>HTML is so <del>hard</del> easy to learn.</p>
+                    <p>The Earth is <s>flat</s> spherical in shape.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="underline" class="section">
+            <h2>وضع خط تحت النص</h2>
+            <p>أي كلمة أو جملة في النص تريد عرض خط تحتها (Underline) يمكنك وضعها بين <code>&lt;u&gt;&lt;/u&gt;</code> أو بين <code>&lt;ins&gt;&lt;/ins&gt;</code>.</p>
+            <p>بشكل عام، إستخدم <code>&lt;u&gt;</code> إذا أردت وضع خط تحت الكلام و استخدم <code>&lt;ins&gt;</code> في حال كان سبب وضع الخط هو الإشارة إلى أن النص قد تم إضافته على النص الموجود مسبقاً.</p>
+            
+            <div class="example">
+                <h4>المثال الأول: خط تحت النص</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;u&gt;</span>Name:<span class="value">&lt;/u&gt;</span> Mhamad Harmush<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><u>Name:</u> Mhamad Harmush</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثاني: حذف وإضافة نص</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>HTML is <span class="value">&lt;del&gt;</span>not important<span class="value">&lt;/del&gt;</span> <span class="value">&lt;ins&gt;</span>essential<span class="value">&lt;/ins&gt;</span> in web design.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>HTML is <del>not important</del> <ins>essential</ins> in web design.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mark" class="section">
+            <h2>تعليم أجزاء في النص</h2>
+            <p>تعليم النص (Text Marking) فكرته وضع لون أصفر خلف جزئية محددة في النص للفت نظر المستخدم إليها.</p>
+            <p>أي كلمة أو جملة في النص تريد تعليمها باللون الأصفر يمكنك وضعها بين <code>&lt;mark&gt;&lt;/mark&gt;</code>.</p>
+            
+            <div class="example">
+                <h4>مثال: تعليم النص</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;mark&gt;</span>Fast food<span class="value">&lt;/mark&gt;</span> affect your body!<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><mark>Fast food</mark> affect your body!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="script" class="section">
+            <h2>عرض جزء من النص بشكل مرتفع أو منخفض</h2>
+            <p>في المعادلات الحسابية نتعامل مع أرقام و رموز تظهر بشكل مرتفع أو منخفض قليلاً نسبةً لباقي الأرقام و الرموز الموجودة في نفس المعادلة.</p>
+            
+            <div class="property-block">
+                <h3>أنواع النصوص الخاصة</h3>
+                <ul>
+                    <li>لعرض النص بشكل مرتفع قليلاً نسبةً للنص الموجود بجانبه نضعه بين <code>&lt;sup&gt;&lt;/sup&gt;</code></li>
+                    <li>لعرض النص بشكل منخفض قليلاً نسبةً للنص الموجود بجانبه نضعه بين <code>&lt;sub&gt;&lt;/sub&gt;</code></li>
+                </ul>
+                <p>sup إختصار لكلمة Super Script التي تعني نص مرتفع، و sub إختصار لكلمة Sub Script التي تعني نص منخفض.</p>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: النص المرتفع والمنخفض</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>10<span class="value">&lt;sup&gt;</span>6<span class="value">&lt;/sup&gt;</span> log<span class="value">&lt;sub&gt;</span>2<span class="value">&lt;/sub&gt;</span> 64 = 6 Mbps<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>10<sup>6</sup> log<sub>2</sub> 64 = 6 Mbps</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>أمثلة إضافية</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>H<span class="value">&lt;sub&gt;</span>2<span class="value">&lt;/sub&gt;</span>O هو الماء<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>مساحة الدائرة = πr<span class="value">&lt;sup&gt;</span>2<span class="value">&lt;/sup&gt;</span><span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>تاريخ اليوم: 1<span class="value">&lt;sup&gt;</span>st<span class="value">&lt;/sup&gt;</span> يناير 2024<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>H<sub>2</sub>O هو الماء</p>
+                    <p>مساحة الدائرة = πr<sup>2</sup></p>
+                    <p>تاريخ اليوم: 1<sup>st</sup> يناير 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل CSS الشامل - يعقوب الغيثي - EliteWeb</title>
+  
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2d3436;
+            --success-color: #2ecc71;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #4a6491);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .topic-card-header {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .topic-card-body {
+            padding: 1.5rem;
+        }
+        
+        .topic-card-footer {
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+ 
+
+
+    </style>
+  
+  
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CSS</h1>
+            <h2>دليل CSS الشامل</h2>
+            <p>مصدرك التعليمي لتعلم وتطوير مهارات CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#topics">المواضيع</a></li>
+                    <li><a href="#about">عن المشروع</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li><a href="Enum.html">الصفحة الرئيسية</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>مرحباً بك في دليل CSS الشامل</h1>
+            <p>هذا الموقع يقدم شرحاً مفصلاً لأهم مفاهيم وتقنيات CSS التي تحتاجها لتصميم مواقع ويب جميلة واحترافية</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="topics" class="section">
+            <h2>المواضيع التعليمية</h2>
+            <p>اختر أحد المواضيع التالية لتبدأ رحلتك في تعلم CSS:</p>
+            
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3>أساليب العرض</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>تعلم كيفية التحكم في طريقة عرض العناصر باستخدام خاصية display بأنماطها المختلفة</p>
+                    </div>
+                    <div class="topic-card-footer">
+                        <a href="display_block_fiex.html" class="btn">استكشاف الموضوع</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3>تدفق العناصر</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>افهم كيفية تدفق العناصر وتحديد اتجاهها باستخدام خاصية float</p>
+                    </div>
+                    <div class="topic-card-footer">
+                        <a href="float.html" class="btn">استكشاف الموضوع</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3>المحتوى الفائض</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>تعلم كيفية التحكم في المحتوى الزائد عن حجم العنصر باستخدام overflow</p>
+                    </div>
+                    <div class="topic-card-footer">
+                        <a href="overflow.html" class="btn">استكشاف الموضوع</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3>مواقع العناصر</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>اكتشف طرق تحديد مواقع العناصر باستخدام خاصية position</p>
+                    </div>
+                    <div class="topic-card-footer">
+                        <a href="position.html" class="btn">استكشاف الموضوع</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3>الفئات الزائفة</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>استخدم Pseudo-classes لتنسيق العناصر بناءً على حالتها</p>
+                    </div>
+                    <div class="topic-card-footer">
+                        <a href="pseudo_classes.html" class="btn">استكشاف الموضوع</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-card-header">
+                        <h3>حجم الصناديق</h3>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>تحكم في طريقة حساب أبعاد العناصر باستخدام box-sizing</p>
+                    </div>
+                    <div class="topic-card-footer">
+                        <a href="box_sizing.html" class="btn">استكشاف الموضوع</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="section">
+            <h2>عن المشروع</h2>
+            <p>هذا المشروع هو جزء من تكاليف تصميم ويب عملي، تم تطويره بواسطة يعقوب الغيثي تحت إشراف الأستاذة فاتن (مجموعة C).</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <h3>شامل</h3>
+                    <p>يغطي أهم مواضيع CSS التي يحتاجها مطور الويب</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>عملي</h3>
+                    <p>يقدم أمثلة تطبيقية يمكنك تجربتها بنفسك</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>متجاوب</h3>
+                    <p>يتكيف مع جميع أحجام الشاشات والأجهزة</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2>اتصل بنا</h2>
+            <p>إذا كان لديك أي استفسار أو ترغب في مشاركة ملاحظاتك، لا تتردد في التواصل معنا:</p>
+            
+            <div class="contact-info">
+                <p><strong>البريد الإلكتروني:</strong> <a href="mailto:yqwbkhaldalghythy@gmail.com">yqwbkhaldalghythy@gmail.com</a></p>
+                <p><strong>تاريخ آخر تحديث:</strong> 3 أغسطس 2025</p>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

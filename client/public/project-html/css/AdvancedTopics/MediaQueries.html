@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - إستعلامات الوسائط (Media Queries)</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+   
+   <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .example-code-block .example {
+            border: 2px solid #2ecc71;
+            padding: 15px;
+            background-color: #eaf8f4;
+            border-radius: 8px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #orientation::before {
+            font-weight: bold;
+        }
+
+        /* أمثلة إستعلامات الوسائط */
+        @media screen and (max-width: 400px) {
+            #example1-p,
+            #example2-p {
+                color: red;
+            }
+        }
+
+        #example2-p {
+            color: gray;
+        }
+
+        @media print {
+            #example4-p {
+                color: red;
+            }
+        }
+        
+        @media screen, print {
+            #example5-p {
+                color: brown;
+            }
+        }
+        
+        @media screen or print {
+            #example6-p {
+                color: brown;
+            }
+        }
+
+        @media not print {
+            #example7-p {
+                color: brown;
+            }
+        }
+        
+        @media (min-width: 400px) {
+            #example8-body {
+                padding: 20px;
+            }
+        }
+
+        @media (min-width: 400px) and (max-width: 1000px) {
+            #example9-body {
+                padding: 20px;
+            }
+        }
+        
+        @media (400px <= width <= 1000px) {
+            #example10-body {
+                padding: 20px;
+            }
+        }
+
+        #example11-h1 {
+            font-size: 1.8rem;
+        }
+        @media (min-width: 768px) {
+            #example11-h1 {
+                font-size: 2.2rem;
+            }
+        }
+        @media (min-width: 960px) {
+            #example11-h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (orientation: landscape) {
+            #orientation::before {
+                content: 'Landscape Mode';
+            }
+        }
+
+        @media (orientation: portrait) {
+            #orientation::before {
+                content: 'Portrait Mode';
+            }
+        }
+        
+        @media (min-height: 680px), screen and (orientation: portrait) {
+            #example13-body {
+                padding: 20px;
+            }
+        }
+        
+        /* لتوضيح المثال الأخير */
+        .long-content {
+            height: 1000px;
+            background-color: #f0f0f0;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>إستعلامات الوسائط (Media Queries)</h1>
+            <p>تخصيص التصميم حسب نوع الجهاز وحجم الشاشة</p>
+            <nav>
+                <ul>
+                    <li><a href="#what-is-mq">ما هي إستعلامات الوسائط</a></li>
+                    <li><a href="#mq-rules">قواعد إستعلامات الوسائط</a></li>
+                    <li><a href="#mq-types">أنواع إستعلامات الوسائط</a></li>
+                    <li><a href="#mq-conditions">شروط إستعلامات الوسائط</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="what-is-mq" class="section">
+            <h2>ما هي إستعلامات الوسائط؟</h2>
+            <p>
+                <strong>إستعلامات الوسائط (Media Queries)</strong> هي أداة قوية في CSS تسمح لك بتطبيق خصائص تصميم مختلفة بناءً على خصائص الجهاز الذي يتم عرض الصفحة عليه، مثل حجم الشاشة أو اتجاهها (طولي أو عرضي).
+            </p>
+            <p>
+                تُعد إستعلامات الوسائط ضرورية لبناء <strong>تصاميم متجاوبة (Responsive)</strong> تظهر بشكل مثالي على الهواتف، الأجهزة اللوحية، والحواسيب.
+            </p>
+        </section>
+
+        <section id="mq-rules" class="section">
+            <h2>قواعد إستعلامات الوسائط</h2>
+            <p>
+                للبدء باستخدام إستعلامات الوسائط، نستخدم الكلمة المفتاحية <code>@media</code> ثم نضع الشروط التي نريدها.
+            </p>
+            <div class="code">
+                <pre><span class="property">@media</span> <span class="property">not|only</span> mediatypes <span class="property">and</span> (expressions) {
+    <span class="property">/* كود CSS هنا */</span>
+}</pre>
+            </div>
+            <ul>
+                <li><code>@media</code>: الكلمة المفتاحية التي تبدأ بها قاعدة الإستعلام.</li>
+                <li><code>mediatypes</code>: نوع الوسائط (مثل <code>screen</code> أو <code>print</code>).</li>
+                <li><code>expressions</code>: الشروط التي يجب أن تتحقق (مثل <code>max-width: 400px</code>).</li>
+            </ul>
+        </section>
+
+        <section id="mq-types" class="section">
+            <h2>أنواع إستعلامات الوسائط</h2>
+            <p>
+                تُحدد أنواع الوسائط (Media Types) نوع الجهاز الذي يتم عليه عرض الصفحة. إليك أهم الأنواع:
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>النوع</th>
+                        <th>الاستخدام</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>all</code></td>
+                        <td>لتطبيق الخصائص على جميع أنواع الوسائط.</td>
+                    </tr>
+                    <tr>
+                        <td><code>screen</code></td>
+                        <td>لتطبيق الخصائص فقط عند عرض الصفحة على شاشة (حاسوب، هاتف، إلخ).</td>
+                    </tr>
+                    <tr>
+                        <td><code>print</code></td>
+                        <td>لتطبيق الخصائص فقط عند طباعة الصفحة.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="property-block">
+                <h3>المثال الأول: <code>max-width</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media screen and (max-width: 400px)</span> {
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">red</span>;
+    }
+}</pre>
+                </div>
+                <div class="example">
+                    <p id="example1-p">سيصبح لون هذا النص أحمر إذا كان عرض الشاشة 400 بكسل أو أقل.</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الثاني: ترتيب القواعد</h3>
+                <div class="code">
+                    <pre><span class="property">p</span> {
+    <span class="property">color</span>: <span class="value">gray</span>;
+}
+<span class="property">@media screen and (max-width: 400px)</span> {
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">red</span>;
+    }
+}</pre>
+                </div>
+                <div class="example">
+                    <p id="example2-p" style="color: gray;">اللون الأساسي رمادي، ولكن يتغير للأحمر عند الشاشة الصغيرة.</p>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> يجب وضع قواعد <code>@media</code> بعد القواعد الأساسية لضمان تطبيقها بشكل صحيح.
+                </p>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الرابع: <code>print</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media print</span> {
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">red</span>;
+    }
+}</pre>
+                </div>
+                <div class="example">
+                    <p id="example4-p" style="color: gray;">لون هذا النص رمادي، ولكنه سيتحول إلى أحمر عند طباعة الصفحة.</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الخامس والسادس: تجميع الأنواع</h3>
+                <div class="code">
+                    <pre><span class="property">@media screen, print</span> {
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">brown</span>;
+    }
+}
+<span class="property">@media screen or print</span> {
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">brown</span>;
+    }
+}</pre>
+                </div>
+                <div class="example">
+                    <p id="example5-p" style="color: brown;">هذا النص لونه بني سواء على الشاشة أو عند الطباعة.</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال السابع: <code>not</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media not print</span> {
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">brown</span>;
+    }
+}</pre>
+                </div>
+                <div class="example">
+                    <p id="example7-p" style="color: brown;">هذا النص بني في جميع الحالات ما عدا عند الطباعة.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="mq-conditions" class="section">
+            <h2>شروط إستعلامات الوسائط</h2>
+            <p>
+                يمكنك استخدام عدة شروط لتحديد متى يجب تطبيق الأنماط.
+            </p>
+
+            <div class="property-block">
+                <h3>المثال الأول: <code>min-width</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media (min-width: 400px)</span> {
+    <span class="property">body</span> {
+        <span class="property">padding</span>: <span class="value">20px</span>;
+    }
+}</pre>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> سيتم إضافة هامش داخلي 20 بكسل للصفحة إذا كان عرض الشاشة 400 بكسل أو أكثر.
+                </p>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الثاني: <code>and</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media (min-width: 400px) and (max-width: 1000px)</span> {
+    <span class="property">body</span> {
+        <span class="property">padding</span>: <span class="value">20px</span>;
+    }
+}</pre>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> سيتم تطبيق الهامش فقط إذا كان عرض الشاشة بين 400 و 1000 بكسل.
+                </p>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثالث: تجميع الشروط (النسخة الحديثة)</h3>
+                <div class="code">
+                    <pre><span class="property">@media (400px &lt;= width &lt;= 1000px)</span> {
+    <span class="property">body</span> {
+        <span class="property">padding</span>: <span class="value">20px</span>;
+    }
+}</pre>
+                </div>
+                <p>
+                    هذه الطريقة الأحدث لكتابة شروط النطاق.
+                </p>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الرابع: ترتيب الشروط منطقياً</h3>
+                <div class="code">
+                    <pre><span class="property">h1</span> { <span class="property">font-size</span>: <span class="value">1.8rem</span>; }
+<span class="property">@media (min-width: 768px)</span> { <span class="property">h1</span> { <span class="property">font-size</span>: <span class="value">2.2rem</span>; } }
+<span class="property">@media (min-width: 960px)</span> { <span class="property">h1</span> { <span class="property">font-size</span>: <span class="value">2.6rem</span>; } }</pre>
+                </div>
+                <div class="example">
+                    <h1 id="example11-h1">هذا النص يتغير حجمه حسب عرض الشاشة.</h1>
+                </div>
+                <p>
+                    هذا مثال على كيفية استخدام <code>@media</code> لإنشاء تصميم متجاوب يتغير حجم الخط فيه بشكل تدريجي.
+                </p>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الخامس: <code>orientation</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media (orientation: landscape)</span> {
+    <span class="property">#orientation::before</span> {
+        <span class="property">content</span>: <span class="value">'Landscape Mode'</span>;
+    }
+}</pre>
+                </div>
+                <div class="example">
+                    <p id="orientation">اتجاه الشاشة:</p>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> قم بتغيير اتجاه شاشتك (طولي/عرضي) لمشاهدة تأثير هذا الكود.
+                </p>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال السادس: <code>or</code></h3>
+                <div class="code">
+                    <pre><span class="property">@media (min-height: 680px), screen and (orientation: portrait)</span> {
+    <span class="property">body</span> {
+        <span class="property">padding</span>: <span class="value">20px</span>;
+    }
+}</pre>
+                </div>
+                <p>
+                    سيتم تطبيق الهامش إذا كان طول النافذة 680 بكسل على الأقل <strong>أو</strong> إذا كانت الشاشة في الوضع العمودي.
+                </p>
+                <div class="example-code-block">
+                    <div id="example13-body">
+                        هذا النص جزء من الصفحة التي سيتغير الهامش فيها.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+
+</body>
+
+</html>

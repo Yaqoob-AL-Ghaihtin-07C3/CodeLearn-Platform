@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رموز الحدود | EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .border-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .border-table th, .border-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .border-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .border-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .border-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .border-symbol {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 5px;
+        }
+        
+        .code-example {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            display: inline-block;
+            margin: 3px;
+        }
+        
+        .try-button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85em;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .try-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        .general-rule {
+            background-color: #e8f4f8;
+            border-right: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .method-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin: 30px 0 20px;
+        }
+        
+        .border-row {
+            transition: all 0.3s ease;
+        }
+        
+        .border-row:hover {
+            background-color: #e8f4f8;
+        }
+        
+        .symbol-name {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .section-content {
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .border-demo {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .demo-row {
+            margin: 15px 0;
+            line-height: 2;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .border-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .code-example {
+                font-size: 0.75em;
+                padding: 4px 6px;
+            }
+            
+            .border-table th, .border-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>رموز الحدود</h2>
+            <p>تعلم كيفية عرض رموز الحدود والخطوط في صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#intro">مقدمة</a></li>
+                    <li><a href="#methods">طرق العرض</a></li>
+                    <li><a href="#table">جدول الرموز</a></li>
+                    <li><a href="#demo">أمثلة تطبيقية</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="intro" class="section">
+            <h2>طريقة عرض رموز الحدود</h2>
+            <p>رموز الحدود، رموز الصناديق أو رموز الخطوط عبارة عن مجموعة أحرف إن تم وضعها مع بعضها يقوم المتصفح بعرض خط له شكل محدد مكانها. هذه الأحرف مهمة جداً فهي تتيح لك إمكانية عرض أي حدود تريد في الصفحة حتى و إن كان الشكل المراد رسمه غير موجوداً على الكيبورد الذي تستخدمه.</p>
+            
+            <p>الأحرف التي نستخدمها لعرض الحدود يمكن وضعها بأسلوب عشري ( Decimal ) أو بأسلوب سداسي عشري ( Hexadecimal ).</p>
+        </section>
+
+        <section id="methods" class="section">
+            <h2>قاعدة عامة</h2>
+            
+            <div class="general-rule">
+                <ul>
+                    <li>عند استخدام الأسلوب Decimal يجب إضافة <span class="code-example">&#</span> قبل وضع أحرف الرمز.</li>
+                    <li>عند استخدام الأسلوب Hexadecimal يجب إضافة <span class="code-example">&#x</span> قبل وضع أحرف الرمز.</li>
+                    <li>كما أنه يفضّل دائماً وضع فاصلة منقوطة <span class="code-example">;</span> بعد كتابة أحرف الرمز و هذا أمر اختياري و لكننا ننصح بفعله.</li>
+                </ul>
+            </div>
+            
+            <h3 class="method-title">أمثلة على طرق العرض المختلفة</h3>
+            
+            <div class="example">
+                <h4>أسلوب Decimal (العشري)</h4>
+                <div class="code">
+                    <pre>&lt;p&gt;هذا مثال على استخدام &amp;#9472; لعرض خط أفقي خفيف&lt;/p&gt;</pre>
+                </div>
+                <div class="example">
+                    <p>هذا مثال على استخدام &#9472; لعرض خط أفقي خفيف</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>أسلوب Hexadecimal (السداسي عشري)</h4>
+                <div class="code">
+                    <pre>&lt;p&gt;هذا مثال على استخدام &amp;#x2500; لعرض خط أفقي خفيف&lt;/p&gt;</pre>
+                </div>
+                <div class="example">
+                    <p>هذا مثال على استخدام &#x2500; لعرض خط أفقي خفيف</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="table" class="section">
+            <h2>جدول رموز الحدود</h2>
+            <p>في الجدول التالي قمنا بذكر كل الرموز المتاحة التي يمكن استخدامها لعرض الحدود.</p>
+            
+            <div class="section-content">
+                <table class="border-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">الرمز</th>
+                            <th width="15%">Decimal</th>
+                            <th width="15%">Hexadecimal</th>
+                            <th width="40%">الإسم</th>
+                            <th width="20%">تجربة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">─</span></td>
+                            <td><span class="code-example">&amp;#9472;</span></td>
+                            <td><span class="code-example">&amp;#x2500;</span></td>
+                            <td class="symbol-name">Box Drawings Light Horizontal</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">━</span></td>
+                            <td><span class="code-example">&amp;#9473;</span></td>
+                            <td><span class="code-example">&amp;#x2501;</span></td>
+                            <td class="symbol-name">Box Drawings Heavy Horizontal</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">│</span></td>
+                            <td><span class="code-example">&amp;#9474;</span></td>
+                            <td><span class="code-example">&amp;#x2502;</span></td>
+                            <td class="symbol-name">Box Drawings Light Vertical</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┃</span></td>
+                            <td><span class="code-example">&amp;#9475;</span></td>
+                            <td><span class="code-example">&amp;#x2503;</span></td>
+                            <td class="symbol-name">Box Drawings Heavy Vertical</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┌</span></td>
+                            <td><span class="code-example">&amp;#9484;</span></td>
+                            <td><span class="code-example">&amp;#x250C;</span></td>
+                            <td class="symbol-name">Box Drawings Light Down And Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┐</span></td>
+                            <td><span class="code-example">&amp;#9488;</span></td>
+                            <td><span class="code-example">&amp;#x2510;</span></td>
+                            <td class="symbol-name">Box Drawings Light Down And Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">└</span></td>
+                            <td><span class="code-example">&amp;#9492;</span></td>
+                            <td><span class="code-example">&amp;#x2514;</span></td>
+                            <td class="symbol-name">Box Drawings Light Up And Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┘</span></td>
+                            <td><span class="code-example">&amp;#9496;</span></td>
+                            <td><span class="code-example">&amp;#x2518;</span></td>
+                            <td class="symbol-name">Box Drawings Light Up And Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">├</span></td>
+                            <td><span class="code-example">&amp;#9500;</span></td>
+                            <td><span class="code-example">&amp;#x251C;</span></td>
+                            <td class="symbol-name">Box Drawings Light Vertical And Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┤</span></td>
+                            <td><span class="code-example">&amp;#9508;</span></td>
+                            <td><span class="code-example">&amp;#x2524;</span></td>
+                            <td class="symbol-name">Box Drawings Light Vertical And Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┬</span></td>
+                            <td><span class="code-example">&amp;#9516;</span></td>
+                            <td><span class="code-example">&amp;#x252C;</span></td>
+                            <td class="symbol-name">Box Drawings Light Down And Horizontal</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┴</span></td>
+                            <td><span class="code-example">&amp;#9524;</span></td>
+                            <td><span class="code-example">&amp;#x2534;</span></td>
+                            <td class="symbol-name">Box Drawings Light Up And Horizontal</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">┼</span></td>
+                            <td><span class="code-example">&amp;#9532;</span></td>
+                            <td><span class="code-example">&amp;#x253C;</span></td>
+                            <td class="symbol-name">Box Drawings Light Vertical And Horizontal</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">═</span></td>
+                            <td><span class="code-example">&amp;#9552;</span></td>
+                            <td><span class="code-example">&amp;#x2550;</span></td>
+                            <td class="symbol-name">Box Drawings Double Horizontal</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">║</span></td>
+                            <td><span class="code-example">&amp;#9553;</span></td>
+                            <td><span class="code-example">&amp;#x2551;</span></td>
+                            <td class="symbol-name">Box Drawings Double Vertical</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">╔</span></td>
+                            <td><span class="code-example">&amp;#9556;</span></td>
+                            <td><span class="code-example">&amp;#x2554;</span></td>
+                            <td class="symbol-name">Box Drawings Double Down And Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">╗</span></td>
+                            <td><span class="code-example">&amp;#9559;</span></td>
+                            <td><span class="code-example">&amp;#x2557;</span></td>
+                            <td class="symbol-name">Box Drawings Double Down And Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">╚</span></td>
+                            <td><span class="code-example">&amp;#9562;</span></td>
+                            <td><span class="code-example">&amp;#x255A;</span></td>
+                            <td class="symbol-name">Box Drawings Double Up And Right</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                        <tr class="border-row">
+                            <td><span class="border-symbol">╝</span></td>
+                            <td><span class="code-example">&amp;#9565;</span></td>
+                            <td><span class="code-example">&amp;#x255D;</span></td>
+                            <td class="symbol-name">Box Drawings Double Up And Left</td>
+                            <td><a href="#" class="try-button">جربه</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="demo" class="section">
+            <h2>أمثلة تطبيقية لرموز الحدود</h2>
+            
+            <div class="border-demo">
+                <h4>مثال: استخدام رموز الحدود لإنشاء إطار</h4>
+                <div class="demo-row">
+                    <div style="font-family: monospace; line-height: 1.2;">
+                        <div>┌──────────────────────┐</div>
+                        <div>│  هذا مثال للإطار     │</div>
+                        <div>│  باستخدام رموز الحدود │</div>
+                        <div>└──────────────────────┘</div>
+                    </div>
+                </div>
+                
+                <div class="code">
+                    <pre>&lt;div style="font-family: monospace;"&gt;
+    &amp;#9484;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9516;&lt;br&gt;
+    &amp;#9474;  هذا مثال للإطار     &amp;#9474;&lt;br&gt;
+    &amp;#9474;  باستخدام رموز الحدود &amp;#9474;&lt;br&gt;
+    &amp;#9492;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9524;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="border-demo">
+                <h4>مثال: إنشاء جدول باستخدام رموز الحدود</h4>
+                <div class="demo-row">
+                    <div style="font-family: monospace; line-height: 1.2;">
+                        <div>┌──────────┬──────────┐</div>
+                        <div>│   الاسم   │   العمر   │</div>
+                        <div>├──────────┼──────────┤</div>
+                        <div>│  أحمد    │   25     │</div>
+                        <div>├──────────┼──────────┤</div>
+                        <div>│  محمد    │   30     │</div>
+                        <div>└──────────┴──────────┘</div>
+                    </div>
+                </div>
+                
+                <div class="code">
+                    <pre>&lt;div style="font-family: monospace;"&gt;
+    &amp;#9484;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9516;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9488;&lt;br&gt;
+    &amp;#9474;   الاسم   &amp;#9474;   العمر   &amp;#9474;&lt;br&gt;
+    &amp;#9500;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9532;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9508;&lt;br&gt;
+    &amp;#9474;  أحمد    &amp;#9474;   25     &amp;#9474;&lt;br&gt;
+    &amp;#9500;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9532;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9508;&lt;br&gt;
+    &amp;#9474;  محمد    &amp;#9474;   30     &amp;#9474;&lt;br&gt;
+    &amp;#9492;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9532;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9496;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="math-symbols.html" class="button-demo">❮ رموز الرياضيات</a>
+                <a href="block-symbols.html" class="button-demo">رموز الكتل ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

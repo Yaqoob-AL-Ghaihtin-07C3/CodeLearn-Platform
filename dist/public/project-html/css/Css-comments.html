@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - التعليقات (Comments) - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .comment-demo {
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+        }
+
+        .comment-demo p {
+            color: #34495e;
+            font-size: 1.1em;
+        }
+
+        .comment-demo.example-1 p {
+            /* أي فقرة موضوعة في الصفحة ستظهر بلون أحمر */
+            color: red;
+        }
+
+        .comment-demo.example-2 p {
+            color: blue;
+            /* هذه الخاصية تجعل لون النص أزرق */
+        }
+
+        .comment-demo.example-3 p {
+            /* أي فقرة موضوعة في
+            الصفحة ستظهر بلون أخضر */
+            color: green;
+        }
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>التعليقات (Comments)</h1>
+            <p>مفهوم التعليقات وكيفية استخدامها في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم التعليقات</a></li>
+                    <li><a href="#add-comment">إضافة تعليق في CSS</a></li>
+                    <li><a href="#html-vs-css">الفرق بين تعليقات HTML و CSS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم التعليقات</h2>
+            <p>
+                التعليق (Comment) هو نص يوضع في الكود كملاحظة للمبرمج. إنه يساعد في شرح أجزاء الكود أو تذكيرك بسبب كتابته، ولا يظهر للمستخدم في الصفحة النهائية.
+            </p>
+        </section>
+
+        <section id="add-comment" class="section">
+            <h2>إضافة تعليق في CSS</h2>
+            <p>
+                يتم وضع التعليق في CSS بين <strong><code>/* ... */</code></strong>. يمكن أن يكون التعليق على سطر واحد أو عدة أسطر.
+            </p>
+            <div class="property-block">
+                <h3>مثال 1: تعليق على سطر واحد</h3>
+                <p>التعليق يسبق القاعدة التي يصفها.</p>
+                <div class="code">
+                    <pre><span class="comment">/* أي فقرة موضوعة في الصفحة ستظهر بلون أحمر */</span>
+<span class="property">p</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+}</pre>
+                </div>
+                <div class="example comment-demo example-1">
+                    <p>هذا النص سيظهر باللون الأحمر.</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 2: تعليق بجانب الكود</h3>
+                <p>التعليق يأتي بعد الخاصية التي يصفها.</p>
+                <div class="code">
+                    <pre><span class="property">p</span> {
+    <span class="property">color</span>: <span class="value">blue</span>; <span class="comment">/* هذه الخاصية تجعل لون النص أزرق */</span>
+}</pre>
+                </div>
+                <div class="example comment-demo example-2">
+                    <p>هذا النص سيظهر باللون الأزرق.</p>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>مثال 3: تعليق على عدة أسطر</h3>
+                <p>عندما يكون التعليق طويلاً.</p>
+                <div class="code">
+                    <pre><span class="comment">/* أي فقرة موضوعة في
+الصفحة ستظهر بلون أخضر */</span><br><span class="property">p</span> {
+    <span class="property">color</span>: <span class="value">green</span>;
+}</pre>
+                </div>
+                <div class="example comment-demo example-3">
+                    <p>هذا النص سيظهر باللون الأخضر.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="html-vs-css" class="section">
+            <h2>الفرق بين تعليقات HTML و تعليقات CSS</h2>
+            <p>
+                الهدف من التعليقات في كلا اللغتين هو نفسه، ولكن طريقة كتابتها ومكان استخدامها يختلفان.
+            </p>
+            <ul>
+                <li><strong>تعليقات HTML:</strong> تُكتب بين <code>&lt;!-- ... --&gt;</code> ويمكن استخدامها في أي مكان داخل ملف HTML <strong>باستثناء</strong> داخل وسم <code>&lt;style&gt;</code>.</li>
+                <li><strong>تعليقات CSS:</strong> تُكتب بين <code>/* ... */</code> وتستخدم فقط داخل وسم <code>&lt;style&gt;</code> في ملف HTML أو داخل ملف CSS خارجي.</li>
+            </ul>
+            <div class="property-block">
+                <h3>مثال: استخدام كلا النوعين في نفس الصفحة</h3>
+                <div class="code">
+                    <pre><span class="comment-html">&lt;!-- تعليق بلغة HTML --&gt;</span>
+<span class="property">&lt;style&gt;</span>
+    <span class="property">p</span> {
+        <span class="property">color</span>: <span class="value">red</span>; <span class="comment">/* تعليق بلغة CSS */</span>
+    }
+<span class="property">&lt;/style&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

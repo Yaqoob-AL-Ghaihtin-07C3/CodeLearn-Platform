@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - الأنيميشين</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أنماط الأمثلة العامة */
+        .animation-container {
+            border: 2px dashed #95a5a6;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+            height: 150px;
+        }
+
+        .animated-box, .animated-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            left: 0;
+        }
+
+        /* أنماط أمثلة الدرس */
+        @keyframes example {
+            from {
+                background-color: red;
+            }
+            to {
+                background-color: blue;
+            }
+        }
+        .basic-animation {
+            background-color: red;
+            animation-name: example;
+            animation-duration: 3s;
+        }
+
+        @keyframes multi-step-example {
+            0% { background-color: orange; }
+            33% { background-color: red; }
+            66% { background-color: blue; }
+            100% { background-color: green; }
+        }
+        .multi-step-animation {
+            background-color: green;
+            animation-name: multi-step-example;
+            animation-duration: 4s;
+        }
+
+        @keyframes move-rotate-example {
+            0% {
+                background-color: red;
+                left: 0;
+                transform: rotateZ(0deg);
+            }
+            50% {
+                background-color: blue;
+                left: calc(100% - 100px);
+                transform: rotateZ(360deg);
+            }
+            100% {
+                background-color: red;
+                left: 0;
+                transform: rotateZ(0deg);
+            }
+        }
+        .delay-animation-1 {
+            animation-name: move-rotate-example;
+            animation-duration: 4s;
+            animation-delay: 2s;
+        }
+        .delay-animation-2 {
+            animation-name: move-rotate-example;
+            animation-duration: 4s;
+            animation-delay: -2s;
+        }
+
+        .iteration-count-3 {
+            animation-name: move-rotate-example;
+            animation-duration: 4s;
+            animation-iteration-count: 3;
+        }
+        .iteration-count-infinite {
+            animation-name: move-rotate-example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .direction-reverse {
+            background-color: red;
+            animation-name: example;
+            animation-duration: 3s;
+            animation-direction: reverse;
+        }
+        .direction-alternate {
+            background-color: red;
+            animation-name: example;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        /* أمثلة منحنى السرعة */
+        @keyframes slide-timing {
+            from { left: 100px; }
+            to { left: calc(100% - 50px); }
+        }
+        .timing-container {
+            border: 2px dashed #95a5a6;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+        .timing-container .animated-circle {
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-name: slide-timing;
+            animation-duration: 2s;
+            left: 100px;
+        }
+        .linear { background: #ED796D; top: 20px; animation-timing-function: linear; }
+        .ease { background: #ED976D; top: 70px; animation-timing-function: ease; }
+        .ease-in { background: #2ECC71; top: 120px; animation-timing-function: ease-in; }
+        .ease-out { background: #3498DB; top: 170px; animation-timing-function: ease-out; }
+        .ease-in-out { background: #1ABC9C; top: 220px; animation-timing-function: ease-in-out; }
+
+        /* إيقاف التشغيل */
+        .pause-on-hover {
+            animation-name: move-rotate-example;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        .pause-on-hover:hover {
+            animation-play-state: paused;
+        }
+
+        /* الاختصار */
+        @keyframes color-change {
+            from { background-color: red; }
+            to { background-color: blue; }
+        }
+        .shorthand-example-1 {
+            animation: 2s ease-in-out infinite alternate color-change;
+        }
+
+        @keyframes slide-horizontal {
+            from { left: 0; }
+            to { left: calc(100% - 100px); }
+        }
+        .shorthand-example-2 {
+            animation:
+                2s ease-in-out infinite alternate color-change,
+                2s linear infinite alternate slide-horizontal;
+        }
+
+        /* SVG Animation */
+        @keyframes logo-slide {
+            from { transform: translateX(-30px); }
+            to { transform: translateX(30px); }
+        }
+        @keyframes sticker-rotate {
+            from { transform: rotateZ(0deg); }
+            to { transform: rotateZ(360deg); }
+        }
+        .svg-animation-container svg {
+            animation: logo-slide 1.5s ease-in-out infinite alternate;
+            transform-origin: bottom;
+            max-width: 120px;
+            margin-top: 20px;
+        }
+        .svg-animation-container #sticker {
+            animation: sticker-rotate 1.5s ease-in-out infinite alternate;
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>الأنيميشين</h1>
+            <p>مفهوم الأنيمايشن في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الأنيميشين</a></li>
+                    <li><a href="#basics">أساسيات الأنيميشين</a></li>
+                    <li><a href="#keyframes">المحددات المئوية</a></li>
+                    <li><a href="#delay">تأخير البدء</a></li>
+                    <li><a href="#iteration-count">التكرار</a></li>
+                    <li><a href="#direction">الاتجاه</a></li>
+                    <li><a href="#timing-function">منحنى السرعة</a></li>
+                    <li><a href="#play-state">إيقاف | تشغيل</a></li>
+                    <li><a href="#shorthand">الاختصار</a></li>
+                    <li><a href="#svg-animation">أنيميشين SVG</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم الأنيميشين</h2>
+            <p>
+                الأنيميشين (<strong>Animations</strong>) هي مؤثرات بصرية تلقائية تجعل خصائص العنصر تتغير تدريجياً عبر الزمن، مما يضيف حيوية وجاذبية لصفحة الويب.
+            </p>
+        </section>
+
+        <section id="basics" class="section">
+            <h2>أساسيات الأنيميشين</h2>
+            <p>
+                لإضافة أنيميشين، يجب عليك: <strong>تعريف الأنيميشين</strong> باستخدام <code>@keyframes</code>، ثم <strong>تطبيقه</strong> على العنصر باستخدام <code>animation-name</code> و <code>animation-duration</code>.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">@keyframes example</span> {
+    <span class="property">from</span> { <span class="property">background-color</span>: <span class="value">red</span>; }
+    <span class="property">to</span> { <span class="property">background-color</span>: <span class="value">blue</span>; }
+}
+<span class="property">div</span> {
+    <span class="property">animation-name</span>: <span class="value">example</span>;
+    <span class="property">animation-duration</span>: <span class="value">3s</span>;
+}</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box basic-animation">نص</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="keyframes" class="section">
+            <h2>المحددات المئوية للأنيميشين</h2>
+            <p>
+                يمكنك استخدام النسب المئوية (مثل 0%، 50%، 100%) داخل <code>@keyframes</code> لتحديد مراحل متعددة للتغيير.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">@keyframes example</span> {
+    <span class="property">0%</span> { <span class="property">background-color</span>: <span class="value">orange</span>; }
+    <span class="property">33%</span> { <span class="property">background-color</span>: <span class="value">red</span>; }
+    <span class="property">...</span>
+}</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box multi-step-animation">نص</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="delay" class="section">
+            <h2>تأخير موعد بدء الأنيميشين</h2>
+            <p>
+                الخاصية <strong><code>animation-delay</code></strong> تحدد مدة التأخير قبل بدء الأنيميشين.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (تأخير إيجابي)</h3>
+                <div class="code">
+                    <pre><span class="property">animation-delay</span>: <span class="value">2s</span>;</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box delay-animation-1">تأخير 2s</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iteration-count" class="section">
+            <h2>تحديد كم مرة سيتكرر الأنيميشين</h2>
+            <p>
+                الخاصية <strong><code>animation-iteration-count</code></strong> تحدد عدد مرات تكرار الأنيميشين. يمكنك استخدام عدد محدد أو القيمة <strong><code>infinite</code></strong> للتكرار اللانهائي.
+            </p>
+            <div class="property-block">
+                <h3>المثال الثاني (تكرار لا نهائي)</h3>
+                <div class="code">
+                    <pre><span class="property">animation-iteration-count</span>: <span class="value">infinite</span>;</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box iteration-count-infinite">تكرار</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="direction" class="section">
+            <h2>تحديد إتجاه تشغيل الأنيميشين</h2>
+            <p>
+                الخاصية <strong><code>animation-direction</code></strong> تتحكم في اتجاه تشغيل الأنيميشين، سواء كان عادياً، عكسياً، أو متناوباً.
+            </p>
+            <div class="property-block">
+                <h3>المثال الثاني (متناوب)</h3>
+                <div class="code">
+                    <pre><span class="property">animation-direction</span>: <span class="value">alternate</span>;
+<span class="property">animation-iteration-count</span>: <span class="value">infinite</span>;</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box direction-alternate">متناوب</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timing-function" class="section">
+            <h2>تحديد منحنى سرعة الأنيميشين</h2>
+            <p>
+                الخاصية <strong><code>animation-timing-function</code></strong> تتحكم في سرعة الأنيميشين خلال دورته.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <p>لاحظ الفرق بين منحنيات السرعة المختلفة:</p>
+                <div class="timing-container">
+                    <div class="animated-circle linear">linear</div>
+                    <div class="animated-circle ease">ease</div>
+                    <div class="animated-circle ease-in">ease-in</div>
+                    <div class="animated-circle ease-out">ease-out</div>
+                    <div class="animated-circle ease-in-out">ease-in-out</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="play-state" class="section">
+            <h2>إيقاف | تشغيل الأنيميشين</h2>
+            <p>
+                الخاصية <strong><code>animation-play-state</code></strong> تسمح لك بإيقاف (<code>paused</code>) أو تشغيل (<code>running</code>) الأنيميشين.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">div:hover</span> {
+    <span class="property">animation-play-state</span>: <span class="value">paused</span>;
+}</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box pause-on-hover">مرر لإيقاف</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shorthand" class="section">
+            <h2>إضافة أنيميشين بشكل مختصر</h2>
+            <p>
+                يمكنك دمج جميع خصائص الأنيميشين في خاصية واحدة وهي <strong><code>animation</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">animation</span>: <span class="value">2s ease-in-out infinite alternate example</span>;
+}</pre>
+                </div>
+                <div class="animation-container">
+                    <div class="animated-box shorthand-example-1">اختصار</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="svg-animation" class="section">
+            <h2>إضافة أنيميشين لصورة SVG</h2>
+            <p>
+                يمكنك تحريك رسومات SVG عن طريق إضافتها مباشرة ككود في الصفحة ثم تطبيق الأنماط عليها.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">svg</span> {
+    <span class="property">animation</span>: <span class="value">logo-slide 1.5s ease-in-out infinite alternate</span>;
+}
+<span class="property">#sticker</span> {
+    <span class="property">animation</span>: <span class="value">sticker-rotate 1.5s ease-in-out infinite alternate</span>;
+}</pre>
+                </div>
+                <div class="animation-container svg-animation-container">
+                    <svg id="harameesh-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF9D00;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFD200;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0039C3;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#020D89;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF5A00;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FF2400;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#A07100;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#815200;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="45" fill="url(#g1)" />
+                        <path d="M50,15 L90,85 L10,85 Z" fill="url(#g2)" />
+                        <path id="sticker" d="M40,30 L60,30 L60,70 L40,70 L40,30 Z M50,30 L50,70 M40,50 L60,50" fill="white" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+
+</body>
+
+</html>

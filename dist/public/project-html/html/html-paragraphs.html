@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفقرات في HTML - EliteWeb - EliteWeb</title>
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>الفقرات</h2>
+            <p>تعلم كيفية استخدام الفقرات وعرض النص في صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الفقرات</a></li>
+                    <li><a href="#normal-paragraphs">الفقرات العادية</a></li>
+                    <li><a href="#line-breaks">النزول لسطر جديد</a></li>
+                    <li><a href="#spaces">المسافات الإضافية</a></li>
+                    <li><a href="#preformatted">النص المنسق مسبقاً</a></li>
+                    <li><a href="#display-code">عرض كود HTML</a></li>
+                    <li><a href="#horizontal-line">الخط الأفقي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم الفقرات</h2>
+            <p>الفقرة (Paragraph) عبارة عن مساحة يتم تخصيصها لعرض النص الذي نضعه فيها على سطر جديد.</p>
+            <p>في هذا الدرس ستتعرف على أنواع الفقرات التي يمكن إضافتها في الصفحة.</p>
+            
+            <div class="property-block">
+                <h3>أنواع الفقرات</h3>
+                <p>هناك نوعين من الفقرات التي يمكن إضافتها في الصفحة:</p>
+                <ul>
+                    <li>فقرات مخصصة لعرض النص بالشكل المناسب.</li>
+                    <li>فقرات مخصصة لعرض النص كما هو.</li>
+                </ul>
+                <p>الفرق بين النوعين هو أن الفقرة المخصصة لعرض النص بالشكل المناسب يتم عرض النص الموضوع فيها بشكل مناسب لحجم الشاشة حتى يتمكن المستخدم من رؤية كل النص الموضوع فيها بشكل سهل بالإضافة إلى أنها تقوم بإزالة أي مسافات فارغة تجد أنه لا داعي لها.</p>
+            </div>
+        </section>
+
+        <section id="normal-paragraphs" class="section">
+            <h2>الفقرات المخصصة لعرض النص بالشكل المناسب</h2>
+            <p>لعرض نص عادي في الصفحة نضع النص بداخل <code>&lt;p&gt;&lt;/p&gt;</code>.</p>
+            <p>إسم الوسم p هو اختصار لكلمة Paragraph التي تعني فقرة.</p>
+            
+            <div class="property-block">
+                <h3>المثال الأول: فقرتين منفصلتين</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>This is a paragraph.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>This is another paragraph.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>This is a paragraph.</p>
+                    <p>This is another paragraph.</p>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثاني: مسافات إضافية</h3>
+                <p>عند تجربة الكود لاحظ كيف سيقوم المتصفح بإزالة جميع المسافات التي يجد أنه لا داعي لها.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>   This  paragraph    contains  extra    spaces.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>   This  paragraph    contains  extra    spaces.</p>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثالث: نص على أسطر متعددة</h3>
+                <p>عند تجربة الكود لاحظ كيف سيقوم المتصفح بعرض النص كله على سطر واحد.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Hello guys, my name is Mhamad.
+I start learning programming at 19.
+One year later I create harmash.com<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Hello guys, my name is Mhamad.
+I start learning programming at 19.
+One year later I create harmash.com</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="line-breaks" class="section">
+            <h2>النزول على سطر جديد في الفقرة</h2>
+            <p>لإعلام المتصفح أنك تريد النزول على سطر جديد بداخل الفقرة, يجب وضع <code>&lt;br&gt;</code> في نهاية السطر.</p>
+            <p>إسم الوسم br هو اختصار لعبارة Line Break و التي يقصد بها في حالتنا إيقاف العرض على نفس السطر.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام &lt;br&gt; للنزول لسطر جديد</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Here we break the paragraph.<span class="property">&lt;br&gt;</span>This will apear on a new line.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Here we break the paragraph.<br>This will apear on a new line.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="spaces" class="section">
+            <h2>عرض أكثر من مسافة بين الكلمات في الفقرة</h2>
+            <p>لإعلام المتصفح أنك تريد وضع أكثر من مسافة فارغة وراء بعض في النص، فالحل هو استخدام الرمز <code>&amp;nbsp;</code> الذي يعني مسافة فارغة بالنسبة للمتصفح.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام &amp;nbsp; لإضافة مسافات متعددة</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>We add 4 white spaces at the beginning.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;We add 4 white spaces at the beginning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="preformatted" class="section">
+            <h2>الفقرات المخصصة لعرض النص كما هو</h2>
+            <p>لعرض النص كما يظهر بالضبط في الكود نضع النص بداخل <code>&lt;pre&gt;&lt;/pre&gt;</code>.</p>
+            <p>إسم الوسم pre إختصار لعبارة Preformatted Text التي تعني نص منسق مسبقاً.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام &lt;pre&gt; لعرض النص كما هو</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;pre&gt;</span>
+Name: Mhamad Harmush
+Job:  Programmer
+Age:  26
+<span class="property">&lt;/pre&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <pre>
+Name: Mhamad Harmush
+Job:  Programmer
+Age:  26
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="display-code" class="section">
+            <h2>طريقة عرض كود HTML في الصفحة</h2>
+            <p>لجعل المتصفح يعتبر الكود المكتوب كأحرف عادية فهناك شيئان يضمنان ذلك:</p>
+            <ul>
+                <li>تحويل كل <code>&lt;</code> موجود في الكود إلى <code>&amp;lt;</code></li>
+                <li>تحويل كل <code>&amp;</code> موجود في الكود إلى <code>&amp;amp;</code></li>
+            </ul>
+            
+            <div class="example">
+                <h4>مثال: عرض كود HTML في الصفحة</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;pre&gt;</span>
+<span class="value">&amp;lt;</span>!DOCTYPE html<span class="value">&amp;gt;</span>
+<span class="value">&amp;lt;</span>html<span class="value">&amp;gt;</span>
+    <span class="value">&amp;lt;</span>body<span class="value">&amp;gt;</span>
+        <span class="value">&amp;lt;</span>p<span class="value">&amp;gt;</span>HTML <span class="value">&amp;amp;</span> CSS are so easy to learn<span class="value">&amp;lt;</span>/p<span class="value">&amp;gt;</span>
+    <span class="value">&amp;lt;</span>/body<span class="value">&amp;gt;</span>
+<span class="value">&amp;lt;</span>/html<span class="value">&amp;gt;</span>
+<span class="property">&lt;/pre&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;p&gt;HTML &amp; CSS are so easy to learn&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="horizontal-line" class="section">
+            <h2>طريقة عرض خط أفقي</h2>
+            <p>لعرض خط أفقي في الصفحة نضع <code>&lt;hr&gt;</code> فقط.</p>
+            <p>إسم الوسم hr إختصار لكلمة Horizontal Rule التي تعني مسطرة أفقية.</p>
+            
+            <div class="example">
+                <h4>مثال: استخدام &lt;hr&gt; لعرض خط أفقي</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>In Harmash.com you can learn every thing you need for free.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;hr&gt;</span>
+<span class="property">&lt;p&gt;</span>You can learn Algorithms, Java, C++, Python, SQL etc..<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>In Harmash.com you can learn every thing you need for free.</p>
+                    <hr>
+                    <p>You can learn Algorithms, Java, C++, Python, SQL etc..</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

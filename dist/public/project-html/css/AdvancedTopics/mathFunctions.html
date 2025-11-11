@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - دوال الحسابات</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .example-code-block .example {
+            border: 2px solid #3498db;
+            padding: 15px;
+            background-color: #eaf6ff;
+            border-radius: 8px;
+            box-sizing: border-box; /* لضمان أن العرض يشمل الهوامش والحدود */
+        }
+        
+        .example-code-block .example h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        /* أمثلة دوال الحسابات */
+        #calc-demo {
+            height: 50px;
+            background-color: #2ecc71;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        #max-demo {
+            height: 50px;
+            background-color: #e74c3c;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        #min-demo {
+            height: 50px;
+            background-color: #f39c12;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>دوال الحسابات (CSS Functions)</h1>
+            <p>شرح دوال <code>calc()</code>، <code>max()</code>، و <code>min()</code></p>
+            <nav>
+                <ul>
+                    <li><a href="#intro">ما هي دوال الحسابات</a></li>
+                    <li><a href="#calc">الدالة <code>calc()</code></a></li>
+                    <li><a href="#max">الدالة <code>max()</code></a></li>
+                    <li><a href="#min">الدالة <code>min()</code></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="intro" class="section">
+            <h2>ما هي دوال الحسابات؟</h2>
+            <p>
+                توفر CSS دوال برمجية (Functions) يمكن استخدامها لإجراء عمليات حسابية لتعيين أحجام العناصر بشكل مرن وبسيط جداً، مما يساعد كثيراً عند بناء تصاميم متجاوبة (Responsive) تظهر بشكل مناسب على مختلف أحجام الشاشات.
+            </p>
+        </section>
+
+        <section id="calc" class="section">
+            <h2>الدالة <code>calc()</code></h2>
+            <p>
+                تُستخدم هذه الدالة لإجراء عمليات حسابية مثل الجمع (<code>+</code>)، الطرح (<code>-</code>)، الضرب (<code>*</code>)، والقسمة (<code>/</code>) عند تحديد القياسات.
+            </p>
+            <div class="property-block">
+                <h3>مثال: استخدام <code>calc()</code> لتحديد العرض</h3>
+                <div class="code">
+                    <pre><span class="property">#calc-demo</span> {
+    <span class="property">position</span>: <span class="value">absolute</span>;
+    <span class="property">left</span>: <span class="value">40px</span>;
+    <span class="property">width</span>: <span class="value">calc(100% - 80px)</span>;
+}</pre>
+                </div>
+                <div class="example">
+                    <div id="calc-demo" style="position: relative; left: 40px; width: calc(100% - 80px);">
+                        عرض: 100% - 80px
+                    </div>
+                </div>
+                <p>
+                    هذا الكود يجعل عرض العنصر يساوي كامل عرض الصفحة (100%) مطروحًا منه 80 بكسل، مما يمنحه مساحة 40 بكسل على اليمين و 40 بكسل على اليسار.
+                </p>
+            </div>
+        </section>
+
+        <section id="max" class="section">
+            <h2>الدالة <code>max()</code></h2>
+            <p>
+                تُستخدم هذه الدالة لوضع عدة قيم، ويقوم المتصفح باختيار القيمة الأكبر منها.
+            </p>
+            <div class="property-block">
+                <h3>مثال: استخدام <code>max()</code></h3>
+                <div class="code">
+                    <pre><span class="property">#max-demo</span> {
+    <span class="property">width</span>: <span class="value">max(50%, 300px)</span>;
+}</pre>
+                </div>
+                <div class="example">
+                    <div id="max-demo" style="width: max(50%, 300px);">
+                        العرض: max(50%, 300px)
+                    </div>
+                </div>
+                <p>
+                    في هذا المثال، سيأخذ العنصر العرض الأكبر بين 50% من عرض الصفحة و 300 بكسل.
+                </p>
+            </div>
+        </section>
+
+        <section id="min" class="section">
+            <h2>الدالة <code>min()</code></h2>
+            <p>
+                تُستخدم هذه الدالة لوضع عدة قيم، ويقوم المتصفح باختيار القيمة الأصغر منها.
+            </p>
+            <div class="property-block">
+                <h3>مثال: استخدام <code>min()</code></h3>
+                <div class="code">
+                    <pre><span class="property">#min-demo</span> {
+    <span class="property">width</span>: <span class="value">min(50%, 300px)</span>;
+}</pre>
+                </div>
+                <div class="example">
+                    <div id="min-demo" style="width: min(50%, 300px);">
+                        العرض: min(50%, 300px)
+                    </div>
+                </div>
+                <p>
+                    في هذا المثال، سيأخذ العنصر العرض الأصغر بين 50% من عرض الصفحة و 300 بكسل.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - تحديد العناصر (Selectors) - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ab2.css">
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>تحديد العناصر (Selectors)</h1>
+            <p>كيفية تحديد العناصر المراد تنسيقها</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم تحديد العناصر</a></li>
+                    <li><a href="#by-name">تحديد بإسم العنصر</a></li>
+                    <li><a href="#by-class">تحديد بواسطة Class</a></li>
+                    <li><a href="#by-id">تحديد بواسطة ID</a></li>
+                    <li><a href="#universal">تحديد الكل (*)</a></li>
+                    <li><a href="#direct-child">تحديد العناصر المباشرة</a></li>
+                    <li><a href="#grouping">تجميع الخصائص</a></li>
+                    <li><a href="#multiple-classes">تحديد نفس الوسم أكثر من مرة</a></li>
+                    <li><a href="#clash">تضارب أسماء الخصائص</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="concept" class="section">
+            <h2>مفهوم تحديد العناصر</h2>
+            <p>
+                <strong>تحديد العناصر (Select Elements)</strong> هي الطرق التي يمكنك من خلالها اختيار الوسوم التي سيتم تطبيق خصائص CSS عليها. في هذا الدرس، ستتعرف على الطرق الأساسية والبسيطة التي تسمى <strong>مُحدِّدات بسيطة (Simple Selectors)</strong>.
+            </p>
+        </section>
+
+        <section id="by-name" class="section">
+            <h2>تحديد العنصر من خلال إسمه</h2>
+            <p>
+                لتطبيق خصائص على جميع الوسوم التي تملك اسماً معيناً، اذكر اسم الوسم فقط.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">p</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example example-code-block">
+                    <p style="color: red; text-align: center;">هذا النص سيظهر باللون الأحمر وفي الوسط.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="by-class" class="section">
+            <h2>تحديد العنصر بواسطة الخاصية Class</h2>
+            <p>
+                يمكنك تحديد العناصر من خلال أسماء الكلاسات التي تمنحها لهم. لتعريف كلاس في CSS، ابدأ بنقطة (<code>.</code>) يتبعها اسم الكلاس.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.center</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example example-code-block class">
+                    <p class="center">هذا النص سيطبق عليه خصائص الكلاس.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="by-id" class="section">
+            <h2>تحديد العنصر بواسطة الخاصية ID</h2>
+            <p>
+                يمكنك تحديد عنصر واحد فريد في الصفحة بواسطة الخاصية <code>id</code>. لتعريف ID في CSS، ابدأ برمز المربع (<code>#</code>) يتبعه اسم الـ ID.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">#demo</span> {
+    <span class="property">color</span>: <span class="value">blue</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example example-code-block id">
+                    <p id="demo">هذا النص سيطبق عليه خصائص الـ ID.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="universal" class="section">
+            <h2>تحديد جميع عناصر الصفحة بواسطة *</h2>
+            <p>
+                يمكن استخدام رمز النجمة (<code>*</code>) لتحديد جميع العناصر في الصفحة وتطبيق الخصائص عليها.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">*</span> {
+    <span class="property">color</span>: <span class="value">blue</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example example-code-block universal">
+                    <p>هذا النص سيطبق عليه خصائص المحدد الشامل.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="direct-child" class="section">
+            <h2>تحديد العناصر المباشرة بواسطة ></h2>
+            <p>
+                يستخدم الرمز (<code>&gt;</code>) لتحديد العناصر التي هي أبناء مباشرون لعنصر محدد.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">article &gt; p</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+}</pre>
+                </div>
+                <div class="example example-code-block direct-child">
+                    <article>
+                        <p>هذا النص ابن مباشر لـ `article`.</p>
+                        <div>
+                            <p>هذا النص ليس ابناً مباشراً لـ `article`.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <section id="grouping" class="section">
+            <h2>تجميع الخصائص المشتركة</h2>
+            <p>
+                يمكنك تحديد أكثر من عنصر في وقت واحد وتطبيق نفس الخصائص عليها، وذلك بفصل أسماء المُحدِّدات بفاصلة (<code>,</code>).
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">p, b</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+}</pre>
+                </div>
+                <div class="example example-code-block grouping">
+                    <p>هذا النص في وسم `p`.</p>
+                    <b>وهذا النص في وسم `b`.</b>
+                </div>
+            </div>
+        </section>
+
+        <section id="multiple-classes" class="section">
+            <h2>تحديد الوسم نفسه أكثر من مرة</h2>
+            <p>
+                يمكنك إعطاء وسم واحد أكثر من كلاس (class)، وسيتم تطبيق جميع الخصائص من كل الكلاسات عليه.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.red</span> { <span class="property">color</span>: <span class="value">red</span>; }
+<span class="property">.center</span> { <span class="property">text-align</span>: <span class="value">center</span>; }</pre>
+                </div>
+                <div class="example example-code-block multiple-classes">
+                    <p class="red center">هذا النص يجمع بين خصائص الكلاسين.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="clash" class="section">
+            <h2>تضارب أسماء الخصائص المستخدمة</h2>
+            <p>
+                إذا تم إعطاء العنصر قيمتين مختلفتين لنفس الخاصية، فإن القيمة الأخيرة المحددة هي التي ستُطبق.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.red</span> { <span class="property">color</span>: <span class="value">red</span>; }
+<span class="property">.blue</span> { <span class="property">color</span>: <span class="value">blue</span>; }</pre>
+                </div>
+                <div class="example example-code-block clash">
+                    <p class="red blue">لون هذا النص سيكون أزرق.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

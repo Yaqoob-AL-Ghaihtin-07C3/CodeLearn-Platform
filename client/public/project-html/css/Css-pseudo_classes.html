@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح Pseudo-classes في CSS - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="style.css">
+    
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>CSS</h1>
+            <h2>الفئات الزائفة (Pseudo-classes)</h2>
+            <p>كيفية تنسيق العناصر بناءً على حالتها</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم Pseudo-classes</a></li>
+                    <li><a href="#link-states">حالات الروابط</a></li>
+                    <li><a href="#user-action">تفاعلات المستخدم</a></li>
+                    <li><a href="#form-elements">عناصر النماذج</a></li>
+                    <li><a href="Enum.html">ارجوع الى الصفحة الرئيسية </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم الفئات الزائفة</h2>
+            <p>
+                **الفئات الزائفة (Pseudo-classes)** هي كلمات مفتاحية تُضاف إلى مُحدِّدات CSS لتحديد حالة خاصة للعنصر الذي نريد تنسيقه. على سبيل المثال، يمكن استخدامها لتحديد شكل الزر عند مرور الماوس فوقه، أو لتنسيق الرابط بعد زيارته.
+            </p>
+            <p>
+                يتم كتابة الفئة الزائفة بعد اسم المحدد، مسبوقة بنقطتين رأسيتين (<code>:</code>).
+            </p>
+        </section>
+
+        <section id="link-states" class="section">
+            <h2>حالات الروابط</h2>
+            <p>
+                تُستخدم الفئات الزائفة بشكل شائع لتنسيق الروابط بناءً على حالتها:
+            </p>
+            <ul>
+                <li><strong><code>:link</code></strong>: يُطبَّق على الروابط التي لم يتم النقر عليها بعد.</li>
+                <li><strong><code>:visited</code></strong>: يُطبَّق على الروابط التي تمت زيارتها بالفعل.</li>
+                <li><strong><code>:hover</code></strong>: يُطبَّق عند مرور مؤشر الماوس فوق الرابط.</li>
+                <li><strong><code>:active</code></strong>: يُطبَّق عند النقر على الرابط (في لحظة الضغط).</li>
+            </ul>
+            <div class="example">
+                <h4>مثال: تنسيق حالات الرابط</h4>
+                <div class="code">
+                    <pre><span class="property">a:link</span> {
+    <span class="property">color</span>: <span class="value">blue</span>;
+}
+<span class="property">a:visited</span> {
+    <span class="property">color</span>: <span class="value">purple</span>;
+}
+<span class="property">a:hover</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+}
+<span class="property">a:active</span> {
+    <span class="property">color</span>: <span class="value">green</span>;
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="user-action" class="section">
+            <h2>تفاعلات المستخدم الشائعة</h2>
+            <p>
+                يمكنك استخدام الفئات الزائفة لتنسيق أي عنصر عند تفاعل المستخدم معه، وليس الروابط فقط:
+            </p>
+            <div class="property-block">
+                <h3><code>:hover</code></h3>
+                <p>
+                    يُطبق هذا على أي عنصر عندما يمر الماوس فوقه. يمكن استخدامه لإضافة تأثيرات بصرية جذابة على الأزرار، الصور، أو البطاقات.
+                </p>
+                <div class="example">
+                    <h4>مثال: تأثير على زر</h4>
+                    <div class="code">
+                        <pre><span class="property">button:hover</span> {
+    <span class="property">background-color</span>: <span class="value">#3498db</span>;
+    <span class="property">transform</span>: <span class="value">scale(1.1)</span>;
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3><code>:active</code></h3>
+                <p>
+                    يُطبق هذا على العنصر في اللحظة التي يتم فيها النقر عليه.
+                </p>
+                <div class="example">
+                    <h4>مثال: تأثير على زر عند النقر</h4>
+                    <div class="code">
+                        <pre><span class="property">button:active</span> {
+    <span class="property">background-color</span>: <span class="value">#2980b9</span>;
+    <span class="property">transform</span>: <span class="value">scale(0.95)</span>;
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3><code>:focus</code></h3>
+                <p>
+                    يُطبق هذا على العنصر الذي يتم تحديد موقعه حاليًا (مثل حقل إدخال عند النقر عليه أو التنقل إليه باستخدام لوحة المفاتيح).
+                </p>
+                <div class="example">
+                    <h4>مثال: تنسيق حقل الإدخال عند التركيز عليه</h4>
+                    <div class="code">
+                        <pre><span class="property">input:focus</span> {
+    <span class="property">border-color</span>: <span class="value">#3498db</span>;
+    <span class="property">box-shadow</span>: <span class="value">0 0 5px rgba(52, 152, 219, 0.5)</span>;
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="form-elements" class="section">
+            <h2>الفئات الزائفة لعناصر النماذج</h2>
+            <p>
+                هناك فئات زائفة خاصة تستخدم لتنسيق عناصر النماذج بناءً على حالتها:
+            </p>
+            <ul>
+                <li><strong><code>:valid</code></strong>: يُطبق عندما تكون قيمة حقل الإدخال صحيحة.</li>
+                <li><strong><code>:invalid</code></strong>: يُطبق عندما تكون قيمة حقل الإدخال غير صحيحة.</li>
+                <li><strong><code>:required</code></strong>: يُطبق عندما يكون حقل الإدخال إلزامياً.</li>
+                <li><strong><code>:disabled</code></strong>: يُطبق عندما يكون العنصر مُعطَّلاً.</li>
+            </ul>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section links">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

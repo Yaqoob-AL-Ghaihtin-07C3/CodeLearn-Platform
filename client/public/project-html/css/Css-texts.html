@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - النصوص (Text) - EliteWeb</title>
+  
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .text-demo {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            line-height: 1.6;
+        }
+        
+        /* أنماط المثال الأول: تحديد اللون */
+        .color-demo-1 h1 {
+            color: cadetblue;
+        }
+        .color-demo-1 p {
+            color: gray;
+        }
+        
+        /* أنماط المثال الثاني: لون الخلفية */
+        .color-demo-2 button {
+            color: white;
+            background-color: #0d6efd;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        /* أنماط اتجاه النص */
+        .text-align-demo {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .text-align-demo.left { text-align: left; }
+        .text-align-demo.right { text-align: right; }
+        .text-align-demo.center { text-align: center; }
+        .text-align-demo.justify { text-align: justify; }
+
+        /* أنماط اتجاه الكتابة */
+        .direction-demo .ar {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* أنماط المسافات */
+        .line-height-demo p {
+            line-height: 30px;
+        }
+        .centered-demo {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+        }
+        .text-indent-demo p {
+            text-indent: 50px;
+        }
+        .spacing-demo p {
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .spacing-demo .far-chars { letter-spacing: 5px; }
+        .spacing-demo .close-chars { letter-spacing: -2px; }
+        .spacing-demo .far-words { word-spacing: 8px; }
+        .spacing-demo .close-words { word-spacing: -2px; }
+
+        /* أنماط المسافات الفارغة */
+        .whitespace-demo .box {
+            border: 1px dashed #999;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .whitespace-demo .normal { white-space: normal; }
+        .whitespace-demo .nowrap { white-space: nowrap; }
+        .whitespace-demo .pre { white-space: pre; }
+        .whitespace-demo .pre-line { white-space: pre-line; }
+        .whitespace-demo .pre-wrap { white-space: pre-wrap; }
+        
+        /* أنماط المحاذاة العمودية */
+        .vertical-align-demo span, .vertical-align-demo img {
+            border: 1px solid red;
+        }
+        .vertical-align-demo .baseline { vertical-align: baseline; }
+        .vertical-align-demo .text-top { vertical-align: text-top; }
+        .vertical-align-demo .text-bottom { vertical-align: text-bottom; }
+        .vertical-align-demo .bottom { vertical-align: bottom; }
+        .vertical-align-demo .top { vertical-align: top; }
+        .vertical-align-demo .middle { vertical-align: middle; }
+        .vertical-align-demo .sub { vertical-align: sub; }
+        .vertical-align-demo .sup { vertical-align: sup; }
+        .vertical-align-demo .length-positive { vertical-align: 5px; }
+        .vertical-align-demo .length-negative { vertical-align: -5px; }
+        .vertical-align-demo .percentage-positive { vertical-align: 10%; }
+        .vertical-align-demo .percentage-negative { vertical-align: -10%; }
+
+        /* أنماط تحويل الأحرف */
+        .transform-demo h3 {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .transform-demo .uppercase { text-transform: uppercase; }
+        .transform-demo .lowercase { text-transform: lowercase; }
+        .transform-demo .capitalize { text-transform: capitalize; }
+
+        /* أنماط زخرفة النص */
+        .decoration-demo p {
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px;
+        }
+        .decoration-demo .overline { text-decoration-line: overline; }
+        .decoration-demo .underline { text-decoration-line: underline; }
+        .decoration-demo .line-through { text-decoration-line: line-through; }
+        .decoration-demo .over-and-under-line { text-decoration-line: overline underline; }
+
+        .decoration-color-demo p {
+            text-align: center;
+            padding: 10px;
+        }
+        .decoration-color-demo .overline { text-decoration-line: overline; text-decoration-color: purple; }
+        .decoration-color-demo .underline { text-decoration-line: underline; text-decoration-color: red; }
+        .decoration-color-demo .line-through { text-decoration-line: line-through; text-decoration-color: blue; }
+        .decoration-color-demo .over-and-under-line { text-decoration-line: overline underline; text-decoration-color: gray; }
+
+        .decoration-style-demo p {
+            text-decoration-line: underline;
+            padding: 10px;
+            text-align: center;
+        }
+        .decoration-style-demo .solid { text-decoration-style: solid; }
+        .decoration-style-demo .double { text-decoration-style: double; }
+        .decoration-style-demo .dotted { text-decoration-style: dotted; }
+        .decoration-style-demo .dashed { text-decoration-style: dashed; }
+        .decoration-style-demo .wavy { text-decoration-style: wavy; }
+
+        .decoration-thickness-demo p {
+            text-align: center;
+            text-decoration-line: underline;
+        }
+        .decoration-thickness-demo .thin { text-decoration-thickness: 1px; }
+        .decoration-thickness-demo .thick { text-decoration-thickness: 5px; }
+
+        .decoration-shorthand-demo p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .decoration-shorthand-demo .wrong {
+            text-decoration: underline red wavy 0.8px;
+        }
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>النصوص (Text)</h1>
+            <p>خصائص النصوص في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#text-properties">خصائص النصوص</a></li>
+                    <li><a href="#text-color">تحديد لون النص</a></li>
+                    <li><a href="#text-alignment">تحديد اتجاه النص</a></li>
+                    <li><a href="#text-direction">تحديد اتجاه الكتابة</a></li>
+                    <li><a href="#text-spacing">المسافات بين الأسطر والكلمات</a></li>
+                    <li><a href="#text-vertical">المحاذاة العمودية</a></li>
+                    <li><a href="#text-transform">تحويل أحرف النص</a></li>
+                    <li><a href="#text-decoration">زخرفة النص</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="text-properties" class="section">
+            <h2>خصائص النصوص</h2>
+            <p>
+                توفر CSS العديد من الخصائص التي تمكنك من تحسين طريقة ظهور النصوص وتنسيقها بالشكل الذي تريده بالضبط، مثل تغيير اللون، والاتجاه، والمسافات، وغيرها من الأمور التي سنتعرف عليها في هذا الدرس.
+            </p>
+            <div class="example text-demo" style="text-align: center;">
+                <h1 style="color: cadetblue;">TEXT FORMATTING</h1>
+                <p style="text-align: justify; font-family: Arial;">
+                    This text is styled well to look in this way. Title is colored and aligned to the center. Paragraph is justified. Everyting is apear from left to right and use a font called arial. After finishing this tutorial you should learn javascript.
+                </p>
+            </div>
+        </section>
+
+        <section id="text-color" class="section">
+            <h2>تحديد لون النص</h2>
+            <p>
+                نستخدم الخاصية <strong><code>color</code></strong> لتلوين نص العنصر. يمكن تحديد اللون بالاسم أو بنظام الألوان مثل <code>HEX</code> أو <code>RGB</code>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: لون النص والعنوان</h3>
+                <div class="code">
+                    <pre><span class="property">body</span> { <span class="property">color</span>: <span class="value">gray</span>; }
+<span class="property">h1</span> { <span class="property">color</span>: <span class="value">cadetblue</span>; }</pre>
+                </div>
+                <div class="example text-demo color-demo-1">
+                    <h1>عنوان باللون الأزرق</h1>
+                    <p>هذا النص سيأخذ لون الجسم الرئيسي (رمادي).</p>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني: لون النص والخلفية</h3>
+                <div class="code">
+                    <pre><span class="property">button</span> {
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background-color</span>: <span class="value">#0d6efd</span>;
+}</pre>
+                </div>
+                <div class="example text-demo color-demo-2">
+                    <button>زر بأسلوب CSS</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-alignment" class="section">
+            <h2>تحديد اتجاه النص</h2>
+            <p>
+                لتحديد المحاذاة الأفقية للنص، نستخدم الخاصية <strong><code>text-align</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: المحاذاة الأساسية</h3>
+                <div class="code">
+                    <pre><span class="property">.left</span> { <span class="property">text-align</span>: <span class="value">left</span>; }
+<span class="property">.right</span> { <span class="property">text-align</span>: <span class="value">right</span>; }
+<span class="property">.center</span> { <span class="property">text-align</span>: <span class="value">center</span>; }</pre>
+                </div>
+                <div class="example text-demo">
+                    <div class="text-align-demo left">
+                        <p>هذا النص محاذى لليسار.</p>
+                    </div>
+                    <div class="text-align-demo right">
+                        <p>هذا النص محاذى لليمين.</p>
+                    </div>
+                    <div class="text-align-demo center">
+                        <p>هذا النص في الوسط.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني: خاصية justify</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">text-align</span>: <span class="value">justify</span>;
+}</pre>
+                </div>
+                <div class="example text-demo">
+                    <div class="text-align-demo justify">
+                        <p>
+                            هذه الفقرة تستخدم خاصية justify التي تقوم بضبط المسافات بين الكلمات بحيث تكون جميع الأسطر بنفس الطول.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-direction" class="section">
+            <h2>تحديد اتجاه الكتابة</h2>
+            <p>
+                تحديد اتجاه الكتابة أمر مهم للنصوص العربية واللغات الأخرى. نستخدم الخاصية <strong><code>direction</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>مثال: اتجاه من اليمين إلى اليسار (RTL)</h3>
+                <div class="code">
+                    <pre><span class="property">.ar</span> {
+    <span class="property">direction</span>: <span class="value">rtl</span>;
+    <span class="property">text-align</span>: <span class="value">right</span>;
+}</pre>
+                </div>
+                <div class="example text-demo direction-demo">
+                    <p class="ar">هذا النص مكتوب باللغة العربية، وجميع الأسطر تبدأ من اليمين إلى اليسار.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-spacing" class="section">
+            <h2>المسافات بين الأسطر والكلمات</h2>
+            <p>
+                يمكنك التحكم في المسافات بين الأسطر والأحرف والكلمات لتحسين قابلية القراءة.
+            </p>
+            <div class="property-block">
+                <h3>ارتفاع السطر (Line Height)</h3>
+                <p>تستخدم <strong><code>line-height</code></strong> لتحديد المسافة بين أسطر النص.</p>
+                <div class="code">
+                    <pre><span class="property">p</span> {
+    <span class="property">line-height</span>: <span class="value">30px</span>;
+}</pre>
+                </div>
+                <div class="example text-demo line-height-demo">
+                    <p>هذه الفقرة لها ارتفاع سطر محدد، مما يجعل الأسطر متباعدة عن بعضها أكثر. هذا يساعد في تحسين قابلية القراءة.</p>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>توسيط النص عمودياً وأفقياً</h3>
+                <p>يمكن استخدام <strong><code>line-height</code></strong> لتوسيط سطر واحد من النص عمودياً داخل عنصر ما.</p>
+                <div class="code">
+                    <pre><span class="property">.centered</span> {
+    <span class="property">height</span>: <span class="value">100px</span>;
+    <span class="property">line-height</span>: <span class="value">100px</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example text-demo">
+                    <div class="centered-demo centered">نص متوسط</div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مسافة بداية النص (Text Indent)</h3>
+                <p>تستخدم <strong><code>text-indent</code></strong> لإضافة مسافة في بداية السطر الأول من النص.</p>
+                <div class="code">
+                    <pre><span class="property">p</span> {
+    <span class="property">text-indent</span>: <span class="value">50px</span>;
+}</pre>
+                </div>
+                <div class="example text-demo text-indent-demo">
+                    <p>هذا النص يبدأ بمسافة بادئة بمقدار 50 بكسل. هذه الخاصية مفيدة لتصميم الفقرات بشكل تقليدي.</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مسافات الأحرف (Letter Spacing) والكلمات (Word Spacing)</h3>
+                <p>تستخدم <strong><code>letter-spacing</code></strong> و <strong><code>word-spacing</code></strong> للتحكم في المسافات بين الأحرف والكلمات.</p>
+                <div class="code">
+                    <pre><span class="property">.far-chars</span> { <span class="property">letter-spacing</span>: <span class="value">5px</span>; }
+<span class="property">.close-chars</span> { <span class="property">letter-spacing</span>: <span class="value">-2px</span>; }
+<span class="property">.far-words</span> { <span class="property">word-spacing</span>: <span class="value">8px</span>; }
+<span class="property">.close-words</span> { <span class="property">word-spacing</span>: <span class="value">-2px</span>; }</pre>
+                </div>
+                <div class="example text-demo spacing-demo">
+                    <p class="far-chars">أحرف متباعدة</p>
+                    <p class="close-chars">أحرف متقاربة</p>
+                    <p class="far-words">كلمات متباعدة</p>
+                    <p class="close-words">كلمات متقاربة</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-vertical" class="section">
+            <h2>تحديد المحاذاة العمودية</h2>
+            <p>
+                نستخدم الخاصية <strong><code>vertical-align</code></strong> لتحديد المحاذاة العمودية للعناصر الموجودة ضمن سطر من النص، مثل الصور أو الأيقونات.
+            </p>
+            <div class="property-block">
+                <h3>مثال: المحاذاة العمودية للصور</h3>
+                <div class="code">
+                    <pre><span class="property">.top</span> { <span class="property">vertical-align</span>: <span class="value">top</span>; }
+<span class="property">.middle</span> { <span class="property">vertical-align</span>: <span class="value">middle</span>; }
+<span class="property">.bottom</span> { <span class="property">vertical-align</span>: <span class="value">bottom</span>; }
+... (الخ)</pre>
+                </div>
+                <div class="example text-demo vertical-align-demo">
+                    النص مع صورة
+                    <img src="https://via.placeholder.com/20" alt="صورة صغيرة" class="baseline"> محاذاة أساسية.
+                    <br>
+                    النص مع صورة
+                    <img src="https://via.placeholder.com/20" alt="صورة صغيرة" class="text-top"> محاذاة لأعلى النص.
+                    <br>
+                    النص مع صورة
+                    <img src="https://via.placeholder.com/20" alt="صورة صغيرة" class="text-bottom"> محاذاة لأسفل النص.
+                    <br>
+                    النص مع صورة
+                    <img src="https://via.placeholder.com/20" alt="صورة صغيرة" class="top"> محاذاة لأعلى السطر.
+                    <br>
+                    النص مع صورة
+                    <img src="https://via.placeholder.com/20" alt="صورة صغيرة" class="bottom"> محاذاة لأسفل السطر.
+                    <br>
+                    النص مع صورة
+                    <img src="https://via.placeholder.com/20" alt="صورة صغيرة" class="middle"> محاذاة للمنتصف.
+                </div>
+            </div>
+        </section>
+
+        <section id="text-transform" class="section">
+            <h2>تحويل أحرف النص</h2>
+            <p>
+                تستخدم <strong><code>text-transform</code></strong> لتحويل أحرف النص إلى حالة معينة (أحرف كبيرة، أحرف صغيرة، أو الحرف الأول من كل كلمة).
+            </p>
+            <div class="property-block">
+                <h3>مثال: تحويل الأحرف</h3>
+                <div class="code">
+                    <pre><span class="property">.uppercase</span> { <span class="property">text-transform</span>: <span class="value">uppercase</span>; }
+<span class="property">.lowercase</span> { <span class="property">text-transform</span>: <span class="value">lowercase</span>; }
+<span class="property">.capitalize</span> { <span class="property">text-transform</span>: <span class="value">capitalize</span>; }</pre>
+                </div>
+                <div class="example text-demo transform-demo">
+                    <h3 class="uppercase">هذا نص كبير</h3>
+                    <h3 class="lowercase">هذا نص صغير</h3>
+                    <h3 class="capitalize">هذا نص بأول حرف كبير</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="text-decoration" class="section">
+            <h2>زخرفة النص</h2>
+            <p>
+                تستخدم خصائص <code>text-decoration</code> لإضافة خطوط للنص (تحت، فوق، أو خلال النص).
+            </p>
+            <div class="property-block">
+                <h3>إظهار خط (text-decoration-line)</h3>
+                <div class="code">
+                    <pre><span class="property">.underline</span> { <span class="property">text-decoration-line</span>: <span class="value">underline</span>; }
+<span class="property">.line-through</span> { <span class="property">text-decoration-line</span>: <span class="value">line-through</span>; }
+<span class="property">.over-and-under-line</span> { <span class="property">text-decoration-line</span>: <span class="value">overline underline</span>; }</pre>
+                </div>
+                <div class="example text-demo decoration-demo">
+                    <p class="overline">خط فوق النص</p>
+                    <p class="underline">خط تحت النص</p>
+                    <p class="line-through">خط خلال النص</p>
+                    <p class="over-and-under-line">خط فوق وتحت النص</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>تلوين الخط (text-decoration-color)</h3>
+                <div class="code">
+                    <pre><span class="property">.underline</span> { <span class="property">text-decoration-color</span>: <span class="value">red</span>; }</pre>
+                </div>
+                <div class="example text-demo decoration-color-demo">
+                    <p class="overline">خط بلون بنفسجي</p>
+                    <p class="underline">خط بلون أحمر</p>
+                    <p class="line-through">خط بلون أزرق</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>شكل الخط (text-decoration-style)</h3>
+                <div class="code">
+                    <pre><span class="property">.dotted</span> { <span class="property">text-decoration-style</span>: <span class="value">dotted</span>; }
+<span class="property">.wavy</span> { <span class="property">text-decoration-style</span>: <span class="value">wavy</span>; }</pre>
+                </div>
+                <div class="example text-demo decoration-style-demo">
+                    <p class="solid">خط مستقيم</p>
+                    <p class="dotted">خط منقّط</p>
+                    <p class="dashed">خط متقطع</p>
+                    <p class="wavy">خط متموّج</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>سمك الخط (text-decoration-thickness)</h3>
+                <div class="code">
+                    <pre><span class="property">h3</span> { <span class="property">text-decoration-thickness</span>: <span class="value">5px</span>; }</pre>
+                </div>
+                <div class="example text-demo decoration-thickness-demo">
+                    <p class="thin">خط رفيع</p>
+                    <p class="thick">خط سميك</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>اختصار الخصائص (text-decoration)</h3>
+                <div class="code">
+                    <pre><span class="property">.wrong</span> {
+    <span class="property">text-decoration</span>: <span class="value">underline red wavy 0.8px</span>;
+}</pre>
+                </div>
+                <div class="example text-demo decoration-shorthand-demo">
+                    <p class="wrong">نص بزخرفة مختصرة</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

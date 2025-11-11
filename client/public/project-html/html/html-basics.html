@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أساسيات لغة HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>أساسيات اللغة</h2>
+            <p>دليل شامل لتعلم أساسيات لغة HTML من الصفر</p>
+            <nav>
+                <ul>
+                    <li><a href="#intro">مقدمة</a></li>
+                    <li><a href="#tags-types">أنواع الوسوم</a></li>
+                    <li><a href="#comments">التعليقات</a></li>
+                    <li><a href="#page-structure">هيكل الصفحة</a></li>
+                    <li><a href="#attributes">خصائص الوسوم</a></li>
+                    <li><a href="#head-examples">محتوى الـ Head</a></li>
+                    <li><a href="#body-examples">محتوى الـ Body</a></li>
+                    <li><a href="#case-sensitive">حساسية الأحرف</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="intro" class="section">
+            <h2>أساسيات لغة HTML</h2>
+            <p>لغة HTML (HyperText Markup Language) هي اللغة الأساسية لإنشاء صفحات الويب. في هذا الدرس ستتعرف على القواعد الأساسية لكتابة كود HTML.</p>
+        </section>
+
+        <section id="tags-types" class="section">
+            <h2>أنواع الوسوم في HTML</h2>
+            <p>بشكل عام، أي شيء يتم إضافته في الصفحة يقال له وسم (Tag) ويوجد نوعين من الوسوم:</p>
+            
+            <div class="property-block">
+                <h3>الوسوم الفردية (Single Tags)</h3>
+                <p>هذه تعني أن الوسم لا يمكن وضع وسم آخر فيه مثل الوسم <code>&lt;br/&gt;</code>.</p>
+            </div>
+            
+            <div class="property-block">
+                <h3>الوسوم الزوجية (Paired Tags)</h3>
+                <p>يقصد بها أن الوسم يمكن أن يوضع فيه وسوم أخرى مثل الوسم <code>&lt;p&gt;&lt;/p&gt;</code>.</p>
+            </div>
+            
+            <div class="example">
+                <h4>وسوم البداية والنهاية</h4>
+                <p>عند استخدام وسم فردي يمكنك عدم وضع الرمز / في آخره إن أردت ولكن يفضّل وضعه للإشارة إلى أنه وسم فردي.</p>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- وسوم فردية --&gt;</span>
+<span class="property">&lt;br&gt;</span>
+<span class="property">&lt;br/&gt;</span>
+
+<span class="comment">&lt;!-- وسوم زوجية --&gt;</span>
+<span class="property">&lt;p&gt;</span>هذا محتوى الفقرة<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="comments" class="section">
+            <h2>التعليقات في HTML</h2>
+            <p>التعليق (Comment) عبارة عن وسم خاص يمكنك وضعه في أي مكان تريد في الصفحة بهدف كتابة ملاحظات تساعدك في الشرح أو لتذكر سبب استخدام الوسوم.</p>
+            
+            <div class="example">
+                <h4>طريقة كتابة التعليقات</h4>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- هذا التعليق الأول وهو لا يظهر أمام المستخدم العادي --&gt;</span>
+        
+<span class="comment">&lt;!-- هذا التعليق الثاني الذي قمنا
+        بكتابته على ثلاثة أسطر وهو لا  
+        يظهر أيضاً أمام المستخدم العادي --&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-structure" class="section">
+            <h2>وسوم الصفحة الأساسية في HTML</h2>
+            <p>بشكل عام، صفحة الويب تتكون من قسمين أساسيين:</p>
+            
+            <ul>
+                <li><strong>القسم Head</strong> والذي تضع فيه كل ما تحتاجه لتصميم الصفحة ولكن المستخدم لا يراه.</li>
+                <li><strong>القسم Body</strong> والذي نضع فيه كل الأشياء التي سيراها المستخدم.</li>
+            </ul>
+            
+            <div class="example">
+                <h4>الهيكل الأساسي لصفحة HTML</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;!DOCTYPE html&gt;</span>
+<span class="property">&lt;html&gt;</span>
+    <span class="property">&lt;head&gt;</span>
+        <span class="comment">&lt;!-- محتوى قسم الرأس --&gt;</span>
+    <span class="property">&lt;/head&gt;</span>
+    <span class="property">&lt;body&gt;</span>
+        <span class="comment">&lt;!-- محتوى قسم الجسم --&gt;</span>
+    <span class="property">&lt;/body&gt;</span>
+<span class="property">&lt;/html&gt;</span></pre>
+                </div>
+                <p><code>&lt;!DOCTYPE html&gt;</code> - نضعه في أول الملف دائماً حتى يعلم المتصفح أننا نستخدم الإصدار الخامس من لغة HTML.</p>
+            </div>
+        </section>
+
+        <section id="attributes" class="section">
+            <h2>خصائص وسوم HTML</h2>
+            <p>أغلب الوسوم التي تضيفها في الكود يمكن إضافة خصائص لها على النحو التالي:</p>
+            
+            <div class="code">
+                <pre><span class="property">&lt;tag attribute="value"&gt;</span>محتوى<span class="property">&lt;/tag&gt;</span></pre>
+            </div>
+            
+            <ul>
+                <li><strong>tag</strong> - يقصد بها إسم الوسم.</li>
+                <li><strong>attribute</strong> - الخاصيّة التي يملكها الوسم بالأساس.</li>
+                <li><strong>value</strong> - القيمة التي سنضعها في الخاصيّة.</li>
+            </ul>
+            
+            <div class="example">
+                <h4>مثال: إضافة صورة بخصائص</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;img src="/tutorials/html/basics/html-5-icon.PNG" alt="أيقونة HTML5"&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="head-examples" class="section">
+            <h2>أمثلة على الأشياء التي يمكن إضافتها في القسم Head</h2>
+            
+            <div class="property-block">
+                <h3>طريقة وضع عنوان للملف</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;title&gt;</span>My new title<span class="property">&lt;/title&gt;</span></pre>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>طريقة وضع أيقونة للملف</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;link rel="icon" type="image/x-icon" href="icon-path"&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="body-examples" class="section">
+            <h2>أمثلة على الأشياء التي يمكن إضافتها في القسم Body</h2>
+            <p>في صفحة الويب وبالتحديد في القسم Body الذي يراه المستخدم يمكنك إضافة ما تشاء مثل صور، قوائم, فقرات، روابط، أزرار وأي شيء يخطر في بالك.</p>
+            
+            <div class="example">
+                <h4>مثال لمحتوى صفحة ويب</h4>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- عنوان عريض في وسط الصفحة --&gt;</span>
+<span class="property">&lt;center&gt;</span>
+    <span class="property">&lt;h2&gt;</span>HTML is easy to learn<span class="property">&lt;/h2&gt;</span>
+<span class="property">&lt;/center&gt;</span>
+
+<span class="comment">&lt;!-- فقرة عادية --&gt;</span>
+<span class="property">&lt;p&gt;</span>Hypertext Markup Language (HTML) is the standard markup language for
+documents designed to be displayed in a web browser. It can be assisted by
+technologies such as Cascading Style Sheets (CSS) and scripting languages
+such as JavaScript.<span class="property">&lt;/p&gt;</span>
+
+<span class="comment">&lt;!-- صورة --&gt;</span>
+<span class="property">&lt;img src="/tutorials/html/basics/html-5-icon.png" alt="أيقونة HTML5"&gt;</span>
+
+<span class="comment">&lt;!-- سطرين فارغين --&gt;</span>
+<span class="property">&lt;br&gt;</span><span class="property">&lt;br&gt;</span>
+
+<span class="comment">&lt;!-- عنوان أصغر --&gt;</span>
+<span class="property">&lt;h3&gt;</span>HTML usage<span class="property">&lt;/h3&gt;</span>
+
+<span class="comment">&lt;!-- قائمة --&gt;</span>
+<span class="property">&lt;ul&gt;</span>
+    <span class="property">&lt;li&gt;</span>It's the standard markup language for creating Web pages<span class="property">&lt;/li&gt;</span>
+    <span class="property">&lt;li&gt;</span>Describes the structure of a Web page<span class="property">&lt;/li&gt;</span>
+    <span class="property">&lt;li&gt;</span>Consists of a series of elements<span class="property">&lt;/li&gt;</span>
+    <span class="property">&lt;li&gt;</span>tells the browser how to display the content<span class="property">&lt;/li&gt;</span>
+<span class="property">&lt;/ul&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-sensitive" class="section">
+            <h2>طريقة كتابة أسماء الوسوم لا تؤثر في HTML</h2>
+            <p>سواء قمت بكتابة إسم الوسم بأحرف صغيرة (Small Letters) أو بأحرف كبيرة (Capital Letters) فإن ذلك لا يسبب أي مشكلة.</p>
+            
+            <div class="example">
+                <h4>مثال على عدم حساسية الأحرف</h4>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- إسم وسم البداية وإسم وسم النهاية كتبناهما بأحرف صغيرة --&gt;</span>
+<span class="property">&lt;p&gt;</span>This is first paragraph<span class="property">&lt;p&gt;</span>
+
+<span class="comment">&lt;!-- إسم وسم البداية وإسم وسم النهاية كتبناهما بأحرف كبيرة --&gt;</span>
+<span class="property">&lt;P&gt;</span>This is second paragraph<span class="property">&lt;P&gt;</span>
+
+<span class="comment">&lt;!-- إسم وسم البداية كتبناه بأحرف كبيرة وإسم وسم النهاية كتبناه بأحرف صغيرة --&gt;</span>
+<span class="property">&lt;P&gt;</span>This is third paragraph<span class="property">&lt;p&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+   
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

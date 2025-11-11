@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تنسيق الكود في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        kbd {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        samp {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        
+        var {
+            font-style: italic;
+            color: #2980b9;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .code-example {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>تنسيق الكود</h2>
+            <p>تعلم كيفية تنسيق الكود البرمجي والمخرجات بشكل احترافي</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم تنسيق الكود</a></li>
+                    <li><a href="#kbd">أزرار الكيبورد</a></li>
+                    <li><a href="#samp">مخرجات البرامج</a></li>
+                    <li><a href="#code">عرض الكود</a></li>
+                    <li><a href="#var">المتغيرات</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم تنسيق الكود</h2>
+            <p>تنسيق الكود نقصد به إظهار النص الذي يرمز لكود برمجي، مدخلات و مخرجات الحاسوب أو لعملية حسابية ما بنوع خط مختلف عن النص العادي الموجود في الصفحة.</p>
+            <p>نوع الخط الذي يستخدم في تنسيق الكود إسمه <code>monospace</code> و هو يعطي الأحرف حجماً موحداً مما يجعل قراءتها و تتبعها أمر سهل جداً بالنسبة للقارئ.</p>
+            <p>في هذا الدرس ستتعرف على الوسوم المخصصة لتنسيق الكود البرمجي و المعادلات الحسابية.</p>
+        </section>
+
+        <section id="kbd" class="section">
+            <h2>عرض أسماء أحرف الكيبورد</h2>
+            <p>عند وضع شروحات تخبر فيها المستخدم بأن ينقر على أزرار معينة في الكيبورد (Keyboard) يمكنك وضعها بين <code>&lt;kbd&gt;&lt;/kbd&gt;</code>.</p>
+            <p>هذا الوسم يقوم فقط بتغيير نوع خط النص الموضوع بداخله إلى النوع monospace حتى يظهره بشكل مختلف عن باقي النص.</p>
+            
+            <div class="example">
+                <h4>مثال: أزرار الكيبورد</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Press <span class="value">&lt;kbd&gt;</span>Ctrl + S<span class="value">&lt;/kbd&gt;</span> to save this page on your computer.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Press <kbd>Ctrl + S</kbd> to save this page on your computer.</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: مجموعة أزرار</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Use <span class="value">&lt;kbd&gt;</span>Ctrl + C<span class="value">&lt;/kbd&gt;</span> to copy and <span class="value">&lt;kbd&gt;</span>Ctrl + V<span class="value">&lt;/kbd&gt;</span> to paste.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>Press <span class="value">&lt;kbd&gt;</span>F5<span class="value">&lt;/kbd&gt;</span> to refresh the page.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>Use <span class="value">&lt;kbd&gt;</span>Alt + Tab<span class="value">&lt;/kbd&gt;</span> to switch between applications.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Use <kbd>Ctrl + C</kbd> to copy and <kbd>Ctrl + V</kbd> to paste.</p>
+                    <p>Press <kbd>F5</kbd> to refresh the page.</p>
+                    <p>Use <kbd>Alt + Tab</kbd> to switch between applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="samp" class="section">
+            <h2>عرض مخرجات البرامج</h2>
+            <p>في حال أردت عرض مخرجات البرامج (Programs Output) يمكنك وضعها بين <code>&lt;samp&gt;&lt;/samp&gt;</code>.</p>
+            <p>هذا الوسم يقوم فقط بتغيير نوع خط النص الموضوع بداخله إلى النوع monospace حتى يظهره بشكل مختلف عن باقي النص.</p>
+            
+            <div class="example">
+                <h4>مثال: رسائل الخطأ</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>My computer show me this alert:<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span><span class="value">&lt;samp&gt;</span>Error code: 0x80070043<span class="value">&lt;br&gt;</span>The network name cannot be found.<span class="value">&lt;/samp&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>My computer show me this alert:</p>
+                    <p><samp>Error code: 0x80070043<br>The network name cannot be found.</samp></p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: مخرجات الأوامر</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Output of the command:<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;samp&gt;</span>
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+<span class="property">&lt;/samp&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Output of the command:</p>
+                    <samp>
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+                    </samp>
+                </div>
+            </div>
+        </section>
+
+        <section id="code" class="section">
+            <h2>عرض كود في النص</h2>
+            <p>في حال أردت عرض الكلام الذي هو عبارة عن كود أو عملية حسابية بشكل مميز عن النص الموضوع معه في نفس الفقرة يمكنك وضع الكود بين <code>&lt;code&gt;&lt;/code&gt;</code>.</p>
+            <p>هذا الوسم يقوم فقط بتغيير نوع خط النص الموضوع بداخله إلى النوع monospace حتى يظهره بشكل مختلف عن النص العادي.</p>
+            
+            <div class="example">
+                <h4>المثال الأول: دوال برمجية</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>In java the <span class="value">&lt;code&gt;</span>main()<span class="value">&lt;/code&gt;</span> function is the starting point.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>Use <span class="value">&lt;code&gt;</span>console.log()<span class="value">&lt;/code&gt;</span> to print messages in JavaScript.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>In java the <code>main()</code> function is the starting point.</p>
+                    <p>Use <code>console.log()</code> to print messages in JavaScript.</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثاني: معادلات رياضية</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Pythagorean Theorem: <span class="value">&lt;code&gt;</span>a<span class="value">&lt;sup&gt;</span>2<span class="value">&lt;/sup&gt;</span> + b<span class="value">&lt;sup&gt;</span>2<span class="value">&lt;/sup&gt;</span> = c<span class="value">&lt;sup&gt;</span>2<span class="value">&lt;/sup&gt;</span><span class="value">&lt;/code&gt;</span><span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>Quadratic formula: <span class="value">&lt;code&gt;</span>x = (-b ± √(b² - 4ac)) / 2a<span class="value">&lt;/code&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Pythagorean Theorem: <code>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></code></p>
+                    <p>Quadratic formula: <code>x = (-b ± √(b² - 4ac)) / 2a</code></p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثالث: أكواد قصيرة</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>HTML tag: <span class="value">&lt;code&gt;</span>&lt;div&gt;<span class="value">&lt;/code&gt;</span><span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>CSS property: <span class="value">&lt;code&gt;</span>font-family<span class="value">&lt;/code&gt;</span><span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>JavaScript operator: <span class="value">&lt;code&gt;</span>===<span class="value">&lt;/code&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>HTML tag: <code>&lt;div&gt;</code></p>
+                    <p>CSS property: <code>font-family</code></p>
+                    <p>JavaScript operator: <code>===</code></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="var" class="section">
+            <h2>عرض أسماء المتغيرات في النص</h2>
+            <p>المواضيع التي لها علاقة بالبرمجة و الرياضيات و أي مادة أخرى تتضمن معادلات نقوم عادةً باستخدام أسماء متغيرات فيها مثل X و Y.</p>
+            <p>إذا أردت عرض إسم المتغير بشكل مميز عن النص الموضوع معه في نفس الفقرة يمكنك وضعه بين <code>&lt;var&gt;&lt;/var&gt;</code>.</p>
+            <p>هذا الوسم يقوم بعرض الإسم الذي نضعه بداخله بشكل مائل.</p>
+            
+            <div class="example">
+                <h4>مثال: متغيرات رياضية</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Calculate the value of <span class="value">&lt;var&gt;</span>x<span class="value">&lt;/var&gt;</span> where <span class="value">&lt;code&gt;</span>x + 5 = 13<span class="value">&lt;/code&gt;</span>.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>The formula for area of circle is <span class="value">&lt;var&gt;</span>A<span class="value">&lt;/var&gt;</span> = π<span class="value">&lt;var&gt;</span>r<span class="value">&lt;/var&gt;</span>&lt;sup&gt;2&lt;/sup&gt;.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>Solve for <span class="value">&lt;var&gt;</span>y<span class="value">&lt;/var&gt;</span> in the equation <span class="value">&lt;code&gt;</span>2<span class="value">&lt;var&gt;</span>y<span class="value">&lt;/var&gt;</span> + 8 = 20<span class="value">&lt;/code&gt;</span>.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Calculate the value of <var>x</var> where <code>x + 5 = 13</code>.</p>
+                    <p>The formula for area of circle is <var>A</var> = π<var>r</var><sup>2</sup>.</p>
+                    <p>Solve for <var>y</var> in the equation <code>2<var>y</var> + 8 = 20</code>.</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: متغيرات برمجية</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span>Declare a variable <span class="value">&lt;var&gt;</span>userName<span class="value">&lt;/var&gt;</span> to store the user's name.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>Use <span class="value">&lt;var&gt;</span>counter<span class="value">&lt;/var&gt;</span> to keep track of the number of iterations.<span class="property">&lt;/p&gt;</span>
+<span class="property">&lt;p&gt;</span>The function returns <span class="value">&lt;var&gt;</span>result<span class="value">&lt;/var&gt;</span> which contains the final output.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p>Declare a variable <var>userName</var> to store the user's name.</p>
+                    <p>Use <var>counter</var> to keep track of the number of iterations.</p>
+                    <p>The function returns <var>result</var> which contains the final output.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

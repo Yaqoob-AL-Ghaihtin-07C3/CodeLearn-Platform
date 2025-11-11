@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - المتغيرات</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+<style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أنماط الأمثلة العامة */
+        .example-buttons button, .example-buttons a {
+            padding: 10px 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .example-buttons button:hover, .example-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .example-block {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* أمثلة الدرس */
+
+        /* المثال الأول: متغيرات الألوان */
+        :root {
+            --primary: #0275d8;
+            --secondary: #6c757d;
+            --danger: #dc3545;
+            --white: #FFF;
+        }
+        .send {
+            color: var(--white);
+            background-color: var(--primary);
+        }
+        .edit {
+            color: var(--white);
+            background-color: var(--secondary);
+        }
+        .delete {
+            color: var(--white);
+            background-color: var(--danger);
+        }
+
+        /* المثال الثاني: متغيرات الخطوط */
+        .font-example h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .font-example code {
+            display: block;
+            margin-top: 10px;
+            background-color: #f1f1f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        /* المثال الثالث: متغيرات المدة */
+        .transition-example {
+            display: block;
+            margin-top: 20px;
+        }
+        .transition-example input[name="search"] {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all ease-in-out var(--slow);
+        }
+        .transition-example input[name="search"]:focus {
+            width: 100%;
+            outline: none;
+            border-color: #0275d8;
+        }
+
+        /* المثال الأول: متغير محلي */
+        .local-variable-example-1 a {
+            --primary: crimson;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* المثال الثاني: إعادة تعريف متغير عام */
+        .local-variable-example-2 button, .local-variable-example-2 a {
+            border: 2px solid;
+            background: none;
+        }
+        .local-variable-example-2 button {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        .local-variable-example-2 a {
+            --primary: crimson;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        /* مثال استعلامات الوسائط */
+        .media-query-example h1 {
+            text-align: center;
+        }
+
+        /* هذا الكود سيتم تطبيقه على المثال */
+        :root {
+            --font-x1: 20px;
+            --font-x2: 24px;
+            --font-x3: 28px;
+            --font-x4: 32px;
+        }
+        .media-query-example h1 {
+            font-size: var(--font-x4);
+        }
+        @media (max-width: 976px) {
+            .media-query-example h1 { font-size: var(--font-x3); }
+        }
+        @media (max-width: 760px) {
+            .media-query-example h1 { font-size: var(--font-x2); }
+        }
+        @media (max-width: 640px) {
+            .media-query-example h1 { font-size: var(--font-x1); }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>المتغيرات</h1>
+            <p>مفهوم المتغيرات في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم المتغيرات</a></li>
+                    <li><a href="#global-vars">متغير عام</a></li>
+                    <li><a href="#local-vars">متغير خاص</a></li>
+                    <li><a href="#media-queries">استعلامات الوسائط</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم المتغيرات</h2>
+            <p>
+                المتغيرات (<strong>Variables</strong>) في CSS هي طريقة لتعريف القيم بشكل يسهّل استعمالها والتعديل عليها لاحقاً، مما يقلل من التكرار ويسهل إدارة التصميم.
+            </p>
+            <p>
+                الهدف الأساسي من تعريف المتغير هو أن يمثل قيمة ستستخدم بشكل متكرر في تصميم الصفحة.
+            </p>
+        </section>
+
+        <section id="global-vars" class="section">
+            <h2>طريقة تعريف متغير عام</h2>
+            <p>
+                يتم تعريف المتغيرات العامة بداخل المحدد <strong><code>:root { }</code></strong> لتكون متاحة على مستوى الصفحة بأكملها. تبدأ أسماء المتغيرات دائماً برمزين <strong><code>--</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (متغيرات الألوان)</h3>
+                <div class="code">
+                    <pre><span class="property">:root</span> {
+    <span class="property">--primary</span>: <span class="value">#0275d8</span>;
+    <span class="property">--danger</span>: <span class="value">#dc3545</span>;
+}
+<span class="property">.send</span> {
+    <span class="property">background-color</span>: <span class="value">var(--primary)</span>;
+}
+<span class="property">.delete</span> {
+    <span class="property">background-color</span>: <span class="value">var(--danger)</span>;
+}</pre>
+                </div>
+                <div class="example-buttons example-block">
+                    <button class="send">إرسال</button>
+                    <button class="edit">تعديل</button>
+                    <button class="delete">حذف</button>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثالث (متغيرات المدة الزمنية)</h3>
+                <div class="code">
+                    <pre><span class="property">:root</span> {
+    <span class="property">--slow</span>: <span class="value">1s</span>;
+}
+<span class="property">input</span> {
+    <span class="property">transition</span>: <span class="value">all ease-in-out var(--slow)</span>;
+}</pre>
+                </div>
+                <div class="transition-example example-block">
+                    <input type="text" name="search" placeholder="انقر هنا لتجربة الانتقال">
+                </div>
+            </div>
+        </section>
+
+        <section id="local-vars" class="section">
+            <h2>طريقة تعريف المتغير خاص</h2>
+            <p>
+                يمكنك تعريف المتغير بشكل مباشر داخل العنصر ليصبح متاحاً للاستخدام فيه فقط.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (متغير محلي)</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> {
+    <span class="property">--primary</span>: <span class="value">crimson</span>;
+    <span class="property">color</span>: <span class="value">var(--primary)</span>;
+}</pre>
+                </div>
+                <div class="local-variable-example-1 example-block">
+                    <a href="#">رابط أحمر</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="media-queries" class="section">
+            <h2>المتغيرات مع إستعلامات الوسائط</h2>
+            <p>
+                يمكنك استخدام المتغيرات مع <strong>استعلامات الوسائط</strong> (Media Queries) لتغيير القيم بناءً على حجم الشاشة.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">:root</span> {
+    <span class="property">--font-x1</span>: <span class="value">20px</span>;
+    ...
+}
+<span class="property">h1</span> {
+    <span class="property">font-size</span>: <span class="value">var(--font-x4)</span>;
+}
+<span class="property">@media (max-width: 976px)</span> {
+    <span class="property">h1</span> {
+        <span class="property">font-size</span>: <span class="value">var(--font-x3)</span>;
+    }
+}</pre>
+                </div>
+                <div class="media-query-example example-block">
+                    <h1>حجم هذا النص يتغير مع حجم الشاشة</h1>
+                </div>
+                <p style="text-align:center; font-style:italic; font-size:0.9em; color:#777;">حاول تغيير حجم المتصفح لمشاهدة تأثير المتغيرات.</p>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+</body>
+
+</html>

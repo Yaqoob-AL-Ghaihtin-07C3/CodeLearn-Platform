@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم لغة CSS - EliteWeb</title>
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+<style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .page-comparison {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .page-comparison .comparison-item {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .page-comparison h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .page-comparison img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .list-benefits ul {
+            list-style-type: disc;
+            margin-right: 20px;
+        }
+
+        .list-benefits li {
+            margin-bottom: 15px;
+            padding-right: 10px;
+        }
+
+        .ready-to-learn a {
+            display: inline-block;
+            background-color: #0d6efd;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .ready-to-learn a:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>تعلم لغة CSS</h1>
+            <p>دليلك الشامل لتعلم CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#what-is-css">ما هي لغة CSS</a></li>
+                    <li><a href="#css-versions">إصدارات لغة CSS</a></li>
+                    <li><a href="#css-benefits">فوائد لغة CSS</a></li>
+                    <li><a href="#ready-to-learn">هل أنا جاهز؟</a></li>
+                    <li><a href="#target-audience">لمن تم إعداد هذا المرجع؟</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="what-is-css" class="section">
+            <h2>ما هي لغة CSS</h2>
+            <p>
+                كلمة <strong>CSS</strong> هي اختصار لجملة <strong>Cascading Style Sheet</strong>، وهي لغة تستخدم في تصميم صفحات الويب. من خلالها يمكنك تغيير ألوان العناصر، وتحديد مواقعها وأحجامها، وإضافة مؤثرات لها، وجعل صفحات الويب متجاوبة مع مختلف أحجام الشاشات لكي تظهر بشكل ملائم للمستخدم، بالإضافة إلى الكثير من الأمور الرائعة التي ستتعلمها خطوة بخطوة في هذه الدورة.
+            </p>
+            <p>
+                بشكل عام، CSS تعتبر لغة تصميم (Styling Language) وليس لغة برمجة (Programming Language)، فهي تستخدم في تصميم صفحات الويب التي يتم بناؤها بواسطة HTML أو الصفحات التي يتم بناؤها بواسطة XML.
+            </p>
+            <div class="page-comparison">
+                <div class="comparison-item">
+                    <h3>الصفحة بدون CSS</h3>
+                    <img src="https://via.placeholder.com/600x300/f0f0f0/333333?text=Page+without+CSS" alt="صفحة ويب بسيطة بدون تنسيق CSS">
+                </div>
+                <div class="comparison-item">
+                    <h3>الصفحة نفسها مع CSS</h3>
+                    <img src="https://via.placeholder.com/600x300/3498db/ffffff?text=Page+with+CSS" alt="نفس صفحة الويب ولكن مع تنسيق CSS">
+                </div>
+            </div>
+        </section>
+
+        <section id="css-versions" class="section">
+            <h2>إصدارات لغة CSS</h2>
+            <p>
+                يتم تطوير لغة CSS باستمرار بدءاً من ظهورها أول مرة عام 1996، والمجموعة المسؤولة عن تطويرها تدعى <strong>World Wide Web Consortium</strong> أو اختصاراً <strong>W3C</strong>. يوجد ثلاث إصدارات رئيسية من لغة CSS، والفكرة من هذه الإصدارات ليست تغيير طريقة التعامل مع اللغة، بل إضافة ميزات جديدة عليها.
+            </p>
+            <ul>
+                <li><strong>الإصدار الأول (CSS1):</strong> فصل كود التصميم عن كود الصفحة الذي يتم بناؤها بواسطة HTML.</li>
+                <li><strong>الإصدار الثاني (CSS2):</strong> أضيف فيه خصائص جديدة للتحكم بأماكن العناصر والخطوط وتأثيرات النصوص.</li>
+                <li><strong>الإصدار الثالث (CSS3):</strong> أضيفت فيه خصائص مثل Media Queries لجعل التصميم متجاوباً، والتحكم بالرسوم المتحركة والتدرجات اللونية.</li>
+            </ul>
+            <p>
+                عند التعلم، لا تقلق بشأن الإصدار الذي تتعلمه، فأنت في العادة تستخدم خصائص من جميع الإصدارات معاً في أي مشروع.
+            </p>
+        </section>
+
+        <section id="css-benefits" class="section">
+            <h2>فوائد لغة CSS</h2>
+            <div class="list-benefits">
+                <ul>
+                    <li><strong>توفير الوقت:</strong> يمكنك وضع كود التصميم في ملف CSS واستخدامه في أي صفحة تريد.</li>
+                    <li><strong>سرعة التحميل:</strong> المتصفح يقوم بتحميل ملف CSS مرة واحدة ويخزنه، مما يقلل من وقت تحميل الصفحات اللاحقة.</li>
+                    <li><strong>سهولة التعديل:</strong> بمجرد التعديل على ملف CSS، يتم تحديث تصميم جميع الصفحات المرتبطة به.</li>
+                    <li><strong>خصائص متقدمة:</strong> توفر CSS خصائص تصميم متقدمة أكثر بكثير من خصائص HTML المدمجة.</li>
+                    <li><strong>بناء صفحات متجاوبة:</strong> تمكنك من جعل تصميم الصفحة يتكيف مع مختلف أحجام الشاشات.</li>
+                    <li><strong>تخصيص الطباعة:</strong> توفر خصائص لتحديد كيفية ظهور الصفحة عند طباعتها على الورق.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ready-to-learn" class="section">
+            <h2>هل أنا جاهز لتعلم CSS؟</h2>
+            <p>
+                قبل البدء بهذه الدورة يجب أن تكون متقناً للغة HTML، لأن هذه اللغة تستخدم معها بشكل أساسي. إذا لم يسبق لك أن تعلمت لغة HTML، فلا تقلق أبداً.
+            </p>
+            <div class="ready-to-learn">
+                <a href="#">تعلم لغة HTML</a>
+            </div>
+        </section>
+
+        <section id="target-audience" class="section">
+            <h2>لمن تم إعداد هذا المرجع؟</h2>
+            <p>
+                تم إعداد هذا المرجع ليتلاءم مع جميع الأشخاص الذين يريدون التعلم. إذاً سواء كنت هاوياً، طالباً أو مبرمجاً، فإن هذا المرجع سيساعدك على فهم لغة CSS والوصول إلى مستوى متقدم جداً فيها.
+            </p>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

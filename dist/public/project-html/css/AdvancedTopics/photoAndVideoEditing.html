@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - تنسيق الصور والفيديوهات</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أنماط الأمثلة */
+        .fit-examples,
+        .position-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .fit-examples img {
+            width: 200px;
+            height: 150px;
+            border: 2px solid #3498db;
+            object-fit: fill; /* fallback */
+        }
+        
+        .fill {
+            object-fit: fill;
+        }
+
+        .contain {
+            object-fit: contain;
+        }
+
+        .cover {
+            object-fit: cover;
+        }
+
+        .none {
+            object-fit: none;
+        }
+
+        .scale-down {
+            object-fit: scale-down;
+        }
+
+        .position-examples img {
+            width: 200px;
+            height: 150px;
+            border: 2px dashed #95a5a6;
+            background-color: #f5f6fa;
+            object-fit: none; /* لتوضيح الـ object-position */
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>تنسيق الصور والفيديوهات</h1>
+            <p>التحكم في عرض الصور والفيديوهات باستخدام CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم التنسيق</a></li>
+                    <li><a href="#object-fit">ضبط عرض الصورة أو الفيديو</a></li>
+                    <li><a href="#object-position">تحديد موقع الصورة أو الفيديو</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم تنسيق الصور والفيديوهات</h2>
+            <p>
+                إذا كانت المساحة المخصصة لعرض الصور أو الفيديوهات غير مساوية لحجمها، يمكنك تحديد كيف سيتم عرضها فيها. أي يمكنك تحديد ما إن كان يجب تصغيرها، تكبيرها أو تمديدها حتى تملأ كل المساحة المتاحة.
+            </p>
+        </section>
+
+        <section id="object-fit" class="section">
+            <h2>كيفية ضبط عرض الصورة أو الفيديو</h2>
+            <p>
+                لتحديد كيفية عرض الصورة أو الفيديو، استخدم الخاصية <strong><code>object-fit</code></strong> مع إحدى القيم التالية:
+            </p>
+            <ul>
+                <li><strong><code>fill</code></strong>: القيمة الافتراضية، تجعل العنصر يملأ المساحة المتاحة بغض النظر عن نسبة أبعاده.</li>
+                <li><strong><code>contain</code></strong>: يغير حجم العنصر للحفاظ على نسبة أبعاده مع ضمان ظهوره بالكامل داخل المساحة.</li>
+                <li><strong><code>cover</code></strong>: يغير حجم العنصر ليمتلئ به المساحة بالكامل مع الحفاظ على نسبة أبعاده، مما قد يؤدي إلى اقتصاص جزء من العنصر.</li>
+                <li><strong><code>none</code></strong>: لا يغير حجم العنصر.</li>
+                <li><strong><code>scale-down</code></strong>: يطبق إما <code>none</code> أو <code>contain</code>، حسب أيهما يجعل العنصر أصغر.</li>
+            </ul>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">img</span> {
+    <span class="property">width</span>: <span class="value">200px</span>;
+    <span class="property">height</span>: <span class="value">150px</span>;
+}
+<span class="property">.fill</span> { <span class="property">object-fit</span>: <span class="value">fill</span>; }
+<span class="property">.contain</span> { <span class="property">object-fit</span>: <span class="value">contain</span>; }
+<span class="property">.cover</span> { <span class="property">object-fit</span>: <span class="value">cover</span>; }
+<span class="property">.none</span> { <span class="property">object-fit</span>: <span class="value">none</span>; }
+<span class="property">.scale-down</span> { <span class="property">object-fit</span>: <span class="value">scale-down</span>; }</pre>
+                </div>
+                <div class="fit-examples">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" class="fill">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" class="contain">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" class="cover">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" class="none">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" class="scale-down">
+                </div>
+            </div>
+        </section>
+
+        <section id="object-position" class="section">
+            <h2>كيفية تحديد موقع الصورة أو الفيديو</h2>
+            <p>
+                تُستخدم الخاصية <strong><code>object-position</code></strong> لتحديد الإحداثيات التي سيتم عرض الصورة أو الفيديو عليها داخل المساحة المخصصة، خاصة عندما يكون حجمها أكبر من المساحة المتاحة.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.position-example-1</span> { <span class="property">object-position</span>: <span class="value">20px 20px</span>; }
+<span class="property">.position-example-2</span> { <span class="property">object-position</span>: <span class="value">30% top</span>; }
+<span class="property">.position-example-3</span> { <span class="property">object-position</span>: <span class="value">center top</span>; }
+<span class="property">.position-example-4</span> { <span class="property">object-position</span>: <span class="value">center center</span>; }
+<span class="property">.position-example-5</span> { <span class="property">object-position</span>: <span class="value">center bottom</span>; }</pre>
+                </div>
+                <div class="position-examples">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" style="object-position: 20px 20px;">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" style="object-position: 30% top;">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" style="object-position: center top;">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" style="object-position: center center;">
+                    <img src="https://picsum.photos/400/300" alt="صورة توضيحية" style="object-position: center bottom;">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+</body>
+
+</html>

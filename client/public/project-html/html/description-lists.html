@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قوائم الوصف في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        dl {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid #3498db;
+        }
+        
+        dt {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            padding-right: 10px;
+        }
+        
+        dd {
+            margin: 5px 0 15px 30px;
+            color: #555;
+            padding: 8px;
+            background-color: white;
+            border-radius: 5px;
+            border-right: 2px solid #e9ecef;
+        }
+        
+        .description-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .example-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .example-card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        
+        .code pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .dl-compact dd {
+            margin: 2px 0 10px 20px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>قوائم الوصف</h2>
+            <p>تعلم كيفية إنشاء وتنسيق قوائم الوصف في صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم قوائم الوصف</a></li>
+                    <li><a href="#basic-dl">القوائم الأساسية</a></li>
+                    <li><a href="#examples">أمثلة تطبيقية</a></li>
+                    <li><a href="#uses">استخدامات متقدمة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم قوائم الوصف</h2>
+            <p>قائمة الوصف (Description List) يقصد بها عرض مجموعة مصطلحات و كل مصطلح معه وصف.</p>
+            <p>في هذا النوع من القوائم أي مصطلح أو وصف تضعه له يتم إعتبارهم كعناصر في القائمة.</p>
+            <p>و بشكل عام، المصطلح يتم عرضه مباشرةً في أول السطر، أما الوصف فيتم إبعاده قليلاً عن أول السطر بشكل يبدو فيه أنه تابع للمصطلح الموجود قبله.</p>
+            <p>في هذا الدرس ستتعرف على الوسوم التي تستخدم لإضافة قوائم وصف في الصفحة.</p>
+        </section>
+
+        <section id="basic-dl" class="section">
+            <h2>إضافة قائمة وصف</h2>
+            <p>لعرض قائمة وصف في الصفحة نستخدم الوسوم التالية:</p>
+            
+            <div class="property-block">
+                <ul>
+                    <li><code>&lt;dl&gt;&lt;/dl&gt;</code> - الوسم الأساسي للقائمة</li>
+                    <li><code>&lt;dt&gt;&lt;/dt&gt;</code> - لإضافة مصطلح أو عنوان</li>
+                    <li><code>&lt;dd&gt;&lt;/dd&gt;</code> - لإضافة شرح أو وصف للمصطلح</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: قائمة وصف أساسية</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;dl&gt;</span>
+  <span class="value">&lt;dt&gt;</span>Hot Drinks<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>- Coffee<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>- Nescafe<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>- Tee<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dt&gt;</span>Cold Drinks<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>- Red Bull<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>- Pepsi<span class="value">&lt;/dd&gt;</span>
+<span class="property">&lt;/dl&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <dl>
+                        <dt>Hot Drinks</dt>
+                        <dd>- Coffee</dd>
+                        <dd>- Nescafe</dd>
+                        <dd>- Tee</dd>
+                        <dt>Cold Drinks</dt>
+                        <dd>- Red Bull</dd>
+                        <dd>- Pepsi</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="section">
+            <h2>أمثلة تطبيقية لقوائم الوصف</h2>
+            
+            <div class="description-examples">
+                <div class="example-card">
+                    <h4>مثال 1: قاموس مصطلحات</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;dl&gt;</span>
+  <span class="value">&lt;dt&gt;</span>HTML<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>لغة ترميز النص الفائق<span class="value">&lt;/dd&gt;</span>
+  
+  <span class="value">&lt;dt&gt;</span>CSS<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>أوراق الأنماط المتتالية<span class="value">&lt;/dd&gt;</span>
+  
+  <span class="value">&lt;dt&gt;</span>JavaScript<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>لغة برمجة للتفاعل في الصفحات<span class="value">&lt;/dd&gt;</span>
+<span class="property">&lt;/dl&gt;</span></pre>
+                    </div>
+                    <dl class="dl-compact">
+                        <dt>HTML</dt>
+                        <dd>لغة ترميز النص الفائق</dd>
+                        
+                        <dt>CSS</dt>
+                        <dd>أوراق الأنماط المتتالية</dd>
+                        
+                        <dt>JavaScript</dt>
+                        <dd>لغة برمجة للتفاعل في الصفحات</dd>
+                    </dl>
+                </div>
+                
+                <div class="example-card">
+                    <h4>مثال 2: قائمة مهام</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;dl&gt;</span>
+  <span class="value">&lt;dt&gt;</span>المهام اليومية<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>قراءة كتاب لمدة 30 دقيقة<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>ممارسة الرياضة<span class="value">&lt;/dd&gt;</span>
+  
+  <span class="value">&lt;dt&gt;</span>المهام الأسبوعية<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>تنظيف المنزل<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>تسوق البقالة<span class="value">&lt;/dd&gt;</span>
+<span class="property">&lt;/dl&gt;</span></pre>
+                    </div>
+                    <dl class="dl-compact">
+                        <dt>المهام اليومية</dt>
+                        <dd>قراءة كتاب لمدة 30 دقيقة</dd>
+                        <dd>ممارسة الرياضة</dd>
+                        
+                        <dt>المهام الأسبوعية</dt>
+                        <dd>تنظيف المنزل</dd>
+                        <dd>تسوق البقالة</dd>
+                    </dl>
+                </div>
+                
+                <div class="example-card">
+                    <h4>مثال 3: وصف منتجات</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;dl&gt;</span>
+  <span class="value">&lt;dt&gt;</span>iPhone 13<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>شاشة 6.1 بوصة<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>كاميرا مزدوجة 12MP<span class="value">&lt;/dd&gt;</span>
+  
+  <span class="value">&lt;dt&gt;</span>MacBook Pro<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>شاشة 14 بوصة<span class="value">&lt;/dd&gt;</span>
+  <span class="value">&lt;dd&gt;</span>معالج M1 Pro<span class="value">&lt;/dd&gt;</span>
+<span class="property">&lt;/dl&gt;</span></pre>
+                    </div>
+                    <dl class="dl-compact">
+                        <dt>iPhone 13</dt>
+                        <dd>شاشة 6.1 بوصة</dd>
+                        <dd>كاميرا مزدوجة 12MP</dd>
+                        
+                        <dt>MacBook Pro</dt>
+                        <dd>شاشة 14 بوصة</dd>
+                        <dd>معالج M1 Pro</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section id="uses" class="section">
+            <h2>استخدامات متقدمة لقوائم الوصف</h2>
+            
+            <div class="example">
+                <h4>استخدامات شائعة لقوائم الوصف</h4>
+                <dl>
+                    <dt>القواميس والمعاجم</dt>
+                    <dd>عرض المصطلحات وتعريفاتها</dd>
+                    
+                    <dt>الأسئلة الشائعة (FAQ)</dt>
+                    <dd>عرض الأسئلة والأجوبة بشكل منظم</dd>
+                    
+                    <dt>الوصفات الغذائية</dt>
+                    <dd>عرض المكونات وطريقة التحضير</dd>
+                    
+                    <dt>المواصفات التقنية</dt>
+                    <dd>عرض مواصفات المنتجات التقنية</dd>
+                    
+                    <dt>القوائم التنظيمية</dt>
+                    <dd>عرض الهيكل التنظيمي أو قوائم المهام</dd>
+                </dl>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: صفحة أسئلة شائعة</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;dl&gt;</span>
+  <span class="value">&lt;dt&gt;</span>كيف يمكنني إنشاء موقع ويب؟<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>يمكنك إنشاء موقع ويب بتعلم HTML, CSS, JavaScript ثم رفعه على خادم ويب.<span class="value">&lt;/dd&gt;</span>
+  
+  <span class="value">&lt;dt&gt;</span>ما هي لغة HTML؟<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>HTML هي لغة ترميز تستخدم لإنشاء هيكل صفحات الويب.<span class="value">&lt;/dd&gt;</span>
+  
+  <span class="value">&lt;dt&gt;</span>هل يمكنني تعليم البرمجة بنفسي؟<span class="value">&lt;/dt&gt;</span>
+  <span class="value">&lt;dd&gt;</span>نعم، هناك العديد من المصادر المجانية على الإنترنت لتعلم البرمجة.<span class="value">&lt;/dd&gt;</span>
+<span class="property">&lt;/dl&gt;</span></pre>
+                </div>
+                <dl>
+                    <dt>كيف يمكنني إنشاء موقع ويب؟</dt>
+                    <dd>يمكنك إنشاء موقع ويب بتعلم HTML, CSS, JavaScript ثم رفعه على خادم ويب.</dd>
+                    
+                    <dt>ما هي لغة HTML؟</dt>
+                    <dd>HTML هي لغة ترميز تستخدم لإنشاء هيكل صفحات الويب.</dd>
+                    
+                    <dt>هل يمكنني تعليم البرمجة بنفسي؟</dt>
+                    <dd>نعم، هناك العديد من المصادر المجانية على الإنترنت لتعلم البرمجة.</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="unordered-lists.html" class="button-demo">❮ القوائم الغير مرتبة</a>
+                <a href="file-paths.html" class="button-demo">مسارات الملفات ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

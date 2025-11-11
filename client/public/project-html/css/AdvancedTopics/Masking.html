@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - التقنيع</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أمثلة التقنيع */
+        .masking-example img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* أمثلة الدرس */
+
+        /* المثال الأول: صورة كقناع */
+        .masking-example.image-mask img {
+            -webkit-mask-image: url(mask.png);
+            mask-image: url(mask.png);
+        }
+        
+        /* المثال الأول: لون متدرج كقناع */
+        .masking-example.linear-gradient-mask img {
+            -webkit-mask-image: linear-gradient(black, transparent);
+            mask-image: linear-gradient (black, transparent);
+        }
+
+        /* المثال الثاني: لون متدرج دائري */
+        .masking-example.radial-gradient-mask img {
+            -webkit-mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+            mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+        }
+
+        /* المثال الأول: حجم القناع */
+        .masking-example.size-100 img {
+            max-width: 100%;
+            -webkit-mask-image: url(mask.png);
+            mask-image: url(mask.png);
+            -webkit-mask-size: 100%;
+            mask-size: 100%;
+        }
+
+        /* المثال الثاني: حجم القناع 20% */
+        .masking-example.size-20 img {
+            max-width: 100%;
+            -webkit-mask-image: url(mask.png);
+            mask-image: url(mask.png);
+            -webkit-mask-size: 20%;
+            mask-size: 20%;
+        }
+
+        /* المثال الأول: تكرار عمودي */
+        .masking-example.repeat-y img {
+            max-width: 100%;
+            -webkit-mask-image: url(mask.png);
+            mask-image: url(mask.png);
+            -webkit-mask-size: 30%;
+            mask-size: 30%;
+            -webkit-mask-repeat: repeat-y;
+            mask-repeat: repeat-y;
+        }
+
+        /* المثال الثاني: تكرار مع تباعد */
+        .masking-example.space-repeat img {
+            max-width: 100%;
+            -webkit-mask-image: url(mask.png);
+            mask-image: url(mask.png);
+            -webkit-mask-size: 30%;
+            mask-size: 30%;
+            -webkit-mask-repeat: space;
+            mask-repeat: space;
+        }
+
+        /* مثال تحديد المكان */
+        .masking-example.position-center img {
+            max-width: 100%;
+            -webkit-mask-image: url(mask.png);
+            mask-image: url(mask.png);
+            -webkit-mask-size: 50%;
+            mask-size: 50%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            mask-position: center center;
+        }
+
+        /* أمثلة SVG */
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>التقنيع</h1>
+            <p>مفهوم التقنيع في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم التقنيع</a></li>
+                    <li><a href="#how-to">طريقة وضع قناع</a></li>
+                    <li><a href="#image-mask">صورة كقناع</a></li>
+                    <li><a href="#gradient-mask">لون متدرج</a></li>
+                    <li><a href="#mask-size">حجم القناع</a></li>
+                    <li><a href="#mask-repeat">تكرار القناع</a></li>
+                    <li><a href="#mask-position">مكان القناع</a></li>
+                    <li><a href="#svg-mask">قناع بـ SVG</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم التقنيع</h2>
+            <p>
+                التقنيع (<strong>Masking</strong>) هو أسلوب يستخدم لإظهار أجزاء معينة من عنصر (مثل صورة) أو التلاعب بشفافيته، وذلك باستخدام صورة أو لون متدرج كقناع.
+            </p>
+            <p>كمثال بسيط، لاحظ أنه بعد تركيب القناع على الصورة الأساسية إختفت الأجزاء غير المشتركة بينهما لتظهر كما يلي.</p>
+            <div class="property-block">
+                <img src="original-image.png" alt="الصورة الأصلية" style="width: 150px; display: inline-block;">
+                <img src="mask-image.png" alt="القناع" style="width: 150px; display: inline-block;">
+                <img src="masked-image.png" alt="الصورة بعد التقنيع" style="width: 150px; display: inline-block;">
+                <p>الصورة الأصلية | القناع | الصورة بعد التقنيع</p>
+            </div>
+        </section>
+
+        <section id="how-to" class="section">
+            <h2>طريقة وضع قناع للعنصر</h2>
+            <p>
+                للتأكد من دعم المتصفحات، يتم استخدام البادئة <code>-webkit-</code> بجانب الخصائص الأساسية.
+            </p>
+            <div class="code">
+                <pre><span class="property">-webkit-mask-image</span>: <span class="value">url(mask.png)</span>;
+<span class="property">mask-image</span>: <span class="value">url(mask.png)</span>;
+
+<span class="property">-webkit-mask-size</span>: <span class="value">100%</span>;
+<span class="property">mask-size</span>: <span class="value">100%</span>;</pre>
+            </div>
+        </section>
+
+        <section id="image-mask" class="section">
+            <h2>وضع صورة كقناع</h2>
+            <p>
+                لتحديد الصورة التي سيتم استخدامها كقناع، نستخدم الخاصية <strong><code>mask-image</code></strong> ونمرر لها مسار الصورة عبر الدالة <code>url()</code>.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">img</span> {
+    <span class="property">-webkit-mask-image</span>: <span class="value">url(mask.png)</span>;
+    <span class="property">mask-image</span>: <span class="value">url(mask.png)</span>;
+}</pre>
+                </div>
+                <div class="masking-example image-mask">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+        </section>
+
+        <section id="gradient-mask" class="section">
+            <h2>وضع لون متدرج كقناع</h2>
+            <p>
+                باستخدام الخاصية <strong><code>mask-image</code></strong> مع دوال تدرج الألوان، يمكن إنشاء أقنعة شفافة.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (تدرج خطي)</h3>
+                <div class="code">
+                    <pre><span class="property">img</span> {
+    <span class="property">-webkit-mask-image</span>: <span class="value">linear-gradient(black, transparent)</span>;
+    <span class="property">mask-image</span>: <span class="value">linear-gradient (black, transparent)</span>;
+}</pre>
+                </div>
+                <div class="masking-example linear-gradient-mask">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني (تدرج دائري)</h3>
+                <div class="code">
+                    <pre><span class="property">img</span> {
+    <span class="property">-webkit-mask-image</span>: <span class="value">radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%)</span>;
+    <span class="property">mask-image</span>: <span class="value">radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%)</span>;
+}</pre>
+                </div>
+                <div class="masking-example radial-gradient-mask">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+        </section>
+        
+        <section id="mask-size" class="section">
+            <h2>تحديد حجم القناع</h2>
+            <p>
+                الخاصية <strong><code>mask-size</code></strong> تسمح لك بالتحكم في حجم القناع بالنسبة للعنصر.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (حجم 100%)</h3>
+                <div class="code">
+                    <pre><span class="property">img</span> {
+    <span class="property">mask-size</span>: <span class="value">100%</span>;
+}</pre>
+                </div>
+                <div class="masking-example size-100">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني (حجم 20%)</h3>
+                <div class="code">
+                    <pre><span class="property">img</span> {
+    <span class="property">mask-size</span>: <span class="value">20%</span>;
+}</pre>
+                </div>
+                <div class="masking-example size-20">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+        </section>
+
+        <section id="mask-repeat" class="section">
+            <h2>تحديد كيف سيتم تكرار القناع</h2>
+            <p>
+                الخاصية <strong><code>mask-repeat</code></strong> تحدد كيفية تكرار القناع لملء مساحة العنصر.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (تكرار عمودي)</h3>
+                <div class="code">
+                    <pre><span class="property">mask-repeat</span>: <span class="value">repeat-y</span>;</pre>
+                </div>
+                <div class="masking-example repeat-y">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني (تكرار مع تباعد)</h3>
+                <div class="code">
+                    <pre><span class="property">mask-repeat</span>: <span class="value">space</span>;</pre>
+                </div>
+                <div class="masking-example space-repeat">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+        </section>
+
+        <section id="mask-position" class="section">
+            <h2>تحديد مكان القناع بالنسبة للعنصر</h2>
+            <p>
+                الخاصية <strong><code>mask-position</code></strong> تسمح لك بوضع القناع في أي مكان داخل العنصر.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">mask-position</span>: <span class="value">center center</span>;</pre>
+                </div>
+                <div class="masking-example position-center">
+                    <img src="nature.png" alt="صورة الطبيعة">
+                </div>
+            </div>
+        </section>
+
+        <section id="svg-mask" class="section">
+            <h2>رسم قناع بواسطة SVG</h2>
+            <p>
+                يمكنك استخدام وسم <code>&lt;mask&gt;</code> داخل <code>&lt;svg&gt;</code> لرسم قناع مخصص.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (قناع مضلع)</h3>
+                <div class="code">
+                    <pre>&lt;svg width="100%" height="auto"&gt;
+    &lt;mask id="svgmask"&gt;
+        &lt;polygon fill="#FFFFFF" points="50 0, 83 12, 100 43, 94 78, 68 100, 32 100, 6 78, 0 43, 17 12"&gt;&lt;/polygon&gt;
+    &lt;/mask&gt;
+    &lt;image xlink:href="/tutorials/css/masking/nature.png" mask="url(#svgmask)"&gt;&lt;/image&gt;
+&lt;/svg&gt;</pre>
+                </div>
+                <div class="svg-container">
+                    <svg width="400" height="600" viewBox="0 0 400 600" style="max-width: 100%;">
+                        <mask id="svgmask-polygon">
+                            <polygon fill="#FFFFFF" points="200 0, 332 48, 400 172, 376 312, 272 400, 128 400, 24 312, 0 172, 68 48"></polygon>
+                        </mask>
+                        <image xlink:href="nature.png" width="400" height="600" mask="url(#svgmask-polygon)"></image>
+                    </svg>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني (قناع دوائر)</h3>
+                <div class="code">
+                    <pre>&lt;svg width="100%" height="auto"&gt;
+    &lt;mask id="svgmask"&gt;
+        &lt;circle fill="#ffffff" cx="75" cy="75" r="60"&gt;&lt;/circle&gt;
+        &lt;circle fill="#ffffff" cx="260" cy="100" r="85"&gt;&lt;/circle&gt;
+        ...
+    &lt;/mask&gt;
+    &lt;image xlink:href="/tutorials/css/masking/nature.png" mask="url(#svgmask)"&gt;&lt;/image&gt;
+&lt;/svg&gt;</pre>
+                </div>
+                <div class="svg-container">
+                    <svg width="400" height="600" viewBox="0 0 400 600" style="max-width: 100%;">
+                        <mask id="svgmask-circles">
+                            <circle fill="#ffffff" cx="100" cy="100" r="80"></circle>
+                            <circle fill="#ffffff" cx="300" cy="200" r="100"></circle>
+                            <circle fill="#ffffff" cx="150" cy="400" r="70"></circle>
+                            <circle fill="#ffffff" cx="250" cy="500" r="90"></circle>
+                        </mask>
+                        <image xlink:href="nature.png" width="400" height="600" mask="url(#svgmask-circles)"></image>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عنونة عناصر النموذج في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .form-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .form-example {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .form-example h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .code pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .demo-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .benefits-list {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        
+        .benefits-list h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: right;
+        }
+        
+        .comparison-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .good-practice {
+            background-color: #d4edda !important;
+        }
+        
+        .bad-practice {
+            background-color: #f8d7da !important;
+        }
+        
+        .interactive-demo {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #ffeaa7;
+            margin: 20px 0;
+        }
+        
+        .tip-box {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>عنونة عناصر النموذج</h2>
+            <p>تعلم الطريقة الصحيحة لعنونة عناصر النماذج في HTML</p>
+            <nav>
+                <ul>
+                    <li><a href="#importance">أهمية العنونة</a></li>
+                    <li><a href="#correct-way">الطريقة الصحيحة</a></li>
+                    <li><a href="#examples">أمثلة تطبيقية</a></li>
+                    <li><a href="#benefits">المزايا والفوائد</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="importance" class="section">
+            <h2>أهمية عنونة العناصر</h2>
+            <p>إضافة نص عادي كإسم لعنصر موضوع في النموذج لا يعتبر أفضل طريقة لفعل ذلك لأن المتصفح لن يعرف أنهما مرتبطين ببعضهما.</p>
+            
+            <div class="example">
+                <h4>مثال: الطريقة غير الصحيحة</h4>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- هذه الطريقة غير صحيحة --&gt;</span>
+<span class="value">Username</span><span class="property">&lt;br&gt;</span>
+<span class="property">&lt;input type="text"&gt;</span></pre>
+                </div>
+                <div class="demo-form">
+                    <div class="form-group">
+                        Username<br>
+                        <input type="text" placeholder="أدخل اسم المستخدم">
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <strong>المشكلة:</strong> المتصفح لا يعرف أن النص "Username" مرتبط بمربع النص، ولن يتمكن المستخدم من النقر على النص للانتقال إلى الحقل.
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>المعيار</th>
+                        <th>الطريقة الخاطئة</th>
+                        <th>الطريقة الصحيحة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>إمكانية الوصول</td>
+                        <td class="bad-practice">❌ ضعيفة</td>
+                        <td class="good-practice">✅ ممتازة</td>
+                    </tr>
+                    <tr>
+                        <td>تجربة المستخدم</td>
+                        <td class="bad-practice">❌ محدودة</td>
+                        <td class="good-practice">✅ محسنة</td>
+                    </tr>
+                    <tr>
+                        <td>التوافق مع الأجهزة</td>
+                        <td class="bad-practice">❌ صعبة على الهواتف</td>
+                        <td class="good-practice">✅ سهلة على جميع الأجهزة</td>
+                    </tr>
+                    <tr>
+                        <td>تحسين محركات البحث</td>
+                        <td class="bad-practice">❌ غير محسن</td>
+                        <td class="good-practice">✅ محسن</td>
+                    </tr>
+                </tbody>
+            </div>
+        </section>
+
+        <section id="correct-way" class="section">
+            <h2>الطريقة الصحيحة لعنونة العناصر</h2>
+            <p>أي عنصر في النموذج تريد وضع نص خاص له يجب أن تضعه بداخل <code>&lt;label&gt;&lt;/label&gt;</code>.</p>
+            
+            <div class="property-block">
+                <h3>خطوات الربط الصحيحة:</h3>
+                <ol>
+                    <li>إضافة الخاصية <code>id</code> للعنصر وإعطاؤها إسماً فريداً</li>
+                    <li>إضافة الخاصية <code>for</code> في الوسم <code>&lt;label&gt;</code></li>
+                    <li>تمرير نفس قيمة <code>id</code> إلى الخاصية <code>for</code></li>
+                </ol>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: الطريقة الصحيحة</h4>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- هذه الطريقة صحيحة --&gt;</span>
+<span class="property">&lt;label for="username"&gt;</span>Username<span class="property">&lt;/label&gt;</span><span class="property">&lt;br&gt;</span>
+<span class="property">&lt;input type="text" id="username"&gt;</span></pre>
+                </div>
+                <div class="demo-form">
+                    <div class="form-group">
+                        <label for="username-demo">Username</label>
+                        <input type="text" id="username-demo" placeholder="أدخل اسم المستخدم">
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <strong>الميزة:</strong> الآن يمكن للمستخدم النقر على النص "Username" وسيتم التركيز تلقائياً على مربع النص.
+                </div>
+            </div>
+            
+            <div class="interactive-demo">
+                <h4>جرب بنفسك:</h4>
+                <p>انقر على النص "اسم المستخدم" في المثال أدناه ولاحظ كيف ينتقل التركيز إلى مربع النص تلقائياً:</p>
+                <div class="form-group">
+                    <label for="interactive-username">اسم المستخدم</label>
+                    <input type="text" id="interactive-username" placeholder="جرب النقر على النص أعلاه">
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="section">
+            <h2>أمثلة تطبيقية</h2>
+            
+            <div class="form-container">
+                <div class="form-example">
+                    <h4>مربع النص</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;label for="email"&gt;</span>البريد الإلكتروني<span class="property">&lt;/label&gt;</span>
+<span class="property">&lt;input type="email" id="email" placeholder="example@email.com"&gt;</span></pre>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-demo">البريد الإلكتروني</label>
+                        <input type="email" id="email-demo" placeholder="example@email.com">
+                    </div>
+                </div>
+                
+                <div class="form-example">
+                    <h4>كلمة المرور</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;label for="password"&gt;</span>كلمة المرور<span class="property">&lt;/label&gt;</span>
+<span class="property">&lt;input type="password" id="password"&gt;</span></pre>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-demo">كلمة المرور</label>
+                        <input type="password" id="password-demo">
+                    </div>
+                </div>
+                
+                <div class="form-example">
+                    <h4>القائمة المنسدلة</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;label for="country"&gt;</span>البلد<span class="property">&lt;/label&gt;</span>
+<span class="property">&lt;select id="country"&gt;</span>
+    <span class="value">&lt;option value="sa"&gt;</span>السعودية<span class="value">&lt;/option&gt;</span>
+    <span class="value">&lt;option value="eg"&gt;</span>مصر<span class="value">&lt;/option&gt;</span>
+    <span class="value">&lt;option value="ae"&gt;</span>الإمارات<span class="value">&lt;/option&gt;</span>
+<span class="property">&lt;/select&gt;</span></pre>
+                    </div>
+                    <div class="form-group">
+                        <label for="country-demo">البلد</label>
+                        <select id="country-demo">
+                            <option value="sa">السعودية</option>
+                            <option value="eg">مصر</option>
+                            <option value="ae">الإمارات</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-example">
+                    <h4>مربع النص الطويل</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;label for="message"&gt;</span>الرسالة<span class="property">&lt;/label&gt;</span>
+<span class="property">&lt;textarea id="message" rows="4"&gt;</span><span class="property">&lt;/textarea&gt;</span></pre>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-demo">الرسالة</label>
+                        <textarea id="message-demo" rows="4" placeholder="اكتب رسالتك هنا"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="section">
+            <h2>مزايا وفوائد استخدام الوسم &lt;label&gt;</h2>
+            
+            <div class="benefits-list">
+                <h3>تحسين إمكانية الوصول</h3>
+                <ul>
+                    <li>✅ يساعد مستخدمي قارئات الشاشة على فهم النماذج</li>
+                    <li>✅ يحسن تجربة المستخدمين ذوي الاحتياجات الخاصة</li>
+                    <li>✅ يجعل النماذج أكثر وضوحاً وسهولة في الاستخدام</li>
+                </ul>
+                
+                <h3>تحسين تجربة المستخدم</h3>
+                <ul>
+                    <li>✅ يسمح للمستخدمين بالنقر على النص لتحديد الحقل</li>
+                    <li>✅ مهم جداً للأجهزة التي تعمل باللمس (هواتف، أجهزة لوحية)</li>
+                    <li>✅ يجعل النماذج أكثر احترافية وسهولة في الاستخدام</li>
+                </ul>
+                
+                <h3>فوائد تقنية</h3>
+                <ul>
+                    <li>✅ يحسن من تحسين محركات البحث (SEO)</li>
+                    <li>✅ يجعل الكود أكثر تنظيماً وسهولة في الصيانة</li>
+                    <li>✅ يتوافق مع معايير HTML5</li>
+                </ul>
+            </div>
+            
+            <div class="property-block">
+                <h3>نصائح مهمة</h3>
+                <ul>
+                    <li>✅ استخدم <code>id</code> فريداً لكل عنصر</li>
+                    <li>✅ تأكد من تطابق قيمة <code>for</code> مع <code>id</code></li>
+                    <li>✅ استخدم نصوصاً واضحة ووصفية في الوسم <code>&lt;label&gt;</code></li>
+                    <li>✅ اجعل التسميات قصيرة ومعبرة</li>
+                    <li>❌ لا تكرر نفس قيمة <code>id</code> في الصفحة</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="html-frames.html" class="button-demo">❮ الأطر</a>
+                <a href="input-fields.html" class="button-demo">حقول الإدخال ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

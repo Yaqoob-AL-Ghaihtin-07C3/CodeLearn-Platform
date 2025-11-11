@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأزرار في HTML - EliteWeb - EliteWeb</title>
+ 
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .button-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .button-card h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .code pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .demo-area {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        button, input[type="button"], input[type="submit"], input[type="reset"] {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: 'Tajawal', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #2980b9, #1c6ea4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        input[type="button"] {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+        
+        input[type="button"]:hover {
+            background: linear-gradient(135deg, #229954, #1e7e34);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        input[type="submit"] {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        input[type="reset"] {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+        
+        input[type="reset"]:hover {
+            background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px dashed #3498db;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        
+        .icon-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .icon-button img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .property-list {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        
+        .property-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border-right: 3px solid #e9ecef;
+        }
+        
+        .property-name {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right;
+        }
+        
+        .comparison-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .tip-box {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .form-demo {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #ffeaa7;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>الأزرار العادية</h2>
+            <p>تعلم كيفية استخدام الأزرار في نماذج HTML</p>
+            <nav>
+                <ul>
+                    <li><a href="#types">أنواع الأزرار</a></li>
+                    <li><a href="#normal-buttons">أزرار عادية</a></li>
+                    <li><a href="#submit-buttons">أزرار الإرسال</a></li>
+                    <li><a href="#reset-buttons">أزرار إعادة التعيين</a></li>
+                    <li><a href="#file-buttons">أزرار الملفات</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="types" class="section">
+            <h2>أنواع الأزرار</h2>
+            <p>هناك 4 أنواع رئيسية من الأزرار التي يمكن إضافتها في النماذج:</p>
+            
+            <div class="property-list">
+                <h3>أنواع أزرار الإدخال</h3>
+                
+                <div class="property-item">
+                    <span class="property-name">type="button"</span> - زر عادي
+                </div>
+                
+                <div class="property-item">
+                    <span class="property-name">type="submit"</span> - زر إرسال البيانات
+                </div>
+                
+                <div class="property-item">
+                    <span class="property-name">type="reset"</span> - زر إعادة التعيين
+                </div>
+                
+                <div class="property-item">
+                    <span class="property-name">type="file"</span> - زر اختيار الملف
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>النوع</th>
+                        <th>الوصف</th>
+                        <th>الاستخدام</th>
+                        <th>القيمة الافتراضية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>button</code></td>
+                        <td>زر عادي</td>
+                        <td>أي غرض عام</td>
+                        <td>يحددها المطور</td>
+                    </tr>
+                    <tr>
+                        <td><code>submit</code></td>
+                        <td>زر إرسال</td>
+                        <td>إرسال النموذج</td>
+                        <td>"Submit"</td>
+                    </tr>
+                    <tr>
+                        <td><code>reset</code></td>
+                        <td>زر إعادة تعيين</td>
+                        <td>مسح بيانات النموذج</td>
+                        <td>"Reset"</td>
+                    </tr>
+                    <tr>
+                        <td><code>file</code></td>
+                        <td>زر ملف</td>
+                        <td>رفع الملفات</td>
+                        <td>"Choose File"</td>
+                    </tr>
+                </tbody>
+            </div>
+        </section>
+
+        <section id="normal-buttons" class="section">
+            <h2>إضافة زر عادي</h2>
+            <p>يمكن استخدام الوسم <code>&lt;button&gt;</code> أو <code>&lt;input type="button"&gt;</code></p>
+            
+            <div class="button-container">
+                <div class="button-card">
+                    <h4>使用 &lt;button&gt;</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;button type="button"&gt;</span>زر عادي<span class="property">&lt;/button&gt;</span></pre>
+                    </div>
+                    <div class="button-group">
+                        <button type="button">زر عادي</button>
+                    </div>
+                </div>
+                
+                <div class="button-card">
+                    <h4>使用 &lt;input&gt;</h4>
+                    <div class="code">
+                        <pre><span class="property">&lt;input type="button" value="زر عادي"&gt;</span></pre>
+                    </div>
+                    <div class="button-group">
+                        <input type="button" value="زر عادي">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: أزرار مع JavaScript</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;button type="button" onclick="alert('مرحباً!')"&gt;</span>
+    عرض رسالة
+<span class="property">&lt;/button&gt;</span>
+
+<span class="property">&lt;input type="button" value="عرض رسالة" onclick="alert('مرحباً!')"&gt;</span></pre>
+                </div>
+                <div class="button-group">
+                    <button type="button" onclick="alert('مرحباً!')">عرض رسالة</button>
+                    <input type="button" value="عرض رسالة" onclick="alert('مرحباً!')">
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: زر بأيقونة</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;button type="button" class="icon-button"&gt;</span>
+    <span class="property">&lt;img src="play-icon.png" alt="Play"&gt;</span>
+    تشغيل
+<span class="property">&lt;/button&gt;</span></pre>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="icon-button">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDV2MTRsMTEtN3oiLz48L3N2Zz4=" alt="Play" style="width: 20px; height: 20px;">
+                        تشغيل
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="submit-buttons" class="section">
+            <h2>إضافة زر لإرسال بيانات النموذج</h2>
+            <p>يستخدم <code>&lt;input type="submit"&gt;</code> لإرسال بيانات النموذج</p>
+            
+            <div class="button-card">
+                <h4>زر الإرسال</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;input type="submit" value="تسجيل الدخول"&gt;</span></pre>
+                </div>
+                <div class="form-demo">
+                    <form onsubmit="alert('تم الإرسال!'); return false;">
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">كلمة المرور</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <div class="button-group">
+                            <input type="submit" value="تسجيل الدخول">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>ملاحظة:</strong> الزر <code>submit</code> يرسل بيانات النموذج تلقائياً إلى العنوان المحدد في خاصية <code>action</code> للوسم <code>&lt;form&gt;</code>.
+            </div>
+        </section>
+
+        <section id="reset-buttons" class="section">
+            <h2>إضافة زر لإعادة تعيين قيم النموذج</h2>
+            <p>يستخدم <code>&lt;input type="reset"&gt;</code> لإعادة تعيين النموذج</p>
+            
+            <div class="button-card">
+                <h4>زر إعادة التعيين</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;input type="reset" value="إعادة التعيين"&gt;</span></pre>
+                </div>
+                <div class="form-demo">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input type="text" id="name" value="القيمة الافتراضية">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">ملاحظات</label>
+                            <textarea id="comments">اكتب شيئاً هنا</textarea>
+                        </div>
+                        <div class="button-group">
+                            <input type="submit" value="إرسال">
+                            <input type="reset" value="إعادة التعيين">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>ملاحظة:</strong> الزر <code>reset</code> يعيد جميع حقول النموذج إلى قيمها الافتراضية الأصلية.
+            </div>
+        </section>
+
+        <section id="file-buttons" class="section">
+            <h2>إضافة زر لاختيار الملفات</h2>
+            <p>يستخدم <code>&lt;input type="file"&gt;</code> لاختيار الملفات</p>
+            
+            <div class="button-card">
+                <h4>زر اختيار الملف</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;input type="file"&gt;</span>
+
+<span class="comment">&lt;!-- للسماح بملفات متعددة --&gt;</span>
+<span class="property">&lt;input type="file" multiple&gt;</span>
+
+<span class="comment">&lt;!-- لتحديد نوع الملف --&gt;</span>
+<span class="property">&lt;input type="file" accept=".jpg,.png,.pdf"&gt;</span></pre>
+                </div>
+                <div class="form-demo">
+                    <div class="form-group">
+                        <label for="file-single">رفع ملف واحد:</label>
+                        <input type="file" id="file-single">
+                    </div>
+                    <div class="form-group">
+                        <label for="file-multiple">رفع ملفات متعددة:</label>
+                        <input type="file" id="file-multiple" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-images">رفع صور فقط:</label>
+                        <input type="file" id="file-images" accept=".jpg,.jpeg,.png,.gif">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="property-list">
+                <h3>خصائص زر الملف</h3>
+                
+                <div class="property-item">
+                    <span class="property-name">multiple</span> - السماح باختيار multiple files
+                </div>
+                
+                <div class="property-item">
+                    <span class="property-name">accept</span> - تحديد أنواع الملفات المقبولة
+                </div>
+                
+                <div class="property-item">
+                    <span class="property-name">capture</span> - فتح الكاميرا مباشرة (على الهواتف)
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>نصائح مهمة لاستخدام الأزرار</h3>
+            <div class="property-block">
+                <ul>
+                    <li>✅ استخدام <code>&lt;button&gt;</code> عندما تحتاج إلى محتوى معقد داخل الزر</li>
+                    <li>✅ استخدام <code>&lt;input&gt;</code> للأزرار البسيطة</li>
+                    <li>✅ تحديد <code>type</code> دائمًا للأزرار</li>
+                    <li>✅ استخدام نصوص واضحة ومعبرة على الأزرار</li>
+                    <li>✅ توفير أزرار واضحة للنماذج (Submit, Reset)</li>
+                    <li>❌ تجنب استخدام الأزرار المعطلة دون سبب واضح</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="input-fields.html" class="button-demo">❮ حقول الإدخال</a>
+                <a href="checkboxes.html" class="button-demo">خانات الاختيار ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

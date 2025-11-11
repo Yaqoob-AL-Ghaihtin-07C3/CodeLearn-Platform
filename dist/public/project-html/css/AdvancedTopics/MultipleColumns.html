@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - الأعمدة المتعددة</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أنماط الأمثلة */
+        .newspaper {
+            border: 2px dashed #95a5a6;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .newspaper-content {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* أمثلة الخصائص */
+        .newspaper-count {
+            column-count: 3;
+        }
+
+        .newspaper-gap {
+            column-count: 3;
+            column-gap: 40px;
+        }
+        
+        .newspaper-rule-style {
+            column-count: 3;
+            column-rule-style: solid;
+        }
+
+        .newspaper-rule-width {
+            column-count: 3;
+            column-rule-style: solid; /* لتوضيح العرض */
+            column-rule-width: 1px;
+        }
+
+        .newspaper-rule-color {
+            column-count: 3;
+            column-rule-style: solid; /* لتوضيح اللون */
+            column-rule-width: 1px;
+            column-rule-color: deeppink;
+        }
+
+        .newspaper-rule-shorthand {
+            column-count: 3;
+            column-rule: 1px solid deeppink;
+        }
+
+        .newspaper-width {
+            column-width: 100px;
+        }
+
+        .newspaper-span h3 {
+            column-span: all;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .newspaper-span {
+            column-count: 3;
+        }
+
+        .newspaper-shorthand {
+            columns: 100px 3;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>الأعمدة المتعددة</h1>
+            <p>مفهوم الأعمدة المتعددة في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الأعمدة المتعددة</a></li>
+                    <li><a href="#column-count">تحديد عدد الأعمدة</a></li>
+                    <li><a href="#column-gap">إضافة هامش بين الأعمدة</a></li>
+                    <li><a href="#column-rule">إظهار حدود الأعمدة</a></li>
+                    <li><a href="#column-width">تحديد عرض الأعمدة</a></li>
+                    <li><a href="#column-span">دمج الأعمدة</a></li>
+                    <li><a href="#columns">تحديد عدد وحجم الأعمدة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم الأعمدة المتعددة</h2>
+            <p>
+                <strong>تخطيط الأعمدة المتعددة (Multi-Column Layout)</strong> هو أسلوب لعرض النصوص على شكل أعمدة تماماً كما يتم عرض النصوص في الصحف.
+            </p>
+            <div class="image-container">
+                <p><strong>CSS Multi-Column Layout</strong></p>
+                
+            </div>
+            <p>
+                باستخدام هذه الخصائص، يمكنك التحكم في عدد الأعمدة، وحجم الهامش بينها، وعرض خطوط فاصلة، وغيرها من التفاصيل.
+            </p>
+        </section>
+
+        <section id="column-count" class="section">
+            <h2>تحديد عدد الأعمدة النصية</h2>
+            <p>
+                لتحديد عدد الأعمدة التي يمكن أن يظهر النص عليها يمكنك استخدام الخاصية <strong><code>column-count</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.newspaper</span> {
+    <span class="property">column-count</span>: <span class="value">3</span>;
+}</pre>
+                </div>
+                <div class="newspaper newspaper-count">
+                    <div class="newspaper-content">
+                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو نموذج عن فن رص الأحرف. لم تقتصر أهمية هذا النص على خمسة قرون مضت، بل امتدت لتشمل العصر الحديث أيضاً.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="column-gap" class="section">
+            <h2>إضافة هامش بين الأعمدة النصية</h2>
+            <p>
+                لإضافة أو تحديد حجم الهامش بين الأعمدة، نستخدم الخاصية <strong><code>column-gap</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.newspaper</span> {
+    <span class="property">column-gap</span>: <span class="value">40px</span>;
+}</pre>
+                </div>
+                <div class="newspaper newspaper-gap">
+                    <div class="newspaper-content">
+                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو نموذج عن فن رص الأحرف. لم تقتصر أهمية هذا النص على خمسة قرون مضت، بل امتدت لتشمل العصر الحديث أيضاً.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="column-rule" class="section">
+            <h2>إظهار حدود الأعمدة النصية</h2>
+            <p>
+                لإظهار خطوط فاصلة بين الأعمدة، يمكنك استخدام الخصائص <code>column-rule-style</code>، <code>column-rule-width</code>، و <code>column-rule-color</code>.
+            </p>
+            <div class="property-block">
+                <h3>مثال (باستخدام الخاصية المختصرة <code>column-rule</code>)</h3>
+                <div class="code">
+                    <pre><span class="property">.newspaper</span> {
+    <span class="property">column-rule</span>: <span class="value">1px solid deeppink</span>;
+}</pre>
+                </div>
+                <div class="newspaper newspaper-rule-shorthand">
+                    <div class="newspaper-content">
+                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو نموذج عن فن رص الأحرف. لم تقتصر أهمية هذا النص على خمسة قرون مضت، بل امتدت لتشمل العصر الحديث أيضاً.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="column-width" class="section">
+            <h2>تحديد عرض الأعمدة النصية</h2>
+            <p>
+                يمكنك استخدام الخاصية <strong><code>column-width</code></strong> لتحديد العرض الأدنى لكل عمود.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.newspaper</span> {
+    <span class="property">column-width</span>: <span class="value">100px</span>;
+}</pre>
+                </div>
+                <div class="newspaper newspaper-width">
+                    <div class="newspaper-content">
+                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو نموذج عن فن رص الأحرف. لم تقتصر أهمية هذا النص على خمسة قرون مضت، بل امتدت لتشمل العصر الحديث أيضاً.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="column-span" class="section">
+            <h2>دمج الأعمدة النصية</h2>
+            <p>
+                الخاصية <strong><code>column-span</code></strong> تُستخدم لدمج الأعمدة لعنصر معين ليظهر على جميع الأعمدة.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">h3</span> {
+    <span class="property">column-span</span>: <span class="value">all</span>;
+}</pre>
+                </div>
+                <div class="newspaper newspaper-span">
+                    <h3>عنوان رئيسي على جميع الأعمدة</h3>
+                    <div class="newspaper-content">
+                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو نموذج عن فن رص الأحرف. لم تقتصر أهمية هذا النص على خمسة قرون مضت، بل امتدت لتشمل العصر الحديث أيضاً.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="columns" class="section">
+            <h2>تحديد عدد وحجم الأعمدة النصية</h2>
+            <p>
+                الخاصية <strong><code>columns</code></strong> هي اختصار للخاصيتين <code>column-width</code> و <code>column-count</code>.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.newspaper</span> {
+    <span class="property">columns</span>: <span class="value">100px 3</span>;
+}</pre>
+                </div>
+                <div class="newspaper newspaper-shorthand">
+                    <div class="newspaper-content">
+                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو نموذج عن فن رص الأحرف. لم تقتصر أهمية هذا النص على خمسة قرون مضت، بل امتدت لتشمل العصر الحديث أيضاً.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+</body>
+
+</html>

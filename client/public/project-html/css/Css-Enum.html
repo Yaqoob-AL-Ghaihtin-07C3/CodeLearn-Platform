@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أساسيات CSS - دليل شامل</title>
+   <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <style>
+        /* CSS عام للصفحة */
+        body {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2d3436;
+            background-color: #f5f6fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* تحسينات للهيدر */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ecf0f1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        header h1:first-of-type {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+        }
+
+        header h2 {
+            color: #3498db;
+            margin: 10px 0;
+            font-size: 1.5em;
+            border-bottom: none;
+        }
+
+        header h3 {
+            color: #bdc3c7;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        header p {
+            margin: 15px 0;
+            font-size: 1.1em;
+            color: #ecf0f1;
+        }
+
+        /* تحسين قائمة التنقل */
+        nav {
+            margin-top: 25px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            list-style: none;
+            gap: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            background-color: rgba(52, 152, 219, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(41, 128, 185, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 8px;
+            margin-top: 50px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            position: relative;
+            padding-right: 15px;
+        }
+
+        h3::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+
+        .code {
+            background-color: #282a36;
+            color: #f8f8f2;
+            border-left: 5px solid #6272a4;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border-radius: 6px;
+            margin: 25px 0;
+            line-height: 1.8;
+            tab-size: 4;
+            font-size: 0.95em;
+        }
+
+        .code .property {
+            color: #50fa7b;
+        }
+
+        .code .value {
+            color: #f1fa8c;
+        }
+
+        .code .comment {
+            color: #6272a4;
+            font-style: italic;
+        }
+
+        .example {
+            background-color: #f0f8ff;
+            border: 2px dashed #3498db;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .button-demo {
+            display: inline-block;
+            background: linear-gradient(to right, #4CAF50, #2E8B57);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .button-demo:hover {
+            background: linear-gradient(to right, #45a049, #2d7a4f);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .card-demo {
+            width: 220px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px auto;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            background-color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card-demo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-demo img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+      
+
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header h1:first-of-type {
+                font-size: 2em;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            nav ul li a {
+                padding: 8px 15px;
+                font-size: 0.85em;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>تحضير أوسمة CSS</h1>
+            <h1>يعقوب خالد عبد أحمد الغيثي</h1>
+            <h2>الأستاذة فاتن</h2>
+            <h3>مجموعة C</h3>
+            <p>المحاضرة الرابعة</p>
+            <p>تحضير الأوسمة مع الشرح</p>
+            <nav><ul><li><a href="../DesignCosts/DesignCosts.html"   class="read-more">>يمكنك مشاهدة التكليف من بعد المحاضرة من خلال الضغط هنا</a></li></ul></nav>
+            
+            <nav>
+                <ul>
+                    <li><a href="#background-color-image">background-color&image</a></li>
+                    <li><a href="#text">text</a></li>
+                    <li><a href="#font">font</a></li>
+                    <li><a href="#color">color</a></li>
+                    <li><a href="#border">border</a></li>
+                    <li><a href="#padding">padding</a></li>
+                    <li><a href="#margin">margin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>الأوسمة الأساسية في CSS</h2>
+
+            <div id="background-color-image" class="property-block">
+                <h3>1. background-color & background-image</h3>
+                <p>تستخدم لتعيين لون أو صورة خلفية العنصر.</p>
+                <div class="code">
+                    <span class="property">background-color</span>: <span class="value">#ffffff</span>;
+                    <span class="comment">/* لون خلفية أبيض */</span><br>
+                    <span class="property">background-image</span>: <span class="value">url('image.jpg')</span>;
+                    <span class="comment">/* صورة خلفية */</span><br>
+                    <span class="property">background-repeat</span>: <span class="value">no-repeat</span>;
+                    <span class="comment">/* منع تكرار الصورة */</span><br>
+                    <span class="property">background-size</span>: <span class="value">cover</span>;
+                    <span class="comment">/* تغطية المساحة كاملة */</span><br>
+                </div>
+            </div>
+
+            <div id="text" class="property-block">
+                <h3>2. text</h3>
+                <p>خصائص النص المختلفة.</p>
+                <div class="code">
+                    <span class="property">text-align</span>: <span class="value">center</span>;
+                    <span class="comment">/* محاذاة النص */</span><br>
+                    <span class="property">text-decoration</span>: <span class="value">underline</span>;
+                    <span class="comment">/* تزيين النص */</span><br>
+                    <span class="property">text-transform</span>: <span class="value">uppercase</span>;
+                    <span class="comment">/* تحويل النص */</span><br>
+                    <span class="property">line-height</span>: <span class="value">1.5</span>;
+                    <span class="comment">/* ارتفاع السطر */</span><br>
+                    <span class="property">letter-spacing</span>: <span class="value">2px</span>;
+                    <span class="comment">/* تباعد الحروف */</span><br>
+                </div>
+            </div>
+
+            <div id="font" class="property-block">
+                <h3>3. font</h3>
+                <p>خصائص الخطوط.</p>
+                <div class="code">
+                    <span class="property">font-family</span>: <span class="value">'Arial', sans-serif</span>;
+                    <span class="comment">/* نوع الخط */</span><br>
+                    <span class="property">font-size</span>: <span class="value">16px</span>;
+                    <span class="comment">/* حجم الخط */</span><br>
+                    <span class="property">font-weight</span>: <span class="value">bold</span>;
+                    <span class="comment">/* سماكة الخط */</span><br>
+                    <span class="property">font-style</span>: <span class="value">italic</span>;
+                    <span class="comment">/* نمط الخط */</span><br>
+                </div>
+            </div>
+
+            <div id="color" class="property-block">
+                <h3>4. color</h3>
+                <p>لون النص.</p>
+                <div class="code">
+                    <span class="property">color</span>: <span class="value">#333333</span>;
+                    <span class="comment">/* لون النص */</span>
+                </div>
+            </div>
+
+            <div id="border" class="property-block">
+                <h3>5. border</h3>
+                <p>حدود العنصر.</p>
+                <div class="code">
+                    <span class="property">border</span>: <span class="value">1px solid #000000</span>;
+                    <span class="comment">/* حد بسمك 1px، صلب، لون أسود */</span><br>
+                    <span class="property">border-radius</span>: <span class="value">5px</span>;
+                    <span class="comment">/* زوايا مدورة */</span><br>
+                    <span class="property">border-top</span>: <span class="value">2px dashed red</span>;
+                    <span class="comment">/* حد علوي مختلف */</span><br>
+                </div>
+            </div>
+
+            <div id="padding" class="property-block">
+                <h3>6. padding</h3>
+                <p>المساحة الداخلية بين محتوى العنصر وحدوده.</p>
+                <div class="code">
+                    <span class="property">padding</span>: <span class="value">10px</span>;
+                    <span class="comment">/* padding من جميع الجهات */</span><br>
+                    <span class="property">padding-top</span>: <span class="value">5px</span>;
+                    <span class="comment">/* padding من الأعلى فقط */</span><br>
+                    <span class="property">padding</span>: <span class="value">10px 20px</span>;
+                    <span class="comment">/* أعلى/أسفل 10px، يمين/يسار 20px */</span><br>
+                    <span class="property">padding</span>: <span class="value">5px 10px 15px 20px</span>;
+                    <span class="comment">/* أعلى، يمين، أسفل، يسار */</span><br>
+                </div>
+            </div>
+
+            <div id ="margin" class="property-block">
+                <h3>7. margin</h3>
+                <p>المساحة الخارجية حول العنصر.</p>
+                <div class="code">
+                    <span class="property">margin</span>: <span class="value">20px</span>;
+                    <span class="comment">/* margin من جميع الجهات */</span><br>
+                    <span class="property">margin-left</span>: <span class="value">auto</span>;
+                    <span class="comment">/* margin تلقائي (مفيد للعناصر المركزة) */</span><br>
+                    <span class="property">margin</span>: <span class="value">0 auto</span>;
+                    <span class="comment">/* أعلى/أسفل 0، يمين/يسار تلقائي */</span><br>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>طرق كتابة CSS</h2>
+
+            <div class="property-block">
+                <h3>1. CSS داخلي (Inline)</h3>
+                <div class="code">
+                    &lt;p <span class="property">style</span>=<span class="value">"color: blue; font-size: 14px;"</span>&gt;نص تجريبي&lt;/p&gt;
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>2. CSS داخلي في &lt;style&gt;</h3>
+                <div class="code">
+                    &lt;head&gt;<br>
+                    &lt;<span class="property">style</span>&gt;<br>
+                    p {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">color</span>: <span class="value">red</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">font-family</span>: <span class="value">Arial</span>;<br>
+                    }<br>
+                    &lt;/<span class="property">style</span>&gt;<br>
+                    &lt;/head&gt;
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>3. CSS خارجي (مستقل)</h3>
+                <div class="code">
+                    &lt;head&gt;<br>
+                    &lt;<span class="property">link</span> <span class="property">rel</span>=<span class="value">"stylesheet"</span> <span class="property">href</span>=<span class="value">"styles.css"</span>&gt;<br>
+                    &lt;/head&gt;
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>4. CSS باستخدام @import</h3>
+                <div class="code">
+                    <span class="property">@import</span> <span class="value">url('other-styles.css')</span>;
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>أمثلة عملية</h2>
+
+            <div class="property-block">
+                <h3>مثال 1: زر بسيط</h3>
+                <div class="code">
+                    <span class="property">.button</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">background-color</span>: <span class="value">#4CAF50</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">color</span>: <span class="value">white</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">padding</span>: <span class="value">12px 24px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">border</span>: <span class="value">none</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">4px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">font-size</span>: <span class="value">16px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">margin</span>: <span class="value">10px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">cursor</span>: <span class="value">pointer</span>;<br>
+                    }<br><br>
+                    <span class="property">.button:hover</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">background-color</span>: <span class="value">#45a049</span>;<br>
+                    }
+                </div>
+                <div class="example">
+                    <button class="button-demo">زر تجريبي</button>
+                    <p>جرب تمرير المؤشر فوق الزر لرؤية تأثير hover</p>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 2: بطاقة (Card)</h3>
+                <div class="code">
+                    <span class="property">.card</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">width</span>: <span class="value">300px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">border</span>: <span class="value">1px solid #ddd</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">8px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">padding</span>: <span class="value">16px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">margin</span>: <span class="value">20px auto</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">box-shadow</span>: <span class="value">0 4px 8px rgba(0,0,0,0.1)</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">background-color</span>: <span class="value">white</span>;<br>
+                    }<br><br>
+                    <span class="property">.card img</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">width</span>: <span class="value">100%</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">border-radius</span>: <span class="value">4px</span>;<br>
+                    }<br><br>
+                    <span class="property">.card h3</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">color</span>: <span class="value">#333</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">font-size</span>: <span class="value">20px</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="property">margin-top</span>: <span class="value">10px</span>;<br>
+                    }
+                </div>
+                <div class="example">
+                    <div class="card-demo">
+                        <img src="https://via.placeholder.com/200" alt="صورة تجريبية" />
+                        <h3>بطاقة تجريبية</h3>
+                        <p>هذه بطاقة توضح كيفية استخدام CSS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+</body>
+</html>

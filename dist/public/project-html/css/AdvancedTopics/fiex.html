@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - Flexbox</title>
+    <link rel="stylesheet" href="../style.css">
+     
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر المرنة */
+        .flex-container {
+            display: flex;
+            height: 250px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .flex-item {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin: 5px;
+            font-size: 2em;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        /* أنماط الأمثلة */
+        .flex-direction-row { flex-direction: row; }
+        .flex-direction-row-reverse { flex-direction: row-reverse; }
+        .flex-direction-column { flex-direction: column; }
+        .flex-direction-column-reverse { flex-direction: column-reverse; }
+        
+        .flex-wrap-nowrap { flex-wrap: nowrap; }
+        .flex-wrap-nowrap .flex-item { width: 150px; }
+        .flex-wrap-wrap { flex-wrap: wrap; }
+        .flex-wrap-wrap .flex-item { width: 150px; }
+        .flex-wrap-wrap-column { flex-wrap: wrap; flex-direction: column; }
+        .flex-wrap-wrap-column .flex-item { width: 150px; }
+        .flex-wrap-wrap-reverse { flex-wrap: wrap-reverse; }
+        .flex-wrap-wrap-reverse .flex-item { width: 150px; }
+        .flex-wrap-wrap-reverse-column { flex-wrap: wrap-reverse; flex-direction: column; }
+        .flex-wrap-wrap-reverse-column .flex-item { width: 150px; }
+
+        .justify-content-flex-start { justify-content: flex-start; }
+        .justify-content-flex-end { justify-content: flex-end; }
+        .justify-content-center { justify-content: center; }
+        .justify-content-space-between { justify-content: space-between; }
+        .justify-content-space-around { justify-content: space-around; }
+        .justify-content-space-evenly { justify-content: space-evenly; }
+        .justify-content-column { flex-direction: column; }
+
+        .align-items-stretch { align-items: stretch; }
+        .align-items-flex-start { align-items: flex-start; }
+        .align-items-flex-end { align-items: flex-end; }
+        .align-items-center { align-items: center; }
+        .align-items-baseline { align-items: baseline; }
+        .align-items-baseline .flex-item-1 { font-size: 1em; }
+        .align-items-column { flex-direction: column; }
+
+        .align-content-start { align-content: flex-start; flex-wrap: wrap; }
+        .align-content-end { align-content: flex-end; flex-wrap: wrap; }
+        .align-content-center { align-content: center; flex-wrap: wrap; }
+        .align-content-stretch { align-content: stretch; flex-wrap: wrap; }
+        .align-content-between { align-content: space-between; flex-wrap: wrap; }
+        .align-content-around { align-content: space-around; flex-wrap: wrap; }
+        .align-content-evenly { align-content: space-evenly; flex-wrap: wrap; }
+        .align-content-column { flex-direction: column; }
+
+        .align-self-center { align-items: center; }
+        .align-self-start .item-2 { align-self: flex-start; }
+        .align-self-end .item-2 { align-self: flex-end; }
+        .align-self-center-item .item-2 { align-self: center; }
+        .align-self-baseline .item-2 { align-self: baseline; }
+        .align-self-stretch .item-2 { align-self: stretch; }
+
+        .flex-grow-example .item-1 { flex-grow: 1; }
+
+        .flex-basis-example .item-1 { flex-basis: 150px; }
+        .flex-basis-auto .item-1 { flex-basis: auto; }
+
+        .order-example { flex-direction: row; }
+        .order-example .item-1 { order: 4; }
+        .order-example .item-2 { order: 2; }
+        .order-example .item-3 { order: 1; }
+        .order-example .item-4 { order: 3; }
+
+        .flex-shorthand .item-2 { flex: 0 1 300px; }
+        
+        .flex-flow-example { flex-flow: row wrap; }
+        
+        .property-block .example-container {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+        }
+
+    </style>  
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Flexbox</h1>
+            <p>نظام التنسيق المرن للويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#what-is-flexbox">ما هو Flexbox</a></li>
+                    <li><a href="#getting-started">البدء باستخدام Flexbox</a></li>
+                    <li><a href="#flex-direction">flex-direction</a></li>
+                    <li><a href="#flex-wrap">flex-wrap</a></li>
+                    <li><a href="#justify-content">justify-content</a></li>
+                    <li><a href="#align-items">align-items</a></li>
+                    <li><a href="#align-content">align-content</a></li>
+                    <li><a href="#align-self">align-self</a></li>
+                    <li><a href="#flex-grow">flex-grow</a></li>
+                    <li><a href="#flex-shrink">flex-shrink</a></li>
+                    <li><a href="#flex-basis">flex-basis</a></li>
+                    <li><a href="#order">order</a></li>
+                    <li><a href="#flex-shorthand">flex</a></li>
+                    <li><a href="#flex-flow">flex-flow</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="what-is-flexbox" class="section">
+            <h2>ما هو Flexbox</h2>
+            <p>
+                <strong>Flexbox</strong> هو مجموعة من الخصائص التي يمكنك استخدامها لترتيب العناصر بشكل مرن جداً. فهو يتيح لك التحكم في مواقع العناصر، أحجامها، وكيفية تمددها أفقياً وعمودياً، بالإضافة إلى الهوامش بينها.
+            </p>
+            <div class="flex-container">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+            </div>
+        </section>
+
+        <section id="getting-started" class="section">
+            <h2>البدء باستخدام Flexbox</h2>
+            <p>
+                للبدء باستخدام Flexbox، يجب وضع العناصر التي تريد ترتيبها داخل عنصر آخر (يُسمى <strong>الحاوية</strong>)، ثم إعطاء الحاوية الخاصية <code>display: flex;</code>.
+            </p>
+            <div class="code">
+                <pre><span class="property">.flex-container</span> {
+    <span class="property">display</span>: <span class="value">flex</span>;
+}</pre>
+            </div>
+        </section>
+
+        <section id="flex-direction" class="section">
+            <h2>الخاصية flex-direction</h2>
+            <p>تستخدم لتحديد اتجاه صف العناصر، أفقياً أو عمودياً.</p>
+            <div class="property-block">
+                <h3>القيمة <code>row</code> (افتراضي)</h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-direction</span>: <span class="value">row</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-direction-row">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>row-reverse</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-direction</span>: <span class="value">row-reverse</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-direction-row-reverse">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>column</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-direction</span>: <span class="value">column</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-direction-column">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>column-reverse</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-direction</span>: <span class="value">column-reverse</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-direction-column-reverse">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flex-wrap" class="section">
+            <h2>الخاصية flex-wrap</h2>
+            <p>تستخدم لتحديد كيفية ظهور العناصر في حال عدم وجود مساحة كافية.</p>
+            <div class="property-block">
+                <h3>القيمة <code>nowrap</code> (افتراضي)</h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-wrap</span>: <span class="value">nowrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-wrap-nowrap">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                        <div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>wrap</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-wrap-wrap">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                        <div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>wrap-reverse</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-wrap</span>: <span class="value">wrap-reverse</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-wrap-wrap-reverse">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                        <div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="justify-content" class="section">
+            <h2>الخاصية justify-content</h2>
+            <p>تستخدم لتوزيع العناصر أفقياً في الحاوية.</p>
+            <div class="property-block">
+                <h3>القيمة <code>flex-start</code> (افتراضي)</h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">justify-content</span>: <span class="value">flex-start</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container justify-content-flex-start">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>flex-end</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">justify-content</span>: <span class="value">flex-end</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container justify-content-flex-end">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>center</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">justify-content</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container justify-content-center">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>space-between</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">justify-content</span>: <span class="value">space-between</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container justify-content-space-between">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>space-around</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">justify-content</span>: <span class="value">space-around</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container justify-content-space-around">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>space-evenly</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">justify-content</span>: <span class="value">space-evenly</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container justify-content-space-evenly">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="align-items" class="section">
+            <h2>الخاصية align-items</h2>
+            <p>تستخدم لتوزيع العناصر عمودياً في الحاوية.</p>
+            <div class="property-block">
+                <h3>القيمة <code>stretch</code> (افتراضي)</h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">stretch</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-items-stretch">
+                        <div class="flex-item" style="height: auto;">1</div>
+                        <div class="flex-item" style="height: auto;">2</div>
+                        <div class="flex-item" style="height: auto;">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>flex-start</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">flex-start</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-items-flex-start">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>flex-end</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">flex-end</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-items-flex-end">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>center</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-items-center">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>baseline</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">baseline</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-items-baseline">
+                        <div class="flex-item flex-item-1">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="align-content" class="section">
+            <h2>الخاصية align-content</h2>
+            <p>تستخدم لتوزيع الأسطر أو الأعمدة في الحاوية.</p>
+            <div class="property-block">
+                <h3>القيمة <code>flex-start</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-content</span>: <span class="value">flex-start</span>;
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-content-start">
+                        <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>flex-end</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-content</span>: <span class="value">flex-end</span>;
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-content-end">
+                        <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>center</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-content</span>: <span class="value">center</span>;
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-content-center">
+                        <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>stretch</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-content</span>: <span class="value">stretch</span>;
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-content-stretch">
+                        <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>space-between</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-content</span>: <span class="value">space-between</span>;
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-content-between">
+                        <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>القيمة <code>space-around</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-content</span>: <span class="value">space-around</span>;
+    <span class="property">flex-wrap</span>: <span class="value">wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-content-around">
+                        <div class="flex-item">1</div><div class="flex-item">2</div><div class="flex-item">3</div><div class="flex-item">4</div><div class="flex-item">5</div><div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="align-self" class="section">
+            <h2>الخاصية align-self</h2>
+            <p>تستخدم لتغيير موضع عنصر واحد فقط داخل الحاوية، overriding قيمة <code>align-items</code> العامة.</p>
+            <div class="property-block">
+                <h3>مثال: <code>align-self: flex-start</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">center</span>;
+}
+<span class="property">.item-2</span> {
+    <span class="property">align-self</span>: <span class="value">flex-start</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-self-center align-self-start">
+                        <div class="flex-item item-1">1</div>
+                        <div class="flex-item item-2">2</div>
+                        <div class="flex-item item-3">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>مثال: <code>align-self: flex-end</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">center</span>;
+}
+<span class="property">.item-2</span> {
+    <span class="property">align-self</span>: <span class="value">flex-end</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-self-center align-self-end">
+                        <div class="flex-item item-1">1</div>
+                        <div class="flex-item item-2">2</div>
+                        <div class="flex-item item-3">3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>مثال: <code>align-self: center</code></h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">align-items</span>: <span class="value">flex-end</span>;
+}
+<span class="property">.item-2</span> {
+    <span class="property">align-self</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container align-items-flex-end align-self-center-item">
+                        <div class="flex-item item-1">1</div>
+                        <div class="flex-item item-2">2</div>
+                        <div class="flex-item item-3">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="flex-shrink" class="section">
+            <h2>الخاصية flex-shrink</h2>
+            <p>تستخدم لتقليص حجم العنصر نسبةً لباقي العناصر. القيمة الافتراضية هي 1، وكلما زادت القيمة، زاد التقلص.</p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-direction</span>: <span class="value">row</span>;
+}
+<span class="property">.item-1</span> { <span class="property">flex-shrink</span>: <span class="value">1</span>; }
+<span class="property">.item-2</span> { <span class="property">flex-shrink</span>: <span class="value">2</span>; }
+<span class="property">.item-3</span> { <span class="property">flex-shrink</span>: <span class="value">3</span>; }</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container" style="width: 300px;">
+                        <div class="flex-item" style="flex-shrink: 1;">1</div>
+                        <div class="flex-item" style="flex-shrink: 2;">2</div>
+                        <div class="flex-item" style="flex-shrink: 3;">3</div>
+                        <div class="flex-item" style="flex-shrink: 1; width: 100px;">4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flex-grow" class="section">
+            <h2>الخاصية flex-grow</h2>
+            <p>تستخدم لتوسيع حجم العنصر نسبةً لباقي العناصر في المساحة المتاحة. القيمة الافتراضية هي 0.</p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.item-1</span> {
+    <span class="property">flex-grow</span>: <span class="value">1</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-grow-example">
+                        <div class="flex-item item-1">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flex-basis" class="section">
+            <h2>الخاصية flex-basis</h2>
+            <p>تستخدم لتحديد الحجم الأساسي للعنصر قبل التوزيع.</p>
+            <div class="property-block">
+                <h3>مثال: قيمة ثابتة</h3>
+                <div class="code">
+                    <pre><span class="property">.item-1</span> {
+    <span class="property">flex-basis</span>: <span class="value">150px</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-basis-example">
+                        <div class="flex-item item-1">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="order" class="section">
+            <h2>الخاصية order</h2>
+            <p>تستخدم لتغيير ترتيب العناصر داخل الحاوية. القيمة الافتراضية هي 0.</p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.item-1</span> { <span class="property">order</span>: <span class="value">4</span>; }
+<span class="property">.item-2</span> { <span class="property">order</span>: <span class="value">2</span>; }
+<span class="property">.item-3</span> { <span class="property">order</span>: <span class="value">1</span>; }
+<span class="property">.item-4</span> { <span class="property">order</span>: <span class="value">3</span>; }</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container order-example">
+                        <div class="flex-item item-1">1</div>
+                        <div class="flex-item item-2">2</div>
+                        <div class="flex-item item-3">3</div>
+                        <div class="flex-item item-4">4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flex-shorthand" class="section">
+            <h2>الخاصية flex (اختصار)</h2>
+            <p>
+                تُعدّ هذه الخاصية اختصاراً لـ <code>flex-grow</code>، <code>flex-shrink</code>، و <code>flex-basis</code> بالترتيب.
+            </p>
+            <div class="code">
+                <pre><span class="property">flex</span>: <span class="value">[flex-grow] [flex-shrink] [flex-basis]</span>;</pre>
+            </div>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.item-2</span> {
+    <span class="property">flex</span>: <span class="value">0 1 300px</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-shorthand">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item item-2">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flex-flow" class="section">
+            <h2>الخاصية flex-flow (اختصار)</h2>
+            <p>
+                تُعدّ هذه الخاصية اختصاراً لـ <code>flex-direction</code> و <code>flex-wrap</code> بالترتيب.
+            </p>
+            <div class="code">
+                <pre><span class="property">flex-flow</span>: <span class="value">[flex-direction] [flex-wrap]</span>;</pre>
+            </div>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.flex-container</span> {
+    <span class="property">flex-flow</span>: <span class="value">row wrap</span>;
+}</pre>
+                </div>
+                <div class="example-container">
+                    <div class="flex-container flex-flow-example">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                        <div class="flex-item">6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+
+</body>
+
+</html>

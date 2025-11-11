@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - الروابط (Links) - EliteWeb</title>
+  
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        
+        .link-demo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .link-demo a {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .link-demo p {
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        /* أمثلة الأنماط */
+        .basic-link-ex1 a {
+            color: red;
+            text-decoration: none;
+        }
+
+        .link-states-ex1 a:link {
+            color: green;
+        }
+
+        .link-states-ex1 a:visited {
+            color: gray;
+        }
+
+        .link-states-ex1 a:hover {
+            color: purple;
+        }
+
+        .link-states-ex1 a:active {
+            color: red;
+        }
+
+        .link-states-ex2 a {
+            color: green;
+            text-decoration: none;
+        }
+
+        .link-states-ex2 a:hover {
+            text-decoration: underline;
+        }
+
+        .link-states-ex3 a:link,
+        .link-states-ex3 a:visited {
+            color: green;
+            text-decoration: none;
+        }
+
+        .link-states-ex3 a:hover,
+        .link-states-ex3 a:active {
+            text-decoration: underline;
+        }
+
+        /* أمثلة عرض الرابط كزر */
+        .link-as-button-ex1 a {
+            display: inline-block;
+            color: white;
+            background: #1e87f0;
+            border: 2px solid #1e87f0;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+        }
+
+        .link-as-button-ex1 a:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        .link-as-button-ex2 a {
+            display: inline-block;
+            color: black;
+            background: none;
+            border: 2px solid #1e87f0;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+        }
+
+        .link-as-button-ex2 a:hover {
+            color: white;
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        .link-as-button-ex3 a {
+            display: inline-block;
+            color: white;
+            background-color: #0b5ed7;
+            border: 2px solid #0b5ed7;
+            border-radius: 4px;
+            padding: 5px 15px;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .link-as-button-ex3 a:hover {
+            border-color: #0b51d7;
+            background-color: #0b51d7;
+        }
+
+        .link-as-button-ex3 a .material-icons {
+            font-size: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .link-as-button-ex4 a {
+            display: block;
+            color: white;
+            font-variant: small-caps;
+            text-align: center;
+            background: #1e87f0;
+            border: 2px solid #1e87f0;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .link-as-button-ex4 a:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        /* حل مشكلة شاشات اللمس */
+        .touch-fix-ex a {
+            display: block;
+            color: white;
+            font-variant: small-caps;
+            text-align: center;
+            background: #1e87f0;
+            border: 2px solid #1e87f0;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        @media(hover: hover) and (pointer: fine) {
+            .touch-fix-ex a:hover {
+                background-color: #0b5ed7;
+                border-color: #0a58ca;
+            }
+        }
+    </style>
+
+
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>تصميم الروابط (Links)</h1>
+            <p>كيفية تنسيق الروابط وتحديد خصائصها في حالات مختلفة</p>
+            <nav>
+                <ul>
+                    <li><a href="#link-design">تصميم الروابط</a></li>
+                    <li><a href="#link-properties">خصائص الروابط</a></li>
+                    <li><a href="#link-states">حالات الروابط</a></li>
+                    <li><a href="#link-as-button">عرض الرابط كزر</a></li>
+                    <li><a href="#touch-fix">حل مشكلة شاشات اللمس</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="link-design" class="section">
+            <h2>تصميم الروابط</h2>
+            <p>
+                الرابط في الصفحة يمكن أن يأتي بأشكال عديدة: كنص تحته خط، أيقونة صغيرة، صورة، أو حتى زر. في هذا الدرس، ستتعلم كيف تتحكم في مظهر الروابط وتأثيراتها.
+            </p>
+            <div class="link-demo">
+                <a href="#">Button Link</a>
+                <a href="#">Text Link</a>
+            </div>
+        </section>
+
+        <section id="link-properties" class="section">
+            <h2>خصائص الروابط</h2>
+            <p>
+                الرابط يتم وضعه بالوسم <code>&lt;a&gt;</code>. افتراضياً، يظهر كنص لونه أزرق وتحته خط. يمكن تغيير هذا المظهر باستخدام خصائص CSS.
+            </p>
+            <div class="property-block">
+                <h3>مثال: تغيير اللون وإزالة الخط</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> {
+    <span class="property">color</span>: <span class="value">red</span>;
+    <span class="property">text-decoration</span>: <span class="value">none</span>;
+}</pre>
+                </div>
+                <div class="example link-demo basic-link-ex1">
+                    <a href="#">رابط أحمر بدون خط</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="link-states" class="section">
+            <h2>حالات الروابط</h2>
+            <p>
+                الرابط يملك أربع حالات أساسية يمكنك التحكم في مظهرها عند تفاعل المستخدم معه. يجب وضع هذه الحالات بالترتيب التالي: <code>a:link</code>, <code>a:visited</code>, <code>a:hover</code>, <code>a:active</code>.
+            </p>
+            <div class="property-block">
+                <h3>مثال 1: تحديد خصائص لكل حالة</h3>
+                <div class="code">
+                    <pre><span class="comment">/* رابط لم يتم فتحه بعد */</span><br><span class="property">a:link</span> { <span class="property">color</span>: <span class="value">green</span>; }<br><br><span class="comment">/* رابط تم فتحه من قبل */</span><br><span class="property">a:visited</span> { <span class="property">color</span>: <span class="value">gray</span>; }<br><br><span class="comment">/* عند تمرير الماوس فوقه */</span><br><span class="property">a:hover</span> { <span class="property">color</span>: <span class="value">purple</span>; }<br><br><span class="comment">/* عند النقر عليه */</span><br><span class="property">a:active</span> { <span class="property">color</span>: <span class="value">red</span>; }</pre>
+                </div>
+                <div class="example link-demo link-states-ex1">
+                    <a href="#">رابط لتجربة الحالات</a>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>مثال 2: تحديد خصائص حالة التمرير فقط</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> {
+    <span class="property">color</span>: <span class="value">green</span>;
+    <span class="property">text-decoration</span>: <span class="value">none</span>;
+}<br><span class="property">a:hover</span> {
+    <span class="property">text-decoration</span>: <span class="value">underline</span>;
+}</pre>
+                </div>
+                <div class="example link-demo link-states-ex2">
+                    <a href="#">مرر الماوس فوقي</a>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>مثال 3: تجميع حالات الروابط</h3>
+                <p>
+                    يمكنك تجميع الحالات المتشابهة في نفس القاعدة.
+                </p>
+                <div class="code">
+                    <pre><span class="property">a:link, a:visited</span> {
+    <span class="property">color</span>: <span class="value">green</span>;
+    <span class="property">text-decoration</span>: <span class="value">none</span>;
+}<br><span class="property">a:hover, a:active</span> {
+    <span class="property">text-decoration</span>: <span class="value">underline</span>;
+}</pre>
+                </div>
+                <div class="example link-demo link-states-ex3">
+                    <a href="#">تجربة تجميع الحالات</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="link-as-button" class="section">
+            <h2>عرض الرابط بأشكال مختلفة</h2>
+            <p>
+                يمكنك تحويل الرابط من نص إلى أي شكل آخر باستخدام خصائص CSS.
+            </p>
+            <div class="property-block">
+                <h3>مثال 1: رابط كزر بسيط</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> {
+    <span class="property">display</span>: <span class="value">inline-block</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background</span>: <span class="value">#1e87f0</span>;
+    ...
+}</pre>
+                </div>
+                <div class="example link-demo link-as-button-ex1">
+                    <a href="#">رابط كزر</a>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>مثال 2: زر يظهر عند التمرير</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> {
+    <span class="property">background</span>: <span class="value">none</span>;
+    <span class="property">color</span>: <span class="value">black</span>;
+    ...
+}<br><span class="property">a:hover</span> {
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background-color</span>: <span class="value">#0b5ed7</span>;
+}</pre>
+                </div>
+                <div class="example link-demo link-as-button-ex2">
+                    <a href="#">زر يظهر عند التمرير</a>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>مثال 3: زر مع أيقونة</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> { <span class="property">padding</span>: <span class="value">5px 15px</span>; ... }<br><span class="property">a .material-icons</span> { <span class="property">font-size</span>: <span class="value">24px</span>; ... }</pre>
+                </div>
+                <div class="example link-demo link-as-button-ex3">
+                    <a href="#"><i class="material-icons">download</i>تحميل</a>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>مثال 4: زر يملأ السطر</h3>
+                <div class="code">
+                    <pre><span class="property">a</span> {
+    <span class="property">display</span>: <span class="value">block</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+    ...
+}</pre>
+                </div>
+                <div class="example link-demo link-as-button-ex4">
+                    <a href="#">زر بأسلوب Block</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="touch-fix" class="section">
+            <h2>حل مشكلة تعليق التأثير في شاشات اللمس</h2>
+            <p>
+                كحل لمشكلة عدم رصد شاشات اللمس لتأثير <code>:hover</code>، يمكن وضع قواعد <code>:hover</code> داخل استعلام وسائط (media query) خاص.
+            </p>
+            <div class="property-block">
+                <h3>مثال: استخدام استعلام الوسائط</h3>
+                <div class="code">
+                    <pre><span class="property">@media(hover: hover) and (pointer: fine)</span> {
+    <span class="property">a:hover</span> {
+        <span class="property">background-color</span>: <span class="value">#0b5ed7</span>;
+        <span class="property">border-color</span>: <span class="value">#0a58ca</span>;
+    }
+}</pre>
+                </div>
+                <div class="example link-demo touch-fix-ex">
+                    <a href="#">تجربة حل مشكلة اللمس</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

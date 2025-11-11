@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - Grid</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .grid-container {
+            display: grid;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            font-size: 2em;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* تنسيقات الأمثلة */
+        .example-grid {
+            margin-top: 15px;
+        }
+
+        /* أمثلة grid-template-columns */
+        .grid-columns-example {
+            grid-template-columns: auto auto auto;
+        }
+
+        /* أمثلة grid-template-rows */
+        .grid-rows-example {
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto 100px auto;
+        }
+
+        /* أمثلة grid-column */
+        .grid-column-example-1 {
+            grid-template-columns: auto auto auto;
+        }
+        .grid-column-example-1 .item-1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        .grid-column-example-2 .item-1 {
+            grid-column: 1 / 3;
+        }
+        .grid-column-example-3 .item-1 {
+            grid-column: 1 / span 2;
+        }
+
+        /* أمثلة grid-row */
+        .grid-row-example-1 {
+            grid-template-columns: auto auto auto;
+        }
+        .grid-row-example-1 .item-1 {
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .grid-row-example-2 .item-1 {
+            grid-row: 1 / 3;
+        }
+        .grid-row-example-3 .item-1 {
+            grid-row: 1 / span 2;
+        }
+        .grid-row-column-example .item-1 {
+            grid-row: 1 / 3;
+            grid-column: 1 / 3;
+        }
+
+        /* أمثلة grid-auto-flow */
+        .grid-auto-flow-row {
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-auto-flow: row;
+        }
+        .grid-auto-flow-row .item-1, .grid-auto-flow-row .item-2 {
+            grid-column: auto/span 2;
+        }
+        .grid-auto-flow-column {
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-auto-flow: column;
+        }
+        .grid-auto-flow-column .item-1, .grid-auto-flow-column .item-2 {
+            grid-column: auto/span 2;
+        }
+        .grid-auto-flow-dense {
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-auto-flow: dense;
+        }
+        .grid-auto-flow-dense .item-1, .grid-auto-flow-dense .item-2 {
+            grid-column: auto/span 2;
+        }
+        .grid-auto-flow-row-dense {
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-auto-flow: row dense;
+        }
+        .grid-auto-flow-row-dense .item-1, .grid-auto-flow-row-dense .item-2 {
+            grid-column: auto/span 2;
+        }
+        .grid-auto-flow-column-dense {
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-auto-flow: column dense;
+        }
+        .grid-auto-flow-column-dense .item-1, .grid-auto-flow-column-dense .item-2 {
+            grid-column: auto/span 2;
+        }
+
+        /* أمثلة grid-auto-columns */
+        .grid-auto-columns-auto { grid-auto-columns: auto; }
+        .grid-auto-columns-min-content { grid-auto-columns: min-content; }
+        .grid-auto-columns-1fr { grid-auto-columns: 1fr; }
+        .grid-auto-columns-minmax { grid-auto-columns: minmax(50px, auto); }
+        .long-text { font-size: 0.5em; }
+
+        /* أمثلة grid-auto-rows */
+        .grid-auto-rows-auto { grid-auto-columns: 1fr; grid-auto-rows: auto; }
+        .grid-auto-rows-min-content { grid-auto-columns: 1fr; grid-auto-rows: min-content; }
+        .grid-auto-rows-1fr { grid-auto-columns: 1fr; grid-auto-rows: 1fr; }
+        .grid-auto-rows-minmax { grid-auto-columns: 1fr; grid-auto-rows: minmax(50px, auto); }
+
+        /* أمثلة gap */
+        .grid-row-gap-example { grid-template-columns: auto auto auto; grid-row-gap: 10px; }
+        .grid-column-gap-example { grid-template-columns: auto auto auto; grid-column-gap: 10px; }
+        .grid-gap-example { grid-template-columns: auto auto auto; grid-gap: 10px; }
+
+        /* أمثلة grid-template-areas */
+        .grid-areas-container {
+            grid-template-areas:
+                "header header"
+                "navbar main"
+                "navbar footer";
+        }
+        .grid-areas-container .header { grid-area: header; background-color: #e74c3c; }
+        .grid-areas-container .navbar { grid-area: navbar; background-color: #3498db; }
+        .grid-areas-container .main { grid-area: main; background-color: #2ecc71; }
+        .grid-areas-container .footer { grid-area: footer; background-color: #95a5a6; }
+
+        /* أمثلة grid-template */
+        .grid-template-example-1 {
+            grid-gap: 10px;
+            grid-template:
+                "header header"
+                "navbar main"
+                "navbar footer"
+                / 150px auto;
+        }
+        .grid-template-example-2 {
+            grid-gap: 10px;
+            grid-template:
+                "header header" 90px
+                "navbar main" 1fr
+                "navbar footer" 50px
+                / 150px auto;
+        }
+    </style> 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Grid</h1>
+            <p>نظام التنسيق ثنائي الأبعاد</p>
+            <nav>
+                <ul>
+                    <li><a href="#what-is-grid">ما هو Grid</a></li>
+                    <li><a href="#getting-started">البدء باستخدام Grid</a></li>
+                    <li><a href="#flex-vs-grid">الفرق بين Flex و Grid</a></li>
+                    <li><a href="#grid-template-columns">grid-template-columns</a></li>
+                    <li><a href="#grid-template-rows">grid-template-rows</a></li>
+                    <li><a href="#grid-column">grid-column</a></li>
+                    <li><a href="#grid-row">grid-row</a></li>
+                    <li><a href="#grid-auto-flow">grid-auto-flow</a></li>
+                    <li><a href="#grid-auto-columns">grid-auto-columns</a></li>
+                    <li><a href="#grid-auto-rows">grid-auto-rows</a></li>
+                    <li><a href="#grid-gap">gap</a></li>
+                    <li><a href="#grid-template-areas">grid-template-areas</a></li>
+                    <li><a href="#grid-template">grid-template</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="what-is-grid" class="section">
+            <h2>ما هو Grid</h2>
+            <p>
+                <strong>Grid</strong> هو مجموعة من الخصائص التي يمكنك استخدامها لتحديد مواقع وأحجام العناصر بشكل مرن جداً، مما يجعله مثالياً لتنظيم مخططات التصميم المعقدة ثنائية الأبعاد.
+            </p>
+            <p>
+                
+            </p>
+        </section>
+
+        <section id="getting-started" class="section">
+            <h2>البدء باستخدام Grid</h2>
+            <p>
+                للبدء باستخدام Grid، يجب وضع العناصر بداخل حاوية (container) وإعطاء هذه الحاوية الخاصية <code>display: grid;</code>.
+            </p>
+            <div class="code">
+                <pre><span class="property">.grid-container</span> {
+    <span class="property">display</span>: <span class="value">grid</span>;
+}</pre>
+            </div>
+            <p>بعد هذه الخطوة، يمكنك استخدام باقي خصائص Grid لترتيب العناصر بالشكل الذي تريده.</p>
+        </section>
+
+        <section id="flex-vs-grid" class="section">
+            <h2>الفرق بين Flex و Grid</h2>
+            <p>
+                <strong>Flexbox</strong>: يعتبر خياراً مثالياً لترتيب العناصر في <strong>بعد واحد</strong> (إما صف أو عمود).
+            </p>
+            <p>
+                <strong>Grid</strong>: هو الخيار الأفضل لتنظيم العناصر في <strong>بعدين</strong> (صفوف وأعمدة) في نفس الوقت، مما يتيح لك بناء مخططات معقدة.
+            </p>
+            <p>يمكنك استخدام Flexbox و Grid معاً في نفس المشروع للحصول على أفضل النتائج.</p>
+        </section>
+
+        <section id="grid-template-columns" class="section">
+            <h2>الخاصية grid-template-columns</h2>
+            <p>تستخدم لتحديد عدد الأعمدة الأقصى في كل سطر وأحجامها.</p>
+            <div class="property-block">
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">display</span>: <span class="value">grid</span>;
+    <span class="property">grid-template-columns</span>: <span class="value">auto auto auto</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-columns-example">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                        <div class="grid-item">7</div>
+                        <div class="grid-item">8</div>
+                        <div class="grid-item">9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-template-rows" class="section">
+            <h2>الخاصية grid-template-rows</h2>
+            <p>تستخدم لتحديد ارتفاع الصفوف في الحاوية.</p>
+            <div class="property-block">
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">grid-template-columns</span>: <span class="value">auto auto auto</span>;
+    <span class="property">grid-template-rows</span>: <span class="value">auto 100px auto</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-rows-example">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                        <div class="grid-item">7</div>
+                        <div class="grid-item">8</div>
+                        <div class="grid-item">9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-column" class="section">
+            <h2>الخصائص grid-column-start, grid-column-end, grid-column</h2>
+            <p>تستخدم لدمج أعمدة متعددة لعنصر واحد.</p>
+            <div class="property-block">
+                <h3>المثال الأول (باستخدام <code>grid-column-start</code> و <code>grid-column-end</code>)</h3>
+                <div class="code">
+                    <pre><span class="property">.item-1</span> {
+    <span class="property">grid-column-start</span>: <span class="value">1</span>;
+    <span class="property">grid-column-end</span>: <span class="value">3</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-column-example-1">
+                        <div class="grid-item item-1">1</div>
+                        <div class="grid-item item-2">2</div>
+                        <div class="grid-item item-3">3</div>
+                        <div class="grid-item item-4">4</div>
+                        <div class="grid-item item-5">5</div>
+                        <div class="grid-item item-6">6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-row" class="section">
+            <h2>الخصائص grid-row-start, grid-row-end, grid-row</h2>
+            <p>تستخدم لدمج صفوف متعددة لعنصر واحد.</p>
+            <div class="property-block">
+                <h3>مثال: دمج صفين وعمودين</h3>
+                <div class="code">
+                    <pre><span class="property">.item-1</span> {
+    <span class="property">grid-row</span>: <span class="value">1 / 3</span>; 
+    <span class="property">grid-column</span>: <span class="value">1 / 3</span>; 
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-row-column-example">
+                        <div class="grid-item item-1">1</div>
+                        <div class="grid-item item-2">2</div>
+                        <div class="grid-item item-3">3</div>
+                        <div class="grid-item item-4">4</div>
+                        <div class="grid-item item-5">5</div>
+                        <div class="grid-item item-6">6</div>
+                        <div class="grid-item item-7">7</div>
+                        <div class="grid-item item-8">8</div>
+                        <div class="grid-item item-9">9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-auto-flow" class="section">
+            <h2>الخاصية grid-auto-flow</h2>
+            <p>تحدد كيفية وضع العناصر غير المحددة في الشبكة تلقائياً.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>القيمة</th>
+                        <th>الاستخدام</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>row</code></td>
+                        <td>يرتب العناصر في صفوف (افتراضي).</td>
+                    </tr>
+                    <tr>
+                        <td><code>column</code></td>
+                        <td>يرتب العناصر في أعمدة.</td>
+                    </tr>
+                    <tr>
+                        <td><code>dense</code></td>
+                        <td>يرتب العناصر في المساحات الفارغة لتجنب الفجوات.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="property-block">
+                <h3>مثال (<code>row</code>)</h3>
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">grid-auto-flow</span>: <span class="value">row</span>;
+}
+<span class="property">.item-1, .item-2</span> {
+    <span class="property">grid-column</span>: <span class="value">auto/span 2</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-auto-flow-row">
+                        <div class="grid-item item-1">1</div>
+                        <div class="grid-item item-2">2</div>
+                        <div class="grid-item item-3">3</div>
+                        <div class="grid-item item-4">4</div>
+                        <div class="grid-item item-5">5</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-auto-columns" class="section">
+            <h2>الخاصية grid-auto-columns</h2>
+            <p>تستخدم لتحديد عرض الأعمدة التي يتم إنشاؤها تلقائياً.</p>
+            <div class="property-block">
+                <h3>مثال: <code>minmax()</code></h3>
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">grid-auto-columns</span>: <span class="value">minmax(50px, auto)</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-auto-columns-minmax">
+                        <div class="grid-item long-text">One Two Three Four Five</div>
+                        <div class="grid-item">Two</div>
+                        <div class="grid-item">Three</div>
+                        <div class="grid-item">Four</div>
+                        <div class="grid-item">Five</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-auto-rows" class="section">
+            <h2>الخاصية grid-auto-rows</h2>
+            <p>تستخدم لتحديد ارتفاع الصفوف التي يتم إنشاؤها تلقائياً.</p>
+            <div class="property-block">
+                <h3>مثال: <code>1fr</code></h3>
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">grid-auto-rows</span>: <span class="value">1fr</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-auto-rows-1fr" style="height: 300px;">
+                        <div class="grid-item">One</div>
+                        <div class="grid-item">Two</div>
+                        <div class="grid-item">Three</div>
+                        <div class="grid-item">Four</div>
+                        <div class="grid-item">Five</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-gap" class="section">
+            <h2>الخصائص grid-row-gap, grid-column-gap, gap</h2>
+            <p>تستخدم لإضافة مسافات بين عناصر الشبكة.</p>
+            <div class="property-block">
+                <h3>مثال: <code>gap</code></h3>
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">grid-template-columns</span>: <span class="value">auto auto auto</span>;
+    <span class="property">gap</span>: <span class="value">10px</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-gap-example">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                        <div class="grid-item">7</div>
+                        <div class="grid-item">8</div>
+                        <div class="grid-item">9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-template-areas" class="section">
+            <h2>الخاصية grid-template-areas</h2>
+            <p>تسمح لك بتسمية مناطق في الشبكة ووضع العناصر فيها بالاسم.</p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">display</span>: <span class="value">grid</span>;
+    <span class="property">grid-template-areas</span>:
+        <span class="value">"header header"</span>
+        <span class="value">"navbar main"</span>
+        <span class="value">"navbar footer"</span>;
+}
+<span class="property">.header</span> { <span class="property">grid-area</span>: <span class="value">header</span>; }
+<span class="property">.navbar</span> { <span class="property">grid-area</span>: <span class="value">navbar</span>; }
+<span class="property">.main</span> { <span class="property">grid-area</span>: <span class="value">main</span>; }
+<span class="property">.footer</span> { <span class="property">grid-area</span>: <span class="value">footer</span>; }</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-areas-container">
+                        <div class="grid-item header">Header</div>
+                        <div class="grid-item navbar">Navbar</div>
+                        <div class="grid-item main">Main</div>
+                        <div class="grid-item footer">Footer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grid-template" class="section">
+            <h2>الخاصية grid-template (اختصار)</h2>
+            <p>
+                تجمع الخصائص <code>grid-template-areas</code>, <code>grid-template-rows</code>, و <code>grid-template-columns</code> في خاصية واحدة.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">.grid-container</span> {
+    <span class="property">display</span>: <span class="value">grid</span>;
+    <span class="property">grid-gap</span>: <span class="value">10px</span>;
+    <span class="property">grid-template</span>:
+        <span class="value">"header header"</span> <span class="value">90px</span>
+        <span class="value">"navbar main"</span> <span class="value">1fr</span>
+        <span class="value">"navbar footer"</span> <span class="value">50px</span>
+        <span class="value">/ 150px auto</span>;
+}</pre>
+                </div>
+                <div class="example-grid">
+                    <div class="grid-container grid-template-example-2">
+                        <div class="grid-item header">Header</div>
+                        <div class="grid-item navbar">Navbar</div>
+                        <div class="grid-item main">Main</div>
+                        <div class="grid-item footer">Footer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section courses">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح خاصية Float في CSS - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="style.css">
+    
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>CSS</h1>
+            <h2>شرح خاصية التدفق (FLOAT)</h2>
+            <p>مفهوم تدفق العناصر وتحديد جهتها وإيقافها</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم تدفق العناصر</a></li>
+                    <li><a href="#direction">تحديد جهة التدفق</a></li>
+                    <li><a href="#clear">إيقاف التدفق</a></li>
+                    <li><a href="#practical-example">استخدام التدفق في مثال عملي</a></li>
+                    <li><a href="Enum.html">ارجوع الى الصفحة الرئيسية </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم تدفق العناصر</h2>
+            <p>
+                تدفق العناصر يقصد به تحديد ما إن كانت العناصر ستظهر من الجهة اليمنى أو اليسرى، الأمر الذي يجعلك قادرًا على التحكم بمكان ظهور العناصر الموضوعة في ذات المكان.
+            </p>
+            <p>
+                في هذا الدرس ستتعرف على كل خصائص التدفق وكيفية ضبطها بشكل صحيح كي لا تؤثر على المحتوى الذي يأتي من بعدها.
+            </p>
+        </section>
+
+        <section id="direction" class="section">
+            <h2>تحديد جهة التدفق</h2>
+            <p>
+                نستخدم الخاصية <strong><code>float</code></strong> ونمرر لها إحدى القيم التالية لتحديد جهة التدفق، أي لتحديد الجهة التي سيظهر العنصر فيها.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>القيمة</th>
+                        <th>المعنى</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>left</code></td>
+                        <td>لجعل العنصر يتدفق من الناحية اليسرى بالنسبة للعنصر الأب الموجود فيه.</td>
+                    </tr>
+                    <tr>
+                        <td><code>right</code></td>
+                        <td>لجعل العنصر يتدفق من الناحية اليمنى بالنسبة للعنصر الأب الموجود فيه.</td>
+                    </tr>
+                    <tr>
+                        <td><code>none</code></td>
+                        <td>لإيقاف التدفق والظهور في المكان الذي تم تعريفه فيه، وهذه هي القيمة الافتراضية.</td>
+                    </tr>
+                    <tr>
+                        <td><code>inherit</code></td>
+                        <td>لجعل العنصر يرث خاصية التدفق من العنصر الأب حتى يتدفق من ذات الاتجاه.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>أمثلة عملية على تحديد التدفق</h3>
+            <div class="property-block">
+                <div class="example">
+                    <h4>مثال 1: <code>float: right;</code></h4>
+                    <p>في المثال التالي قمنا بجعل الصورة تتدفق من الجهة اليمنى في العنصر الموضوعة فيه، الأمر الذي سيجعل النص الموجود بجانبها يتدفق جانبها أيضاً.</p>
+                    <div class="code">
+                        <pre><span class="property">img</span> {
+    <span class="property">float</span>: <span class="value">right</span>;
+}</pre>
+                    </div>
+                </div>
+                <div class="example">
+                    <h4>مثال 2: <code>float: left;</code></h4>
+                    <p>في المثال التالي قمنا بجعل الصورة تتدفق من الجهة اليسرى في العنصر الموضوعة فيه، الأمر الذي سيجعل النص الموجود بجانبها يتدفق جانبها أيضاً.</p>
+                    <div class="code">
+                        <pre><span class="property">img</span> {
+    <span class="property">float</span>: <span class="value">left</span>;
+}</pre>
+                    </div>
+                </div>
+                <div class="example">
+                    <h4>مثال 3: <code>float: none;</code></h4>
+                    <p>في المثال التالي قمنا بعرض الصورة بدون جعلها تتدفق من جهة محددة، الأمر الذي سيجعل المحتوى الآخر الموضوع بجانبها في نفس العنصر لا يتدفق على باقي المساحة المتاحة.</p>
+                    <p><strong>ملاحظة:</strong> القيمة <code>none</code> هي القيمة الافتراضية لتدفق العنصر، وبالتالي يمكنك عدم وضعها أساساً للحصول على ذات النتيجة.</p>
+                    <div class="code">
+                        <pre><span class="property">img</span> {
+    <span class="property">float</span>: <span class="value">none</span>;
+}</pre>
+                    </div>
+                </div>
+                <div class="example">
+                    <h4>الترتيب الأفقي vs. التدفق الجانبي</h4>
+                    <p>
+                        في حال جعلت المحتوى في العنصر الأب يبدأ بالظهور من أعلى الصورة بواسطة الخاصية <code>vertical-align: top;</code> وكان النص يحتاج أكثر من سطر للظهور، فإن السطر الأول فيه سيظهر فقط في الأعلى وباقي الأسطر ستظهر بعد الصورة، وبالتالي فإن الترتيب الأفقي لا يغني عن أسلوب التدفق.
+                    </p>
+                    <div class="code">
+                        <pre><span class="property">img</span> {
+    <span class="property">float</span>: <span class="value">none</span>;
+    <span class="property">vertical-align</span>: <span class="value">top</span>;
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clear" class="section">
+            <h2>إيقاف التدفق</h2>
+            <p>جعل العناصر تتدفق من اتجاه محدد يسبب مشكلتين في التصميم:</p>
+            <ul>
+                <li>العناصر التالية التي توضع بعدها ستظهر بشكل متدفق.</li>
+                <li>المتصفح يصبح غير قادر على تقدير حجم العنصر الأب بشكل صحيح.</li>
+            </ul>
+            <p>
+                في المثال التالي وضعنا ثلاث عناصر متدفقة من الناحية اليسرى مع إظهار حدود العنصر الأب حتى تلاحظ كيف أن حجم العنصر الأب لا يظهر بشكل صحيح. كما أننا أضفنا فقرة في النهاية فوجدناها أيضاً تدفقت من الناحية اليسرى بدلاً من أن تظهر على سطر جديد خاص بها.
+            </p>
+            <div class="code">
+                <pre><span class="property">div</span> {
+    <span class="property">float</span>: <span class="value">left</span>;
+}</pre>
+            </div>
+            <div class="property-block">
+                <h3>حل مشكلة التدفق</h3>
+                <p>لإيقاف التدفق نستخدم الخاصية <strong><code>clear</code></strong> ونمرر لها إحدى القيم التالية:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>القيمة</th>
+                            <th>المعنى</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>left</code></td>
+                            <td>لإيقاف التدفق السابق من الناحية اليسرى.</td>
+                        </tr>
+                        <tr>
+                            <td><code>right</code></td>
+                            <td>لإيقاف التدفق السابق من الناحية اليمنى.</td>
+                        </tr>
+                        <tr>
+                            <td><code>both</code></td>
+                            <td>لإيقاف التدفق السابق من الناحيتين اليمنى واليسرى.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    لحل مشكلة التدفق يمكنك ببساطة إضافة وسم يظهر بأسلوب <code>block</code> في نهاية العنصر الأب مثل الوسم <code>&lt;div&gt;</code> ومن ثم تضيف له الخاصية <code>clear: both;</code> وهكذا سيتم إيقاف التدفق وسيتمكن المتصفح من ضبط حجم العنصر الأب بشكل صحيح.
+                </p>
+                <div class="code">
+                    <pre><span class="property">.float-fixer</span> {
+    <span class="property">clear</span>: <span class="value">both</span>;
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="practical-example" class="section">
+            <h2>استخدام التدفق في مثال عملي</h2>
+            <p>
+                في المثال التالي قمنا بإنشاء زريّ "الصفحة السابقة" و "الصفحة التالية" اللذين تراهما في جميع الصفحات، بالإضافة إلى أننا استخدمنا أيقونات جوجل. هذا المثال يجمع الكثير من الخصائص التي شرحناها لك في الدروس السابقة لذا نرجو منك التركيز عليه.
+            </p>
+            <div class="code">
+                <pre><span class="property">*</span> {
+    <span class="property">padding</span>: <span class="value">0</span>;
+    <span class="property">margin</span>: <span class="value">0</span>;
+    <span class="property">box-sizing</span>: <span class="value">border-box</span>;
+}
+<span class="property">h1</span> {
+    <span class="property">padding</span>: <span class="value">20px 10px</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+    <span class="property">font-family</span>: <span class="value">Arial, Helvetica, sans-serif</span>;
+    <span class="property">font-size</span>: <span class="value">20px</span>;
+}
+<span class="property">.pages-nav</span> {
+    <span class="property">padding</span>: <span class="value">0 10px</span>;
+    <span class="property">margin</span>: <span class="value">20px 0</span>;
+}
+<span class="property">.pages-nav a</span> {
+    <span class="property">display</span>: <span class="value">inline-block</span>;
+    <span class="property">width</span>: <span class="value">110px</span>;
+    <span class="property">padding</span>: <span class="value">10px 15px</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+    <span class="property">text-decoration</span>: <span class="value">none</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background-color</span>: <span class="value">#0d6efd</span>;
+    <span class="property">border</span>: <span class="value">1px solid #0d6efd</span>;
+    <span class="property">border-radius</span>: <span class="value">5px</span>;
+    <span class="property">font-family</span>: <span class="value">Arial, Helvetica, sans-serif</span>;
+    <span class="property">font-size</span>: <span class="value">15px</span>;
+}
+<span class="property">.pages-nav a.next</span> {
+    <span class="property">float</span>: <span class="value">right</span>;
+}
+<span class="property">.float-fixer</span> {
+    <span class="property">clear</span>: <span class="value">both</span>;
+}</pre>
+            </div>
+        </section>
+    </div>
+
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

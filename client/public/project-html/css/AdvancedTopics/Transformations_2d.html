@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - التحويلات الثنائية الأبعاد</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أنماط الأمثلة */
+        .transform-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding: 20px;
+            border: 1px dashed #95a5a6;
+            margin-top: 20px;
+        }
+
+        .transform-box {
+            width: 150px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* أمثلة الدوران */
+        .rotate-20deg {
+            transform: rotate(20deg);
+        }
+
+        .rotate-negative-20deg {
+            transform: rotate(-20deg);
+        }
+
+        /* أمثلة التحريك */
+        .translate-40px-80px {
+            transform: translate(40px, 80px);
+        }
+
+        .translate-negative-10px-negative-40px {
+            transform: translate(-10px, -40px);
+        }
+
+        /* أمثلة التحجيم */
+        .scale-1-2 {
+            transform: scale(1.2);
+        }
+
+        .scale-0-8 {
+            transform: scale(0.8);
+        }
+
+        .scaleX-2 {
+            transform: scaleX(2);
+        }
+
+        .scaleY-2 {
+            transform: scaleY(2);
+        }
+
+        /* أمثلة الإمالة */
+        .skewX-20deg {
+            transform: skewX(20deg);
+        }
+        
+        .skewX-negative-20deg {
+            transform: skewX(-20deg);
+        }
+
+        .skewY-20deg {
+            transform: skewY(20deg);
+        }
+        
+        .skewY-negative-20deg {
+            transform: skewY(-20deg);
+        }
+        
+        .skew-20deg {
+            transform: skew(20deg);
+        }
+        
+        .skew-negative-20deg {
+            transform: skew(-20deg);
+        }
+
+        .skew-20deg-10deg {
+            transform: skew(20deg, 10deg);
+        }
+        
+        .skew-negative-20deg-negative-10deg {
+            transform: skew(-20deg, -10deg);
+        }
+
+        /* مثال matrix() */
+        .matrix-example {
+            transform: matrix(1, 0, -0.50, 1, 40, 80);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>التحويلات الثنائية الأبعاد</h1>
+            <p>مقدمة في تحويلات 2D في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم التحويلات</a></li>
+                    <li><a href="#rotate">تدوير العنصر</a></li>
+                    <li><a href="#translate">تحريك العنصر</a></li>
+                    <li><a href="#scale">تحجيم العنصر</a></li>
+                    <li><a href="#skew">إمالة العنصر</a></li>
+                    <li><a href="#matrix">تحديد كل الخصائص</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم التحويلات الثنائية الأبعاد</h2>
+            <p>
+                توفر لك CSS مجموعة من الدوال التي يمكنك استخدامها لإجراء <strong>تحويلات ثنائية الأبعاد (2D Transforms)</strong> على العناصر مثل إزاحتها من مكانها الأساسي، تدويرها، أو تغيير حجمها.
+            </p>
+            <div class="transform-container">
+                <div class="transform-box">Rotate</div>
+                <div class="transform-box">Scale</div>
+                <div class="transform-box">Skew</div>
+                <div class="transform-box">Translate</div>
+            </div>
+            <p>
+                يتم إجراء التحويلات باستخدام الخاصية <code>transform</code> مع تمرير إحدى دوال التحويل لها كقيمة.
+            </p>
+        </section>
+
+        <section id="rotate" class="section">
+            <h2>تدوير العنصر</h2>
+            <p>
+                للتدوير، نستخدم الدالة <strong><code>rotate()</code></strong> مع تمرير درجة الدوران.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (تدوير 20 درجة)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">rotate(20deg)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box rotate-20deg">دوران</div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني (تدوير -20 درجة)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">rotate(-20deg)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box rotate-negative-20deg">دوران</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="translate" class="section">
+            <h2>تحريك العنصر</h2>
+            <p>
+                لتحريك العنصر من مكانه، نستخدم الدالة <strong><code>translate()</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (تحريك 40px أفقياً و 80px عمودياً)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">translate(40px, 80px)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box translate-40px-80px">تحريك</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="scale" class="section">
+            <h2>تحجيم العنصر</h2>
+            <p>
+                لتحجيم العنصر، نستخدم الدالة <strong><code>scale()</code></strong> أو <code>scaleX()</code> أو <code>scaleY()</code>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (تكبير 1.2)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">scale(1.2)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box scale-1-2">تحجيم</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skew" class="section">
+            <h2>إمالة العنصر</h2>
+            <p>
+                لإمالة العنصر، نستخدم الدالة <strong><code>skew()</code></strong> أو <code>skewX()</code> أو <code>skewY()</code>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (إمالة 20 درجة أفقياً)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">skewX(20deg)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box skewX-20deg">إمالة</div>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني (إمالة -20 درجة أفقياً)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">skewX(-20deg)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box skewX-negative-20deg">إمالة</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="matrix" class="section">
+            <h2>تحديد كل الخصائص الثنائية الأبعاد للعنصر</h2>
+            <p>
+                لإجراء أكثر من تعديل في نفس الوقت، يمكنك استخدام الدالة <strong><code>matrix()</code></strong>.
+            </p>
+            <div class="property-block">
+                <h3>مثال</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">transform</span>: <span class="value">matrix(1, 0, -0.50, 1, 40, 80)</span>;
+}</pre>
+                </div>
+                <div class="transform-container">
+                    <div class="transform-box">نص</div>
+                    <div class="transform-box matrix-example">تحويلات</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+
+</body>
+
+</html>

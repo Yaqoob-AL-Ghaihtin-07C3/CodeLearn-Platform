@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العناوين في HTML - EliteWeb - EliteWeb</title>
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>العناوين</h2>
+            <p>تعلم كيفية استخدام العناوين وتحسين محركات البحث</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم العناوين</a></li>
+                    <li><a href="#types">أنواع العناوين</a></li>
+                    <li><a href="#seo">أهمية محركات البحث</a></li>
+                    <li><a href="#best-practices">أفضل الممارسات</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم العناوين</h2>
+            <p>العنوان هو نص حجمه مختلف عن حجم الفقرة يتم عرضه على سطر منفرد بهدف إعطاء المستخدم فكرة عامة عن موضوع الصفحة التي دخل إليها، أو فكرة عامة عن موضوع الفقرة التي سيقرأها.</p>
+            <p>في هذا الدرس سنتعرف على أنواع العنواين التي يمكن إضافتها في الصفحة وأهمية استخدامها.</p>
+        </section>
+
+        <section id="types" class="section">
+            <h2>أنواع العناوين</h2>
+            <p>يوجد 6 أحجام من العناوين التي يمكنك إضافتها في الصفحة تبدأ من <code>&lt;h1&gt;</code> الذي يعطيك أكبر عنوان وتنتهي عند <code>&lt;h6&gt;</code> الذي يعطيك أصغر عنوان.</p>
+            
+            <div class="example">
+                <h4>مثال: جميع العناوين من الأكبر إلى الأصغر</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;h1&gt;</span>Heading 1<span class="property">&lt;/h1&gt;</span>
+<span class="property">&lt;h2&gt;</span>Heading 2<span class="property">&lt;/h2&gt;</span>
+<span class="property">&lt;h3&gt;</span>Heading 3<span class="property">&lt;/h3&gt;</span>
+<span class="property">&lt;h4&gt;</span>Heading 4<span class="property">&lt;/h4&gt;</span>
+<span class="property">&lt;h5&gt;</span>Heading 5<span class="property">&lt;/h5&gt;</span>
+<span class="property">&lt;h6&gt;</span>Heading 6<span class="property">&lt;/h6&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>التسلسل الهرمي للعناوين</h3>
+                <p>يجب الحفاظ على التسلسل المنطقي للعناوين حيث أن <code>&lt;h1&gt;</code> هو الأعلى أهمية ويجب أن يليه <code>&lt;h2&gt;</code> ثم <code>&lt;h3&gt;</code> وهكذا.</p>
+            </div>
+        </section>
+
+        <section id="seo" class="section">
+            <h2>أهمية العناوين بالنسبة لمحركات البحث</h2>
+            <p>العنوان الرئيسي الذي تضعه للصفحة يعتبر أهم عنوان تضعه فيها بالنسبة لمحركات البحث (Search Engines) مثل جوجل وياهو وغيرهما.</p>
+            
+            <div class="property-block">
+                <h3>ترتيب الأهمية لمحركات البحث</h3>
+                <ol>
+                    <li><strong>العنوان الرئيسي</strong> - <code>&lt;h1&gt;</code> (أهم عنوان في الصفحة)</li>
+                    <li><strong>عناوين الفقرات</strong> - <code>&lt;h2&gt;</code></li>
+                    <li><strong>عناوين فرعية</strong> - <code>&lt;h3&gt;</code> إلى <code>&lt;h6&gt;</code></li>
+                    <li><strong>محتوى الفقرات</strong> - النص العادي داخل <code>&lt;p&gt;</code></li>
+                </ol>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: هيكل صحيح للعناوين</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;h1&gt;</span>عنوان الصفحة الرئيسي<span class="property">&lt;/h1&gt;</span>
+
+<span class="property">&lt;h2&gt;</span>القسم الأول<span class="property">&lt;/h2&gt;</span>
+<span class="property">&lt;p&gt;</span>محتوى القسم الأول...<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;h3&gt;</span>فرع داخل القسم الأول<span class="property">&lt;/h3&gt;</span>
+<span class="property">&lt;p&gt;</span>محتوى الفرع...<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;h2&gt;</span>القسم الثاني<span class="property">&lt;/h2&gt;</span>
+<span class="property">&lt;p&gt;</span>محتوى القسم الثاني...<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="best-practices" class="section">
+            <h2>أفضل الممارسات لاستخدام العناوين</h2>
+            
+            <div class="property-block">
+                <h3>نصائح مهمة للعناوين</h3>
+                <ul>
+                    <li>استخدم <strong>عنوان واحد فقط من <code>&lt;h1&gt;</code></strong> في كل صفحة</li>
+                    <li>احرص على <strong>التسلسل المنطقي</strong> للعناوين (h1 → h2 → h3...)</li>
+                    <li>اجعل العناوين <strong>واضحة ومعبرة</strong> عن المحتوى</li>
+                    <li>استخدم <strong>الكلمات المفتاحية</strong> المناسبة في العناوين</li>
+                    <li>تجنب <strong>القفز عن مستويات</strong> العناوين (مثال: h1 ثم h3 مباشرة)</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: هيكل صحيح للعناوين</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;h1&gt;</span>تعلم البرمجة من الصفر<span class="property">&lt;/h1&gt;</span>
+
+<span class="property">&lt;h2&gt;</span>مقدمة في البرمجة<span class="property">&lt;/h2&gt;</span>
+<span class="property">&lt;p&gt;</span>البرمجة هي عملية كتابة تعليمات...<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;h3&gt;</span>أنواع لغات البرمجة<span class="property">&lt;/h3&gt;</span>
+<span class="property">&lt;p&gt;</span>هناك العديد من لغات البرمجة...<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;h3&gt;</span>كيف تبدأ في البرمجة<span class="property">&lt;/h3&gt;</span>
+<span class="property">&lt;p&gt;</span>لبدء رحلة البرمجة...<span class="property">&lt;/p&gt;</span>
+
+<span class="property">&lt;h2&gt;</span>أساسيات HTML<span class="property">&lt;/h2&gt;</span>
+<span class="property">&lt;p&gt;</span>HTML هي لغة ترميز النص...<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>ما يجب تجنبه</h3>
+                <ul>
+                    <li>❌ استخدام العناوين للتنسيق فقط (بدون محتوى ذو معنى)</li>
+                    <li>❌ استخدام أكثر من <code>&lt;h1&gt;</code> في الصفحة الواحدة</li>
+                    <li>❌ القفز عن مستويات العناوين (h1 → h3 → h6)</li>
+                    <li>❌ جعل جميع النصوص عناوين بدون فقرات عادية</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - خلفيات متعددة</title>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة للحاويات والعناصر */
+        .property-block {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .property-block:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border: 1px solid #dfe6e9;
+        }
+
+        .code pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .code .property {
+            color: #c0392b;
+        }
+
+        .code .value {
+            color: #2980b9;
+        }
+
+        /* أنماط الأمثلة */
+        .multiple-background-example {
+            height: 300px;
+            border: 2px dashed #95a5a6;
+            margin-top: 20px;
+            background-color: #fcfcfc;
+        }
+
+        .bg-example-1 {
+            background-image: url(pyramids.png), url(paper.png);
+            background-repeat: no-repeat, repeat;
+            background-position: right center, left bottom;
+            background-size: 70px 70px, contain;
+        }
+        
+        .bg-example-2 {
+            background: url(pyramids.png) right center no-repeat, url(paper.png) repeat left bottom;
+            background-size: 70px 70px, contain;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>خلفيات متعددة</h1>
+            <p>كيفية وضع أكثر من صورة في الخلفية</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الخلفيات المتعددة</a></li>
+                    <li><a href="#how-to">كيفية وضع أكثر من صورة في الخلفية</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم الخلفيات المتعددة</h2>
+            <p>
+                في درس الخلفيات، رأينا أنه يمكن وضع صورة كخلفية للعنصر والتحكم في خصائصها. في هذا الدرس، ستتعلم كيف تستطيع إضافة أكثر من خلفية في ذات الوقت وتحديد كيفية ظهورهم باستخدام نفس الخصائص التي درستها سابقاً.
+            </p>
+            <p>
+                
+            </p>
+        </section>
+
+        <section id="how-to" class="section">
+            <h2>كيفية وضع أكثر من صورة في الخلفية</h2>
+            <p>
+                لوضع أكثر من صورة في خلفية العنصر، عليك فقط وضع فواصل بين قيم الخصائص التي يمكنك استخدامها مع الخلفيات، مع مراعاة الترتيب الذي تم فيه إضافة الصور. فالصورة التي توضع أولاً سيتم عرضها فوق الصورة الأخرى.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول (باستخدام الخصائص المنفصلة)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">background-image</span>: <span class="value">url(pyramids.png)</span>, <span class="value">url(paper.png)</span>;
+    <span class="property">background-repeat</span>: <span class="value">no-repeat</span>, <span class="value">repeat</span>;
+    <span class="property">background-position</span>: <span class="value">right center</span>, <span class="value">left bottom</span>;
+    <span class="property">background-size</span>: <span class="value">70px 70px</span>, <span class="value">contain</span>;
+}</pre>
+                </div>
+                <div class="multiple-background-example bg-example-1">
+                    هنا محتوى العنصر
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الثاني (باستخدام الخاصية المختصرة)</h3>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">background</span>: <span class="value">url(pyramids.png) right center no-repeat</span>, <span class="value">url(paper.png) repeat left bottom</span>;
+    <span class="property">background-size</span>: <span class="value">70px 70px</span>, <span class="value">contain</span>;
+}</pre>
+                </div>
+                <div class="multiple-background-example bg-example-2">
+                    هنا محتوى العنصر
+                </div>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+
+</body>
+
+</html>

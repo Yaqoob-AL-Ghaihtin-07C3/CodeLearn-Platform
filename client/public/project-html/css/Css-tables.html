@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - الجداول (Tables) - EliteWeb</title>
+  
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+ <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .table-demo {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* تنسيقات الجدول العامة */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+            caption-side: bottom;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        /* تحسين تصميم الحدود */
+        .borders-ex-1 table { border: 1px solid; }
+        .borders-ex-2 th, .borders-ex-2 td { border: 1px solid; }
+        .borders-ex-3 table, .borders-ex-3 th, .borders-ex-3 td { border: 1px solid; }
+        
+        /* دمج الحدود */
+        .collapse-borders table {
+            border-collapse: collapse;
+        }
+        .collapse-borders table, .collapse-borders th, .collapse-borders td {
+            border: 1px solid;
+        }
+
+        /* حجم الجدول */
+        .width-ex-1 table { width: 100%; }
+
+        /* اتجاه ومحاذاة المحتوى */
+        .align-ex table { height: 200px; }
+        .align-ex th, .align-ex td { text-align: left; vertical-align: top; }
+        
+        /* تحسين تصميم الجدول */
+        .padding-ex th, .padding-ex td { padding: 10px; text-align: left; }
+        .border-bottom-ex th, .border-bottom-ex td { border-bottom: 1px solid #ddd; }
+        .hover-ex tr:hover { background-color: #f5f5f5; }
+        .nth-child-ex tr:nth-child(even) { background-color: #f1f1f1; }
+        .nth-child-ex-2 th {
+            color: white;
+            background-color: #0d6efd;
+        }
+        .nth-child-ex-2 tr:nth-child(even) { background-color: #f1f1f1; }
+        
+        /* جدول متجاوب */
+        .responsive-table {
+            overflow-x: auto;
+        }
+
+        /* مكان ظهور وصف الجدول */
+        .caption-bottom table { caption-side: bottom; }
+        .caption-bottom caption { margin-top: 7px; }
+    </style>
+
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>الجداول (Tables)</h1>
+            <p>خصائص الجداول في CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#table-properties">خصائص الجداول</a></li>
+                    <li><a href="#table-borders">تحسين حدود الجدول</a></li>
+                    <li><a href="#table-size">تحديد حجم الجدول</a></li>
+                    <li><a href="#table-align">اتجاه ومحاذاة المحتوى</a></li>
+                    <li><a href="#table-design">تحسين تصميم الجدول</a></li>
+                    <li><a href="#table-responsive">جدول متجاوب</a></li>
+                    <li><a href="#table-caption">وصف الجدول</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="table-properties" class="section">
+            <h2>خصائص الجداول</h2>
+            <p>
+                باستخدام خصائص CSS، يمكنك تنسيق الجداول بشكل احترافي، من ضبط شكل الحدود وتلوين الأسطر إلى جعلها متجاوبة (Responsive) لتظهر بشكل مناسب على جميع أحجام الشاشات.
+            </p>
+            <div class="example table-demo">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Score</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mhamad Harmush</td>
+                            <td>545</td>
+                            <td>Lebanon</td>
+                        </tr>
+                        <tr>
+                            <td>Hala Hassan</td>
+                            <td>480</td>
+                            <td>Egypt</td>
+                        </tr>
+                        <tr>
+                            <td>Aqlaa Al Rasheedy</td>
+                            <td>425</td>
+                            <td>KSA</td>
+                        </tr>
+                        <tr>
+                            <td>Fadi al Aswadi</td>
+                            <td>710</td>
+                            <td>Yaman</td>
+                        </tr>
+                        <tr>
+                            <td>Saad al Dabi</td>
+                            <td>522</td>
+                            <td>Yaman</td>
+                        </tr>
+                        <tr>
+                            <td>Moncef Gaha</td>
+                            <td>456</td>
+                            <td>Algeria</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="table-borders" class="section">
+            <h2>تحسين تصميم حدود الجدول</h2>
+            <p>
+                افتراضياً، لا تظهر الجداول أي حدود، ولكن يمكنك إظهارها وتنسيقها باستخدام خاصية <code>border</code>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: حدود خارجية للجدول</h3>
+                <div class="code">
+                    <pre><span class="property">table</span> {
+    <span class="property">border</span>: <span class="value">1px solid</span>;
+}</pre>
+                </div>
+                <div class="example table-demo borders-ex-1">
+                    <table>
+                        <tr><td>خلية 1</td><td>خلية 2</td></tr>
+                        <tr><td>خلية 3</td><td>خلية 4</td></tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثاني: حدود خلايا الجدول</h3>
+                <div class="code">
+                    <pre><span class="property">th, td</span> {
+    <span class="property">border</span>: <span class="value">1px solid</span>;
+}</pre>
+                </div>
+                <div class="example table-demo borders-ex-2">
+                    <table>
+                        <tr><th>عنوان</th><th>عنوان</th></tr>
+                        <tr><td>خلية 1</td><td>خلية 2</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الثالث: حدود الجدول والخلايا</h3>
+                <div class="code">
+                    <pre><span class="property">table, th, td</span> {
+    <span class="property">border</span>: <span class="value">1px solid</span>;
+}</pre>
+                </div>
+                <div class="example table-demo borders-ex-3">
+                    <table>
+                        <tr><td>خلية 1</td><td>خلية 2</td></tr>
+                        <tr><td>خلية 3</td><td>خلية 4</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>دمج حدود الجدول</h3>
+                <p>
+                    لحل مشكلة الحدود المزدوجة، استخدم خاصية <code>border-collapse: collapse;</code> على الجدول.
+                </p>
+                <div class="code">
+                    <pre><span class="property">table</span> {
+    <span class="property">border-collapse</span>: <span class="value">collapse</span>;
+}<br><span class="property">table, th, td</span> {
+    <span class="property">border</span>: <span class="value">1px solid</span>;
+}</pre>
+                </div>
+                <div class="example table-demo collapse-borders">
+                    <table>
+                        <tr><th>عنوان</th><th>عنوان</th></tr>
+                        <tr><td>خلية 1</td><td>خلية 2</td></tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section id="table-size" class="section">
+            <h2>تحديد حجم الجدول</h2>
+            <p>
+                يمكنك تحديد حجم الجدول وعرض أعمدته باستخدام خاصية <code>width</code>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: عرض الجدول بالكامل</h3>
+                <div class="code">
+                    <pre><span class="property">table</span> {
+    <span class="property">width</span>: <span class="value">100%</span>;
+}</pre>
+                </div>
+                <div class="example table-demo width-ex-1">
+                    <table>
+                        <tr><td>عرض 100%</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>المثال الثاني: تحديد حجم الأعمدة</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;table style="width:100%"&gt;</span>
+    ...
+    <span class="property">&lt;th style="width:70%"&gt;</span>User<span class="property">&lt;/th&gt;</span>
+    <span class="property">&lt;th style="width:30%"&gt;</span>Country<span class="property">&lt;/th&gt;</span>
+    ...
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                <div class="example table-demo">
+                    <table style="width:100%">
+                        <tr>
+                            <th style="width:70%">User</th>
+                            <th style="width:30%">Country</th>
+                        </tr>
+                        <tr>
+                            <td>Mhamad</td>
+                            <td>Harmush</td>
+                        </tr>
+                        <tr>
+                            <td>Hala</td>
+                            <td>Hassan</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="table-align" class="section">
+            <h2>تحديد اتجاه ومحاذاة محتوى الجدول</h2>
+            <p>
+                يمكنك التحكم في المحاذاة الأفقية (<code>text-align</code>) والعمودية (<code>vertical-align</code>) لمحتوى الخلايا.
+            </p>
+            <div class="property-block">
+                <h3>مثال: محاذاة المحتوى</h3>
+                <div class="code">
+                    <pre><span class="property">th, td</span> {
+    <span class="property">text-align</span>: <span class="value">left</span>;
+    <span class="property">vertical-align</span>: <span class="value">top</span>;
+}</pre>
+                </div>
+                <div class="example table-demo align-ex">
+                    <table>
+                        <tr><th>عنوان طويل جداً</th><td>محتوى قصير</td></tr>
+                        <tr><td>محتوى طويل جداً لخلية</td><td>محتوى قصير</td></tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="table-design" class="section">
+            <h2>تحسين تصميم الجدول</h2>
+            <p>
+                إضافة تأثيرات بصرية مثل الهامش الداخلي، تلوين الأسطر المتناوبة، وتأثير التمرير.
+            </p>
+            <div class="property-block">
+                <h3>إضافة هامش داخلي (Padding)</h3>
+                <div class="code">
+                    <pre><span class="property">th, td</span> {
+    <span class="property">padding</span>: <span class="value">10px</span>;
+}</pre>
+                </div>
+                <div class="example table-demo padding-ex">
+                    <table>
+                        <tr><td>نص</td><td>نص</td></tr>
+                        <tr><td>نص</td><td>نص</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>إظهار حدود الأسطر</h3>
+                <div class="code">
+                    <pre><span class="property">th, td</span> {
+    <span class="property">border-bottom</span>: <span class="value">1px solid #ddd</span>;
+}</pre>
+                </div>
+                <div class="example table-demo border-bottom-ex">
+                    <table>
+                        <tr><td>نص</td><td>نص</td></tr>
+                        <tr><td>نص</td><td>نص</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>تأثير التمرير (Hover)</h3>
+                <div class="code">
+                    <pre><span class="property">tr:hover</span> {
+    <span class="property">background-color</span>: <span class="value">beige</span>;
+}</pre>
+                </div>
+                <div class="example table-demo hover-ex">
+                    <table>
+                        <tr><td>سطر 1</td></tr>
+                        <tr><td>سطر 2</td></tr>
+                        <tr><td>سطر 3</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>تلوين الأسطر المتناوبة</h3>
+                <div class="code">
+                    <pre><span class="property">tr:nth-child(even)</span> {
+    <span class="property">background-color</span>: <span class="value">#f1f1f1</span>;
+}</pre>
+                </div>
+                <div class="example table-demo nth-child-ex">
+                    <table>
+                        <tr><td>سطر 1 (فردي)</td></tr>
+                        <tr><td>سطر 2 (زوجي)</td></tr>
+                        <tr><td>سطر 3 (فردي)</td></tr>
+                        <tr><td>سطر 4 (زوجي)</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>تلوين الأسطر والعناوين</h3>
+                <div class="code">
+                    <pre><span class="property">th</span> {
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background-color</span>: <span class="value">#0d6efd</span>;
+}
+<span class="property">tr:nth-child(even)</span> {
+    <span class="property">background-color</span>: <span class="value">#f1f1f1</span>;
+}</pre>
+                </div>
+                <div class="example table-demo nth-child-ex-2">
+                    <table>
+                        <thead><tr><th>عنوان 1</th><th>عنوان 2</th></tr></thead>
+                        <tbody>
+                            <tr><td>سطر 1 (فردي)</td><td>بيانات</td></tr>
+                            <tr><td>سطر 2 (زوجي)</td><td>بيانات</td></tr>
+                            <tr><td>سطر 3 (فردي)</td><td>بيانات</td></tr>
+                            <tr><td>سطر 4 (زوجي)</td><td>بيانات</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="table-responsive" class="section">
+            <h2>تصميم جدول متجاوب</h2>
+            <p>
+                لجعل الجدول متجاوباً، قم بوضعه داخل <code>&lt;div&gt;</code> مع الخاصية <code>overflow-x: auto;</code>. هذا سيضيف شريط تمرير أفقي إذا كان الجدول أكبر من الشاشة.
+            </p>
+            <div class="property-block">
+                <h3>مثال: جدول متجاوب</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;div style="overflow-x:auto;"&gt;</span>
+    <span class="property">&lt;table&gt;</span>...<span class="property">&lt;/table&gt;</span>
+<span class="property">&lt;/div&gt;</span></pre>
+                </div>
+                <div class="example table-demo responsive-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>عنوان عمود طويل جداً</th>
+                                <th>عنوان عمود طويل جداً</th>
+                                <th>عنوان عمود طويل جداً</th>
+                                <th>عنوان عمود طويل جداً</th>
+                                <th>عنوان عمود طويل جداً</th>
+                                <th>عنوان عمود طويل جداً</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>بيانات</td>
+                                <td>بيانات</td>
+                                <td>بيانات</td>
+                                <td>بيانات</td>
+                                <td>بيانات</td>
+                                <td>بيانات</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="table-caption" class="section">
+            <h2>تحديد مكان ظهور وصف الجدول</h2>
+            <p>
+                يمكنك تغيير موقع وصف الجدول <code>&lt;caption&gt;</code> باستخدام خاصية <code>caption-side</code>.
+            </p>
+            <div class="property-block">
+                <h3>مثال: وصف الجدول في الأسفل</h3>
+                <div class="code">
+                    <pre><span class="property">table</span> { <span class="property">caption-side</span>: <span class="value">bottom</span>; }
+<span class="property">caption</span> { <span class="property">margin-top</span>: <span class="value">7px</span>; }</pre>
+                </div>
+                <div class="example table-demo caption-bottom">
+                    <table>
+                        <caption>هذا وصف للجدول في الأسفل</caption>
+                        <thead><tr><th>عنوان</th></tr></thead>
+                        <tbody><tr><td>محتوى</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

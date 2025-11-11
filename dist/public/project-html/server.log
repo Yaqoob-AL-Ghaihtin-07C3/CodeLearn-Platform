@@ -1,0 +1,19 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/lib/python3.11/http/server.py", line 1299, in <module>
+    test(
+  File "/usr/lib/python3.11/http/server.py", line 1246, in test
+    with ServerClass(addr, HandlerClass) as httpd:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socketserver.py", line 456, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.11/http/server.py", line 1293, in server_bind
+    return super().server_bind()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/server.py", line 135, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.11/socketserver.py", line 472, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use

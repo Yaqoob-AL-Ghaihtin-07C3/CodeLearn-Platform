@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - تأثيرات الظل - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .text-shadow-demo h1 {
+            font-size: 3em;
+            text-align: center;
+        }
+
+        .box-shadow-demo div {
+            width: 250px;
+            height: 100px;
+            background-color: #f1f1f1;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        /* أمثلة مخصصة للظل */
+        .text-shadow-ex1 h1 {
+            text-shadow: 2px 2px lightgray;
+        }
+
+        .text-shadow-ex2 h1 {
+            text-shadow: 2px 2px 5px blue;
+        }
+
+        .text-shadow-ex3 h1 {
+            text-shadow: 0 0 3px cyan;
+        }
+
+        .text-shadow-ex4 h1 {
+            color: white;
+            text-shadow: 0 0 5px black;
+        }
+
+        .text-shadow-multi1 h1 {
+            text-shadow: 0 0 15px blue, 0 0 5px red;
+        }
+
+        .text-shadow-multi2 h1 {
+            text-shadow: 0 0 5px red, 0 0 15px blue;
+        }
+
+        .text-shadow-border h1 {
+            color: orange;
+            text-shadow: 0 1px black, -1px 0 black, 1px 0 black, 0 -1px black;
+        }
+
+        .box-shadow-ex1 div {
+            box-shadow: 5px 5px;
+        }
+
+        .box-shadow-ex2 div {
+            box-shadow: 5px 5px #cacaca;
+        }
+
+        .box-shadow-ex3 div {
+            box-shadow: 4px 4px 5px #cacaca;
+        }
+
+        .box-shadow-ex4 div {
+            box-shadow: 4px 4px 5px 10px #cacaca;
+        }
+
+        .box-shadow-ex5 div {
+            box-shadow: inset 0 0 5px 10px #cacaca;
+        }
+
+        .box-shadow-multi1 div {
+            box-shadow: 10px 10px #6d588e, 20px 20px #405378;
+        }
+        .box-shadow-multi2 div {
+            border-radius: 10px;
+            box-shadow: 10px 10px #6d588e, 20px 20px #405378;
+        }
+        .box-shadow-multi3 div {
+            box-shadow: inset 0 0 0 10px #ee6352,
+                inset 0 0 0 20px #d45379,
+                inset 0 0 0 30px #a4558f,
+                inset 0 0 0 40px #6d588e,
+                inset 0 0 0 50px #405378;
+            padding: 60px; /* لضمان ظهور النص بعيدًا عن الظلال الداخلية */
+        }
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>تأثيرات الظل</h1>
+            <p>شرح كامل ومبسط لخاصيتي <code>text-shadow</code> و <code>box-shadow</code></p>
+            <nav>
+                <ul>
+                    <li><a href="#what-is-shadow">ما هو تأثير الظل؟</a></li>
+                    <li><a href="#text-shadow">إضافة ظل للنص</a></li>
+                    <li><a href="#multiple-text-shadows">إضافة أكثر من ظل للنص</a></li>
+                    <li><a href="#box-shadow">إضافة ظل للعنصر</a></li>
+                    <li><a href="#multiple-box-shadows">إضافة أكثر من ظل للعنصر</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="what-is-shadow" class="section">
+            <h2>ما هو تأثير الظل</h2>
+            <p>
+                أي عنصر تضيفه في الصفحة يمكنك إظهار تأثير الظل حول محيطه الخارجي، تأثير الظل حول محيطه من الداخل، أما المحتوى النصي فيمكنك إظهار تأثير الظل حول أحرفه. وتستطيع أيضاً إضافة عدة طبقات من الظل فوق بعضها لتحصل على تدرج رائع في الظلال.
+            </p>
+            <div class="example">
+                <p><strong>CSS Text Shadow Effect</strong></p>
+            </div>
+            <div class="example">
+                <p><strong>CSS Box Shadow Effect</strong></p>
+            </div>
+            <p>
+                الظل في عالم الويب هو مجرد خط له حجم ولون ولكن الفرق الأساسي بينه وبينه الحدود العادية على سبيل المثال أنه لا يتم حسابه ضمن حساب حجم العنصر فهو يظهر خلف العنصر مباشرةً.
+            </p>
+        </section>
+
+        <section id="text-shadow" class="section">
+            <h2>إضافة ظل للنص</h2>
+            <p>
+                لإضافة ظل حول النص نستخدم الخاصية <strong><code>text-shadow</code></strong> ونمرر لها القيم الخاصة بالظل كإحداثيات ظهوره، لونه وحجم ضبابيته. افتراضياً، لون الظل الذي يتم وضعه للنص هو لون النص نفسه.
+            </p>
+
+            <div class="property-block">
+                <h3>مثال 1: ظل بسيط</h3>
+                <p>قمنا بإضافة ظل للنص وجعلناه يبتعد عنه بمقدار 2 بكسل من ناحية اليسار و 2 بكسل من ناحية الأعلى ولونه رمادي باهت.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">text-shadow</span>: <span class="value">2px 2px lightgray</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-ex1">
+                    <h1>CSS Text Shadow Effect</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 2: ظل مع ضبابية</h3>
+                <p>قمنا بإضافة ظل للنص وجعلناه يبتعد عنه بمقدار 2 بكسل من ناحية اليسار و 2 بكسل من ناحية الأعلى، وجعلناه ضبابياً بنسبة 5 بكسل ولونه أزرق.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">text-shadow</span>: <span class="value">2px 2px 5px blue</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-ex2">
+                    <h1>CSS Text Shadow Effect</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 3: تأثير الإضاءة (Neon Effect)</h3>
+                <p>ظل لونه أزرق سماوي (cyan) بدون إزاحة (إحداثياته صفر) وضبابية بنسبة 3 بكسل لكي يظهر وكأنه مضيء.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">text-shadow</span>: <span class="value">0 0 3px cyan</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-ex3">
+                    <h1>CSS Text Shadow Effect</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 4: نص أبيض بظل أسود</h3>
+                <p>نص بلون أبيض مع ظل أسود بدون إزاحة وضبابية 5 بكسل.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">text-shadow</span>: <span class="value">0 0 5px black</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-ex4" style="background-color: #333;">
+                    <h1>CSS Text Shadow Effect</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="multiple-text-shadows" class="section">
+            <h2>إضافة أكثر من ظل للنص</h2>
+            <p>
+                لوضع أكثر من ظل للنص، قم بوضع فاصلة بين كل ظلّين. الظل الذي تضعه أولاً يظهر فوق الظل الذي يليه.
+            </p>
+
+            <div class="property-block">
+                <h3>مثال 1: طبقات ظل متداخلة</h3>
+                <p>ظل أزرق فوقه ظل أحمر أصغر حجماً.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">text-shadow</span>: <span class="value">0 0 15px blue, 0 0 5px red</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-multi1">
+                    <h1>CSS Multiple Text Shadow Effect</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 2: طبقات ظل معكوسة</h3>
+                <p>ظل أحمر فوقه ظل أزرق أكبر حجماً.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">text-shadow</span>: <span class="value">0 0 5px red, 0 0 15px blue</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-multi2">
+                    <h1>CSS Multiple Text Shadow Effect</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 3: الظل كحدود للنص</h3>
+                <p>أربع ظلال بنفس الحجم على كل جهة من النص لجعله يظهر كحدود.</p>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">color</span>: <span class="value">orange</span>;
+    <span class="property">text-shadow</span>: <span class="value">0 1px black, -1px 0 black, 1px 0 black, 0 -1px black</span>;
+}</pre>
+                </div>
+                <div class="example text-shadow-demo text-shadow-border">
+                    <h1>CSS Multiple Text Shadow Effect</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="box-shadow" class="section">
+            <h2>إضافة ظل للعنصر</h2>
+            <p>
+                لإضافة ظل حول العنصر نفسه نستخدم الخاصية <strong><code>box-shadow</code></strong> ونمرر لها القيم الخاصة بالظل كإحداثيات ظهوره، لونه، حجم الظل نفسه ومقدار ضبابيته.
+            </p>
+
+            <div class="property-block">
+                <h3>مثال 1: ظل بسيط للعنصر</h3>
+                <p>ظل يبتعد عن العنصر بمقدار 5 بكسل من ناحية اليسار و 5 بكسل من ناحية الأعلى.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>: <span class="value">5px 5px</span>;
+    <span class="property">background-color</span>: <span class="value">#F1F1F1</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-ex1">
+                    <div>Box Shadow Effect</div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 2: ظل بلون محدد</h3>
+                <p>نفس المثال السابق ولكن بلون رمادي فاتح (#cacaca).</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>: <span class="value">5px 5px #cacaca</span>;
+    <span class="property">background-color</span>: <span class="value">#F1F1F1</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-ex2">
+                    <div>Box Shadow Effect</div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 3: ظل مع ضبابية</h3>
+                <p>ظل يبتعد بمقدار 4 بكسل مع ضبابية 5 بكسل ولون أسود خفيف.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>: <span class="value">4px 4px 5px #cacaca</span>;
+    <span class="property">background-color</span>: <span class="value">#F1F1F1</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-ex3">
+                    <div>Box Shadow Effect</div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 4: ظل مع امتداد (Spread)</h3>
+                <p>ظل يبتعد بمقدار 4 بكسل مع ضبابية 5 بكسل وامتداد 10 بكسل زيادة عن حجم العنصر.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>: <span class="value">4px 4px 5px 10px #cacaca</span>;
+    <span class="property">background-color</span>: <span class="value">#F1F1F1</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-ex4">
+                    <div>Box Shadow Effect</div>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>مثال 5: ظل داخلي (Inset)</h3>
+                <p>ظل بدون إزاحة وضبابية 5 بكسل وامتداد 10 بكسل، مع إضافة الخاصية <code>inset</code> لجعله يظهر بداخل العنصر.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>: <span class="value">inset 0 0 5px 10px #cacaca</span>;
+    <span class="property">background-color</span>: <span class="value">#F1F1F1</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-ex5">
+                    <div>Box Shadow Effect</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="multiple-box-shadows" class="section">
+            <h2>إضافة أكثر من ظل للعنصر</h2>
+            <p>
+                لوضع أكثر من ظل للعنصر، قم بوضع فاصلة بين كل ظلّين. الظل الذي تضعه أولاً يظهر فوق الظل الذي يليه.
+            </p>
+
+            <div class="property-block">
+                <h3>مثال 1: ظلان حول العنصر</h3>
+                <p>أضفنا ظلين حول العنصر بلونين مختلفين وإزاحات مختلفة.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>: <span class="value">10px 10px #6d588e, 20px 20px #405378</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-multi1">
+                    <div>Multiple Box Shadow Effect</div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 2: ظلال مع حدود مائلة (border-radius)</h3>
+                <p>جعلنا حدود العنصر مائلة مما أدى لجعل الظلال تظهر بشكل مائل أيضاً.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">border-radius</span>: <span class="value">10px</span>;
+    <span class="property">box-shadow</span>: <span class="value">10px 10px #6d588e, 20px 20px #405378</span>;
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-multi2">
+                    <div>Multiple Box Shadow Effect</div>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>مثال 3: ظلال داخلية متعددة</h3>
+                <p>أضفنا 5 ظلال داخلية بأحجام مختلفة لتكوين تأثير متدرج.</p>
+                <div class="code">
+                    <pre><span class="property">div</span> {
+    <span class="property">box-shadow</span>:
+        <span class="value">inset 0 0 0 10px #ee6352,</span>
+        <span class="value">inset 0 0 0 20px #d45379,</span>
+        <span class="value">inset 0 0 0 30px #a4558f,</span>
+        <span class="value">inset 0 0 0 40px #6d588e,</span>
+        <span class="value">inset 0 0 0 50px #405378;</span>
+}</pre>
+                </div>
+                <div class="example box-shadow-demo box-shadow-multi3">
+                    <div>Box Shadow Effect</div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

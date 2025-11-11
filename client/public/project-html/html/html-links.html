@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الروابط في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .link-example {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .button-link {
+            background: linear-gradient(to right, #4CAF50, #2E8B57);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .button-link:hover {
+            background: linear-gradient(to right, #45a049, #2d7a4f);
+            transform: translateY(-2px);
+        }
+        
+        .image-link {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 10px;
+            display: inline-block;
+        }
+        
+        .image-link img {
+            width: 100px;
+            height: auto;
+            display: block;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: right;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>الروابط</h2>
+            <p>تعلم كيفية إنشاء وإدارة الروابط في صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الرابط</a></li>
+                    <li><a href="#basic-links">الروابط الأساسية</a></li>
+                    <li><a href="#attributes">خصائص الروابط</a></li>
+                    <li><a href="#types">أنواع الروابط</a></li>
+                    <li><a href="#browser-handling">تعامل المتصفح</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم الرابط</h2>
+            <p>الرابط (Link) عبارة عن نص يشير لعنوان صفحة أخرى عند النقر عليه يقوم المتصفح بنقلك إليها.</p>
+            <p>يمكن أن يكون الرابط يشير لملف أو برنامج، عندها بمجرد النقر عليه يسألك المتصفح ما إن كنت تريد تحميله أم لا.</p>
+            
+            <div class="property-block">
+                <h3>أشكال الروابط</h3>
+                <ul>
+                    <li>يمكن وضع الرابط كنص (Text Link)</li>
+                    <li>يمكن وضع الرابط كزر (Button Link)</li>
+                    <li>يمكن وضع الرابط كصورة (Image Link)</li>
+                </ul>
+                <p>في هذا الدرس ستتعرف على الوسم المخصص لإضافة روابط بالإضافة إلى كافة الخصائص التي يمكن وضعها فيها.</p>
+            </div>
+        </section>
+
+        <section id="basic-links" class="section">
+            <h2>إضافة رابط في الصفحة</h2>
+            <p>بشكل عام نستخدم الوسم <code>&lt;a&gt;</code> على هذا النحو <code>&lt;a href="url"&gt;text&lt;/a&gt;</code> لعرض رابط في الصفحة.</p>
+            
+            <div class="example">
+                <h4>مثال: رابط أساسي</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;a href="https://harmash.com"&gt;</span>Go to harmash.com<span class="value">&lt;/a&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><a href="https://harmash.com" style="color: #3498db; text-decoration: none;">Go to harmash.com</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="attributes" class="section">
+            <h2>خصائص الروابط المتقدمة</h2>
+            
+            <div class="property-block">
+                <h3>إظهار تلميح عند تمرير الماوس</h3>
+                <p>يمكنك إضافة الخاصية <code>title</code> في الوسم <code>&lt;a&gt;</code> لعرض تلميح عند تمرير الماوس فوق الرابط.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;a href="https://harmash.com" title="Go to harmash.com"&gt;</span>harmash<span class="value">&lt;/a&gt;</span> teaches you every thing you need.<span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><a href="https://harmash.com" title="Go to harmash.com" style="color: #3498db; text-decoration: none;">harmash</a> teaches you every thing you need.</p>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>روابط البريد الإلكتروني</h3>
+                <p>استخدم <code>mailto:</code> لإنشاء رابط يفتح تطبيق البريد الإلكتروني.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;p&gt;</span><span class="value">&lt;a href="mailto:someone@example.com"&gt;</span>Send Email<span class="value">&lt;/a&gt;</span><span class="property">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <p><a href="mailto:someone@example.com" style="color: #3498db; text-decoration: none;">Send Email</a></p>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>روابط لعناصر محددة في الصفحة</h3>
+                <p>استخدم <code>#id</code> للانتقال إلى عنصر محدد في الصفحة.</p>
+                <div class="code">
+                    <pre><span class="value">&lt;a href="#section5"&gt;</span>Jump to Section 5<span class="value">&lt;/a&gt;</span>
+<span class="value">&lt;a href="page.html#section5"&gt;</span>Go to page.html then jump to Section 5<span class="value">&lt;/a&gt;</span></pre>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>تحديد مكان فتح الرابط</h3>
+                <p>استخدم الخاصية <code>target</code> للتحكم في مكان فتح الرابط.</p>
+                <div class="code">
+                    <pre><span class="value">&lt;a href="https://harmash.com" target="_self"&gt;</span>Open in same tab<span class="value">&lt;/a&gt;</span>
+<span class="value">&lt;a href="https://harmash.com" target="_blank"&gt;</span>Open in new tab<span class="value">&lt;/a&gt;</span>
+<span class="value">&lt;a href="https://harmash.com" target="_parent"&gt;</span>Open in parent frame<span class="value">&lt;/a&gt;</span>
+<span class="value">&lt;a href="https://harmash.com" target="_top"&gt;</span>Open in full window<span class="value">&lt;/a&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="types" class="section">
+            <h2>أنواع الروابط المختلفة</h2>
+            
+            <div class="property-block">
+                <h3>روابط وهمية</h3>
+                <p>استخدم <code>#</code> لإنشاء رابط لا يؤدي إلى أي مكان.</p>
+                <div class="code">
+                    <pre><span class="value">&lt;a href="#"&gt;</span>Link that does nothing<span class="value">&lt;/a&gt;</span>
+<span class="value">&lt;a&gt;</span>Link without href<span class="value">&lt;/a&gt;</span></pre>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>روابط كأزرار</h3>
+                <p>استخدم JavaScript لتحويل الزر إلى رابط.</p>
+                <div class="code">
+                    <pre><span class="value">&lt;button onclick="document.location='https://harmash.com'"&gt;</span>Go to harmash.com<span class="value">&lt;/button&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <button onclick="document.location='https://harmash.com'" class="button-link">Go to harmash.com</button>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>روابط كصور</h3>
+                <p>ضع صورة داخل وسوم الرابط لإنشاء رابط قابل للنقر.</p>
+                <div class="code">
+                    <pre><span class="value">&lt;a href="https://harmash.com/tutorials/html"&gt;</span>
+    <span class="value">&lt;img src="html-5-icon.png" alt="HTML5 Icon"&gt;</span>
+<span class="value">&lt;/a&gt;</span></pre>
+                </div>
+                <div class="example">
+                    <a href="https://harmash.com/tutorials/html" class="image-link">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB4PSI1IiB5PSI1IiB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIGZpbGw9IiNlNGYyZjYiIHN0cm9rZT0iIzM0OThkYiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHRleHQgeD0iNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzNDk4ZGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5IVE1MPC90ZXh0Pjwvc3ZnPg==" alt="HTML5 Icon">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="browser-handling" class="section">
+            <h2>تعامل المتصفح مع محتوى الروابط</h2>
+            <p>يتعامل المتصفح مع الروابط بشكل مختلف حسب نوع الملف الذي يشير إليه الرابط.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>نوع الملف</th>
+                        <th>تصرف المتصفح</th>
+                        <th>مثال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>صفحات ويب (.html)</td>
+                        <td>يعرض محتوى الصفحة</td>
+                        <td><code>page.html</code></td>
+                    </tr>
+                    <tr>
+                        <td>صور (.jpg, .png, .gif)</td>
+                        <td>يعرض الصورة</td>
+                        <td><code>image.jpg</code></td>
+                    </tr>
+                    <tr>
+                        <td>ملفات نصية (.txt, .css, .js)</td>
+                        <td>يعرض محتوى الملف</td>
+                        <td><code>style.css</code></td>
+                    </tr>
+                    <tr>
+                        <td>ملفات غير معروفة</td>
+                        <td>يعرض خيار التحميل</td>
+                        <td><code>file.zip</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="property-block">
+                <h3>أمثلة على أنواع الملفات</h3>
+                <div class="code">
+                    <pre><span class="comment">&lt;!-- صفحة ويب --&gt;</span>
+<span class="value">&lt;a href="page.html"&gt;</span>Open HTML page<span class="value">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- صورة --&gt;</span>
+<span class="value">&lt;a href="image.jpg"&gt;</span>View Image<span class="value">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- ملف نصي --&gt;</span>
+<span class="value">&lt;a href="document.txt"&gt;</span>Read Text File<span class="value">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- ملف للتحميل --&gt;</span>
+<span class="value">&lt;a href="archive.zip"&gt;</span>Download ZIP<span class="value">&lt;/a&gt;</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

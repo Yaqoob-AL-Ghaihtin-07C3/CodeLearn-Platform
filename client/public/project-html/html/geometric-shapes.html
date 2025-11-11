@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رموز الأشكال الهندسية - هرمش - EliteWeb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <style>
+        /* أنماط إضافية خاصة بهذه الصفحة */
+        .symbols-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .symbols-table th {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .symbols-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .symbols-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .symbols-table tr:hover {
+            background-color: #f1f9ff;
+        }
+        
+        .symbol {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .try-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+        
+        .try-button:hover {
+            background-color: #45a049;
+        }
+        
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px dashed #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .symbol-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .symbol-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .symbol-display {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .symbol-name {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .symbols-table {
+                font-size: 0.9em;
+            }
+            
+            .symbol {
+                font-size: 20px;
+            }
+            
+            .symbol-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>رموز الأشكال الهندسية</h1>
+            <p>طريقة عرض رموز الأشكال الهندسية في HTML</p>
+            <nav>
+                <ul>
+                    <li><a href="#intro">مقدمة</a></li>
+                    <li><a href="#methods">طرق العرض</a></li>
+                    <li><a href="#symbols">جدول الرموز</a></li>
+                    <li><a href="#examples">أمثلة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="intro" class="section">
+            <h2>رموز الأشكال الهندسية</h2>
+            <p>رموز الأشكال الهندسية عبارة عن مجموعة أحرف إن تم وضعها مع بعضها يقوم المتصفح بعرض شكل هندسي محدد مكانها. هذه الأحرف مهمة جداً فهي تتيح لك إمكانية عرض أي رمز تريد في الصفحة حتى و إن كان الشكل المراد رسمه غير موجوداً على الكيبورد الذي تستخدمه.</p>
+        </section>
+
+        <section id="methods" class="section">
+            <h2>طرق عرض الرموز</h2>
+            <p>الأحرف التي نستخدمها لعرض الأشكال الهندسية يمكن وضعها بأسلوب عشري (Decimal) أو بأسلوب سداسي عشري (Hexadecimal)، بالإضافة لأسلوب أصل الإسم (Entity) الذي تم توفيره لبعض الرموز لأنه يعتبر أسهل لك حيث أن الأحرف المستخدمة فيه تكون مكونة من أسماء الأشكال الهندسية نفسها.</p>
+            
+            <h3>قاعدة عامة</h3>
+            <ul>
+                <li>عند استخدام الأسلوب Entity يجب إضافة & قبل وضع أحرف الرمز.</li>
+                <li>عند استخدام الأسلوب Decimal يجب إضافة &# قبل وضع أحرف الرمز.</li>
+                <li>عند استخدام الأسلوب Hexadecimal يجب إضافة &#x قبل وضع أحرف الرمز.</li>
+                <li>كما أنه يفضّل دائماً وضع فاصلة منقوطة ; بعد كتابة أحرف الرمز و هذا أمر اختياري و لكننا ننصح بفعله.</li>
+            </ul>
+            
+            <div class="code-example">
+                <h4>أمثلة على طرق العرض المختلفة:</h4>
+                <p>عرض مربع أسود:</p>
+                <p>بالأسلوب العشري: <code>&#9632;</code></p>
+                <p>بالأسلوب السداسي عشري: <code>&#x25A0;</code></p>
+            </div>
+        </section>
+
+        <section id="symbols" class="section">
+            <h2>جدول رموز الأشكال الهندسية</h2>
+            <p>في الجدول التالي قمنا بذكر كل الرموز المتاحة التي يمكن استخدامها لعرض الأشكال الهندسية.</p>
+            
+            <table class="symbols-table">
+                <thead>
+                    <tr>
+                        <th>الرمز</th>
+                        <th>Decimal</th>
+                        <th>Hexadecimal</th>
+                        <th>Entity</th>
+                        <th>الإسم</th>
+                        <th>مثال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="symbol">■</span></td>
+                        <td>&amp;#9632;</td>
+                        <td>&amp;#x25A0;</td>
+                        <td></td>
+                        <td>Black Square</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol">□</span></td>
+                        <td>&amp;#9633;</td>
+                        <td>&amp;#x25A1;</td>
+                        <td></td>
+                        <td>White Square</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol">▢</span></td>
+                        <td>&amp;#9634;</td>
+                        <td>&amp;#x25A2;</td>
+                        <td></td>
+                        <td>White Square With Rounded Corners</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol">▣</span></td>
+                        <td>&amp;#9635;</td>
+                        <td>&amp;#x25A3;</td>
+                        <td></td>
+                        <td>White Square Containing Black Small Square</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol">▤</span></td>
+                        <td>&amp;#9636;</td>
+                        <td>&amp;#x25A4;</td>
+                        <td></td>
+                        <td>Square With Horizontal Fill</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <!-- يمكن إضافة المزيد من الصفوف هنا -->
+                    <tr>
+                        <td><span class="symbol">◊</span></td>
+                        <td>&amp;#9674;</td>
+                        <td>&amp;#x25CA;</td>
+                        <td>&amp;loz;</td>
+                        <td>Lozenge</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol">○</span></td>
+                        <td>&amp;#9675;</td>
+                        <td>&amp;#x25CB;</td>
+                        <td></td>
+                        <td>White Circle</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="symbol">●</span></td>
+                        <td>&amp;#9679;</td>
+                        <td>&amp;#x25CF;</td>
+                        <td></td>
+                        <td>Black Circle</td>
+                        <td><a href="#" class="try-button">جربه</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="examples" class="section">
+            <h2>أمثلة على استخدام الرموز</h2>
+            
+            <div class="code">
+                <p>كيفية استخدام رموز الأشكال الهندسية في HTML:</p>
+                <pre>
+&lt;!-- استخدام الأسلوب العشري --&gt;
+&lt;p&gt;مربع أسود: &amp;#9632;&lt;/p&gt;
+
+&lt;!-- استخدام الأسلوب السداسي عشري --&gt;
+&lt;p&gt;مربع أبيض: &amp;#x25A1;&lt;/p&gt;
+
+&lt;!-- استخدام أسلوب Entity (إن وجد) --&gt;
+&lt;p&gt;معين: &amp;loz;&lt;/p&gt;
+                </pre>
+            </div>
+            
+            <h3>معاينة بعض الأشكال الهندسية</h3>
+            <div class="symbol-grid">
+                <div class="symbol-item">
+                    <span class="symbol-display">■</span>
+                    <span class="symbol-name">مربع أسود</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">□</span>
+                    <span class="symbol-name">مربع أبيض</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">▲</span>
+                    <span class="symbol-name">مثلث للأعلى</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">▼</span>
+                    <span class="symbol-name">مثلث للأسفل</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">●</span>
+                    <span class="symbol-name">دائرة سوداء</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">○</span>
+                    <span class="symbol-name">دائرة بيضاء</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">◆</span>
+                    <span class="symbol-name">معين أسود</span>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-display">◇</span>
+                    <span class="symbol-name">معين أبيض</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="previous-lesson.html" class="button-demo">❮ الدرس السابق</a>
+                <a href="next-lesson.html" class="button-demo">الدرس التالي ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

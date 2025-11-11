@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محررات HTML - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* أنماط إضافية لتحسين العرض */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav-buttons a {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .nav-buttons a:hover {
+            background-color: #2980b9;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: right;
+        }
+        .footer-grid h3 {
+            color: #3498db;
+            padding-right: 0;
+        }
+        .footer-grid h3::before {
+             display: none;
+        }
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-grid ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+         .footer-grid ul li a:hover {
+            color: white;
+        }
+        .image-placeholder {
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>محررات HTML</h1>
+            <p>تعرف على الأدوات التي تحتاجها لكتابة كود HTML بكفاءة</p>
+            <nav>
+                <ul>
+                    <li><a href="#editor-concept">مفهوم المحرر</a></li>
+                    <li><a href="#good-editor">استخدام محرر جيد</a></li>
+                    <li><a href="#vscode-steps">استخدام VSCode</a></li>
+                    <li><a href="#online-editor">التجربة أونلاين</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="nav-buttons">
+            <a href="#">❮ الدرس السابق</a>
+            <a href="#">الدرس التالي ❯</a>
+        </div>
+
+        <section id="editor-concept" class="section">
+            <h2>مفهوم المحرر</h2>
+            <p>المحرر (Editor) هو أي برنامج يمكن استخدامه للتعديل على محتوى الملفات النصية.</p>
+            <p>أنظمة التشغيل عادةً ما يكون فيها محرر نصوص (Text Editor) جاهز، فمثلاً في نظام ويندوز يوجد محرر جاهز إسمه Notepad، و في نظام ماك يوجد محرر جاهز إسمه TextEdit، و في نظام لينكس يوجد محرر جاهز إسمه Gedit أو Leafpad أو غيرهما على حسب التوزيعة التي تستخدمها.</p>
+            <p>المحررات الإفتراضية التي تأتي مع أنظمة التشغيل ليست أفضل محررات يمكن استخدامها لكتابة كود HTML و CSS و Javascript لأنها لا تساعدك في كتابة الكود و تصحيح الأخطاء الموجودة فيه و لا تظهر لك ألوان جميلة كما تفعل باقي المحررات المخصصة لذلك.</p>
+            <p>في هذا الدرس ستتعلم كيفية كتابة الكود بواسطة برنامج VSCode و كيفية تجربته بشكل مباشر في محرر الويب الخاص بموقع هرمش.</p>
+        </section>
+
+        <section id="good-editor" class="section">
+            <h2>استخدام محرر جيد للعمل</h2>
+            <p>عند استخدام محرر بهدف كتابة كود، قم دائماً باختيار محرر ألوانه جيدة و يكون بنفس الوقت يساعدك أثناء كتابة الكود. لتدرك ضرورة ذلك، لاحظ كيف يظهر الكود في برنامج Notepad الإفتراضي الموجود في ويندوز و كيف يظهر الكود نفسه في برنامج جيد مثل VSCode الذي يمكنك تحميله و تثبيته بنفسك.</p>
+            
+            <h3>الكود في برنامج Notepad</h3>
+            <div class="image-placeholder">
+                <p>الكود في برنامج Notepad يظهر بلون واحد كالتالي.</p>
+                <strong>[صورة توضيحية للكود في Notepad]</strong>
+            </div>
+
+            <h3>الكود في برنامج VSCode</h3>
+            <div class="image-placeholder">
+                <p>نفس الكود السابق في برنامج VSCode يظهر بشكل جميل جداً و سهل القراءة كالتالي.</p>
+                <strong>[صورة توضيحية للكود في VSCode]</strong>
+            </div>
+            
+            <p>لكتابة كود HTML على الحاسوب يمكنك استخدام أي محرر تريده و لكننا ننصحك باستخدام VSCode على وجه الخصوص لأنه من أفضل و أقوى المحررات المجانية الموجودة و أسهلها في الإستخدام.</p>
+        </section>
+        
+        <section id="vscode-steps" class="section">
+            <h2>خطوات تحميل و تثبيت و استخدام VSCode</h2>
+            <p>هنا وضعنا لك كل الخطوت اللازمة التي تجعلك قادر على إنشاء ملفات HTML على حاسوبك بسهولة تامة باستخدام برنامج VSCode.</p>
+
+            <h3>خطوات تحميل و تثبيت برنامج VSCode</h3>
+            <p>شاهد الخطوات التالية لتتعلم كيف تقوم بتحميل و تثبيت برنامج VSCode الملائم لحاسوبك.</p>
+            <a href="#" class="button-demo" style="display: table; margin: 15px auto;">شاهد الخطوات</a>
+
+            <h3>خطوات إنشاء ملف HTML</h3>
+            <p>هنا وضعنا خطوات إنشاء ملف HTML بواسطة برنامج VSCode و من ثم مشاهدة نتيجته بواسطة المتصفح. ملاحظة: عليك إتباع هذه الخطوات في كل مرة تريد فيها تجربة الكود على الكمبيوتر.</p>
+            <a href="#" class="button-demo" style="display: table; margin: 15px auto;">شاهد الخطوات</a>
+            
+            <p>عند تجربة الكود على الحاسوب، في كل مرة تقوم بإجراء تعديل على ملف الـ HTML يجب أن تقوم بتحديث الصفحة المفتوحة في المتصفح مرة واحدة حتى يظهر لك نتيجة آخر تحديث للملف.</p>
+        </section>
+
+        <section id="online-editor" class="section">
+            <h2>تجربة الكود مباشرةً في موقعنا</h2>
+            <p>لتجربة الكود في موقعنا سواء كنت تستخدم حاسوب أو هاتف، يمكنك إستخدام محرر الويب الذي قمنا بتجهيزه لك مسبقاً. عند كتابة أي كود في هذا المحرر يمكنك النقر على زر التشغيل حتى يعرض لك النتيجة بكل سهولة.</p>
+            <p>بالإضافة لذلك، أي كود نقوم بشرحه لك لاحقاً في الدورة ستجد تحته زر يسمح لك بتجربة الكود مباشرةً في موقعنا.</p>
+            
+            <h3>مثال</h3>
+            <div class="code">
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Page Title&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;My First Heading&lt;/h1&gt;
+        &lt;p&gt;My first paragraph.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+            </div>
+            <a href="#" class="button-demo" style="display: table; margin: 15px auto;">جرب الكود</a>
+            <p>زر "جرب الكود" يتيح لك تجربة الكود بشكل مباشر في محرر  واكواد برمجية  مشاهدة نتيجة تشغيله مع إمكانية التعديل عليه.</p>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="html-overview.html">❮ الدرس السابق</a>
+            <button class="button-demo">إحفظ تقدمي</button>
+            <a href="html-basics.html">الدرس التالي ❯</a>
+        </div>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

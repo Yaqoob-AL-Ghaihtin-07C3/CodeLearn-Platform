@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحات المترجمة في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body><header>
+    <div class="container">
+        <h1>HTML</h1>
+        <h2>الصفحات المترجمة</h2>
+        <p>محركات البحث والصفحات المترجمة • كيف يعرف جوجل لغتك؟ • كيف تُعلم جوجل بأن موقعك متعدد اللغات؟ • مثال عملي</p>
+        <nav>
+            <ul>
+                <li><a href="#concept">محركات البحث والصفحات المترجمة</a></li>
+                <li><a href="#how-google-knows">كيف يعرف جوجل لغتك؟</a></li>
+                <li><a href="#tell-google">إعلام جوجل بتعدد اللغات</a></li>
+                <li><a href="#example">مثال عملي</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <section id="concept" class="section">
+        <h2>محركات البحث والصفحات المترجمة</h2>
+        <p>في المواقع العالمية المترجمة لعدة لغات، يظهر في نتائج البحث عادةً الصفحات المترجمة للغتك أولاً. هذا ليس سحرًا ولا يعني أن الموقع يتجسس عليك، بل لأنه تم تعريف محرك البحث بالنسخ المترجمة.</p>
+        <div class="example">
+            <h4>مثال عملي</h4>
+            <p>عند البحث عن كلمة <b>Facebook</b> من بلد عربي، ستجد أن رابط النسخة العربية يظهر أولاً.</p>
+        </div>
+    </section>
+
+    <section id="how-google-knows" class="section">
+        <h2>كيف يعرف جوجل لغتك؟</h2>
+        <p>عند زيارة أي موقع، يتم إرسال عنوان <code>IP</code> الخاص بك وترويسة <code>Accept-Language</code>. جوجل يستخدم هذه المعلومات ليعرض النتائج بلغتك المفضلة. وإذا لم تحددها، فإنه يختار اللغة الشائعة في منطقتك.</p>
+    </section>
+
+    <section id="tell-google" class="section">
+        <h2>كيف تُعلم جوجل بأن موقعك متعدد اللغات؟</h2>
+        <p>إذا كانت لديك صفحة مترجمة لعدة لغات، يجب أن تُضيف وسوم <code>&lt;link&gt;</code> في وسم <code>&lt;head&gt;</code> لتعريف جوجل بها.</p>
+        <div class="example">
+            <h4>مثال على وسم link</h4>
+            <div class="code">
+                <pre>&lt;!-- الصفحة الحالية --&gt;
+
+<link rel="canonical" hreflang="ar" />
+
+<!-- الصفحات المترجمة --> <link rel="alternate" hreflang="en" href="./en-about.html" /> <link rel="alternate" hreflang="fr" href="./fr-about.html" /></pre> </div> </div> </section>
+
+<section id="example" class="section">
+        <h2>مثال حول تصميم صفحة متعددة اللغات</h2>
+        <p>إليك مثال لصفحة "حول الموقع" مترجمة إلى ثلاث لغات (العربية، الإنجليزية، الفرنسية):</p>
+
+        <div class="example">
+            <h4>النسخة العربية</h4>
+            <div class="code">
+                <pre>&lt;!DOCTYPE html&gt;
+
+<html dir="rtl" lang="ar"> <head> <link rel="canonical" hreflang="ar" /> <link rel="alternate" hreflang="en" href="./en-about.html" /> <link rel="alternate" hreflang="fr" href="./fr-about.html" /> <title>حول هرمش - EliteWeb</title> </head> <body>...    <script src="../js/navigation.js"></script>
+</body> </html></pre> </div> </div>
+
+<div class="example">
+            <h4>النسخة الإنجليزية</h4>
+            <div class="code">
+                <pre>&lt;!DOCTYPE html&gt;
+
+<html dir="ltr" lang="en"> <head> <link rel="canonical" hreflang="en" /> <link rel="alternate" hreflang="ar" href="./ar-about.html" /> <link rel="alternate" hreflang="fr" href="./fr-about.html" /> <title>About Harmash - EliteWeb</title> </head> <body>...    <script src="../js/navigation.js"></script>
+</body> </html></pre> </div> </div>
+
+<div class="example">
+            <h4>النسخة الفرنسية</h4>
+            <div class="code">
+                <pre>&lt;!DOCTYPE html&gt;
+
+<html dir="ltr" lang="fr"> <head> <link rel="canonical" hreflang="fr" /> <link rel="alternate" hreflang="ar" href="./ar-about.html" /> <link rel="alternate" hreflang="en" href="./en-about.html" /> <title>À propos de Harmash - EliteWeb</title> </head> <body>...    <script src="../js/navigation.js"></script>
+</body> </html></pre> </div> </div> </section>
+
+<section class="section">
+        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+            <a href="content-direction.html" class="button-demo">❮ تحديد اتجاه المحتوى</a>
+            <a href="meta-tags.html" class="button-demo">الوسوم الوصفية ❯</a>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="button-demo">إحفظ تقدمي</button>
+        </div>
+    </section>
+</div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

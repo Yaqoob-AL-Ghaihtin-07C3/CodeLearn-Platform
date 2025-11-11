@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - الأيقونات - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .icon-example {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .icon-example .material-icons,
+        .icon-example .fa-solid {
+            font-size: 30px;
+        }
+        .blue {
+            color: blue;
+        }
+        .brown {
+            color: brown;
+        }
+        .red {
+            color: red;
+        }
+        .purple {
+            color: purple;
+        }
+    </style>
+
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>الأيقونات</h1>
+            <p>مفهوم الأيقونات، أنواعها، وطرق إضافتها</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الأيقونات</a></li>
+                    <li><a href="#types">أنواع الأيقونات</a></li>
+                    <li><a href="#image-icon">إضافة صورة كأيقونة</a></li>
+                    <li><a href="#google-icons">استخدام أيقونات جوجل</a></li>
+                    <li><a href="#fontawesome">استخدام أيقونات FontAwesome</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="concept" class="section">
+            <h2>مفهوم الأيقونات</h2>
+            <p>
+                الأيقونة (Icon) في عالم الويب هي رسمة أو صورة تعبّر عن شيء ما وهي تعطي شكلاً رائعاً للتصميم.
+            </p>
+            <p>
+                في هذا الدرس ستتعرف على أنواع الأيقونات التي يمكنك استخدامها في صفحات الويب بالإضافة إلى استخدام أيقونات مجانية رائعة وتحديد أحجامها وألوانها.
+            </p>
+        </section>
+
+        <section id="types" class="section">
+            <h2>أنواع الأيقونات</h2>
+            <p>الأيقونة يمكن أن تكون أحد الأنواع التالية:</p>
+            <ul>
+                <li>صورة عادية كالصور التي نوعها PNG والتي يمكن أن تكون خلفيتها شفافة.</li>
+                <li>صورة نوعها SVG.</li>
+                <li>صورة مبنية بوسوم HTML وخصائص CSS.</li>
+            </ul>
+        </section>
+
+        <section id="image-icon" class="section">
+            <h2>إضافة صورة كأيقونة</h2>
+            <div class="property-block">
+                <h3>إضافة صورة عادية</h3>
+                <p>في المثال التالي قمنا بإضافة صورة عادية كأيقونة بواسطة الوسم <code>&lt;img&gt;</code>.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;img</span> <span class="property">src</span>=<span class="value">"user.png"</span><span class="property">/&gt;</span></pre>
+                </div>
+                <div class="example icon-example">
+                    <img src="https://via.placeholder.com/64x64.png?text=User" alt="صورة أيقونة مستخدم">
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>إضافة صورة كخلفية لوسم <code>&lt;span&gt;</code></h3>
+                <p>في المثال التالي قمنا بإضافة صورة عادية كخلفية لوسم <code>&lt;span&gt;</code> فارغ كأيقونة بواسطة الخاصية <code>background-image</code>.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;span</span> <span class="property">class</span>=<span class="value">"user-icon"</span><span class="property">/&gt;&lt;/span&gt;</span></pre>
+                </div>
+                <div class="example icon-example">
+                    <div style="width: 64px; height: 64px; background-image: url('https://via.placeholder.com/64x64.png?text=User'); background-size: cover;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="google-icons" class="section">
+            <h2>استخدام أيقونات جوجل</h2>
+            <p>أيقونات جوجل رائعة بكل ما للكلمة من معنى فهي مجانية بشكل كامل وهي تتيح لك التلاعب بخصائص الأيقونات كلونها وحجمها وحتى تصميمها.</p>
+
+            <div class="property-block">
+                <h3>طريقة تضمين أيقونات جوجل</h3>
+                <p>هناك طرق عديدة لتضمين أيقونات جوجل في صفحات الويب أسهلها وضع رابط ملف الـ CSS التالي الخاص بها في الوسم <code>&lt;head&gt;</code>.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;link</span> <span class="property">href</span>=<span class="value">"https://fonts.googleapis.com/icon?family=Material+Icons"</span> <span class="property">rel</span>=<span class="value">"stylesheet"</span><span class="property">&gt;</span></pre>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>طريقة عرض أيقونات جوجل</h3>
+                <p>أسهل طريقة لفعل ذلك هي عن طريق استخدام وسم <code>&lt;i&gt;</code> يملك كلاسات تشير لإسم الأيقونة.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;i</span> <span class="property">class</span>=<span class="value">"material-icons"</span><span class="property">&gt;</span>home<span class="property">&lt;/i&gt;</span>
+<span class="property">&lt;i</span> <span class="property">class</span>=<span class="value">"material-icons"</span><span class="property">&gt;</span>person<span class="property">&lt;/i&gt;</span>
+<span class="property">&lt;i</span> <span class="property">class</span>=<span class="value">"material-icons"</span><span class="property">&gt;</span>favorite<span class="property">&lt;/i&gt;</span></pre>
+                </div>
+                <div class="example icon-example">
+                    <i class="material-icons">home</i>
+                    <i class="material-icons">person</i>
+                    <i class="material-icons">favorite</i>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>طريقة تحديد حجم ولون الأيقونات</h3>
+                <p>في المثال التالي قمنا بتحديد ألوان وأحجام الأيقونات بواسطة خصائص CSS.</p>
+                <div class="code">
+                    <pre><span class="property">.material-icons</span> {
+    <span class="property">font-size</span>: <span class="value">30px</span>;
+}
+<span class="property">.blue</span> {<span class="property">color</span>: <span class="value">blue</span>;}
+<span class="property">.brown</span> {<span class="property">color</span>: <span class="value">brown</span>;}
+<span class="property">.red</span> {<span class="property">color</span>: <span class="value">red</span>;}
+<span class="property">.purple</span> {<span class="property">color</span>: <span class="value">purple</span>;}</pre>
+                </div>
+                <div class="example icon-example">
+                    <i class="material-icons blue">home</i>
+                    <i class="material-icons brown">person</i>
+                    <i class="material-icons red">favorite</i>
+                    <i class="material-icons purple">menu</i>
+                </div>
+                <p>لمزيد من التفاصيل والأيقونات التي يوفرها لك جوجل قم بزيارة <a href="https://fonts.google.com/icons">الموقع الرسمي</a> الخاص به.</p>
+            </div>
+        </section>
+
+        <section id="fontawesome" class="section">
+            <h2>استخدام أيقونات FontAwesome</h2>
+            <p>FontAwesome يُعتبر أشهر موقع يمكن الحصول منه على أيقونات مجانية حيث أن أيقوناته مميزة جداً لأنه يمكن التعامل معها وكأنها نص عادي يمكن تحديد حجمه ولونه بواسطة الخاصيتين <code>color</code> و <code>font-size</code>.</p>
+            <div class="property-block">
+                <h3>طريقة تضمين أيقوناته</h3>
+                <p>أسهل طريقة هي وضع رابط ملف الـ CSS الخاص بها من شبكة Cloudflare العالمية.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;link</span> <span class="property">rel</span>=<span class="value">"stylesheet"</span> <span class="property">href</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"</span> <span class="property">integrity</span>=<span class="value">"..."</span> <span class="property">crossorigin</span>=<span class="value">"anonymous"</span> <span class="property">referrerpolicy</span>=<span class="value">"no-referrer"</span> <span class="property">/&gt;</span></pre>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>طريقة عرض أيقوناته</h3>
+                <p>أسهل طريقة لفعل ذلك هي عن طريق استخدام وسم <code>&lt;i&gt;</code> يملك كلاسات تشير لإسم الأيقونة.</p>
+                <div class="code">
+                    <pre><span class="property">&lt;i</span> <span class="property">class</span>=<span class="value">"fa-solid fa-user"</span><span class="property">&gt;&lt;/i&gt;</span>
+<span class="property">&lt;i</span> <span class="property">class</span>=<span class="value">"fa-solid fa-house"</span><span class="property">&gt;&lt;/i&gt;</span>
+<span class="property">&lt;i</span> <span class="property">class</span>=<span class="value">"fa-solid fa-heart"</span><span class="property">&gt;&lt;/i&gt;</span></pre>
+                </div>
+                <div class="example icon-example">
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-house"></i>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+            <div class="property-block">
+                <h3>طريقة تحديد حجم ولون الأيقونات</h3>
+                <p>في المثال التالي قمنا بتحديد ألوان وأحجام الأيقونات بواسطة خصائص CSS.</p>
+                <div class="code">
+                    <pre><span class="property">.fa-solid</span> {
+    <span class="property">font-size</span>: <span class="value">20px</span>;
+}
+<span class="property">.fa-user</span> {<span class="property">color</span>: <span class="value">blue</span>;}
+<span class="property">.fa-house</span> {<span class="property">color</span>: <span class="value">brown</span>;}
+<span class="property">.fa-heart</span> {<span class="property">color</span>: <span class="value">red</span>;}
+<span class="property">.fa-bars</span> {<span class="property">color</span>: <span class="value">purple</span>;}</pre>
+                </div>
+                <div class="example icon-example">
+                    <i class="fa-solid fa-user blue"></i>
+                    <i class="fa-solid fa-house brown"></i>
+                    <i class="fa-solid fa-heart red"></i>
+                    <i class="fa-solid fa-bars purple"></i>
+                </div>
+                <p>لمزيد من التفاصيل والأيقونات التي يوفرها لك Fontawesome قم بزيارة <a href="https://fontawesome.com/">موقعه الرسمي</a> وحدد رقم إصدار الأيقونات التي تريد استخدامها ثم حدد أنك تريد الأيقونات المجانية.</p>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

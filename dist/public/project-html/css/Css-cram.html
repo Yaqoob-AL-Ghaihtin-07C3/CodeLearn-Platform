@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قواعد كتابة كود CSS - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .example-code-block .example {
+            border: 1px dashed #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .example-code-block h1 {
+            color: blue;
+            text-align: center;
+        }
+        
+        .code-explanation span {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-right: 5px;
+        }
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>قواعد كتابة كود CSS</h1>
+            <p>الشكل العام لكود CSS وأساليب إضافته</p>
+            <nav>
+                <ul>
+                    <li><a href="#general-form">الشكل العام لكود CSS</a></li>
+                    <li><a href="#where-to-write">أين تكتب كود CSS</a></li>
+                    <li><a href="#best-practice">أفضل طريقة لكتابة كود CSS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="general-form" class="section">
+            <h2>الشكل العام لكود CSS</h2>
+            <p>
+                كود CSS يستخدم لتحسين مظهر عناصر HTML. عند كتابة الكود، يجب تحديد العنصر المراد تعديله ثم إضافة الخصائص والقيم المناسبة له.
+            </p>
+            <div class="property-block">
+                <h3>مثال على الشكل العام</h3>
+                <div class="code">
+                    <pre><span class="property">h1</span> {
+    <span class="property">color</span>: <span class="value">blue</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}</pre>
+                </div>
+                <div class="code-explanation">
+                    <p>
+                        <span><code>h1</code></span>: يسمى <strong>المُحدّد (Selector)</strong>، وهو اسم الوسم الذي سيتم تطبيق الأنماط عليه.
+                    </p>
+                    <p>
+                        <span><code>color</code></span>: تسمى <strong>الخاصية (Property)</strong>، وهي السمة المراد تعديلها.
+                    </p>
+                    <p>
+                        <span><code>blue</code></span>: تسمى <strong>القيمة (Value)</strong>، وهي القيمة المحددة للخاصية.
+                    </p>
+                    <p>
+                        يجب وضع فاصلة منقوطة (<code>;</code>) بعد كل خاصية وقيمتها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="where-to-write" class="section">
+            <h2>أين تكتب كود CSS</h2>
+            <p>
+                يوجد ثلاثة أساليب يمكنك اتباعها لإضافة كود CSS في صفحات الويب:
+            </p>
+            
+            <div class="property-block">
+                <h3>1- أسلوب Inline CSS</h3>
+                <p>
+                    يتم إضافة الخاصية <code>style</code> مباشرةً إلى وسم HTML وتمرير كود CSS كقيمة لها.
+                </p>
+                <div class="code">
+                    <pre><span class="property">&lt;h1 style="color:blue; text-align:center;"&gt;</span>Hello World!<span class="property">&lt;/h1&gt;</span></pre>
+                </div>
+                <div class="example example-code-block">
+                    <h1 style="color:blue; text-align:center;">Hello World!</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>2- أسلوب Internal CSS</h3>
+                <p>
+                    يتم وضع كود CSS داخل وسم <code>&lt;style&gt;</code> في أي مكان من الصفحة، عادةً في قسم <code>&lt;head&gt;</code>.
+                </p>
+                <div class="code">
+                    <pre><span class="property">&lt;style&gt;</span>
+    <span class="property">h1</span> {
+        <span class="property">color</span>: <span class="value">blue</span>;
+        <span class="property">text-align</span>: <span class="value">center</span>;
+    } 
+<span class="property">&lt;/style&gt;</span></pre>
+                </div>
+                <div class="example example-code-block">
+                    <h1>Hello World!</h1>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>3- أسلوب External CSS</h3>
+                <p>
+                    يتم وضع كود CSS في ملف منفصل بامتداد <code>.css</code>، ومن ثم يتم ربطه بالصفحة باستخدام وسم <code>&lt;link&gt;</code>.
+                </p>
+                <div class="code">
+                    <pre>style.css
+<span class="property">h1</span> {
+    <span class="property">color</span>: <span class="value">blue</span>;
+    <span class="property">text-align</span>: <span class="value">center</span>;
+}
+
+index.html
+<span class="property">&lt;link rel="stylesheet" href="style.css"&gt;</span></pre>
+                </div>
+                <div class="example example-code-block">
+                    <h1>Hello World!</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="best-practice" class="section">
+            <h2>أفضل طريقة لكتابة كود CSS</h2>
+            <p>
+                بشكل عام، أفضل طريقة هي استخدام <strong>أسلوب External CSS</strong>، حيث يتم تخصيص ملف <code>.css</code> واحد لكل أنماط الموقع، مما يسهل إعادة استخدامه وتعديله. الأساليب الأخرى (Inline و Internal) تستخدم عادةً للتعديلات البسيطة أو المخصصة لعنصر معين لا تتكرر في باقي الصفحات.
+            </p>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

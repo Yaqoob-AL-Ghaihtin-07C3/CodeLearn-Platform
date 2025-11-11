@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نطاقات الإختيار في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body><header>
+    <div class="container">
+        <h1>HTML</h1>
+        <h2>نطاقات الإختيار</h2>
+        <p>تعلم كيفية إنشاء نطاقات اختيار باستخدام الوسم <code>&lt;input type="range"&gt;</code> والتحكم بخصائصها</p>
+        <nav>
+            <ul>
+                <li><a href="#concept">مفهوم نطاق الإختيار</a></li>
+                <li><a href="#add-range">إضافة نطاق اختيار</a></li>
+                <li><a href="#examples">أمثلة عملية</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <section id="concept" class="section">
+        <h2>مفهوم نطاق الإختيار</h2>
+        <p>نطاق الإختيار (Range) عبارة عن شريط منزلق لاختيار قيم رقمية ضمن نطاق محدد، مثلاً من 0 إلى 100. يتم تحريك مؤشر لتحديد القيمة المطلوبة.</p>
+    </section>
+
+    <section id="add-range" class="section">
+        <h2>إضافة نطاق اختيار</h2>
+        <p>لإضافة نطاق اختيار نستخدم الوسم <code>&lt;input type="range"&gt;</code> مع خصائص إضافية:</p>
+        <ul>
+            <li><b>id</b>: لربطه مع <code>&lt;label&gt;</code>.</li>
+            <li><b>name</b>: لإرسال القيمة عند الإرسال.</li>
+            <li><b>value</b>: تحديد القيمة الافتراضية.</li>
+            <li><b>min</b> و <b>max</b>: تحديد أصغر وأكبر قيمة.</li>
+            <li><b>step</b>: لتحديد مقدار التغيير عند التحريك.</li>
+            <li><b>disabled</b>: لجعل النطاق غير مفعّل.</li>
+        </ul>
+    </section>
+
+    <section id="examples" class="section">
+        <h2>أمثلة عملية</h2>
+
+        <div class="example">
+            <h4>المثال الأول: نطاق بين 0 و 20، القيمة الافتراضية = 10</h4>
+            <div class="code">
+                <pre>&lt;label for="volume1"&gt;Volume between (0 and 20):&lt;/label&gt;
+
+<input type="range" id="volume1" name="volume" min="0" max="20" step="1" value="10"></pre> </div> <div class="example"> <label for="volume1">Volume between (0 and 20):</label> <input type="range" id="volume1" name="volume" min="0" max="20" step="1" value="10"> </div> </div>
+
+<div class="example">
+            <h4>المثال الثاني: نفس النطاق لكن بخطوات مقدارها 5</h4>
+            <div class="code">
+                <pre>&lt;label for="volume2"&gt;Volume between (0 and 20):&lt;/label&gt;
+
+<input type="range" id="volume2" name="volume" min="0" max="20" step="5" value="10"></pre> </div> <div class="example"> <label for="volume2">Volume between (0 and 20):</label> <input type="range" id="volume2" name="volume" min="0" max="20" step="5" value="10"> </div> </div>
+
+<div class="example">
+            <h4>المثال الثالث: نطاق غير مفعّل</h4>
+            <div class="code">
+                <pre>&lt;label for="volume3"&gt;Volume between (0 and 20):&lt;/label&gt;
+
+<input type="range" id="volume3" name="volume" min="0" max="20" step="1" value="7" disabled></pre> </div> <div class="example"> <label for="volume3">Volume between (0 and 20):</label> <input type="range" id="volume3" name="volume" min="0" max="20" step="1" value="7" disabled> </div> </div> </section>
+
+<section class="section">
+        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+            <a href="input-fields.html" class="button-demo">❮ حقول الإدخال</a>
+            <a href="checkboxes.html" class="button-demo">مربعات الاختيار ❯</a>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="button-demo">إحفظ تقدمي</button>
+        </div>
+    </section>
+</div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

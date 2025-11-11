@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دروس CSS - EliteWeb - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #e74c3c;
+        }
+        
+        .lesson-number {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #e74c3c;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 0 0 12px 0;
+            font-size: 0.9em;
+        }
+        
+        .lesson-card h3 {
+            color: #2c3e50;
+            margin: 15px 0 10px;
+            font-size: 1.3em;
+            border-bottom: none;
+            padding: 0;
+        }
+        
+        .lesson-card h3::before {
+            display: none;
+        }
+        
+        .lesson-card p {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            margin: 10px 0;
+        }
+        
+        .lesson-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .lesson-link:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .category-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin: 40px 0 20px;
+            font-size: 1.5em;
+        }
+        
+        .progress-bar {
+            background: #ecf0f1;
+            height: 8px;
+            border-radius: 4px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #6c757d;
+            margin: 0 0.5rem;
+        }
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html" style="color: white; text-decoration: none;">EliteWeb</a></h1>
+                <p>منصة النخبة لتعليم تصميم الويب</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">الرئيسية</a></li>
+                    <li><a href="../html/index.html">دروس HTML</a></li>
+                    <li><a href="index.html" class="active">دروس CSS</a></li>
+                    <li><a href="../about.html">حول الموقع</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">الرئيسية</a>
+            <span>›</span>
+            <span>دروس CSS</span>
+        </div>
+
+        <section class="section">
+            <h1>دورة CSS الشاملة</h1>
+            <p>مرحباً بك في دورة CSS الشاملة! تعلم كيفية تنسيق وتصميم صفحات الويب باستخدام CSS. هذه الدورة تغطي جميع جوانب CSS من الأساسيات إلى التقنيات المتقدمة.</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">ابدأ رحلتك في تعلم CSS الآن!</div>
+        </section>
+
+        <section id="basics" class="section">
+            <h2 class="category-title">أساسيات CSS</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <span class="lesson-number">1</span>
+                    <h3>نظرة عامة على CSS</h3>
+                    <p>مقدمة شاملة عن لغة CSS وأهميتها في تصميم الويب</p>
+                    <a href="Css-overview.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">2</span>
+                    <h3>التعليقات في CSS</h3>
+                    <p>كيفية إضافة التعليقات في ملفات CSS</p>
+                    <a href="Css-comments.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">3</span>
+                    <h3>الواجهة الرسمية</h3>
+                    <p>فهم الواجهة الرسمية لـ CSS</p>
+                    <a href="Css-Official_interface.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">4</span>
+                    <h3>الواجهة التفاعلية</h3>
+                    <p>التعامل مع الواجهات التفاعلية في CSS</p>
+                    <a href="Css-interface.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="layout" class="section">
+            <h2 class="category-title">التخطيط والتموضع</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <span class="lesson-number">5</span>
+                    <h3>خاصية Display</h3>
+                    <p>فهم خاصية display وقيمها المختلفة</p>
+                    <a href="Css-display_block_fiex.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">6</span>
+                    <h3>خاصية Float</h3>
+                    <p>استخدام خاصية float في تخطيط الصفحات</p>
+                    <a href="Css-float.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">7</span>
+                    <h3>خاصية Clear</h3>
+                    <p>إلغاء تأثير float باستخدام clear</p>
+                    <a href="Css-clear.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">8</span>
+                    <h3>Box Sizing</h3>
+                    <p>فهم نموذج الصندوق وخاصية box-sizing</p>
+                    <a href="Css-box_sizing.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">9</span>
+                    <h3>خاصية Overflow</h3>
+                    <p>التحكم في المحتوى المتدفق خارج الحاوي</p>
+                    <a href="Css-overflow.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="styling" class="section">
+            <h2 class="category-title">التنسيق والتصميم</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <span class="lesson-number">10</span>
+                    <h3>تنسيق النصوص</h3>
+                    <p>تنسيق النصوص والخطوط في CSS</p>
+                    <a href="Css-texts.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">11</span>
+                    <h3>تنسيق الروابط</h3>
+                    <p>تصميم وتنسيق الروابط</p>
+                    <a href="Css-links.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">12</span>
+                    <h3>تنسيق القوائم</h3>
+                    <p>تصميم القوائم المرتبة وغير المرتبة</p>
+                    <a href="Css-lists.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">13</span>
+                    <h3>تنسيق الجداول</h3>
+                    <p>تصميم الجداول بشكل احترافي</p>
+                    <a href="Css-tables.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">14</span>
+                    <h3>الحدود الخارجية</h3>
+                    <p>استخدام خاصية outline</p>
+                    <a href="Css-outline.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">15</span>
+                    <h3>الظلال</h3>
+                    <p>إضافة ظلال للنصوص والعناصر</p>
+                    <a href="Css-shadows.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="section">
+            <h2 class="category-title">تقنيات متقدمة</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <span class="lesson-number">16</span>
+                    <h3>الفئات الوهمية</h3>
+                    <p>استخدام pseudo-classes في CSS</p>
+                    <a href="Css-pseudo_classes.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">17</span>
+                    <h3>شريط التنقل</h3>
+                    <p>إنشاء شريط تنقل احترافي</p>
+                    <a href="Css-navbar.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">18</span>
+                    <h3>القوائم المنسدلة</h3>
+                    <p>إنشاء قوائم منسدلة بـ CSS</p>
+                    <a href="Css-dropdowns.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">19</span>
+                    <h3>الأيقونات</h3>
+                    <p>استخدام الأيقونات في التصميم</p>
+                    <a href="Css-lcon.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">20</span>
+                    <h3>التعدادات</h3>
+                    <p>استخدام التعدادات في CSS</p>
+                    <a href="Css-Enum.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+                
+                <div class="lesson-card">
+                    <span class="lesson-number">21</span>
+                    <h3>التكديس</h3>
+                    <p>فهم مفهوم التكديس في CSS</p>
+                    <a href="Css-cram.html" class="lesson-link">ابدأ الدرس</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section" style="text-align: center; margin-top: 3rem;">
+            <h2>هل أنت مستعد لتعلم CSS؟</h2>
+            <p>ابدأ بالدرس الأول وتعلم كيفية تصميم صفحات ويب رائعة</p>
+            <a href="Css-overview.html" class="btn btn-primary btn-large">ابدأ الدرس الأول</a>
+        </div>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
+

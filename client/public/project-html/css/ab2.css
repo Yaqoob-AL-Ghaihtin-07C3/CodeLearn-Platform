@@ -1,0 +1,63 @@
+
+   
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .example-code-block .example {
+            border: 1px dashed #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .example-code-block .example h1,
+        .example-code-block .example p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .example-code-block .inline h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        .example-code-block .class .center,
+        .example-code-block .multiple-classes .red.center {
+            color: red;
+            text-align: center;
+        }
+
+        .example-code-block .id #demo {
+            color: blue;
+            text-align: center;
+        }
+
+        .example-code-block .universal * {
+            color: blue;
+            text-align: center;
+        }
+
+        .example-code-block .direct-child article > p {
+            color: red;
+        }
+
+        .example-code-block .grouping p,
+        .example-code-block .grouping b {
+            color: red;
+        }
+
+        .example-code-block .clash .red {
+            color: red;
+        }
+
+        .example-code-block .clash .blue {
+            color: blue;
+        }
+
+        .code-explanation p {
+            font-weight: normal;
+        }
+        
+        .code-explanation span {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجداول في HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        th, td {
+            border: 2px solid #3498db;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #2b8aea, #071f47);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        caption {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            caption-side: top;
+        }
+        
+        .merged-cell {
+            background-color: #d4edda;
+            font-weight: bold;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .code pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>الجداول</h2>
+            <p>تعلم كيفية إنشاء وتنسيق الجداول في صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم الجدول</a></li>
+                    <li><a href="#basic-table">الجداول الأساسية</a></li>
+                    <li><a href="#properties">خصائص الجدول</a></li>
+                    <li><a href="#merging">دمج الخلايا</a></li>
+                    <li><a href="#caption">عنوان الجدول</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم الجدول</h2>
+            <p>الجدول (Table) يسمح لك بعرض المعلومات بشكل مرتب على شكل أعمدة و أسطر.</p>
+            <p>في هذا الدرس ستتعلم كيف تنشئ جدول، كيف تضيف فيه أسطر، كيف تضيف فيه أعمدة و كيف تدمج الأعمدة و الأسطر مع بعضها.</p>
+        </section>
+
+        <section id="basic-table" class="section">
+            <h2>إضافة جدول في الصفحة</h2>
+            <p>لعرض جدول في الصفحة نستخدم الوسوم التالية:</p>
+            
+            <div class="property-block">
+                <ul>
+                    <li><code>&lt;table&gt;&lt;/table&gt;</code> - الوسم الأساسي للجدول</li>
+                    <li><code>&lt;tr&gt;&lt;/tr&gt;</code> - لإنشاء سطر في الجدول</li>
+                    <li><code>&lt;th&gt;&lt;/th&gt;</code> - لإنشاء خلية عنوان (تظهر بخط عريض)</li>
+                    <li><code>&lt;td&gt;&lt;/td&gt;</code> - لإنشاء خلية بيانات عادية</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: جدول أساسي</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;table border="1"&gt;</span>
+    <span id="tr" class="comment">&lt;!-- السطر الأول - العناوين --&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;th&gt;</span>ID<span class="value">&lt;/th&gt;</span>
+        <span class="value">&lt;th&gt;</span>Name<span class="value">&lt;/th&gt;</span>
+        <span class="value">&lt;th&gt;</span>Mark<span class="value">&lt;/th&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    
+    <span class="comment">&lt;!-- السطر الثاني --&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>1<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>Mhamad Harmush<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>A<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    
+    <span class="comment">&lt;!-- السطر الثالث --&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>2<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>Rima Houssayni<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>C<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    
+    <span class="comment">&lt;!-- السطر الرابع --&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>3<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>Youssef Jabber<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>B<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                
+                <div class="table-container">
+                    <table border="1">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Mark</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mhamad Harmush</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Rima Houssayni</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Youssef Jabber</td>
+                            <td>B</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="properties" class="section">
+            <h2>خصائص الجدول</h2>
+            <p>هناك ثلاث خصائص أساسية يمكن استخدامها لتنسيق الجدول:</p>
+            
+            <div class="property-block">
+                <ul>
+                    <li><code>border</code> - لإظهار خطوط الجدول</li>
+                    <li><code>width</code> - لتحديد عرض الجدول</li>
+                    <li><code>height</code> - لتحديد طول الجدول</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h4>مثال: جدول بخصائص مخصصة</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;table border="2" width="100%" height="200"&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;th&gt;</span>الخاصية<span class="value">&lt;/th&gt;</span>
+        <span class="value">&lt;th&gt;</span>الوصف<span class="value">&lt;/th&gt;</span>
+        <span class="value">&lt;th&gt;</span>القيمة<span class="value">&lt;/th&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>border<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>سمك الحدود<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>2px<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>width<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>عرض الجدول<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>100%<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>height<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>طول الجدول<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>200px<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                
+                <div class="table-container">
+                    <table border="2" width="100%" height="200">
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>الوصف</th>
+                            <th>القيمة</th>
+                        </tr>
+                        <tr>
+                            <td>border</td>
+                            <td>سمك الحدود</td>
+                            <td>2px</td>
+                        </tr>
+                        <tr>
+                            <td>width</td>
+                            <td>عرض الجدول</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>height</td>
+                            <td>طول الجدول</td>
+                            <td>200px</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="merging" class="section">
+            <h2>دمج خانات الجدول</h2>
+            <p>يمكن دمج الخلايا باستخدام الخاصيتين:</p>
+            
+            <div class="property-block">
+                <ul>
+                    <li><code>colspan</code> - لدمج الخلايا أفقيًا</li>
+                    <li><code>rowspan</code> - لدمج الخلايا عموديًا</li>
+                </ul>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الأول: دمج أفقي (colspan)</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;table border="1"&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td colspan="2"&gt;</span>A (مدمج خانتين)<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>B<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>C<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>D<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>E<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                
+                <div class="table-container">
+                    <table border="1">
+                        <tr>
+                            <td colspan="2" class="merged-cell">A (مدمج خانتين)</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>D</td>
+                            <td>E</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثاني: دمج عمودي (rowspan)</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;table border="1"&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>A<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td rowspan="2"&gt;</span>B (مدمج سطرين)<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>C<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>D<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>E<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                
+                <div class="table-container">
+                    <table border="1">
+                        <tr>
+                            <td>A</td>
+                            <td rowspan="2" class="merged-cell">B (مدمج سطرين)</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>E</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h4>المثال الثالث: دمج مزدوج (colspan + rowspan)</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;table border="1"&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>A<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>B<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>C<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>D<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td colspan="2" rowspan="2"&gt;</span>E (مدمج خانتين أفقيًا وسطرين عموديًا)<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>F<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                
+                <div class="table-container">
+                    <table border="1">
+                        <tr>
+                            <td>A</td>
+                            <td>B</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td colspan="2" rowspan="2" class="merged-cell">E (مدمج خانتين أفقيًا وسطرين عموديًا)</td>
+                        </tr>
+                        <tr>
+                            <td>F</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="caption" class="section">
+            <h2>وضع عنوان خاص للجدول</h2>
+            <p>يمكن استخدام الوسم <code>&lt;caption&gt;</code> لإضافة عنوان للجدول.</p>
+            
+            <div class="example">
+                <h4>مثال: جدول بعنوان</h4>
+                <div class="code">
+                    <pre><span class="property">&lt;table border="1"&gt;</span>
+    <span class="value">&lt;caption&gt;</span>علامات الفصل النهائي<span class="value">&lt;/caption&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;th&gt;</span>ID<span class="value">&lt;/th&gt;</span>
+        <span class="value">&lt;th&gt;</span>Name<span class="value">&lt;/th&gt;</span>
+        <span class="value">&lt;th&gt;</span>Mark<span class="value">&lt;/th&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+    <span class="property">&lt;tr&gt;</span>
+        <span class="value">&lt;td&gt;</span>1<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>Mhamad Harmush<span class="value">&lt;/td&gt;</span>
+        <span class="value">&lt;td&gt;</span>A<span class="value">&lt;/td&gt;</span>
+    <span class="property">&lt;/tr&gt;</span>
+<span class="property">&lt;/table&gt;</span></pre>
+                </div>
+                
+                <div class="table-container">
+                    <table border="1">
+                        <caption>علامات الفصل النهائي</caption>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Mark</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mhamad Harmush</td>
+                            <td>A</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="#" class="button-demo">❮الدرس السابق</a>
+                <a href="#" class="button-demo">الدرس التالي❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

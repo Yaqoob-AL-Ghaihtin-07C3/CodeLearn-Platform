@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم لغة HTML - EliteWeb - EliteWeb</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* أنماط إضافية لتحسين العرض */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .nav-buttons a {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .nav-buttons a:hover {
+            background-color: #2980b9;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: right;
+        }
+        .footer-grid h3 {
+            color: #3498db;
+            padding-right: 0;
+        }
+        .footer-grid h3::before {
+             display: none;
+        }
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-grid ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+         .footer-grid ul li a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html" style="color: white; text-decoration: none;">EliteWeb</a></h1>
+                <p>منصة النخبة لتعليم تصميم الويب</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">الرئيسية</a></li>
+                    <li><a href="index.html" class="active">دروس HTML</a></li>
+                    <li><a href="../css/index.html">دروس CSS</a></li>
+                    <li><a href="../about.html">حول الموقع</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb" style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+            <a href="../index.html" style="color: #3498db; text-decoration: none;">الرئيسية</a>
+            <span style="color: #6c757d; margin: 0 0.5rem;">›</span>
+            <a href="index.html" style="color: #3498db; text-decoration: none;">دروس HTML</a>
+            <span style="color: #6c757d; margin: 0 0.5rem;">›</span>
+            <span style="color: #6c757d;">نظرة عامة</span>
+        </div>
+
+        <section class="section">
+            <h1>تعلم لغة HTML</h1>
+            <p>دليلك الشامل لفهم أساسيات لغة بناء صفحات الويب</p>
+            <nav>
+                <ul>
+                    <li><a href="#what-is-html">ما هي HTML؟</a></li>
+                    <li><a href="#html-versions">إصدارات HTML</a></li>
+                    <li><a href="#what-to-learn">ماذا ستتعلم؟</a></li>
+                    <li><a href="#for-whom">لمن هذا المرجع؟</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+
+
+        <section id="what-is-html" class="section">
+            <h2>ما هي لغة HTML؟</h2>
+            <p>HTML هي لغة بسيطة جداً تستخدم لوصف ما تحتويه صفحات الويب (Web Pages) و معنى ذلك أنها تستخدم لتحديد العناصر الموجودة في الصفحة مثل العناوين، الفقرات، الأزرار، الصور، القوائم، الجداول و غيرها من الأشياء التي يمكن إضافتها في صفحات الويب.</p>
+            <p>إذاً نستخدم هذه اللغة لهدف واحد فقط و هو تحديد بنية صفحات الويب (Pages Structure).</p>
+            <p>كلمة HTML هي إختصار لجملة HyperText Markup Language و هذا يعني أنها لا تعتبر لغة برمجة (Programming Language) بل تعتبر لغة توصيف (Markup Language).</p>
+            
+            <h3>مكونات صفحة الويب</h3>
+            <p>بشكل عام، لتبني صفحات ويب إحترافية عليك تعلم اللغات التالية و بنفس الترتيب:</p>
+            <ul>
+                <li><strong>لغة HTML:</strong> من أجل تحديد العناصر التي نريد إضافتها في الصفحة.</li>
+                <li><strong>لغة CSS:</strong> من أجل تحسين تصميم العناصر الموجودة في الصفحة.</li>
+                <li><strong>لغة Javascript:</strong> و نستخدمها لإضافة مؤثرات في صفحات الويب و لمعالجة البيانات التي يتم إدخالها و عرضها في الصفحات.</li>
+            </ul>
+            <p>لا تقلق سنعلمك اللغات الثلاثة تباعاً و من الصفر و ستستمتع كثيراً بتعلمها معنا لأنك ستتعلمها بشكل تفاعلي.</p>
+            <p>باستخدام هذه اللغات الثلاث فقط يمكنك تطوير مواقع إلكترونية كاملة، تطبيقات للهاتف، تطبيقات للحاسوب، ألعاب للمتصفح و ليس تصميم الصفحات فقط.</p>
+        </section>
+
+        <section id="html-versions" class="section">
+            <h2>إصدارات HTML</h2>
+            <p>من بداية ظهور المتصفحات و لغة HTML يتم تطويرها و إضافة المزيد من الميزات فيها مع كل إصدار جديد و الجميل في الأمر أنه من يعرف إصدار واحد منها يمكنه بكل سهولة التعامل مع أي إصدار آخر لأن مبادئ اللغة هي نفسها.</p>
+            <p>الإصدار الذي يجب عليك تعلمه في الوقت الحالي هو الإصدار الخامس من اللغة الذي يقال له HTML5. هذا الإصدار أضيف فيه العديد من الميزات المهمة التي لم يسبق إضافتها في الإصدارات السابقة أهمها إمكانية عرض فيديوهات، أغاني و رسومات في الصفحات بكل سهولة و بشكل مباشر بدون الحاجة لاستخدام إضافات (Plugins) خاصة لذلك، لهذا أصبح الجميع يستخدمه بدلاً من باقي الإصدارات.</p>
+            
+            <h3>مراحل تطور اللغة</h3>
+            <ul>
+                <li><strong>عام 1989:</strong> قام المهندس Tim Berners-Lee بابتكار أول مشروع برمجي هدفه مشاركة البيانات عبر شبكة النت (World Wide Web).</li>
+                <li><strong>عام 1991:</strong> قام المهندس Tim Berners-Lee بإبتكار لغة HTML بهدف عرض البيانات بشكل أفضل بداخل المتصفح.</li>
+                <li><strong>عام 1993:</strong> قام المهندس Dave Raggett بإضافة بعض التطويرات على اللغة و قام بتسمية الإصدار HTML+.</li>
+                <li><strong>عام 1994:</strong> قام المهندس Tim Berners-Lee بتأسيس شركة W3C لمتابعة تطوير اللغة.</li>
+                <li><strong>عام 1995:</strong> تم تسمية الإصدار HTML 2.0.</li>
+                <li><strong>عام 1997:</strong> قامت شركة W3C بإصدار HTML 3.2.</li>
+                <li><strong>عام 1999:</strong> قامت شركة W3C بإصدار HTML 4.01.</li>
+                <li><strong>عام 2014:</strong> قامت شركة W3C بإصدار HTML 5.</li>
+                <li><strong>عام 2016:</strong> قامت شركة W3C بإصدار HTML 5.1.</li>
+                <li><strong>عام 2017:</strong> قامت شركة W3C بإصدار HTML 5.2.</li>
+            </ul>
+        </section>
+
+        <section id="what-to-learn" class="section">
+            <h2>ماذا سأتعلم في هذه الدورة؟</h2>
+            <p>في هذه الدورة ستتعلم الإصدار HTML 5 و كل ما هو جديد فيه لأنه أهم و آخر إصدار يستخدم فيها.</p>
+            <p>إذاً ستتعلم كيف تضع البنية الصحيحة لصفحات الويب و ستتعرف على كل ما يمكنك إضافته في الصفحات. لذلك كن على يقين أنك بعد إتمام هذه الدورة ستصبح جاهز تماماً لتبدأ بتعلم لغة CSS و متابعة تطوير نفسك.</p>
+            
+            <h3>هل أحتاج معرفة أي شيء قبل تعلم هذه الدورة؟</h3>
+            <p>إطلاقاً، أسلوب الشرح المعتمد في هذه الدورة لا يتطلب منك معرفة أي شيء مسبق.</p>
+        </section>
+
+        <section id="for-whom" class="section">
+            <h2>لمن تم إعداد هذا المرجع؟</h2>
+            <p>تم إعداد هذا المرجع ليتلاءم مع جميع الأشخاص الذين يريدون التعلم. إذاً سواء كنت هاوياً، طالباً أو مبرمجاً، فإن هذا المرجع سيساعدك على فهم لغة HTML و الوصول إلى مستوى متقدم جداً.</p>
+            <p>في الدرس التالي سنرشدك لتحميل البرامج التي يمكنك استخدامها لكتابة الكود و التي بإمكانك إستعمالها نفسها في مشاريعك الخاصة في المستقبل.</p>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

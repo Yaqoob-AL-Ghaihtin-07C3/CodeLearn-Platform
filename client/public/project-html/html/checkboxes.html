@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> الإختيار في HTML - النخبة - EliteWeb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <style>
+        /* أنماط إضافية خاصة بهذه الصفحة */
+        .checkbox-example {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .example-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .example-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .example-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .form-group label {
+            margin-right: 10px;
+        }
+        
+        .note {
+            background-color: #e3f2fd;
+            border-right: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .example-container {
+                flex-direction: column;
+            }
+            
+            .example-box {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>HTML</h1>
+            <h2>خانات الإختيار</h2>
+            <p>تعلم كيفية استخدام خانات الاختيار في نماذج HTML</p>
+            <nav>
+                <ul>
+                    <li><a href="#concept">مفهوم خانة الاختيار</a></li>
+                    <li><a href="#adding">إضافة خانة اختيار</a></li>
+                    <li><a href="#examples">أمثلة تطبيقية</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="concept" class="section">
+            <h2>مفهوم خانة الاختيار</h2>
+            <p>خانة الإختيار (Check Box) عبارة عن زر مربع الشكل عند النقر عليه يظهر بداخله علامة صح تشير إلى أنه قد تم اختياره و عند النقر عليه مجدداً تختفي علامة الصح للإشارة إلى أنه لم يعد مختاراً.</p>
+            <p>نستخدم خانات الاختيار لعرض خيار واحد أو عدة خيارات أمام المستخدم و جعله قادراً على اختيار ما يريد منها أو حتى اختيارها كلها.</p>
+            <p>في هذا الدرس سنتعلم كيفية إضافة خانات اختيار في الصفحة بالإضافة لكيفية وضعها ضمن مجموعات.</p>
+        </section>
+
+        <section id="adding" class="section">
+            <h2>إضافة خانة اختيار</h2>
+            <p>لإضافة خانة اختيار يمكنك استخدام الوسم <code>&lt;input&gt;</code> على هذا النحو <code>&lt;input type="checkbox"&gt;</code>.</p>
+            
+            <p>يمكنك إضافة الخصائص التالية لهذا الوسم:</p>
+            <ul>
+                <li><strong>id</strong> نضيفها له في حال أردنا ربطه بوسم <code>&lt;label&gt;</code>.</li>
+                <li><strong>name</strong> نضيفها له حتى يتم إرسال القيمة الموضوعة فيه عند النقر على زر الإرسال.</li>
+                <li><strong>value</strong> لإعطائه القيمة التي سيتم إرسالها عند النقر على زر الإرسال.</li>
+                <li><strong>disabled</strong> لجعله يظهر بلون باهت و قيمته غير قابلة للتغيير.</li>
+                <li><strong>checked</strong> نضيفها له لجعله مختاراً بشكل افتراضي عندما تفتح الصفحة.</li>
+            </ul>
+            
+            <div class="note">
+                <h4>معلومة تقنية</h4>
+                <p>بالنسبة للنص الذي ستظهره بجانب الخانة، قم دائماً بوضعه بواسطة الوسم <code>&lt;label&gt;</code> مع ربطه بالخانة لأن المتصفح سيعتبر المستخدم نقر على الخانة نفسها عندما ينقر على النص المربوط بها.</p>
+                <p>خانات الإختيار يمكن إعطاؤها أسماء مختلفة - أي إعطاؤها name مختلف - لجعل المتصفح يرسل إسم و قيمة كل خيار موضوع سواء قام المستخدم باختياره أم لم يفعل على هذا النحو option1=arabic & option2=english & option3=null و يمكن إعطاؤها نفس الإسم في حال أردت إرسال القيم التي اختارها منهم فقط على شكل مصفوفة على هذا النحو [arabic, english].</p>
+                <p>لا تقلق في حال لم تفهم ما ذكرناه حول الخاصية name لأنك الآن تدرس كيفية تصميم الموقع و ليس كيفية برمجته.</p>
+            </div>
+        </section>
+
+        <section id="examples" class="section">
+            <h2>أمثلة تطبيقية</h2>
+            
+            <div class="example-container">
+                <div class="example-box">
+                    <h3 class="example-title">المثال الأول</h3>
+                    <p>ثلاث خانات اختيار مع إعطاء إسم و قيمة مختلفة لكل واحد منهم.</p>
+                    <div class="checkbox-example">
+                        <div class="form-group">
+                            <input type="checkbox" id="ar1" name="option1" value="arabic">
+                            <label for="ar1">Arabic</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="en1" name="option2" value="english">
+                            <label for="en1">English</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="fr1" name="option3" value="french">
+                            <label for="fr1">French</label>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;input type="checkbox" id="ar" name="option1" value="arabic"&gt;
+&lt;label for="ar"&gt;Arabic&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="en" name="option2" value="english"&gt;
+&lt;label for="en"&gt;English&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="fr" name="option3" value="french"&gt;
+&lt;label for="fr"&gt;French&lt;/label&gt;
+                        </pre>
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <h3 class="example-title">المثال الثاني</h3>
+                    <p>ثلاث خانات اختيار مع إعطائهم نفس الأسماء.</p>
+                    <div class="checkbox-example">
+                        <div class="form-group">
+                            <input type="checkbox" id="ar2" name="languages[]" value="arabic">
+                            <label for="ar2">Arabic</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="en2" name="languages[]" value="english">
+                            <label for="en2">English</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="fr2" name="languages[]" value="french">
+                            <label for="fr2">French</label>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;input type="checkbox" id="ar" name="languages[]" value="arabic"&gt;
+&lt;label for="ar"&gt;Arabic&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="en" name="languages[]" value="english"&gt;
+&lt;label for="en"&gt;English&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="fr" name="languages[]" value="french"&gt;
+&lt;label for="fr"&gt;French&lt;/label&gt;
+                        </pre>
+                    </div>
+                    <p class="note">عند إعطاء الخانات نفس الإسم بواسطة الخاصية name يجب إضافة الرمز [] في نهاية الإسم حتى يعلم المتصفح أن المستخدم قد يرسل أكثر من قيمة.</p>
+                </div>
+            </div>
+            
+            <div class="example-container">
+                <div class="example-box">
+                    <h3 class="example-title">المثال الثالث</h3>
+                    <p>ثلاث خانات اختيار مع جعل الأول يظهر مُختاراً بشكل إفتراضي.</p>
+                    <div class="checkbox-example">
+                        <div class="form-group">
+                            <input type="checkbox" id="ar3" name="option1" value="arabic" checked>
+                            <label for="ar3">Arabic</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="en3" name="option2" value="english">
+                            <label for="en3">English</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="fr3" name="option3" value="french">
+                            <label for="fr3">French</label>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;input type="checkbox" id="ar" name="option1" value="arabic" checked&gt;
+&lt;label for="ar"&gt;Arabic&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="en" name="option2" value="english"&gt;
+&lt;label for="en"&gt;English&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="fr" name="option3" value="french"&gt;
+&lt;label for="fr"&gt;French&lt;/label&gt;
+                        </pre>
+                    </div>
+                </div>
+                
+                <div class="example-box">
+                    <h3 class="example-title">المثال الرابع</h3>
+                    <p>ثلاث خانات اختيار مع جعل الأول يظهر مُختاراً بشكل إفتراضي و غير مفعّل أيضاً.</p>
+                    <div class="checkbox-example">
+                        <div class="form-group">
+                            <input type="checkbox" id="ar4" name="option1" value="arabic" checked disabled>
+                            <label for="ar4">Arabic</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="en4" name="option2" value="english">
+                            <label for="en4">English</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="fr4" name="option3" value="french">
+                            <label for="fr4">French</label>
+                        </div>
+                    </div>
+                    <div class="code">
+                        <pre>
+&lt;input type="checkbox" id="ar" name="option1" value="arabic" checked disabled&gt;
+&lt;label for="ar"&gt;Arabic&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="en" name="option2" value="english"&gt;
+&lt;label for="en"&gt;English&lt;/label&gt;&lt;br&gt;
+
+&lt;input type="checkbox" id="fr" name="option3" value="french"&gt;
+&lt;label for="fr"&gt;French&lt;/label&gt;
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="previous-lesson.html" class="button-demo">❮ الدرس السابق</a>
+                <a href="next-lesson.html" class="button-demo">الدرس التالي ❯</a>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="button-demo">إحفظ تقدمي</button>
+            </div>
+        </section>
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="../Footer/Footer/faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="../Footer/Footer/privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="../Footer/Footer/terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="../html/index.html">دورة HTML</a></li>
+          <li><a href="../css/index.html">دورة CSS</a></li>
+          <li><a href="#">دورة JavaScript (قريباً)</a></li>
+          <li><a href="#">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="../Footer/Footer/contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="../Footer/Footer/report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="../Footer/Footer/support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="../Footer/Footer/sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

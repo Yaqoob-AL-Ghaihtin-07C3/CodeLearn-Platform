@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - قوائم الروابط (Navigation Bars) - EliteWeb</title>
+   
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+
+<style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .example-list {
+            padding: 20px;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        /* المبادئ الأساسية */
+        .basic-list ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* قائمة عمودية */
+        .vertical-list-1 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 220px;
+            background-color: #f1f1f1;
+        }
+
+        .vertical-list-1 li a {
+            display: block;
+            color: #000;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        .vertical-list-1 li a:hover {
+            color: white;
+            background-color: #444;
+        }
+
+        .vertical-list-2 .active {
+            color: white;
+            background-color: darkcyan;
+        }
+
+        .vertical-list-3 li a:hover:not(.active) {
+            color: white;
+            background-color: #444;
+        }
+
+        .vertical-list-4 ul {
+            border: 1px solid #444;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .vertical-list-4 li {
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .vertical-list-4 li:last-child {
+            border-bottom: none;
+        }
+        
+        .vertical-list-4 li a {
+            display: block;
+            color: #000;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        /* قائمة أفقية */
+        .horizontal-list-1 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #282a35;
+            overflow: hidden;
+        }
+
+        .horizontal-list-1 li {
+            float: left;
+        }
+
+        .horizontal-list-1 li a {
+            display: block;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        .horizontal-list-1 li a:hover {
+            background-color: black;
+        }
+
+        .horizontal-list-2 .active {
+            background-color: darkcyan;
+        }
+
+        .horizontal-list-2 li a:hover:not(.active) {
+            background-color: black;
+        }
+
+        .horizontal-list-3 li {
+            float: left;
+        }
+
+        .horizontal-list-3 li a {
+            display: block;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        .horizontal-list-3 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #282a35;
+            overflow: hidden;
+        }
+        
+        .horizontal-list-3 .right {
+            float: right;
+        }
+
+        .horizontal-list-4 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #282a35;
+            overflow: hidden;
+        }
+        
+        .horizontal-list-4 li {
+            float: left;
+            border-right: 1px solid #444;
+        }
+        
+        .horizontal-list-4 li a {
+            display: block;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+        
+        .horizontal-list-4 li:last-child {
+            border-right: none;
+        }
+
+        /* تحديد الموقع */
+        .position-list-1 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #282a35;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .position-list-1 li {
+            float: left;
+        }
+
+        .position-list-1 li a {
+            display: block;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+        
+        .position-list-2 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #282a35;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .position-list-2 li {
+            float: left;
+        }
+
+        .position-list-2 li a {
+            display: block;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        .position-list-3 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #282a35;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            width: 100%;
+        }
+
+        .position-list-3 li {
+            float: left;
+        }
+
+        .position-list-3 li a {
+            display: block;
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+        .position-list-4 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            width: 25%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .position-list-4 li a {
+            display: block;
+            color: #000;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>قوائم الروابط (Navigation Bars)</h1>
+            <p>مفهوم وكيفية تصميم قوائم الروابط</p>
+            <nav>
+                <ul>
+                    <li><a href="#nav-concept">مفهوم قوائم الروابط</a></li>
+                    <li><a href="#nav-basics">المبادئ الأساسية</a></li>
+                    <li><a href="#nav-vertical">قائمة عمودية</a></li>
+                    <li><a href="#nav-horizontal">قائمة أفقية</a></li>
+                    <li><a href="#nav-position">تحديد موقع القائمة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="nav-concept" class="section">
+            <h2>مفهوم قوائم الروابط</h2>
+            <p>
+                قوائم الروابط (Navigation Bars) هي عنصر أساسي في أي موقع ويب، حيث تمكّن المستخدم من التنقل بسهولة بين صفحات الموقع المختلفة.
+            </p>
+            <div class="example example-list horizontal-list-1">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="example example-list vertical-list-1">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="nav-basics" class="section">
+            <h2>المبادئ الأساسية لتصميم القوائم</h2>
+            <p>
+                عادةً ما يتم تصميم قائمة الروابط باستخدام الوسمين <code>&lt;ul&gt;</code> و <code>&lt;li&gt;</code>، مع وضع الرابط داخل وسم <code>&lt;a&gt;</code>. بعد ذلك، يتم إزالة النقاط والهوامش الافتراضية باستخدام CSS.
+            </p>
+            <div class="property-block">
+                <h3>مثال: إزالة النقاط والهوامش</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+  <span class="property">list-style-type</span>: <span class="value">none</span>;
+  <span class="property">margin</span>: <span class="value">0</span>;
+  <span class="property">padding</span>: <span class="value">0</span>;
+}</pre>
+                </div>
+                <div class="example basic-list">
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">خدمات</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="nav-vertical" class="section">
+            <h2>تصميم قائمة عمودية</h2>
+            <p>
+                في القائمة العمودية، يظهر كل رابط على سطر منفرد ويأخذ العرض الكامل للقائمة.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: تصميم أساسي</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+    <span class="property">width</span>: <span class="value">220px</span>;
+    <span class="property">background-color</span>: <span class="value">#f1f1f1</span>;
+}
+<span class="property">li a</span> {
+    <span class="property">display</span>: <span class="value">block</span>;
+    <span class="property">padding</span>: <span class="value">12px 16px</span>;
+}
+<span class="property">li a:hover</span> {
+    <span class="property">background-color</span>: <span class="value">#444</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+}</pre>
+                </div>
+                <div class="example example-list vertical-list-1">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثاني: رابط نشط (Active Link)</h3>
+                <div class="code">
+                    <pre><span class="property">.active</span> {
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background-color</span>: <span class="value">darkcyan</span>;
+}</pre>
+                </div>
+                <div class="example example-list vertical-list-2">
+                    <ul style="width: 220px; background-color: #f1f1f1; list-style-type: none; margin: 0; padding: 0;">
+                        <li><a href="#" style="display: block; padding: 12px 16px; text-decoration: none; color: #000;">Home</a></li>
+                        <li><a href="#" class="active" style="display: block; padding: 12px 16px; text-decoration: none;">Services</a></li>
+                        <li><a href="#" style="display: block; padding: 12px 16px; text-decoration: none; color: #000;">Contact</a></li>
+                        <li><a href="#" style="display: block; padding: 12px 16px; text-decoration: none; color: #000;">About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الثالث: تأثير Hover على الروابط غير النشطة</h3>
+                <div class="code">
+                    <pre><span class="property">li a:hover:not(.active)</span> {
+    <span class="property">color</span>: <span class="value">white</span>;
+    <span class="property">background-color</span>: <span class="value">#444</span>;
+}</pre>
+                </div>
+                <div class="example example-list vertical-list-3">
+                    <ul style="width: 220px; background-color: #f1f1f1; list-style-type: none; margin: 0; padding: 0;">
+                        <li><a href="#" style="display: block; padding: 12px 16px; text-decoration: none; color: #000;">Home</a></li>
+                        <li><a href="#" class="active" style="display: block; padding: 12px 16px; text-decoration: none; background-color: darkcyan; color: white;">Services</a></li>
+                        <li><a href="#" style="display: block; padding: 12px 16px; text-decoration: none; color: #000;">Contact</a></li>
+                        <li><a href="#" style="display: block; padding: 12px 16px; text-decoration: none; color: #000;">About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+        
+        <section id="nav-horizontal" class="section">
+            <h2>تصميم قائمة أفقية</h2>
+            <p>
+                تظهر الروابط في القائمة الأفقية على نفس السطر.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: تصميم أساسي</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+    <span class="property">background-color</span>: <span class="value">#282a35</span>;
+    <span class="property">overflow</span>: <span class="value">hidden</span>;
+}
+<span class="property">li</span> {
+    <span class="property">float</span>: <span class="value">left</span>;
+}
+<span class="property">li a</span> {
+    <span class="property">display</span>: <span class="value">block</span>;
+    <span class="property">padding</span>: <span class="value">12px 16px</span>;
+    <span class="property">color</span>: <span class="value">white</span>;
+}
+<span class="property">li a:hover</span> {
+    <span class="property">background-color</span>: <span class="value">black</span>;
+}</pre>
+                </div>
+                <div class="example example-list horizontal-list-1">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثاني: رابط نشط وتأثير Hover</h3>
+                <div class="code">
+                    <pre><span class="property">.active</span> {
+    <span class="property">background-color</span>: <span class="value">darkcyan</span>;
+}
+<span class="property">li a:hover:not(.active)</span> {
+    <span class="property">background-color</span>: <span class="value">black</span>;
+}</pre>
+                </div>
+                <div class="example example-list horizontal-list-2">
+                    <ul style="list-style-type: none; margin: 0; padding: 0; background-color: #282a35; overflow: hidden;">
+                        <li style="float: left;"><a href="#" class="active" style="display: block; color: white; padding: 12px 16px; text-decoration: none;">Home</a></li>
+                        <li style="float: left;"><a href="#" style="display: block; color: white; padding: 12px 16px; text-decoration: none;">Services</a></li>
+                        <li style="float: left;"><a href="#" style="display: block; color: white; padding: 12px 16px; text-decoration: none;">Contact</a></li>
+                        <li style="float: left;"><a href="#" style="display: block; color: white; padding: 12px 16px; text-decoration: none;">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثالث: رابط منسدل لليمين</h3>
+                <div class="code">
+                    <pre><span class="property">li</span> { <span class="property">float</span>: <span class="value">left</span>; }
+<span class="property">.right</span> { <span class="property">float</span>: <span class="value">right</span>; }</pre>
+                </div>
+                <div class="example example-list horizontal-list-3">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="right"><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الرابع: إضافة حدود بين الروابط</h3>
+                <div class="code">
+                    <pre><span class="property">li</span> {
+    <span class="property">border-right</span>: <span class="value">1px solid #444</span>;
+}
+<span class="property">li:last-child</span> {
+    <span class="property">border-right</span>: <span class="value">none</span>;
+}</pre>
+                </div>
+                <div class="example example-list horizontal-list-4">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="nav-position" class="section">
+            <h2>تحديد موقع القائمة</h2>
+            <p>
+                يمكنك تثبيت القائمة في مكان معين من الصفحة باستخدام خاصية <code>position</code>.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: قائمة ثابتة في الأعلى</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+    <span class="property">position</span>: <span class="value">fixed</span>;
+    <span class="property">top</span>: <span class="value">0</span>;
+    <span class="property">width</span>: <span class="value">100%</span>;
+}</pre>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> هذه القائمة ستظل مرئية في أعلى الصفحة حتى عند التمرير للأسفل.
+                </p>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثاني: قائمة ثابتة في الأسفل</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+    <span class="property">position</span>: <span class="value">fixed</span>;
+    <span class="property">bottom</span>: <span class="value">0</span>;
+    <span class="property">width</span>: <span class="value">100%</span>;
+}</pre>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> هذه القائمة ستظل مرئية في أسفل الصفحة حتى عند التمرير.
+                </p>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثالث: قائمة تثبت عند التمرير (Sticky)</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+    <span class="property">position</span>: <span class="value">sticky</span>;
+    <span class="property">top</span>: <span class="value">0</span>;
+    <span class="property">width</span>: <span class="value">100%</span>;
+}</pre>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> هذه القائمة ستتبع التمرير حتى تصل إلى الأعلى ثم تثبت في مكانها.
+                </p>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الرابع: قائمة ثابتة على اليسار</h3>
+                <div class="code">
+                    <pre><span class="property">ul</span> {
+    <span class="property">position</span>: <span class="value">fixed</span>;
+    <span class="property">left</span>: <span class="value">0</span>;
+    <span class="property">width</span>: <span class="value">25%</span>;
+    <span class="property">height</span>: <span class="value">100%</span>;
+}</pre>
+                </div>
+                <p>
+                    <strong>ملاحظة:</strong> هذه القائمة ستبقى ثابتة في الجهة اليسرى من النافذة.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+
+
+/* تنسيق الفوتر لموقع EliteWeb */
+.eliteweb-footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: #ecf0f1;
+  padding: 2rem 0 0;
+  margin-top: auto;
+  border-top: 4px solid #3498db;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 2rem;
+}
+
+.footer-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #3498db;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #3498db;
+}
+
+.footer-description {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.footer-links-list {
+  list-style: none;
+}
+
+.footer-links-list li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-links-list a {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links-list a:hover {
+  color: #3498db;
+  transform: translateX(-5px);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: fit-content;
+  min-width: 140px;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+}
+
+.telegram-btn {
+  background-color: #0088cc;
+}
+
+.facebook-btn {
+  background-color: #3b5998;
+}
+
+.github-btn {
+  background-color: #333;
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-bottom .footer-title {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.footer-bottom p {
+  margin: 1rem auto;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.credits {
+  font-style: normal;
+  margin-top: 1rem;
+  color: #95a5a6;
+}
+
+.credits b {
+  color: #3498db;
+}
+
+/* تصميم متجاوب للفوتر */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  
+  .footer-section {
+    min-width: 100%;
+  }
+  
+  .social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .social-btn {
+    min-width: 120px;
+  }
+  
+  .footer-bottom {
+    padding: 1rem;
+  }
+  
+  .footer-bottom p {
+    text-align: justify;
+  }
+}

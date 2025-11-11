@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - القوائم المنسدلة (Dropdowns) - EliteWeb</title>
+    <link rel="stylesheet" href="../styles/main.css">
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/FooterStyle.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* أنماط مخصصة لهذه الصفحة فقط */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background-color: #0d6efd;
+            color: white;
+            padding: 12px 18px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-btn {
+            background-color: #0b5ed7;
+        }
+        
+        /* أنماط الأمثلة الأخرى */
+        .image-dropdown .dropdown-img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .image-dropdown .dropdown-content {
+            min-width: 200px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .image-dropdown .dropdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .image-dropdown .dropdown-content p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 10px 0 0;
+        }
+        
+        /* قائمة منسدلة داخل قائمة */
+        .list-dropdown ul, .nested-dropdown ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            background-color: #333;
+            font-family: arial;
+            font-size: 14px;
+        }
+
+        .list-dropdown ul li, .nested-dropdown ul li {
+            display: inline-block;
+            background-color: #333;
+        }
+
+        .list-dropdown a, .nested-dropdown a {
+            display: block;
+            padding: 0 15px;
+            color: white;
+            line-height: 45px;
+            text-decoration: none;
+        }
+        
+        .list-dropdown a:hover, .nested-dropdown a:hover {
+            background-color: cadetblue;
+        }
+
+        .list-dropdown .dropdown, .nested-dropdown .dropdown {
+            position: relative;
+        }
+
+        .list-dropdown .dropdown-content, .nested-dropdown .dropdown-content {
+            top: 45px;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0;
+            border-top: 1px solid #555;
+        }
+
+        .list-dropdown .dropdown-content a, .nested-dropdown .dropdown-content a {
+            color: black;
+        }
+        
+        .list-dropdown .dropdown-content a:hover, .nested-dropdown .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .list-dropdown .dropdown:hover .dropdown-content, .nested-dropdown .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .list-dropdown .drop-btn {
+            background-color: #333;
+        }
+
+        /* قوائم منسدلة متداخلة */
+        .nested-dropdown nav {
+            background-color: #333;
+            font-family: arial;
+            font-size: 14px;
+        }
+        
+        .nested-dropdown nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            position: relative;
+        }
+        
+        .nested-dropdown nav ul li {
+            display: inline-block;
+            background-color: #333;
+        }
+        
+        .nested-dropdown nav a {
+            display: block;
+            padding: 0 15px;
+            color: white;
+            line-height: 45px;
+            text-decoration: none;
+        }
+        
+        .nested-dropdown nav a:hover {
+            background-color: cadetblue;
+        }
+        
+        .nested-dropdown nav ul ul {
+            display: none;
+            position: absolute;
+            top: 45px;
+        }
+        
+        .nested-dropdown nav ul li:hover > ul {
+            display: inherit;
+        }
+        
+        .nested-dropdown nav ul li:hover > a {
+            background-color: cadetblue;
+        }
+        
+        .nested-dropdown nav ul ul li {
+            width: 150px;
+            float: none;
+            display: list-item;
+            position: relative;
+            border: 1px solid #555;
+        }
+        
+        .nested-dropdown nav ul ul ul {
+            position: absolute;
+            top: 0; 
+            left: 100%;
+        }
+
+    </style>
+ 
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Google Font Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- CSS الخارجي -->
+  <link rel="stylesheet" href="../styles/FooterStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>القوائم المنسدلة (Dropdowns)</h1>
+            <p>مفهوم القوائم المنسدلة وكيفية بنائها</p>
+            <nav>
+                <ul>
+                    <li><a href="#dropdown-concept">مفهوم القوائم المنسدلة</a></li>
+                    <li><a href="#dropdown-basics">أساسيات بناء القائمة</a></li>
+                    <li><a href="#dropdown-position">تحديد جهة الظهور</a></li>
+                    <li><a href="#dropdown-content">محتوى القائمة المنسدلة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="dropdown-concept" class="section">
+            <h2>مفهوم القوائم المنسدلة</h2>
+            <p>
+                القائمة المنسدلة (Dropdown Menu) هي قائمة مخفية تظهر عند التفاعل مع عنصر معين في الصفحة، مثل تمرير مؤشر الماوس فوق زر أو نص، أو عند النقر عليه.
+            </p>
+            <div class="example">
+                <div class="dropdown">
+                    <button class="dropdown-btn">Dropdown Menu</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dropdown-basics" class="section">
+            <h2>أساسيات بناء القائمة المنسدلة</h2>
+            <p>
+                لبناء قائمة منسدلة، نستخدم خاصيتي <strong><code>position: relative</code></strong> على العنصر الحاوي وخاصية <strong><code>position: absolute</code></strong> على القائمة نفسها. لجعل القائمة مخفية افتراضياً، نستخدم <strong><code>display: none</code></strong>، ثم نغيرها إلى <strong><code>display: block</code></strong> عند تمرير الماوس فوق الحاوية.
+            </p>
+            <div class="property-block">
+                <h3>مثال: قائمة منسدلة أساسية</h3>
+                <div class="code">
+                    <pre><span class="property">.dropdown</span> { <span class="property">position</span>: <span class="value">relative</span>; }
+<span class="property">.dropdown-content</span> { <span class="property">display</span>: <span class="value">none</span>; <span class="property">position</span>: <span class="value">absolute</span>; }
+<span class="property">.dropdown:hover .dropdown-content</span> { <span class="property">display</span>: <span class="value">block</span>; }</pre>
+                </div>
+                <div class="example">
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Dropdown</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dropdown-position" class="section">
+            <h2>تحديد جهة ظهور القائمة المنسدلة</h2>
+            <p>
+                يمكنك استخدام خصائص <strong><code>top</code></strong>، <strong><code>right</code></strong>، <strong><code>left</code></strong>، و <strong><code>bottom</code></strong> لتحديد مكان ظهور القائمة المنسدلة.
+            </p>
+            <div class="property-block">
+                <h3>مثال: ظهور القائمة من الجهة اليمنى</h3>
+                <div class="code">
+                    <pre><span class="property">.dropdown-content</span> {
+    <span class="property">right</span>: <span class="value">0</span>;
+}</pre>
+                </div>
+                <div class="example">
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Dropdown (اليمين)</button>
+                        <div class="dropdown-content" style="right: 0;">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dropdown-content" class="section">
+            <h2>تحديد نوع محتوى القائمة المنسدلة</h2>
+            <p>
+                يمكن أن تحتوي القائمة المنسدلة على أي نوع من المحتوى، مثل الصور أو النصوص أو حتى قوائم منسدلة أخرى.
+            </p>
+            <div class="property-block">
+                <h3>المثال الأول: قائمة منسدلة تحتوي على صورة</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;div class="dropdown"&gt;</span>
+    <span class="property">&lt;img class="dropdown-img" src="..."/&gt;</span>
+    <span class="property">&lt;div class="dropdown-content"&gt;</span>
+        <span class="property">&lt;img src="..."/&gt;</span>
+        <span class="property">&lt;p&gt;</span>A beautiful bird.<span class="property">&lt;/p&gt;</span>
+    <span class="property">&lt;/div&gt;</span>
+<span class="property">&lt;/div&gt;</span></pre>
+                </div>
+                <div class="example image-dropdown">
+                    <div class="dropdown">
+                        <img class="dropdown-img" src="https://via.placeholder.com/150/5DADE2/fff" alt="صورة طائر">
+                        <div class="dropdown-content">
+                            <img src="https://via.placeholder.com/250/5DADE2/fff" alt="صورة طائر أكبر">
+                            <p>طائر جميل.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="property-block">
+                <h3>المثال الثاني: قائمة منسدلة داخل قائمة رئيسية</h3>
+                <div class="code">
+                    <pre><span class="property">&lt;ul&gt;</span>
+    <span class="property">&lt;li&gt;</span><span class="property">&lt;a href="#"&gt;</span>...<span class="property">&lt;/a&gt;</span><span class="property">&lt;/li&gt;</span>
+    <span class="property">&lt;li class="dropdown"&gt;</span>
+        <span class="property">&lt;a href="javascript:void(0)"&gt;</span>Submenu<span class="property">&lt;/a&gt;</span>
+        <span class="property">&lt;div class="dropdown-content"&gt;</span>
+            ...
+        <span class="property">&lt;/div&gt;</span>
+    <span class="property">&lt;/li&gt;</span>
+<span class="property">&lt;/ul&gt;</span></pre>
+                </div>
+                <div class="example list-dropdown">
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">الأخبار</a></li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="drop-btn">قائمة فرعية ▼</a>
+                            <div class="dropdown-content">
+                                <a href="#">رابط 3</a>
+                                <a href="#">رابط 4</a>
+                                <a href="#">رابط 5</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="property-block">
+                <h3>المثال الثالث: قوائم منسدلة متداخلة (Nested Menus)</h3>
+                <p>
+                    هذا النوع من القوائم يسمح بإنشاء قوائم فرعية داخل القوائم الفرعية نفسها.
+                </p>
+                <div class="code">
+                    <pre><span class="property">nav ul ul</span> {
+    <span class="property">display</span>: <span class="value">none</span>;
+    <span class="property">position</span>: <span class="value">absolute</span>;
+    <span class="property">top</span>: <span class="value">45px</span>;
+}
+<span class="property">nav ul li:hover &gt; ul</span> {
+    <span class="property">display</span>: <span class="value">inherit</span>;
+}</pre>
+                </div>
+                <div class="example nested-dropdown">
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:void(0)">قائمة رئيسية ▼</a>
+                                <ul>
+                                    <li><a href="#">رابط 1</a></li>
+                                    <li><a href="#">رابط 2</a></li>
+                                    <li><a href="javascript:void(0)">قائمة فرعية ▸</a>
+                                        <ul>
+                                            <li><a href="#">رابط فرعي 1</a></li>
+                                            <li><a href="#">رابط فرعي 2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">رابط 1</a></li>
+                            <li><a href="#">رابط 2</a></li>
+                            <li><a href="#">رابط 3</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+  <footer class="eliteweb-footer">
+    <div class="footer-container">
+
+      <!-- القسم الأول: نبذة -->
+      <div class="footer-section about">
+        <h3 class="footer-title">EliteWeb</h3>
+        <p class="footer-description">
+          منصة تعليمية مجانية متخصصة في علوم الكمبيوتر وتصميم الويب،
+          تهدف إلى إيصال المعرفة بشكل مبسّط ومفصّل.
+        </p>
+      </div>
+
+      <!-- القسم الثاني: روابط مهمة -->
+      <div class="footer-section links">
+        <h3 class="footer-title">روابط مهمة</h3>
+        <ul class="footer-links-list">
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> حول الموقع</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الثالث: الدورات -->
+      <div class="footer-section links">
+        <h3 class="footer-title">الدورات</h3>
+        <ul class="footer-links-list">
+          <li><a href="/html-course">دورة HTML</a></li>
+          <li><a href="/css-course">دورة CSS</a></li>
+          <li><a href="/javascript-course">دورة JavaScript (قريباً)</a></li>
+          <li><a href="/react-course">دورة React (قريباً)</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الرابع: تواصل معنا -->
+      <div class="footer-section contact">
+        <h3 class="footer-title">تواصل معنا</h3>
+        <ul class="footer-links-list">
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+          <li><a href="report.html"><i class="fas fa-bug"></i> أبلغ عن مشكلة</a></li>
+          <li><a href="support.html"><i class="fas fa-life-ring"></i> دعم المطورين</a></li>
+          <li><a href="sponsorship.html"><i class="fas fa-hand-holding-heart"></i> برامج الرعاية</a></li>
+        </ul>
+      </div>
+
+      <!-- القسم الخامس: وسائل التواصل -->
+      <div class="footer-section social">
+        <h3 class="footer-title">وسائل التواصل</h3>
+        <p class="footer-description">
+          تواصل معنا عبر منصات التواصل الاجتماعي، نحن دائماً في خدمتكم
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/967711422060" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> واتساب
+          </a>
+          <a href="https://t.me/Yaqoob_AL_Ghaihti_07C3" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
+            <i class="fab fa-telegram"></i> تيليجرام
+          </a>
+          <a href="https://www.facebook.com/y.qwb.khald.alghythy?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="social-btn facebook-btn">
+            <i class="fab fa-facebook-f"></i> فيسبوك
+          </a>
+          <a href="https://github.com/Yaqoob-AL-Ghaihtin-07C3" target="_blank" rel="noopener noreferrer" class="social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- أسفل الفوتر -->
+    
+      <h3 class="footer-title"> &copy; 2025 <strong>EliteWeb </strong>جميع الحقوق محفوظة لموقع</h3>
+      <p>
+            
+           ولا يُسمح باستخدام الشروحات لأغراض تجارية، أو تعديلها، أو نشرها في مواقع أخرى، أو إدراجها
+            ضمن تطبيقات أو كتب، إلا بعد الحصول على موافقة خطية وصريحة من إدارة الموقع. كما أن جميع المحتويات محمية ومسجّلة بواسطة DMCA، وأي انتهاك لحقوق النشر سيعرّض المخالف لاتخاذ الإجراءات القانونية اللازمة
+        <div class="footer-bottom">
+      <address class="credits">تم التصميم والتطوير بواسطة: <b>يعقوب الغيثي</b></address>
+    </div>
+      </div>
+        
+  </footer>
+
+    <script src="../js/navigation.js"></script>
+</body>
+
+</html>

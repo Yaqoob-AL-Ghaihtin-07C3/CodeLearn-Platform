@@ -1,0 +1,256 @@
+/* أنماط الفوتر - EliteWeb */
+.eliteweb-footer {
+  --main-bg-color: #222;
+  --text-color: #fff;
+  --accent-color: #00c3ff;
+  --secondary-color: #ccc;
+  --border-color: #444;
+  --hover-bg-color: #333;
+  --social-hover-color: #fff;
+  --section-spacing: 40px 20px;
+  --title-font-size: 18px;
+  --text-font-size: 15px;
+  --small-text-size: 14px;
+  
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  padding: var(--section-spacing);
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.4);
+  font-family: 'Tajawal', sans-serif;
+  position: relative;
+  z-index: 100;
+}
+
+/* الحاوية الرئيسية */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* أقسام الفوتر */
+.footer-section {
+  flex: 1 1 220px;
+}
+
+.footer-title {
+  color: var(--accent-color);
+  margin-bottom: 15px;
+  font-size: var(--title-font-size);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  font-weight: 700;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-description {
+  line-height: 1.8;
+  color: var(--secondary-color);
+  font-size: var(--text-font-size);
+  margin-bottom: 15px;
+}
+
+/* قوائم الروابط */
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-list li {
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.footer-links-list li:hover {
+  transform: translateX(-5px);
+}
+
+.footer-links-list a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: var(--text-font-size);
+  display: block;
+  padding: 5px 0;
+}
+
+.footer-links-list a:hover {
+  color: var(--accent-color);
+}
+
+.footer-links-list i {
+  margin-left: 6px;
+  width: 20px;
+  text-align: center;
+}
+
+/* روابط وسائل التواصل الاجتماعي */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: var(--text-font-size);
+  transition: all 0.3s ease;
+  color: var(--secondary-color);
+  background-color: var(--hover-bg-color);
+  border: 1px solid transparent;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.social-btn i {
+  margin-left: 6px;
+}
+
+/* ألوان خاصة بكل وسيلة تواصل */
+.whatsapp-btn:hover {
+  background-color: #25D366;
+  color: var(--social-hover-color);
+}
+
+.telegram-btn:hover {
+  background-color: #0088cc;
+  color: var(--social-hover-color);
+}
+
+.facebook-btn:hover {
+  background-color: #3b5998;
+  color: var(--social-hover-color);
+}
+
+.github-btn:hover {
+  background-color: #6e5494;
+  color: var(--social-hover-color);
+}
+
+/* قسم حقوق النشر */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  font-size: var(--small-text-size);
+  color: var(--secondary-color);
+}
+
+.copyright {
+  margin: 0 0 10px 0;
+}
+
+.credits {
+  margin: 0;
+  font-style: normal;
+  color: var(--secondary-color);
+}
+
+.credits b {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 992px) {
+  .footer-container {
+    gap: 25px;
+  }
+  
+  .footer-section {
+    flex: 1 1 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eliteweb-footer {
+    padding: 30px 15px;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .social-btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    flex-direction: column;
+  }
+  
+  .social-btn {
+    width: 100%;
+  }
+}
+
+/* تأثيرات إضافية للجمال */
+.eliteweb-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  z-index: 1;
+}
+
+.footer-links-list a {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-links-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-color);
+  transition: right 0.3s ease;
+}
+
+.footer-links-list a:hover::after {
+  right: 0;
+}
+
